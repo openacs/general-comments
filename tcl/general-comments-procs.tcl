@@ -17,44 +17,22 @@ ad_library {
 
 
 ad_proc general_comment_new {
-    -object_id
-    -comment_id
-    -title
-    -comment_mime_type
-    -context_id
+    -object_id:required
+    -comment_id:required
+    -title:required
+    -comment_mime_type:required
+    -context_id:required
     {-user_id ""}
     {-creation_ip ""}
-    -is_live
-    -category
-    -content
+    -is_live:required
+    -category:required
+    -content:required
 } {
 
     db_transaction {
-	db_exec_plsql insert_comment {
-	    begin
-            :1 := acs_message.new (
-				   message_id    => :comment_id,
-				   title         => :title,
-				   mime_type     => :comment_mime_type,
-				   data          => empty_blob(),
-				   context_id    => :context_id,
-				   creation_user => :user_id, 
-				   creation_ip   => :creation_ip,
-				   is_live       => :is_live
-				   );
-	    end;
-	}
+	db_exec_plsql insert_comment { }
 
-	db_dml add_entry {
-	    insert into general_comments
-            (comment_id,
-             object_id,
-             category)
-	    values
-            (:comment_id,
-             :object_id,
-             :category)
-	}
+	db_dml add_entry { }
 
 	db_1row get_revision {}  
 
