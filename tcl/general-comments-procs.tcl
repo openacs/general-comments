@@ -108,7 +108,6 @@ ad_proc -public general_comments_get_comments {
     } else {
         set content_select [db_map content_select] ;# ", r.content"
     }
-    # ns_log notice "content_select: $content_select"
 
     if { ![empty_string_p $context_id] } {
         set context_clause "and o.context_id = :context_id"
@@ -251,7 +250,7 @@ ad_proc -private general_comments_package_url_not_cached {} {
         return $package_url
     } else {
         # log an error message
-        ns_log "Notice" "The General Comments package is not mounted."
+        ns_log Notice "general_comments_package_url_not_cached: the General Comments package is not mounted."
         return ""
     }
 }
