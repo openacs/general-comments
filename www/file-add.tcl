@@ -6,6 +6,7 @@ ad_page_contract {
     @param parent_id The id of the comment to attach to
  
     @author Phong Nguyen (phong@arsdigita.com)
+    @author Pascal Scheffers (pascal@scheffers.net)
     @creation-date 2000-10-12
     @cvs-id $Id$
 } {

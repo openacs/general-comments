@@ -9,6 +9,7 @@ ad_page_contract {
     @param upload_file The name of the file
 
     @author Phong Nguyen (phong@arsdigita.com)
+    @author Pascal Scheffers (pascal@scheffers.net)
     @creation-date 2000-10-12
     @cvs-id $Id$
 } {

@@ -4,6 +4,7 @@ ad_page_contract {
     Confirms a comment for an object_id
 
     @author Phong Nguyen <phong@arsdigita.com>
+    @author Pascal Scheffers (pascal@scheffers.net)
     @creation-date 2000-10-12
     @cvs-id $Id$
 } {

@@ -2,6 +2,7 @@
 -- packages/general-comments/sql/general-comments-drop.sql
 --
 -- @author Phong Nguyen phong@arsdigita.com
+-- @author Pascal Scheffers (pascal@scheffers.net)
 -- @creation-date 2000-10-12
 --
 -- @cvs-id $Id$
@@ -33,10 +34,13 @@ begin
         -- referential integrity violations when deleting a content
         -- item that has an image attachment. This is a temporary fix
         -- until ACS 4.1 is released.
+
+     /* 
         delete from images
         where image_id in (select latest_revision
                             from cr_items
-                            where parent_id = comment_rec.comment_id);
+                            where parent_id = comment_rec.comment_id); 
+      */
 
         perform acs_message__delete(comment_rec.comment_id);
 

@@ -4,6 +4,7 @@ ad_page_contract {
     General comments administration main page
     
     @author Phong Nguyen (phong@arsdigita.com)
+    @author Pascal Scheffers (pascal@scheffers.net)
     @creation-date 2000-10-12
     @cvs-id $Id$
 } { 
@@ -22,15 +23,15 @@ set return_url [ad_urlencode index?[export_ns_set_vars url]]
 # dimensional slider definition
 set dimensional {
     {approval "Status" unapproved {
-        {approved "approved" {where "i.live_revision is not null"} }
-        {unapproved "unapproved" {where "i.live_revision is null"} }
+        {approved "approved" {where "[db_map status_approved]"} }
+        {unapproved "unapproved" {where "[db_map status_unapproved]"} }
         {any "all" {} }
 }   }
     {modified "Last Modified" any {
-        {1d "last 24 hours" {where "creation_date + 1 > sysdate"}}
-        {1w "last week" {where "creation_date + 7 > sysdate"}}
-        {1m "last month" {where "creation_date + 30 > sysdate"}}
-        {any "all" {}}
+        {1d "last 24 hours" {where "[db_map modified_last_24hours]"}}
+        {1w "last week" {where "[db_map modified_last_week]"}}
+        {1m "last month" {where "[db_map modified_last_month]"}}
+        {any "all" {} }
 }   }
 }
 set dimensional_bar [ad_dimensional $dimensional]
@@ -77,8 +78,9 @@ set sql "
 
 # create the table to display the comments
 set extra_var_list [list return_url $return_url]
+
 set comments_table [ad_table -Torderby $orderby \
-                             -Tmissing_text {<i>No comments available</i>} \
+	                     -Tmissing_text {<i>No comments available</i>} \
                              -Textra_vars $extra_var_list \
                              comments_select $sql $table_def]
 

@@ -4,6 +4,7 @@ ad_page_contract {
     Inserts a url for object_id into the database
     
     @author Phong Nguyen (phong@arsdigita.com)
+    @author Pascal Scheffers (pascal@scheffers.net)
     @creation-date 2000-10-12
     @cvs-id $Id$
 } {
