@@ -43,7 +43,7 @@ ad_proc -public general_comments_get_comments {
     } else {
         set content_select [db_map content_select] ;# ", r.content"
     }
-    ns_log notice "content_select: $content_select"
+    # ns_log notice "content_select: $content_select"
     
     set html ""
     db_foreach get_comments "
