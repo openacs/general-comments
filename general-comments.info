@@ -20,6 +20,7 @@
         <provides url="general-comments" version="4.0"/>
         <requires url="acs-kernel" version="4.0"/>
         <requires url="acs-messaging" version="4.0"/>
+        <requires url="acs-content-repository" version="4.6.3"/>
 
         <files>
             <file type="package_spec" path="general-comments.info"/>

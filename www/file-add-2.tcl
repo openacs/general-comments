@@ -51,16 +51,7 @@ set file_extension [string tolower [file extension $upload_file]]
 
 # remove the first . from the file extension
 regsub {\.} $file_extension "" file_extension
-set guessed_file_type [ns_guesstype $upload_file]
-
-# if the guessed_file_type is not an entry in 
-# cr_mime_types, then set it as null
-if { ![db_0or1row is_mime_type_valid {
-    select mime_type
-      from cr_mime_types
-    where mime_type = :guessed_file_type }] } {
-      set guessed_file_type [db_null]
-}
+set guessed_file_type [cr_filename_to_mime_type -create $upload_file]
 
 # strip off the C:\directories... crud and just get the file name
 if ![regexp {([^/\\]+)$} $upload_file match client_filename] {
