@@ -12,7 +12,6 @@
            o.creation_user, 
 	   case when i.live_revision=null then 0 else 1 end as live_version_p,
 	   case when i.live_revision=r.revision_id then 0 else 1 end as approved_p,
-           to_char(o.creation_date, 'MM-DD-YYYY HH12:MI:AM') as pretty_date,
            o.creation_date    
       from general_comments g,
            cr_items i,

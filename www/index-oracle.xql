@@ -12,7 +12,7 @@
            o.creation_user, 
            decode(i.live_revision,null,0,1) as live_version_p,
            decode(i.live_revision,r.revision_id,1,0) as approved_p, 
-           to_char(o.creation_date, 'MM-DD-YYYY HH12:MI:AM') as pretty_date
+           o.creation_date
       from general_comments g,
            cr_items i,
            cr_revisions r,

@@ -131,6 +131,8 @@ ad_proc -public general_comments_get_comments {
     
     set html ""
     db_foreach get_comments {} {
+        set pretty_date [lc_time_fmt $creation_date %x]
+        set pretty_date2 [lc_time_fmt $creation_date "%q %X"]
         # call on helper proc to print out comment
         append html [general_comments_print_comment $comment_id $title $mime_type \
                 $creation_user $author $pretty_date $pretty_date2 $content \
