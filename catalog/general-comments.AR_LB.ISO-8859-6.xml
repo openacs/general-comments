@@ -40,15 +40,12 @@
   <msg key="Has_live_version">доз« ж”ќ…п Ќкс…п</msg>
   <msg key="HTML">≈ ‘  к ≈е ≈д</msg>
   <msg key="ID">#«дзикс…</msg>
-  <msg key="If">≈–«</msg>
   <msg key="Image_attachment">’и—… едЌв…</msg>
   <msg key="Label">«дўд«е…:</msg>
-  <msg key="last_??_hours">¬ќ— ?? ”«ў…</msg>
   <msg key="Last_Modified">¬ќ—  ўѕкд</msg>
   <msg key="last_month">«д‘з— «де«÷к</msg>
   <msg key="last_week">«д√”»иў «де«÷к</msg>
   <msg key="live">(Ќкс)</msg>
-  <msg key="lt__then_an_error___will">ђ Ћес ќ„√ ”к”ћсд. з–« д√ж з–з «джѕ«Ѕ«  √ж ћ  «д— »«„«  «д ‘ў»к… «д к  Ќ «ћ д—ћиў дк еЌед«л</msg>
   <msg key="lt_Add_a_file_attachment">√÷бт едЌв едб дд ўдкв</msg>
   <msg key="lt_Add_url_attachment_to">√÷б едЌв еивў дд сўдкв</msg>
   <msg key="lt_approve_this_revision">и«бвт ўдй з–з «де—«ћў…</msg>
@@ -57,7 +54,6 @@
   <msg key="lt_Attaching_links_to_co">≈дЌ«в «д—и«»„ »«д ўдкв«  вѕ ўп„сд.</msg>
   <msg key="lt_Current_values_for_Ge">«двке «дЌ«дкс… д—“е… «д ўдкв«  «дў«ес…</msg>
   <msg key="lt_Do_you_really_wish_to">зд  о—тЏ»п Ќв«л √ож  оЌт–бо «д ўдкв «д «дк иедЌв« зњ</msg>
-  <msg key="lt_Do_you_really_wish_to_?">зд  о—тЏ»п Ќв«л √ож  оЌт–бо з–««дедЌвњ</msg>
   <msg key="lt_Edit_file_attachment_">Ќ——т едЌв «дедб ўдй «д ўдкв</msg>
   <msg key="lt_Edit_url_attachment_o">Ќ——т едЌв «деивў ўдй «д ўдкв</msg>
   <msg key="lt_Example_httpwwwarsdig">еЋд«л: /http://www.arsdigita.com</msg>
@@ -66,11 +62,9 @@
   <msg key="lt_has_chosen_to_limit_a">≈ќ «—о  оЌѕкѕ «дедЌв« р ≈дй</msg>
   <msg key="lt_Here_is_how_your_comm">:зж« гкб  ўдквг ”кЎз—</msg>
   <msg key="lt_I_would_like_to_uploa">√—кѕ ≈—”«д едб«л √и ≈÷«б… —«»„… д ўдквк</msg>
-  <msg key="lt_is_not_mounted_and___">Џк— епЌоеод и ег«де«  ўпердо т ≈дй</msg>
   <msg key="lt_No_comments_available">д«  ўдкв«  е иб—…</msg>
   <msg key="lt_no_gc_package_instanc">д« Ќ«д… —“е… ћр”р</msg>
   <msg key="lt_Note_if_the_text_abov">д«ЌЎ: ≈–« «дж’с бив бвѕ гдс ≈” —«Ќ«  бв— з« Ћес √ж  еж «деЌ ед г«ж кћ» √ж  ќ «— &quot;ж’с ў«ѕк&quot; »ѕд« еж ≈ ‘  к ≈е ≈д. ≈” ўед “—с —ћиў е ’бсЌг ддўиѕ… ≈дй «д«” е«—….</msg>
-  <msg key="lt_Note_if_the_text_abov_?">ед«ЌЎ…: ≈–« «дж’с бив дѕкз ећеиў… еж »„«в«  ≈ ‘  к ≈е ≈д Ћес √ж  еж «деЌ ед г«ж кћ» √ж  ќ «— &quot;≈ ‘  к ≈е ≈д&quot; »ѕд« еж  &quot;ж’с ў«ѕк&quot;. ≈” ўед “—с —ћиў е ’бсЌг ддўиѕ… ≈дй «д«” е«—… «д≈—”«д. </msg>
   <msg key="lt_Test_page_for_General">’бЌ… «д«ќ »«— дд сўдкв«  «дў«ес…</msg>
   <msg key="lt_The_comment_id_does_n">зик…п «д ўдквп д«  п‘к—п ≈дй  ўдквр ’ЌкЌр</msg>
   <msg key="lt_This_revision_is_live">з–з «де—«ћў… Ќкс….</msg>
@@ -83,8 +77,6 @@
   <msg key="not_set">де кпЋ»с </msg>
   <msg key="Num">«дўѕѕ</msg>
   <msg key="on">бк</msg>
-  <msg key="or">√и</msg>
-  <msg key="package_instance">Ќ«д… —“е….</msg>
   <msg key="Plain_text">«дж’с «дў«ѕк</msg>
   <msg key="Proceed">≈” е—т</msg>
   <msg key="reject">«—б÷т</msg>
@@ -95,7 +87,6 @@
   <msg key="Text_above_is">«джс’с «дўдй кгиж</msg>
   <msg key="The_publisher_of">«дж«‘— дк</msg>
   <msg key="Title">«дўжи«ж:</msg>
-  <msg key="Title_?">«дўжи«ж</msg>
   <msg key="unapproved">Џк— еи«бв ўдкз</msg>
   <msg key="URL">«деивў:</msg>
   <msg key="View_comment">‘«зѕ «д ўдкв</msg>

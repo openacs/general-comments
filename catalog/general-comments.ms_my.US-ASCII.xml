@@ -35,7 +35,6 @@
   <msg key="Go_back_to_comment">Kembali kepada komen</msg>
   <msg key="HTML">HTML</msg>
   <msg key="ID">ID#</msg>
-  <msg key="If">Sekiranya</msg>
   <msg key="Image_attachment">Lampiran imej</msg>
   <msg key="Label">Lebel:</msg>
   <msg key="last_24_hours">24 jam terakhir</msg>
@@ -62,7 +61,6 @@
   <msg key="no_attachments">tiada lampiran</msg>
   <msg key="none">tiada</msg>
   <msg key="not_set">tidak ditetapkan</msg>
-  <msg key="or">atau</msg>
   <msg key="Plain_text">Abjad biasa</msg>
   <msg key="reject">ditolak</msg>
   <msg key="Status">Status</msg>

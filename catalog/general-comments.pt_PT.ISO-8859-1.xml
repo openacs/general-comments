@@ -40,7 +40,6 @@
   <msg key="Has_live_version">Tem versão activa</msg>
   <msg key="HTML">HTML</msg>
   <msg key="ID">ID#</msg>
-  <msg key="If">Se</msg>
   <msg key="Image_attachment">Imagem anexa</msg>
   <msg key="Label">Etiqueta:</msg>
   <msg key="last_24_hours">últimas 24 horas</msg>
@@ -48,7 +47,6 @@
   <msg key="last_month">mês passado</msg>
   <msg key="last_week">semana passada</msg>
   <msg key="live">(activo)</msg>
-  <msg key="lt__then_an_error___will">, então um erro será registado. Isto porque estas chamadas criam ligações que precisariam de referenciar um montado</msg>
   <msg key="lt_Add_a_file_attachment">Anexar um ficheiro ao comentário</msg>
   <msg key="lt_Add_url_attachment_to">Anexar um URL ao comentário</msg>
   <msg key="lt_approve_this_revision">aprovar esta revisão</msg>
@@ -66,7 +64,6 @@
   <msg key="lt_has_chosen_to_limit_a">escolheu limitar os anexos a</msg>
   <msg key="lt_Here_is_how_your_comm">Aqui está como o seu comentário irá aparecer:</msg>
   <msg key="lt_I_would_like_to_uploa">Gostaria de carregar um ficheiro ou adicionar uma ligação ao meu comentário</msg>
-  <msg key="lt_is_not_mounted_and___">não está montado e as chamadas são feitas a</msg>
   <msg key="lt_No_comments_available">Não há comentários disponíveis</msg>
   <msg key="lt_no_gc_package_instanc">não há instância do pacote cg</msg>
   <msg key="lt_Note_if_the_text_abov">Nota: se o texto em cima perdeu todas as suas quebras de parágrafo então deveria provalvelmente ter seleccionado &quot;Texto Simples&quot; em vez de &quot;HTML&quot;. Utilize o botão de retroceder do seu navegador para voltar ao formulário de submissão.</msg>
@@ -83,8 +80,6 @@
   <msg key="not_set">não ajustado</msg>
   <msg key="Num">Num</msg>
   <msg key="on">em</msg>
-  <msg key="or">ou</msg>
-  <msg key="package_instance">instância do pacote.</msg>
   <msg key="Plain_text">Texto simples</msg>
   <msg key="Proceed">Continuar</msg>
   <msg key="reject">rejeitar</msg>

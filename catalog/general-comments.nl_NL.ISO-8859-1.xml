@@ -40,7 +40,6 @@
   <msg key="Has_live_version">Heeft live versie</msg>
   <msg key="HTML">HTML</msg>
   <msg key="ID">ID#</msg>
-  <msg key="If">Als</msg>
   <msg key="Image_attachment">Afbeelding als Bijlage</msg>
   <msg key="Label">Label:</msg>
   <msg key="last_24_hours">laatste 24 uur</msg>
@@ -48,7 +47,6 @@
   <msg key="last_month">afgelopen maand</msg>
   <msg key="last_week">afgelopen week</msg>
   <msg key="live">(live)</msg>
-  <msg key="lt__then_an_error___will">, dan zal een fout worden geregistreerd. Dit komt omdat deze oproepen hyperlinks produceren die moeten verwijzen naar een geactiveerd</msg>
   <msg key="lt_Add_a_file_attachment">Bestand toevoegen aan commentaar</msg>
   <msg key="lt_Add_url_attachment_to">Weblink toevoegen aan commentaar</msg>
   <msg key="lt_approve_this_revision">keur deze wijziging goed</msg>
@@ -66,7 +64,6 @@
   <msg key="lt_has_chosen_to_limit_a">heeft besloten om bijlagen te limiteren tot</msg>
   <msg key="lt_Here_is_how_your_comm">Zo zal uw commentaar verschijnen:</msg>
   <msg key="lt_I_would_like_to_uploa">Ik wil een bestand of een link toevoegen aan het commentaar</msg>
-  <msg key="lt_is_not_mounted_and___">is niet geactiveerd en 'calls' worden gedaan aan</msg>
   <msg key="lt_No_comments_available">Geen commentaar beschikbaar</msg>
   <msg key="lt_no_gc_package_instanc">geen 'gc package instance'</msg>
   <msg key="lt_Note_if_the_text_abov">Bericht: als de paragraafindeling van bovenstaande tekst is verstoord, dan had u waarschijnlijk beter &quot;Platte Tekst&quot; dan &quot;HTML&quot; kunnen kiezen. Gebruik de Back-Terug knop van uw browser om dit te corrigeren. </msg>
@@ -83,8 +80,6 @@
   <msg key="not_set">niet ingesteld</msg>
   <msg key="Num">Nr</msg>
   <msg key="on">op</msg>
-  <msg key="or">or</msg>
-  <msg key="package_instance">package instance.</msg>
   <msg key="Plain_text">Platte Tekst</msg>
   <msg key="Proceed">Ga verder</msg>
   <msg key="reject">weiger</msg>

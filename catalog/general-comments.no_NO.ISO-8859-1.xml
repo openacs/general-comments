@@ -40,7 +40,6 @@
   <msg key="Has_live_version">Har aktiv versjon</msg>
   <msg key="HTML">HTML</msg>
   <msg key="ID">ID#</msg>
-  <msg key="If">Hvis</msg>
   <msg key="Image_attachment">Bildevedlegg</msg>
   <msg key="Label">Merkelapp:</msg>
   <msg key="last_24_hours">siste 24 timer</msg>
@@ -48,7 +47,6 @@
   <msg key="last_month">siste måned</msg>
   <msg key="last_week">siste uke</msg>
   <msg key="live">(på luften)</msg>
-  <msg key="lt__then_an_error___will">, så vil en feil logges. Dette fordi disse spørsmålene om hyperlinks som ville ha behov for å referere en tilkoblet</msg>
   <msg key="lt_Add_a_file_attachment">Lett ved en fil til kommentaren</msg>
   <msg key="lt_Add_url_attachment_to">Legg ved en URL til kommentaren</msg>
   <msg key="lt_approve_this_revision">godkjenn denne utgaven</msg>
@@ -66,7 +64,6 @@
   <msg key="lt_has_chosen_to_limit_a">har valgt å begrense vedlegg til</msg>
   <msg key="lt_Here_is_how_your_comm">Slik kommer dine kommentarer til å se ut:</msg>
   <msg key="lt_I_would_like_to_uploa">Jeg vil legge ved en fil eller en web-adresse til kommentaren min</msg>
-  <msg key="lt_is_not_mounted_and___">er ikke tilkoblet og meldinger sendes til</msg>
   <msg key="lt_No_comments_available">Ingen kommentarer tilgjengelig</msg>
   <msg key="lt_no_gc_package_instanc">no gc package instance </msg>
   <msg key="lt_Note_if_the_text_abov">Obs: dersom teksten over har mistet alle sine linjeskift, har du sannsynligvis valgt &quot;Enkel tekst&quot; i stedet for HTML. Bruk tilbake-knappen på nettleseren for å komme tilbake til innsendelsesskjemaet.</msg>
@@ -83,8 +80,6 @@
   <msg key="not_set">Ikke satt</msg>
   <msg key="Num">Num</msg>
   <msg key="on">på</msg>
-  <msg key="or">eller</msg>
-  <msg key="package_instance">package instance.</msg>
   <msg key="Plain_text">Enkel tekst</msg>
   <msg key="Proceed">Gå videre</msg>
   <msg key="reject">forkast</msg>

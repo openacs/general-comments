@@ -40,7 +40,6 @@
   <msg key="Has_live_version">Имеет опубликованную версию</msg>
   <msg key="HTML">HTML</msg>
   <msg key="ID">ID#</msg>
-  <msg key="If">Если</msg>
   <msg key="Image_attachment">Приложенная картинка</msg>
   <msg key="Label">Подпись:</msg>
   <msg key="last_24_hours">последние 24 часа</msg>
@@ -48,7 +47,6 @@
   <msg key="last_month">последний месяц</msg>
   <msg key="last_week">последняя неделя</msg>
   <msg key="live">(опубликовано)</msg>
-  <msg key="lt__then_an_error___will">, тогда будет зарегистрирована ошибка. Потому что эти вызовы выдают гиперссылки, которые должны указывать на установленный</msg>
   <msg key="lt_Add_a_file_attachment">Прикрепить файл к комментарию</msg>
   <msg key="lt_Add_url_attachment_to">Добавить к комментарию ссылку (URL)</msg>
   <msg key="lt_approve_this_revision">утвердить эту редакцию</msg>
@@ -66,7 +64,6 @@
   <msg key="lt_has_chosen_to_limit_a">постановил, что прикрепляемые файлы не могут быть больше</msg>
   <msg key="lt_Here_is_how_your_comm">Так будет выглядеть ваш комментарий:</msg>
   <msg key="lt_I_would_like_to_uploa">Я хочу прикрепить файл или добавить ссылку к моему комментарию</msg>
-  <msg key="lt_is_not_mounted_and___">не смонтирован, и вызовы делаются на</msg>
   <msg key="lt_No_comments_available">Нет комментариев</msg>
   <msg key="lt_no_gc_package_instanc">нет виртуальной копии пакета gc</msg>
   <msg key="lt_Note_if_the_text_abov">Если текст комментария отображается без переводов строк в тех местах, где вы их делали, то вам наверное надо вернуться к форме на предудущей странице и поменять там опцию &quot;HTML&quot; на &quot;обычный текст&quot;.</msg>
@@ -83,8 +80,6 @@
   <msg key="not_set">не установлено</msg>
   <msg key="Num">Num</msg>
   <msg key="on">&amp;nbsp;</msg>
-  <msg key="or">или</msg>
-  <msg key="package_instance">виртуальная копия пакета.</msg>
   <msg key="Plain_text">Обычный текст</msg>
   <msg key="Proceed">Дальше</msg>
   <msg key="reject">отклонить</msg>

@@ -40,7 +40,6 @@
   <msg key="Has_live_version">Ha una versione attiva</msg>
   <msg key="HTML">HTML</msg>
   <msg key="ID">ID#</msg>
-  <msg key="If">Se</msg>
   <msg key="Image_attachment">Immagine allegata</msg>
   <msg key="Label">Etichetta:</msg>
   <msg key="last_24_hours">le ultime 24 ore</msg>
@@ -48,7 +47,6 @@
   <msg key="last_month">ultimo mese</msg>
   <msg key="last_week">ultima settimana</msg>
   <msg key="live">(attiva)</msg>
-  <msg key="lt__then_an_error___will">, allora un errore verrà registrato. Cio avviene perch&amp;eacute; queste chiamate generano link che si dovrebbero riferire a elementi montati del pacchetto</msg>
   <msg key="lt_Add_a_file_attachment">Allega un file al commento</msg>
   <msg key="lt_Add_url_attachment_to">Allega un link al commento</msg>
   <msg key="lt_approve_this_revision">approva questa revisione</msg>
@@ -66,7 +64,6 @@
   <msg key="lt_has_chosen_to_limit_a">ha scelto di limitare gli allegati a</msg>
   <msg key="lt_Here_is_how_your_comm">Ecco come apparir&amp;agrave; il tuo commento:</msg>
   <msg key="lt_I_would_like_to_uploa">Mi piacerebbe allegare un file o aggiungere un link al mio commento</msg>
-  <msg key="lt_is_not_mounted_and___">Non &amp;egrave; montato e le chiamate sono fatte a</msg>
   <msg key="lt_No_comments_available">Nessun commento disponibile</msg>
   <msg key="lt_no_gc_package_instanc">nessuna istanza del pacchetto gc</msg>
   <msg key="lt_Note_if_the_text_abov">Nota: se il testo qui sopra ha perso tutte le sue interruzioni di paragrafo (gli&quot;a capo&quot;), allora avresti dovuto scegliere &quot;Testo Semplice&quot; invece che HTML. Torna indietro e correggi la scelta.</msg>
@@ -83,8 +80,6 @@
   <msg key="not_set">non configurato</msg>
   <msg key="Num">Num</msg>
   <msg key="on">su</msg>
-  <msg key="or">oppure</msg>
-  <msg key="package_instance">istanza del pacchetto</msg>
   <msg key="Plain_text">Testo Semplice</msg>
   <msg key="Proceed">Procedi</msg>
   <msg key="reject">Rifiuta</msg>

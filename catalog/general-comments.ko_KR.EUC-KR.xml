@@ -40,7 +40,6 @@
   <msg key="Has_live_version">활동중인 버전</msg>
   <msg key="HTML">HTML</msg>
   <msg key="ID">아이디#</msg>
-  <msg key="If">만일</msg>
   <msg key="Image_attachment">이미지 첨부</msg>
   <msg key="Label">레이블:</msg>
   <msg key="last_24_hours">지난 24시간</msg>
@@ -48,7 +47,6 @@
   <msg key="last_month">지난 달</msg>
   <msg key="last_week">지난 주</msg>
   <msg key="live">(라이브)</msg>
-  <msg key="lt__then_an_error___will">, 오류는 기록될 것입니다. 이런 오류들은 마운트되는 참조를 필요로하는 하이퍼링크를 호출하기 때문입니다.</msg>
   <msg key="lt_Add_a_file_attachment">주석에 파일첨부 추가</msg>
   <msg key="lt_Add_url_attachment_to">주석에 URL 첨부 추가</msg>
   <msg key="lt_approve_this_revision">이 개정을 승인</msg>
@@ -66,7 +64,6 @@
   <msg key="lt_has_chosen_to_limit_a">제한된 첨부를 위해 선택되었습니다.</msg>
   <msg key="lt_Here_is_how_your_comm">여기에 여러분의 주석이 어떻게 보여지는지 나타내고 있습니다:</msg>
   <msg key="lt_I_would_like_to_uploa">파일을 업로드하거나 나의 주석에 링크를 첨부하기를 원합니다.</msg>
-  <msg key="lt_is_not_mounted_and___">(은)는 마운트되지 않았고</msg>
   <msg key="lt_No_comments_available">유효한 주석이 없습니다.</msg>
   <msg key="lt_no_gc_package_instanc">gc 패케이지 인스턴스가 없습니다</msg>
   <msg key="lt_Note_if_the_text_abov">주: 만일 위의 텍스트 단락이 깨졌다면, HTML 보다는 &quot;텍스트&quot;를 선택하는 것이 좋습니다. 브라우저의 돌아가기 버튼을 사용하여 폼 제출로 돌아가시오.</msg>
@@ -83,8 +80,6 @@
   <msg key="not_set">설정하지 않음</msg>
   <msg key="Num">숫자</msg>
   <msg key="on">위에</msg>
-  <msg key="or">또는</msg>
-  <msg key="package_instance">패케이지 인스턴스</msg>
   <msg key="Plain_text">텍스트</msg>
   <msg key="Proceed">진행하다</msg>
   <msg key="reject">거부</msg>

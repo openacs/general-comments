@@ -40,7 +40,6 @@
   <msg key="Has_live_version">Live-version finns</msg>
   <msg key="HTML">HTML</msg>
   <msg key="ID">ID#</msg>
-  <msg key="If">Ifall</msg>
   <msg key="Image_attachment">Bifogad bild</msg>
   <msg key="Label">Beteckning:</msg>
   <msg key="last_24_hours">senaste 24 timmarna</msg>
@@ -48,7 +47,6 @@
   <msg key="last_month">senaste månaden</msg>
   <msg key="last_week">senaste veckan</msg>
   <msg key="live">(live)</msg>
-  <msg key="lt__then_an_error___will">, så kommer ett fel att loggas. Detta beror på att dessa anrop returnerar hyperlänkar som skulle behöva hänvisa till en &quot;mountad&quot;</msg>
   <msg key="lt_Add_a_file_attachment">Bifoga en fil till kommentaren</msg>
   <msg key="lt_Add_url_attachment_to">Bifoga url till kommentaren</msg>
   <msg key="lt_approve_this_revision">godkänn den här revisionen</msg>
@@ -66,7 +64,6 @@
   <msg key="lt_has_chosen_to_limit_a">har valt att begränsa bifogade filers storlek till</msg>
   <msg key="lt_Here_is_how_your_comm">Så här kommer din kommentar se ut:</msg>
   <msg key="lt_I_would_like_to_uploa">Jag vill ladda upp en fil eller lägga till en länk till min kommentar</msg>
-  <msg key="lt_is_not_mounted_and___">är inte &quot;mountad&quot; och anrop görs till</msg>
   <msg key="lt_No_comments_available">Inga tillgängliga kommentarer</msg>
   <msg key="lt_no_gc_package_instanc">ingen general-comments-instans</msg>
   <msg key="lt_Note_if_the_text_abov">Observera: Om texten ovan saknar ev. styckeindelningar skulle du antagligen ha valt &quot;Enkel text&quot; istället för &quot;HTML&quot;. Var god återvänd till formuläret genom att använda webbläsarens &quot;Tillbaka&quot;-knapp och försök igen.</msg>
@@ -83,8 +80,6 @@
   <msg key="not_set">inte satt</msg>
   <msg key="Num">Nr.</msg>
   <msg key="on">den</msg>
-  <msg key="or">eller</msg>
-  <msg key="package_instance">paketinstans.</msg>
   <msg key="Plain_text">Enkel text</msg>
   <msg key="Proceed">Nästa</msg>
   <msg key="reject">avslå</msg>

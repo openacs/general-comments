@@ -40,7 +40,6 @@
   <msg key="Has_live_version">Ma wersjê aktywn±</msg>
   <msg key="HTML">HTML</msg>
   <msg key="ID">ID#</msg>
-  <msg key="If">Je¶li</msg>
   <msg key="Image_attachment">Zdjêcie/Rysunek</msg>
   <msg key="Label">Etykieta:</msg>
   <msg key="last_24_hours">ostatnich 24 godzin</msg>
@@ -48,7 +47,6 @@
   <msg key="last_month">ostatniego miesi±ca</msg>
   <msg key="last_week">ostatniego tygodnia</msg>
   <msg key="live">(aktywne)</msg>
-  <msg key="lt__then_an_error___will">, b³±d zostanie zapisany. Wyj¶cie tych wywo³añ stanowi± linki, które odnosz± siê do zamontowanych</msg>
   <msg key="lt_Add_a_file_attachment">Za³±cz plik do komentarza</msg>
   <msg key="lt_Add_url_attachment_to">Za³±cz URL do komentarza</msg>
   <msg key="lt_approve_this_revision">zatwierd¼ tê wersjê</msg>
@@ -66,7 +64,6 @@
   <msg key="lt_has_chosen_to_limit_a">ograniczy³ za³±czniki do</msg>
   <msg key="lt_Here_is_how_your_comm">Tak bêdzie wygl±da³ Twój komentarz:</msg>
   <msg key="lt_I_would_like_to_uploa">Chcê wgraæ plik lub do³±czyæ link do mojego komentarza</msg>
-  <msg key="lt_is_not_mounted_and___">nie jest zamontowany i wywo³ania kierowane do</msg>
   <msg key="lt_No_comments_available">Brak komentarzy</msg>
   <msg key="lt_no_gc_package_instanc">brak pakietu gc</msg>
   <msg key="lt_Note_if_the_text_abov">Uwaga: je¶li powy¿szy tekst straci³ podzia³ na akapity, prawdopodobnie wybrano &quot;Zwyk³y Tekst&quot; zamiast &quot;HTML&quot;. Powróæ do edycji formularza za pomoc± przyciku przegl±darki.</msg>
@@ -83,8 +80,6 @@
   <msg key="not_set">nie ustawiony</msg>
   <msg key="Num">Numer</msg>
   <msg key="on">na</msg>
-  <msg key="or">lub</msg>
-  <msg key="package_instance">instancja pakietu.</msg>
   <msg key="Plain_text">Zwyk³y Tekst</msg>
   <msg key="Proceed">Kontynuuj</msg>
   <msg key="reject">odrzuæ</msg>
