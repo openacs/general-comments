@@ -3,8 +3,6 @@
 <property name="context">@context;noquote@</property>
 <property name="focus">comment.title</property>
 
-@page_title@
-
 <blockquote>
 <form action="@target@" method="post" name="comment">
 <%= [export_form_vars comment_id object_id object_name context_id return_url] %>
