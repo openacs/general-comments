@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="general-comments" package_version="4.1" locale="nl_NL" charset="ISO-8859-1">
+<message_catalog package_key="general-comments" package_version="4.4" locale="nl_NL" charset="ISO-8859-1">
 
   <msg key="Actions">Acties</msg>
   <msg key="Add_a_comment_to">Een opmerking toevoegen aan</msg>
@@ -34,13 +34,13 @@
   <msg key="edit_your_comment">(opmerking bewerken)</msg>
   <msg key="Filename">Bestandsnaam:</msg>
   <msg key="Full_Comments">Gehele opmerkingen</msg>
-  <msg key="gc_is_not_mounted">Algemene Opmerkingen pakket (General Comments) is niet geinstalleerd</msg>
+  <msg key="gc_is_not_mounted">Algemene Opmerkingen module(General Comments) is niet geinstalleerd</msg>
   <msg key="General_Comments">Algemene Opmerkingen</msg>
   <msg key="Go_back_to_comment">Ga terug naar opmerking</msg>
   <msg key="Has_live_version">Openbare versie is aanwezig</msg>
   <msg key="HTML">HTML</msg>
   <msg key="ID">ID#</msg>
-  <msg key="if_general_comments_not_mounted">Als &lt;code&gt;general-comments&lt;/code&gt; niet geactiveerd is en er toch een beroep wordt gedaan op &lt;code&gt;general_comments_get_comments&lt;/code&gt; of &lt;code&gt;general_comments_create_link&lt;/code&gt;, dan wordt er een fout geregistreerd. Dit gebeurt omdat deze code koppelingen (hypelinks) gebruikt, die zouden moeten refereren naar geïnstalleerde &lt;code&gt;general-comments&lt;/code&gt; instances.
+  <msg key="if_general_comments_not_mounted">Als &lt;code&gt;general-comments&lt;/code&gt; niet geactiveerd is en er toch een beroep wordt gedaan op &lt;code&gt;general_comments_get_comments&lt;/code&gt; of &lt;code&gt;general_comments_create_link&lt;/code&gt;, dan wordt er een fout geregistreerd. Dit gebeurt omdat deze code koppelingen (hyperlinks) gebruikt, die zouden moeten refereren naar geïnstalleerde &lt;code&gt;general-comments&lt;/code&gt; instances.
 </msg>
   <msg key="Image_attachment">Bijlage bij afbeelding </msg>
   <msg key="Label">Label:</msg>
@@ -55,7 +55,7 @@
   <msg key="lt_Attach_a_file_or_pict">Bestand of foto toevoegen </msg>
   <msg key="lt_Attaching_files_to_co">Functie om bestanden als bijlage aan opmerkingen toe te kunnen voegen is uitgeschakeld. </msg>
   <msg key="lt_Attaching_links_to_co">Functie om webkoppelingen als bijlage aan opmerkingen toe te kunnen voegen is uitgeschakeld. </msg>
-  <msg key="lt_Current_values_for_Ge">Huidige instellingen voor Algemene Opmerkingen pakket (General Comments).</msg>
+  <msg key="lt_Current_values_for_Ge">Huidige instellingen voor de Algemene Opmerkingen module (General Comments).</msg>
   <msg key="lt_Do_you_really_wish_to">De volgende opmerking met bijlagen echt verwijderen?</msg>
   <msg key="lt_Do_you_really_wish_to_1">Deze bijlage echt verwijderen?</msg>
   <msg key="lt_Edit_file_attachment_">Bestand bijlage bij opmerking bewerken</msg>
@@ -67,7 +67,7 @@
   <msg key="lt_Here_is_how_your_comm">De opmerking zal er zo uit zien:</msg>
   <msg key="lt_I_would_like_to_uploa">Een bestand of een webkoppeling aan de opmerking toevoegen</msg>
   <msg key="lt_No_comments_available">Geen opmerkingen beschikbaar</msg>
-  <msg key="lt_no_gc_package_instanc">geen instance van ao pakket (General Comments)</msg>
+  <msg key="lt_no_gc_package_instanc">geen instance van Algemene Opmerkingen module (General Comments)</msg>
   <msg key="lt_Note_if_the_text_abov">Toelichting: 
 als de paragraafindeling van bovenstaande tekst is verstoord, dan had u waarschijnlijk beter &quot;Platte Tekst&quot; dan &quot;HTML&quot; kunnen kiezen. 
 

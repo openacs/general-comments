@@ -16,17 +16,17 @@ ad_library {
 }
 
 
-ad_proc -public general_comment_new {
-    -object_id
-    -comment_id
-    -title
-    -comment_mime_type
-    -context_id
+ad_proc general_comment_new {
+    -object_id:required
+    -comment_id:required
+    -title:required
+    -comment_mime_type:required
+    -context_id:required
     {-user_id ""}
     {-creation_ip ""}
-    -is_live
-    -category
-    -content
+    -is_live:required
+    -category:required
+    -content:required
 } {
     Creates a comment and attaches it to a given object ID
     
@@ -36,31 +36,9 @@ ad_proc -public general_comment_new {
 } {
     
     db_transaction {
-	db_exec_plsql insert_comment {
-	    begin
-            :1 := acs_message.new (
-				   message_id    => :comment_id,
-				   title         => :title,
-				   mime_type     => :comment_mime_type,
-				   data          => empty_blob(),
-				   context_id    => :context_id,
-				   creation_user => :user_id, 
-				   creation_ip   => :creation_ip,
-				   is_live       => :is_live
-				   );
-	    end;
-	}
+	db_exec_plsql insert_comment { }
 
-	db_dml add_entry {
-	    insert into general_comments
-            (comment_id,
-             object_id,
-             category)
-	    values
-            (:comment_id,
-             :object_id,
-             :category)
-	}
+	db_dml add_entry { }
 
 	db_1row get_revision {}  
 
@@ -87,7 +65,8 @@ ad_proc -public general_comment_new {
 ad_proc -public general_comments_get_comments {
     { -print_content_p 0 }
     { -print_attachments_p 0 }
-    {-context_id ""}
+    { -context_id "" }
+    { -my_comments_only_p 0 }
     object_id 
     {return_url {}}
 } {
@@ -105,6 +84,35 @@ ad_proc -public general_comments_get_comments {
     set package_url [general_comments_package_url]
     if { [empty_string_p $package_url] } {
         return ""
+    }
+
+    # package_id
+    array set node_array [site_node::get -url $package_url]
+    set package_id $node_array(package_id)
+
+    # set ordering
+    set recent_on_top_p [parameter::get \
+                             -package_id $package_id \
+                             -parameter "RecentOnTopP" \
+                             -default f]
+
+    if {[string is true $recent_on_top_p]} {
+        set orderby "o.creation_date desc"
+    } else {
+        set orderby "o.creation_date"
+    }
+
+    # filter output to only see present user?
+    set allow_my_comments_only_p [parameter::get \
+                                      -package_id $package_id \
+                                      -parameter "AllowDisplayMyCommentsLinkP" \
+                                      -default t]
+
+    if {[string is true $my_comments_only_p] && \
+            [string is true $allow_my_comments_only_p]} {
+        set my_comments_clause "and o.creation_user = :user_id"
+    } else {
+        set my_comments_clause ""
     }
 
     # initialize variables

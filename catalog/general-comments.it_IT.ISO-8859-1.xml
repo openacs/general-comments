@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="general-comments" package_version="4.1" locale="it_IT" charset="ISO-8859-1">
+<message_catalog package_key="general-comments" package_version="4.4" locale="it_IT" charset="ISO-8859-1">
 
   <msg key="Actions">Azioni</msg>
   <msg key="Add_a_comment_to">Aggiungi un commento a</msg>
@@ -14,7 +14,7 @@
   <msg key="Attach_a_web_link">Allega un link</msg>
   <msg key="Attachments">Allegati</msg>
   <msg key="Author">Autore</msg>
-  <msg key="by">s&amp;igrave;</msg>
+  <msg key="by">sì</msg>
   <msg key="bytes">bytes</msg>
   <msg key="Cancel">Cancella</msg>
   <msg key="Comment">Commento:</msg>
@@ -34,13 +34,13 @@
   <msg key="edit_your_comment">(modifica il tuo commento)</msg>
   <msg key="Filename">Nome file:</msg>
   <msg key="Full_Comments">Commento completo:</msg>
-  <msg key="gc_is_not_mounted">gc non &amp;egrave; montato</msg>
+  <msg key="gc_is_not_mounted">gc non è montato</msg>
   <msg key="General_Comments">Commenti Generali</msg>
   <msg key="Go_back_to_comment">Torna al commento</msg>
   <msg key="Has_live_version">Ha una versione attiva</msg>
   <msg key="HTML">HTML</msg>
   <msg key="ID">ID#</msg>
-  <msg key="if_general_comments_not_mounted">Se &lt;code&gt;general-comments&lt;/code&gt; non &amp;egrave; monatato e vengono eseguite chiamate a &lt;code&gt;general_comments_get_comments&lt;/code&gt; o &lt;code&gt;general_comments_create_link&lt;/code&gt; , un errore verr&amp;agrave; registrato. Questo &amp;egrave; dovuto al fatto che eseguono chiamate attraverso hyperlink che necessitano di un riferimento a un'istanza montata del pacchetto &lt;code&gt;general-comments&lt;/code&gt;</msg>
+  <msg key="if_general_comments_not_mounted">Se &lt;code&gt;general-comments&lt;/code&gt; non è monatato e vengono eseguite chiamate a &lt;code&gt;general_comments_get_comments&lt;/code&gt; o &lt;code&gt;general_comments_create_link&lt;/code&gt; , un errore verrà registrato. Questo è dovuto al fatto che eseguono chiamate attraverso hyperlink che necessitano di un riferimento a un'istanza montata del pacchetto &lt;code&gt;general-comments&lt;/code&gt;</msg>
   <msg key="Image_attachment">Immagine allegata</msg>
   <msg key="Label">Etichetta:</msg>
   <msg key="last_24_hours">le ultime 24 ore</msg>
@@ -63,7 +63,7 @@
   <msg key="lt_General_Comments_Admi">Amministrazione Commenti Generali</msg>
   <msg key="lt_Go_back_to_where_you_">Torna dove eri</msg>
   <msg key="lt_has_chosen_to_limit_a">ha scelto di limitare gli allegati a</msg>
-  <msg key="lt_Here_is_how_your_comm">Ecco come apparir&amp;agrave; il tuo commento:</msg>
+  <msg key="lt_Here_is_how_your_comm">Ecco come apparirà il tuo commento:</msg>
   <msg key="lt_I_would_like_to_uploa">Mi piacerebbe allegare un file o aggiungere un link al mio commento</msg>
   <msg key="lt_No_comments_available">Nessun commento disponibile</msg>
   <msg key="lt_no_gc_package_instanc">nessuna istanza del pacchetto gc</msg>
@@ -71,11 +71,11 @@
   <msg key="lt_Note_if_the_text_abov_1">Nota: se il testo qui sopra è pieno di codice HTML visibile, allora avresti dovuto scegliere HTML invece che &quot;Testo Semplice&quot;. Torna indietro e correggi la scelta.</msg>
   <msg key="lt_Test_page_for_General">Pagina di prova per i Commenti Generali</msg>
   <msg key="lt_The_comment_id_does_n">L'id di questo commento non si riferisce a un commento valido</msg>
-  <msg key="lt_This_revision_is_live">Questa revisione &amp;egrave; attiva.</msg>
-  <msg key="lt_This_revision_is_not_">Questa revisione non &amp;egrave; attiva.</msg>
+  <msg key="lt_This_revision_is_live">Questa revisione è attiva.</msg>
+  <msg key="lt_This_revision_is_not_">Questa revisione non è attiva.</msg>
   <msg key="lt_Use_the_Browse_button">Usa il bottone &quot;Sfoglia&quot; per toravre il file, poi clicca su &quot;Apri&quot;.</msg>
   <msg key="lt_Your_file_is_too_larg">File troppo grande.</msg>
-  <msg key="lt_Your_file_is_zero-len">Il tuo file ha dimensione nulla. Hai cercato di caricare un file vuoto o un file che non esiste, oppure qualcosa &amp;egrave; andato storto durante il trasfimento.</msg>
+  <msg key="lt_Your_file_is_zero-len">Il tuo file ha dimensione nulla. Hai cercato di caricare un file vuoto o un file che non esiste, oppure qualcosa è andato storto durante il trasfimento.</msg>
   <msg key="no_attachments">nessun allegato</msg>
   <msg key="none">nessuno</msg>
   <msg key="not_set">non configurato</msg>
@@ -88,7 +88,7 @@
   <msg key="Revisions">Revisioni</msg>
   <msg key="Status">Stato</msg>
   <msg key="test">prova</msg>
-  <msg key="Text_above_is">Il testo sopra &amp;egrave;</msg>
+  <msg key="Text_above_is">Il testo sopra è</msg>
   <msg key="The_publisher_of">L'editore di</msg>
   <msg key="Title">Titolo:</msg>
   <msg key="Title_1">titolo</msg>
