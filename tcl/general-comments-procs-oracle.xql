@@ -25,7 +25,7 @@
 </fullquery>
 
  
-<fullquery name="general_comments_package_url.get_package_url">      
+<fullquery name="general_comments_package_url_not_cached.get_package_url">      
       <querytext>
       
              select site_node.url(s.node_id) as package_url

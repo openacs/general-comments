@@ -183,14 +183,17 @@ ad_proc -public general_comments_create_link {
 
 ad_proc -private general_comments_package_url {} {
     Returns a url pointing to the mounted general-comments package.
+    Uses util_memoize for caching.
+} {
+    return [util_memoize [list general_comments_package_url_not_cached]]
+}
+
+ad_proc -private general_comments_package_url_not_cached {} {
+    Returns a url pointing to the mounted general-comments package.
+    Goes to the database on every invocation.
 } {
     
-    if { [db_0or1row get_package_url "
-             select site_node.url(s.node_id) as package_url
-               from site_nodes s, apm_packages a
-              where s.object_id = a.package_id and
-                    lower(a.package_key) = 'general-comments' and
-                    RowNum = 1" ] } {
+    if { [db_0or1row get_package_url "" ] } {
         return $package_url
     } else {
         # log an error message
