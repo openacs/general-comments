@@ -238,25 +238,11 @@ ad_proc -public general_comments_create_link {
     return $html
 }
 
-ad_proc -private general_comments_package_url {} {
+ad_proc -public general_comments_package_url {} {
     Returns a url pointing to the mounted general-comments package.
     Uses util_memoize for caching.
 } {
-    return [util_memoize [list general_comments_package_url_not_cached]]
-}
-
-ad_proc -private general_comments_package_url_not_cached {} {
-    Returns a url pointing to the mounted general-comments package.
-    Goes to the database on every invocation.
-} {
-    
-    if { [db_0or1row get_package_url "" ] } {
-        return $package_url
-    } else {
-        # log an error message
-        ns_log Notice "general_comments_package_url_not_cached: the General Comments package is not mounted."
-        return ""
-    }
+    return [site_node::get_package_url -package_key "general-comments"]
 }
 
 # these are being replaced with the above procs
@@ -272,11 +258,7 @@ ad_proc -deprecated get_comments {object_id return_url} {
 } {
 
     # get the package url
-     set package_url [db_string get_package_url_deprecated "
-             select site_node.url(s.node_id)
-               from site_nodes s, apm_packages a
-              where s.object_id = a.package_id and
-                    a.package_key = 'general-comments'"]
+    set package_url [general_comments_package_url]
 
     set html ""
     db_foreach get_comments_deprecated "
@@ -314,11 +296,7 @@ ad_proc -deprecated create_link {object_id object_name return_url link_text {con
     @see general_comments_create_link
 } {
     # get the package url
-    set package_url [db_string get_package_url_deprecated "
-             select site_node.url(s.node_id)
-               from site_nodes s, apm_packages a
-              where s.object_id = a.package_id and
-                    a.package_key = 'general-comments'"]
+    set package_url [general_comments_package_url]
 
     set html "<a href=\"${package_url}comment-add?[export_url_vars object_id object_name return_url context_id category]\">$link_text</a>"
     return $html
