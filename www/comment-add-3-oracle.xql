@@ -10,7 +10,7 @@
             :1 := acs_message.new (
                 message_id    => :comment_id,
                 title         => :title,
-                mime_type     => :mime_type,
+                mime_type     => :comment_mime_type,
                 data          => empty_blob(),
                 context_id    => :context_id,
                 creation_user => :user_id, 

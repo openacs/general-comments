@@ -12,14 +12,14 @@ ad_page_contract {
     { object_name "[acs_object_name $object_id]" }
     title:notnull
     content:html,notnull
-    { mime_type {text/plain} }
+    comment_mime_type:notnull
     { context_id "$object_id" }
     { category {} }
     { return_url {} }
 } -properties {
     page_title:onevalue
     context_bar:onevalue
-    mime_type:onevalue
+    comment_mime_type:onevalue
     title:onevalue
     content:onevalue
     target:onevalue
@@ -43,5 +43,6 @@ set comment_id [db_nextval acs_object_id_seq]
 set page_title "Confirm comment on $object_name"
 set context_bar {"Confirm comment"}
 set target "comment-add-3"
+set html_content [ad_html_text_convert -from $comment_mime_type $content]
 
 ad_return_template "comment-ae-2"

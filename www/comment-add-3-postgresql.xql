@@ -5,10 +5,7 @@
 
 <fullquery name="insert_comment">      
       <querytext>
-	declare 
-		v_message_id integer;
-        begin
-	    select acs_message__new (
+	     select acs_message__new (
 		:comment_id,		-- 1  p_message_id
 		NULL, 			-- 2  p_reply_to
 		current_timestamp,	-- 3  p_sent_date
@@ -16,7 +13,7 @@
 		NULL,			-- 5  p_rfc822_id
 		:title,			-- 6  p_title
 		NULL,			-- 7  p_description
-		:mime_type,		-- 8  p_mime_type
+		:comment_mime_type,	-- 8  p_mime_type
 		NULL,			-- 9  p_text
 		NULL, -- empty_blob(),		-- 10 p_data
 		0,			-- 11 p_parent_id
@@ -25,12 +22,7 @@
 		:creation_ip,		-- 14 p_creation_ip
 		'acs_message',		-- 15 p_object_type
 		:is_live		-- 16 p_is_live
-	    ) into v_message_id;
-
-	    return v_message_id;
-
-        end;
-    
+	    )
       </querytext>
 </fullquery>
 

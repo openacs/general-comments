@@ -19,7 +19,7 @@ ad_page_contract {
     target:onevalue
     title:onevalue
     content:onevalue
-    mime_type:onevalue
+    comment_mime_type:onevalue
     object_id:onevalue
     object_name:onevalue
     context_id:onevalue
@@ -42,7 +42,7 @@ set context_bar {"Add comment"}
 set target "comment-add-2"
 set title ""
 set content ""
-set mime_type "text/plain"
+set comment_mime_type "text/plain"
 
 ad_return_template "comment-ae"
 

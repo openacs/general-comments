@@ -27,12 +27,8 @@
  
 <fullquery name="delete_image">      
       <querytext>
-      FIX ME PLSQL
-FIX ME PLSQL
 
-                begin
-                    acs_message__delete_image(:attach_id);
-                end;
+         select acs_message__delete_image(:attach_id);
             
       </querytext>
 </fullquery>
@@ -40,12 +36,8 @@ FIX ME PLSQL
  
 <fullquery name="delete_attachment">      
       <querytext>
-      FIX ME PLSQL
-FIX ME PLSQL
 
-                begin
-                   acs_message__delete_file(:attach_id);
-                end;
+         select acs_message__delete_file(:attach_id);
             
       </querytext>
 </fullquery>

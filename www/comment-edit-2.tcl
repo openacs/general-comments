@@ -18,7 +18,7 @@ ad_page_contract {
     object_id:integer,notnull
     title:notnull
     content:notnull,html
-    {mime_type "text/plain"}
+    comment_mime_type
     { return_url {} }
 } -properties {
     page_title:onevalue
@@ -35,6 +35,8 @@ ad_require_permission $comment_id write
 set page_title "Confirm comment on: [acs_object_name $object_id]"
 set context_bar {"Confirm comment"}
 set target "comment-edit-3"
+
+set html_content [ad_html_text_convert -from $comment_mime_type $content]
 
 ad_return_template "comment-ae-2"
     

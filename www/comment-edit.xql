@@ -7,7 +7,7 @@
     select g.object_id,
            r.title,
            r.content,
-           r.mime_type
+           r.mime_type as comment_mime_type
       from general_comments g,
            cr_revisions r
      where g.comment_id = :comment_id and

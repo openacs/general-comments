@@ -19,7 +19,7 @@ ad_page_contract {
     target:onevalue
     title:onevalue
     content:onevalue
-    mime_type:onevalue
+    comment_mime_type:onevalue
     comment_id:onevalue
     revision_id:onevalue
     return_url:onevalue
@@ -40,7 +40,7 @@ if { ![db_0or1row get_comment {
     select g.object_id,
            r.title,
            r.content,
-           r.mime_type
+           r.mime_type as comment_mime_type
       from general_comments g,
            cr_revisions r
      where g.comment_id = :comment_id and

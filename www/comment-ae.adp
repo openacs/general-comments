@@ -13,9 +13,8 @@ Title:<br>
 Comment:<br>
 <textarea name=content cols=80 rows=20 wrap=soft>@content@</textarea><br>
 Text above is
-<select name=mime_type>
-
-<if @mime_type@ eq text/html >
+<select name=comment_mime_type>
+<if @comment_mime_type@ eq text/html >
   <option value="text/plain">Plain text</option>
   <option selected value="text/html">HTML</option>
 </if>

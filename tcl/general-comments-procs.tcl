@@ -175,6 +175,7 @@ ad_proc -public general_comments_create_link {
     if { ![info exists context_id] } { set context_id $object_id }
 
     set html "<a href=\"${package_url}comment-add?[export_url_vars object_id object_name return_url context_id category]\">$link_text</a>"
+
     return $html
 }
 

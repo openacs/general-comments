@@ -27,17 +27,17 @@ ad_page_contract {
         }
     }
     check_file_size {
-        set tmp_filename ${upload_file.tmpfile}
-        set n_bytes [file size $tmp_filename]
+        set tmp_size [file size ${upload_file.tmpfile}]
         set max_file_size [ad_parameter MaxFileSize {general-comments} {0}]
-        if { $n_bytes > $max_file_size && $max_file_size > 0 } {
+        if { $tmp_size > $max_file_size && $max_file_size > 0 } {
             ad_complain "Your file is too large.  The publisher of [ad_system_name] has chosen to limit attachments to [util_commify_number $max_file_size] bytes.\n"
         }
-        if { $n_bytes == 0 } {
+        if { $tmp_size == 0 } {
             ad_complain "Your file is zero-length.  Either you attempted to upload a zero length file, a file which does not exists, or something went wrong during the transfer.\n"
         }
     }
 }
+
 
 # authenticate the user
 set user_id [ad_verify_and_get_user_id]
@@ -126,17 +126,27 @@ db_transaction {
         }
     }
   
-    db_1row get_revisoin {
+    db_1row get_revision {
         select content_item.get_latest_revision(:attach_id) as revision_id
         from dual
     }
     
-    db_dml set_content {
-    update cr_revisions
-        set content = empty_blob()
-        where revision_id = :revision_id
-        returning content into :1
-    } -blob_files [list $tmp_filename]
+#    db_dml set_content {
+#    update cr_revisions
+#        set content = empty_blob()
+#        where revision_id = :revision_id
+#        returning content into :1
+#    } -blob_files [list $tmp_filename]
+
+# DRB: Since we're using acs_message to store the file, it is automatically
+# stuffed into the file system rather than database whether we need it or
+# not.  This needs to be *changed* ... the whole way we read and write CR content
+# based on storage type needs cleaning up.
+
+    set tmp_filename [cr_create_content_file $attach_id $revision_id ${upload_file.tmpfile}]
+
+    db_dml set_content_size ""
+
 }
 
 ad_returnredirect "view-comment?comment_id=$parent_id&[export_url_vars return_url]"

@@ -133,12 +133,14 @@ if { $allow_file_p == "f" && $allow_link_p == "f" } {
     set allow_attach_p "f"
 }
 set comment_on_id [db_string get_object_id "select object_id from general_comments where comment_id = :comment_id"]
-set page_title "View comment on: [acs_object_name $comment_on_id] (#$comment_id)"
+set page_title "View comment on: [acs_object_name $comment_on_id]"
 set context_bar {"View comment"}
 set return_url_view "[ad_urlencode view-comment?[export_ns_set_vars url]]"
 set is_creator_p "f"
 if { $user_id == $creation_user } {
     set is_creator_p "t"
 }
+
+set html_content [ad_html_text_convert -from $mime_type $content]
 
 ad_return_template

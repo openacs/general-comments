@@ -11,7 +11,7 @@ ad_page_contract {
     comment_id:integer,notnull
     title
     content:html
-    { mime_type "text/plain" }
+    comment_mime_type
     { return_url {} }
 }
 
@@ -30,7 +30,7 @@ db_transaction {
         :1 := acs_message.edit (
             message_id    => :comment_id,
             title         => :title,
-            mime_type     => :mime_type,
+            mime_type     => :comment_mime_type,
             data          => empty_blob(),
             creation_user => :user_id,
             creation_ip   => :creation_ip,

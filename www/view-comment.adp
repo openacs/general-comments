@@ -11,12 +11,7 @@
 <blockquote>
 <h4>@title@</h4>
 
-<if @mime_type@ eq text/plain >
-  <%= [util_convert_plaintext_to_html $content] %>
-</if>
-<else>
-  @content@
-</else>
+@html_content@
 
 <br><br>
 <if @is_creator_p@ eq t>

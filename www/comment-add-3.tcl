@@ -12,7 +12,7 @@ ad_page_contract {
     object_id:integer,notnull
     title:notnull
     content:html,notnull
-    { mime_type "text/plain" }
+    comment_mime_type
     { context_id "$object_id" }
     { category "" }
     { return_url "" }
@@ -33,7 +33,7 @@ db_transaction {
             :1 := acs_message.new (
                 message_id    => :comment_id,
                 title         => :title,
-                mime_type     => :mime_type,
+                mime_type     => :comment_mime_type,
                 data          => empty_blob(),
                 context_id    => :context_id,
                 creation_user => :user_id, 

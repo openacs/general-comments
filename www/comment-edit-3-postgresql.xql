@@ -12,7 +12,7 @@
             /* message_id    => */ :comment_id,
             /* title         => */ :title,
 	    /* p_description    */ NULL, 
-            /* mime_type     => */ :mime_type,
+            /* mime_type     => */ :comment_mime_type,
 	    /* text	        */ NULL,
             /* data          => */ NULL, 	-- was empty_blob(),
 	    /* creation_date    */ now(),
