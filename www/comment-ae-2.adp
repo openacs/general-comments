@@ -6,7 +6,7 @@
 
 <blockquote>
 <h4>@title@</h4>
-@html_content@
+@html_content;noquote@
 </blockquote>
 
 <if @mime_type@ eq text/html>
