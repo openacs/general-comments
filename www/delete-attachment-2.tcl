@@ -65,7 +65,7 @@ ad_require_permission $attach_id delete
     } elseif { $content_type == "content_extlink" } {
         db_exec_plsql delete_extlink {
             begin
-                content_extlink.delete(:attach_id);
+                content_extlink.del(:attach_id);
             end;
         }
     } 

@@ -7,7 +7,7 @@
       <querytext>
       
     begin
-        acs_message.delete(:comment_id);
+        acs_message.del(:comment_id);
     end;
 
       </querytext>

@@ -37,7 +37,7 @@ begin
                              from cr_items
                             where parent_id = comment_rec.comment_id);
 
-        acs_message.delete(comment_rec.comment_id);
+        acs_message.del(comment_rec.comment_id);
     end loop;
 end;
 /

@@ -51,7 +51,7 @@
       <querytext>
       
             begin
-                content_extlink.delete(:attach_id);
+                content_extlink.del(:attach_id);
             end;
         
       </querytext>

@@ -30,7 +30,7 @@ db_dml delete_image_attachments {
 # relies on "on delete cascade"
 db_exec_plsql delete_comment {
     begin
-        acs_message.delete(:comment_id);
+        acs_message.del(:comment_id);
     end;
 }
 
