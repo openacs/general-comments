@@ -36,7 +36,7 @@ set page_title "Confirm comment on: [acs_object_name $object_id]"
 set context_bar {"Confirm comment"}
 set target "comment-edit-3"
 
-set html_content [ad_html_text_convert -from $comment_mime_type $content]
+set html_content [ad_html_text_convert -from $comment_mime_type -- $content]
 
 ad_return_template "comment-ae-2"
     

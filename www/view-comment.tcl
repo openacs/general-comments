@@ -141,6 +141,6 @@ if { $user_id == $creation_user } {
     set is_creator_p "t"
 }
 
-set html_content [ad_html_text_convert -from $mime_type $content]
+set html_content [ad_html_text_convert -from $mime_type -- $content]
 
 ad_return_template

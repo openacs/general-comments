@@ -43,6 +43,6 @@ set comment_id [db_nextval acs_object_id_seq]
 set page_title "Confirm comment on $object_name"
 set context_bar {"Confirm comment"}
 set target "comment-add-3"
-set html_content [ad_html_text_convert -from $comment_mime_type $content]
+set html_content [ad_html_text_convert -from $comment_mime_type -- $content]
 
 ad_return_template "comment-ae-2"
