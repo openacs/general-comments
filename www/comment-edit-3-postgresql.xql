@@ -42,7 +42,7 @@
       <querytext>
 
         update cr_revisions
-           set content = '$content'
+           set content = :content
          where revision_id = :revision_id
   
       </querytext>
