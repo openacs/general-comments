@@ -22,6 +22,7 @@ ad_proc -public general_comments_get_comments {
     {return_url {}}
 } {
     Generates a line item list of comments for the object_id.
+
     @param print_content_p Pass in 1 to print out content of comments.
     @param print_attachments_p Pass in 1 to print out attachments of comments, 
                                only works if print_content_p is 1. 
@@ -157,6 +158,7 @@ ad_proc -public general_comments_create_link {
     {return_url {}} 
 } {
     Generates an html link to add a comment to an object.
+
     @param object_id   The object to comment on.
     @param return_url  A url for the user to return to after viewing a comment.
     @param object_name The name of the object.
@@ -202,8 +204,11 @@ namespace eval general_comments {
 
 ad_proc -deprecated get_comments {object_id return_url} {
     Generates a line item list of comments for the object_id.
+
     @param object_id The object_id to retrieve the comments for.
     @param return_url A url for the user to return to after viewing a comment.
+    
+    @see general_comments_get_comments
 } {
 
     # get the package url
@@ -245,6 +250,8 @@ ad_proc -deprecated create_link {object_id object_name return_url link_text {con
     @param return_url  A url for the user to return to after viewing a comment.
     @param link_text   The text to display for the link.
     @param category    A category to associate comment to.
+
+    @see general_comments_create_link
 } {
     # get the package url
     set package_url [db_string get_package_url_deprecated "
