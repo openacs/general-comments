@@ -1,9 +1,16 @@
 # /packages/general-comments/tcl/general-comments-procs.tcl
 
+# Porting: Moved most queries from variables to in-line 
+# for the QueryExtractor, appended '_deprecated' to 
+# query-names in 'ad_proc -deprecated' functions. 
+# Left one duplicate with 100% identical SQL (pascal) 
+
 ad_library {
     Utility procs for general-comments
 
     @author Phong Nguyen <phong@arsdigita.com>
+    @author Pascal Scheffers <pascal@scheffers.net>
+
     @creation-date 2000-10-12
     @cvs-id $Id$
 }
@@ -33,11 +40,13 @@ ad_proc -public general_comments_get_comments {
         set content_select ""
         set content ""
     } else {
-        set content_select ", r.content"
+        set content_select [db_map content_select] ;# ", r.content"
     }
-
+    ns_log notice "content_select: $content_select"
+    
     set html ""
-    set sql "select g.comment_id,
+    db_foreach get_comments "
+             select g.comment_id,
                     r.title,
                     r.mime_type,
                     o.creation_user,
@@ -51,9 +60,7 @@ ad_proc -public general_comments_get_comments {
               where g.object_id = :object_id and
                     r.revision_id = content_item.get_live_revision(g.comment_id) and
                     o.object_id = g.comment_id
-              order by o.creation_date"
-
-    db_foreach get_comments $sql {
+              order by o.creation_date" {
         # call on helper proc to print out comment
         append html [general_comments_print_comment $comment_id $title $mime_type \
                 $creation_user $author $pretty_date $pretty_date2 $content \
@@ -91,24 +98,8 @@ ad_proc -private general_comments_print_comment {
     @param return_url A url for the user to return to after viewing a comment. 
 } {
 
-    # create query statements to retrieve attachments
-    set attachment_sql "
-        select r.title,
-               r.mime_type,
-               i.name,
-               i.item_id
-          from cr_items i,
-               cr_revisions r
-         where i.parent_id = :comment_id and
-               r.revision_id = i.live_revision"
-    set link_sql "
-        select i.item_id,
-               e.label,
-               e.url
-          from cr_items i, cr_extlinks e
-         where i.parent_id = :comment_id and
-               e.extlink_id = i.item_id"
-
+    # -- create query statements to retrieve attachments
+    # PRS: Moved inline for QueryExtractor
 
     # This part is really ugly. This will remain here until we figure out a way to 
     # move this into a template.
@@ -122,7 +113,12 @@ ad_proc -private general_comments_print_comment {
         }
         if { $print_attachments_p == 1 } {
             set attachments_html ""
-            db_foreach get_attachments $attachment_sql {
+            db_foreach get_attachments "
+	                    select r.title, r.mime_type,  i.name, i.item_id
+	                      from cr_items i, cr_revisions r
+	                     where i.parent_id = :comment_id 
+                               and r.revision_id = i.live_revision" {
+
                 append attachments_html "<li>$title "
                 if { $mime_type == "image_gif" || $mime_type == "image/jpeg" } {
                     append attachments_html "(<a href=\"${package_url}view-image?image_id=$item_id&return_url=$return_url\">$name</a>)\n"
@@ -130,7 +126,11 @@ ad_proc -private general_comments_print_comment {
                     append attachments_html "(<a href=\"${package_url}file-download?item_id=$item_id\">$name</a>)\n"
                 }
             }
-            db_foreach get_links $link_sql {
+
+            db_foreach get_links "
+	              select i.item_id, e.label, e.url
+	                from cr_items i, cr_extlinks e
+	               where i.parent_id = :comment_id and e.extlink_id = i.item_id" {
                 append attachments_html "<li><a href=\"$url\">$label</a>\n"
             }
             if { ![empty_string_p $attachments_html] } {
@@ -181,12 +181,13 @@ ad_proc -public general_comments_create_link {
 ad_proc -private general_comments_package_url {} {
     Returns a url pointing to the mounted general-comments package.
 } {
-    set sql "select site_node.url(s.node_id) as package_url
+    
+    if { [db_0or1row get_package_url "
+             select site_node.url(s.node_id) as package_url
                from site_nodes s, apm_packages a
               where s.object_id = a.package_id and
                     lower(a.package_key) = 'general-comments' and
-                    RowNum = 1"
-    if { [db_0or1row get_package_url $sql] } {
+                    RowNum = 1" ] } {
         return $package_url
     } else {
         # log an error message
@@ -205,14 +206,15 @@ ad_proc -deprecated get_comments {object_id return_url} {
 } {
 
     # get the package url
-    set sql "select site_node.url(s.node_id)
+     set package_url [db_string get_package_url_deprecated "
+             select site_node.url(s.node_id)
                from site_nodes s, apm_packages a
               where s.object_id = a.package_id and
-                    a.package_key = 'general-comments'"
-    set package_url [db_string get_package_url $sql]
+                    a.package_key = 'general-comments'"]
 
     set html ""
-    set sql "select g.comment_id,
+    db_foreach get_comments_deprecated "
+             select g.comment_id,
                     r.title,
                     r.content,
                     r.mime_type,
@@ -229,8 +231,7 @@ ad_proc -deprecated get_comments {object_id return_url} {
                     r.revision_id = i.live_revision and
                     o.object_id = g.comment_id and
                     p.person_id = o.creation_user
-              order by creation_date"
-    db_foreach get_comments $sql {
+              order by creation_date" {
         append html "<li><a href=\"${package_url}view-comment?[export_url_vars comment_id return_url]\">$title</a> by $author, $creation_date<br>\n"
     }
     return "$html"
@@ -245,14 +246,17 @@ ad_proc -deprecated create_link {object_id object_name return_url link_text {con
     @param category    A category to associate comment to.
 } {
     # get the package url
-    set sql "select site_node.url(s.node_id)
+    set package_url [db_string get_package_url_deprecated "
+             select site_node.url(s.node_id)
                from site_nodes s, apm_packages a
               where s.object_id = a.package_id and
-                    a.package_key = 'general-comments'"
-    set package_url [db_string get_package_url $sql]
+                    a.package_key = 'general-comments'"]
 
     set html "<a href=\"${package_url}comment-add?[export_url_vars object_id object_name return_url context_id category]\">$link_text</a>"
     return $html
 }
 
 }
+
+
+
