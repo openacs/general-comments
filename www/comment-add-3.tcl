@@ -20,7 +20,7 @@ ad_page_contract {
 }    
 
 # authenticate the user
-set user_id [ad_maybe_redirect_for_registration]
+set user_id [auth::require_login]
 
 # check to see if the user can create comments on this object
 ad_require_permission $object_id general_comments_create

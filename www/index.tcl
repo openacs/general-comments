@@ -17,7 +17,7 @@ ad_page_contract {
 }
 
 # authenticate the user
-set user_id [ad_maybe_redirect_for_registration]
+set user_id [auth::require_login]
 
 # check for admin privileges
 set package_id [ad_conn package_id]

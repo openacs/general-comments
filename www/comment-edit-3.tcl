@@ -19,7 +19,7 @@ ad_page_contract {
 ad_require_permission $comment_id write
 
 # authenticate the user
-set user_id [ad_verify_and_get_user_id]
+set user_id [ad_conn user_id]
 
 # insert the revision into the database
 set is_live [ad_parameter AutoApproveCommentsP {general-comments} {t}]

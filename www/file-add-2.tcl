@@ -40,7 +40,7 @@ ad_page_contract {
 
 
 # authenticate the user
-set user_id [ad_verify_and_get_user_id]
+set user_id [ad_conn user_id]
 
 # check to see if the user can create comments
 ad_require_permission $parent_id write
