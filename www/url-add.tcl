@@ -25,7 +25,7 @@ ad_page_contract {
     allow_link_attachments {
         set allow_links_p [ad_parameter AllowLinkAttachmentsP {general-comments} {t}]
         if { $allow_links_p != "t" } {
-            ad_complain "Attaching links to comments has been disabled."
+            ad_complain "[_ general-comments.lt_Attaching_links_to_co]"
         }
     }
 }
@@ -35,8 +35,8 @@ ad_require_permission $parent_id write
 
 # set variables for template
 set attach_id [db_nextval acs_object_id_seq]
-set page_title "Add url attachment to comment #$parent_id"
-set context [list [list "view-comment?comment_id=$parent_id" "Go back to comment"] "Add url comment"]
+set page_title "[_ general-comments.lt_Add_url_attachment_to] #$parent_id"
+set context [list [list "view-comment?comment_id=$parent_id" "[_ general-comments.Go_back_to_comment]"] "[_ general-comments.Add_url_comment]"]
 set target "url-add-2"
 set label ""
 set url ""

@@ -2,11 +2,10 @@
 <property name="title">@page_title@</property>
 <property name="context">@context@</property>
 
-<form action=delete-2 method=post>
-<%= [export_form_vars comment_id return_url] %>
-Do you really wish to delete the following comment and its attachments?
+
+#general-comments.lt_Do_you_really_wish_to#
 <blockquote>
-  <b>@title@</b> (<a href="../view-comment?comment_id=@comment_id@">details</a>)<br><br>
+  <b>@title@</b> (<a href="../view-comment?comment_id=@comment_id@">#general-comments.details#</a>)<br><br>
   <if @mime_type@ eq text/plain>
     <%= [util_convert_plaintext_to_html $content] %>
   </if>
@@ -17,8 +16,23 @@ Do you really wish to delete the following comment and its attachments?
   (@pretty_date@)  
 </blockquote>
 <center>
-<input type=submit name=submit value="Proceed">
-<input type=submit name=submit value="Cancel">
+<table>
+<tr>
+	<td>
+		<form action=delete-2 method=post>
+		<%= [export_form_vars comment_id return_url] %>
+		<input type=submit name=submit value="#general-comments.Proceed#">
+		</form>
+	</td>
+
+	<td>
+		<form action="@return_url@">
+		<input type=submit name=submit value="#general-comments.Cancel#">
+		</form>
+	</td
+</tr>
+</table>
 </center>
 </form>
+
 

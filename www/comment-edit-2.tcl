@@ -32,8 +32,8 @@ ad_page_contract {
 # check to see if the user can edit this comment
 ad_require_permission $comment_id write
 
-set page_title "Confirm comment on: [acs_object_name $object_id]"
-set context {"Confirm comment"}
+set page_title "[_ general-comments.Confirm_comment_on]: [acs_object_name $object_id]"
+set context "\"[_ general-comments.Confirm_comment]\""
 set target "comment-edit-3"
 
 set html_content [ad_html_text_convert -from $comment_mime_type -- $content]

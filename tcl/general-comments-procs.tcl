@@ -135,14 +135,14 @@ ad_proc -private general_comments_print_comment {
                 append attachments_html "<li><a href=\"$url\">$label</a>\n"
             }
             if { ![empty_string_p $attachments_html] } {
-                append html "<h5>Attachments</h5>\n<ul>\n$attachments_html</ul>\n"
+                append html "<h5>[_ general-comments.Attachments]</h5>\n<ul>\n$attachments_html</ul>\n"
             } else {
                 append html "<br><br>"
             }
         }
-        append html "<p>-- <a href=\"/shared/community-member?user_id=$creation_user\">$author</a> on $pretty_date2 (<a href=\"${package_url}view-comment?[export_url_vars comment_id return_url]\">view details</a>)</p>\n"
+        append html "<p>-- <a href=\"/shared/community-member?user_id=$creation_user\">$author</a> [_ general-comments.on] $pretty_date2 (<a href=\"${package_url}view-comment?[export_url_vars comment_id return_url]\">[_ general-comments.view_details]</a>)</p>\n"
     } else {
-        append html "<li><a href=\"${package_url}view-comment?[export_url_vars comment_id return_url]\">$title</a> by <a href=\"/shared/community-member?user_id=$creation_user\">$author</a> on $pretty_date<br>\n"
+        append html "<li><a href=\"${package_url}view-comment?[export_url_vars comment_id return_url]\">$title</a> [_ general-comments.by] <a href=\"/shared/community-member?user_id=$creation_user\">$author</a> [_ general-comments.on] $pretty_date<br>\n"
     }
 
     return $html
@@ -265,6 +265,3 @@ ad_proc -deprecated create_link {object_id object_name return_url link_text {con
 }
 
 }
-
-
-

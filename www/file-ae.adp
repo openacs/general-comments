@@ -8,15 +8,15 @@
 <blockquote>
 <table>
   <tr>
-    <td valign=top align=right>Title:</td>
+    <td valign=top align=right>#general-comments.Title#</td>
     <td><input size=40 name=title value="@title@"></td>
   </tr>
   <tr>
-    <td valign=top align=right>Filename: </td>
+    <td valign=top align=right>#general-comments.Filename# </td>
     <td>
     <if @target@ eq file-add-2>
       <input type=file name=upload_file size=40><br>
-      <font size=-1>Use the "Browse..." button to locate your file, then click "Open".</font>
+      <font size=-1>#general-comments.lt_Use_the_Browse_button#</font>
      </if>
      <else>
        <b><code>@file_name@</code></b>
@@ -28,6 +28,7 @@
 
 <p>
 <center>
-<input type=submit value="Proceed">
+<input type=submit value="#general-comments.Proceed#">
 </center>
 </form>
+

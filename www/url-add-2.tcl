@@ -17,7 +17,7 @@ ad_page_contract {
     allow_link_attachments {
         set allow_links_p [ad_parameter AllowLinkAttachmentsP {general-comments} {t}]
         if { $allow_links_p != "t" } {
-            ad_complain "Attaching links to comments has been disabled."
+            ad_complain "[_ general-comments.lt_Attaching_links_to_co]"
         }
     }
 }

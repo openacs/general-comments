@@ -27,32 +27,32 @@ set admin_p [ad_permission_p $package_id admin]
 # this page with the proper parameters
 set return_url [ns_urlencode index?[export_ns_set_vars url]]
 
-# dimensional slider definition
-set dimensional {
-    {approval "Status" any {
-        {approved "approved" {where "[db_map status_approved]"} }
-        {unapproved "unapproved" {where "[db_map status_unapproved]"} }
-        {any "all" {} }
-}   }
-    {modified "Last Modified" 1m {
-        {1d "last 24 hours" {where "[db_map modified_last_24hours]"}}
-        {1w "last week" {where "[db_map modified_last_week]"}}
-        {1m "last month" {where "[db_map modified_last_month]"}}
-        {any "all" {} }
-}   }
-}
+
+set dimensional [list \
+    [list approval "[_ general-comments.Status]" any [list \
+        [list approved "[_ general-comments.approved]" {where "[db_map status_approved]"}] \
+        [list unapproved "[_ general-comments.unapproved]" {where "[db_map status_unapproved]"}] \
+        [list any "[_ general-comments.all]" {} ] \
+    ]] \
+    [list modified "[_ general-comments.Last_Modified]" 1m [list \
+        [list 1d "[_ general-comments.last_24_hours]" {where "[db_map modified_last_24hours]"}] \
+        [list 1w "[_ general-comments.last_week]" {where "[db_map modified_last_week]"}] \
+        [list 1m "[_ general-comments.last_month]" {where "[db_map modified_last_month]"}] \
+        [list any "[_ general-comments.all]" {} ] \
+]]
+]
 set dimensional_bar [ad_dimensional $dimensional]
 
 # ad_table definition
-set table_def {
-    {num "Num" {} {<td>$Tcount</td>}}
-    {comment_id "ID#" {} \
-            {<td><a href="view-comment?comment_id=$comment_id">$comment_id</a></td>}}
-    {title "Title" {} {}}
-    {approved_p "Approved" {} 01}
-    {live_version_p "Has live version" {} 01}
-    {pretty_date "Last Modified" {creation_date $order} {}}
-}
+set table_def [list \
+    [list num "[_ general-comments.Num]" {} {<td>$Tcount</td>}] \
+    [list comment_id "[_ general-comments.ID]" {} \
+            {<td><a href="view-comment?comment_id=$comment_id">$comment_id</a></td>}] \
+    [list title "[_ general-comments.Title_1]" {} {}] \
+    [list approved_p "[_ general-comments.Approved]" {} 01] \
+    [list live_version_p "[_ general-comments.Has_live_version]" {} 01] \
+    [list pretty_date "[_ general-comments.Last_Modified]" {creation_date $order} {}] \
+]
          
 # sql to retrieve comments
 set sql "
@@ -79,12 +79,12 @@ set sql "
 set bind_ns_set [ad_tcl_vars_to_ns_set user_id]
 set extra_var_list [list return_url $return_url]
 set comments_table [ad_table -Torderby $orderby \
-                             -Tmissing_text {<i>No comments available</i>} \
+                             -Tmissing_text "<i>[_ general-comments.lt_No_comments_available]</i>" \
                              -Textra_vars $extra_var_list \
                              -bind $bind_ns_set \
                              comments_select $sql $table_def]
 
-set page_title "General Comments"
+set page_title "[_ general-comments.General_Comments]"
 set context {}
 
 ad_return_template

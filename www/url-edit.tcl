@@ -33,8 +33,8 @@ if { ![db_0or1row get_comment {
     ad_return_complaint 1 "The attach_id does not refer to a valid url attachment."
 }
 
-set page_title "Edit url attachment on comment #$parent_id"
-set context [list [list "view-comment?comment_id=$parent_id" "Go back to comment"] "Edit url attachment"]
+set page_title "[_ general-comments.lt_Edit_url_attachment_o] #$parent_id"
+set context [list [list "view-comment?comment_id=$parent_id" "[_ general-comments.Go_back_to_comment]"] "[_ general-comments.Edit_url_attachment]"]
 set target "url-edit-2"
 
 ad_return_template "url-ae"

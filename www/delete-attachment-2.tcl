@@ -24,7 +24,11 @@ ad_require_permission $attach_id delete
 # all of this messy code will be replaced by
 # a single content_item.delete after the bug fix
 # is released
-if { $submit == "Proceed" } {
+
+#Commented out during i18n convertion, Steffen
+#if { $submit == "Proceed" } {
+
+
     # get the type of the attachment
     db_1row get_type {
         select content_type
@@ -65,7 +69,9 @@ if { $submit == "Proceed" } {
             end;
         }
     } 
-}
+
+#/ i18n
+#}
 
 ad_returnredirect "view-comment?comment_id=$parent_id&[export_url_vars return_url]"
 

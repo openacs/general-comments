@@ -26,7 +26,7 @@ ad_page_contract {
 ad_require_permission $attach_id delete
 
 # set template variables
-set page_title "Delete attachment"
-set context {"Delete attachment"}
+set page_title "[_ general-comments.Delete_attachment]"
+set context "\"[_ general-comments.Delete_attachment]\""
 
 ad_return_template

@@ -49,8 +49,8 @@ if { ![db_0or1row get_comment {
     ad_return_complaint 1 "The comment_id does not refer to a valid comment."
 }
 
-set page_title "Edit comment on: [acs_object_name $object_id]"
-set context {"Edit comment"}
+set page_title "[_ general-comments.Edit_comment_on]: [acs_object_name $object_id]"
+set context "\"[_ general-comments.Edit_comment]\""
 set target "comment-edit-2"
 
 ad_return_template "comment-ae"

@@ -40,8 +40,8 @@ if { [empty_string_p $object_name] } {
 }
 
 set comment_id [db_nextval acs_object_id_seq]
-set page_title "Confirm comment on $object_name"
-set context {"Confirm comment"}
+set page_title "[_ general-comments.Confirm_comment_on] $object_name"
+set context "\"[_ general-comments.Confirm_comment]\""
 set target "comment-add-3"
 set html_content [ad_html_text_convert -from $comment_mime_type -- $content]
 

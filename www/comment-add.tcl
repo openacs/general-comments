@@ -37,8 +37,8 @@ if { [empty_string_p $object_name] } {
     set object_name [acs_object_name $object_id]
 }
 
-set page_title "Add a comment to: $object_name"
-set context {"Add comment"}
+set page_title "[_ general-comments.Add_a_comment_to]: $object_name"
+set context "\"[_ general-comments.Add_comment]\""
 set target "comment-add-2"
 set title ""
 set content ""

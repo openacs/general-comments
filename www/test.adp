@@ -1,19 +1,17 @@
 <master>
 <property name="title">@page_title@</property>
+<property name="context">@context@</property>
 
-<h2>@page_title@</h2>
-<%= [eval ad_context_bar $context_bar] %>
-<hr>
 
 <p>
 <table border=1 cellspacing=0 cellpadding=5>
 <tr>
-  <td colspan=2 align=center>Current values for General Comments package</td></tr>
+  <td colspan=2 align=center>#general-comments.lt_Current_values_for_Ge#</td></tr>
 <tr>
   <td>package_id</td>
   <td>
     <if @package_id@ eq "">
-      <i>no gc package instance</i>
+      <i>#general-comments.lt_no_gc_package_instanc#</i>
     </if>
     <else>
       @package_id@
@@ -22,7 +20,7 @@
   <td>package_url</td>
   <td>
     <if @package_url@ eq "">
-      <i>gc is not mounted</i>
+      <i>#general-comments.gc_is_not_mounted#</i>
     </if>
     <else>
       <a href="@package_url@">@package_url@</a>
@@ -31,7 +29,7 @@
   <td>AutoApproveCommentsP</td>
   <td>
     <if @auto_approve_comments_p@ eq "">
-      <i>not set</i>
+      <i>#general-comments.not_set#</i>
     </if>
     <else>
       <a href="/admin/site-map/parameter-set?package_id=@package_id@">
@@ -41,7 +39,7 @@
   <td>AllowFileAttachmentsP</td>
   <td>
     <if @allow_file_attachments_p@ eq "">
-      <i>not set</i>
+      <i>#general-comments.not_set#</i>
     </if>
     <else>
       <a href="/admin/site-map/parameter-set?package_id=@package_id@">
@@ -51,7 +49,7 @@
   <td>AllowLinkAttachmentsP</td>
   <td>
     <if @allow_link_attachments_p@ eq "">
-      <i>not set</i>
+      <i>#general-comments.not_set#</i>
     </if>
     <else>
       <a href="/admin/site-map/parameter-set?package_id=@package_id@">
@@ -61,7 +59,7 @@
   <td>MaxFileSize</td>
   <td>
     <if @max_file_size@ eq "">
-      <i>not set</i>
+      <i>#general-comments.not_set#</i>
     </if>
     <else>
       <a href="/admin/site-map/parameter-set?package_id=@package_id@">
@@ -71,20 +69,20 @@
 
 <if @package_url@ ne "">
   <p>
-  <h3>Comments</h3>
+  <h3>#general-comments.Comments#</h3>
   <ul>
     <if @comments@ eq "">
-      <li>none
+      <li>#general-comments.none#
     </if>
     <else>
       @comments@
    </else>
   </ul>
   <p>
-  <h3>Full Comments</h3>
+  <h3>#general-comments.Full_Comments#</h3>
     <blockquote>
     <if @full_comments@ eq "">
-      <li>none
+      <li>#general-comments.none#
     </if>
     <else>
       @full_comments@
@@ -94,10 +92,8 @@
   @link@
 </if>
 <else>
-  <p>If <code>general-comments</code> is not mounted and 
-  calls are made to <code>general_comments_get_comments</code> 
-  or <code>general_comments_create_link</code>, then an error 
-  will be logged. This is because these calls output hyperlinks 
-  that would need to reference a mounted <code>general-comments</code> 
-  package instance.</font>
+  <p>#general-comments.If# <code>general-comments</code> #general-comments.lt_is_not_mounted_and___# <code>general_comments_get_comments</code> 
+  #general-comments.or# <code>general_comments_create_link</code>#general-comments.lt__then_an_error___will# <code>general-comments</code> 
+  #general-comments.package_instance#</font>
 </else>
+

@@ -21,40 +21,40 @@ ad_page_contract {
 set return_url [ad_urlencode index?[export_ns_set_vars url]]
 
 # dimensional slider definition
-set dimensional {
-    {approval "Status" unapproved {
-        {approved "approved" {where "[db_map status_approved]"} }
-        {unapproved "unapproved" {where "[db_map status_unapproved]"} }
-        {any "all" {} }
-}   }
-    {modified "Last Modified" any {
-        {1d "last 24 hours" {where "[db_map modified_last_24hours]"}}
-        {1w "last week" {where "[db_map modified_last_week]"}}
-        {1m "last month" {where "[db_map modified_last_month]"}}
-        {any "all" {} }
-}   }
-}
+set dimensional [list \
+    [list approval "[_ general-comments.Status]" unapproved [list \
+        [list approved "[_ general-comments.approved]" {where "[db_map status_approved]"} ] \
+        [list unapproved "[_ general-comments.unapproved]" {where "[db_map status_unapproved]"} ] \
+        [list any "[_ general-comments.all]" {} ] \
+    ]] \
+    [list modified "[_ general-comments.Last_Modified]" any [list \
+        [list 1d "[_ general-comments.last_24_hours]" {where "[db_map modified_last_24hours]"}] \
+        [list 1w "[_ general-comments.last_week]" {where "[db_map modified_last_week]"}] \
+        [list 1m "[_ general-comments.last_month]" {where "[db_map modified_last_month]"}] \
+        [list any "[_ general-comments.all]" {} ] \
+    ]]
+]
 set dimensional_bar [ad_dimensional $dimensional]
 
 # ad_table definition
-set table_def {
-    {num "Num" {} {<td>$Tcount</td>}}
-    {comment_id "ID#" {} \
-            {<td><a href="../view-comment?comment_id=$comment_id&return_url=admin/$return_url">$comment_id</a></td>}}
-    {title "Title" {} {}}
-    {author "Author" {upper(author) $order} \
-            {<td><a href="/shared/community-member?user_id=$creation_user">$author</a></td>}}
-    {approved_p "Approved" {} 01}
-    {live_version_p "Has live version" {} 01}
-    {pretty_date "Last Modified" {creation_date $order} {}}
-    {actions "Actions" {} \
+set table_def [list \
+    [list num "[_ general-comments.Num]" {} {<td>$Tcount</td>}] \
+    [list comment_id "[_ general-comments.ID]" {} \
+            {<td><a href="../view-comment?comment_id=$comment_id&return_url=admin/$return_url">$comment_id</a></td>}] \
+    [list title "[_ general-comments.Title_1]" {} {}] \
+    [list author "[_ general-comments.Author]" {upper(author) $order} \
+            {<td><a href="/shared/community-member?user_id=$creation_user">$author</a></td>}] \
+    [list approved_p "[_ general-comments.Approved]" {} 01] \
+    [list live_version_p "[_ general-comments.Has_live_version]" {} 01] \
+    [list pretty_date "[_ general-comments.Last_Modified]" {creation_date $order} {}] \
+    [list actions "[_ general-comments.Actions]" {} \
             {<td><a href="toggle-approval?comment_id=$comment_id&return_url=$return_url">
     [if {$approved_p} { 
-        subst {reject}
+        subst {[_ general-comments.reject]}
     } else { 
-        subst {approve}
-    }]</a> | <a href="delete?comment_id=$comment_id&return_url=$return_url">delete</a></td>}}
-}
+        subst {[_ general-comments.approve]}
+    }]</a> | <a href="delete?comment_id=$comment_id&return_url=$return_url">[_ general-comments.delete]</a></td>}]\
+]
     
 # sql to retrieve comments
 set sql "
@@ -80,11 +80,11 @@ set sql "
 set extra_var_list [list return_url $return_url]
 
 set comments_table [ad_table -Torderby $orderby \
-	                     -Tmissing_text {<i>No comments available</i>} \
+	                     -Tmissing_text "<i>[_ general-comments.lt_No_comments_available]</i>" \
                              -Textra_vars $extra_var_list \
                              comments_select $sql $table_def]
 
-set page_title "General Comments Administration"
+set page_title "[_ general-comments.lt_General_Comments_Admi]"
 set context {}
 
 ad_return_template

@@ -33,8 +33,8 @@ ad_require_permission $parent_id write
 
 # set variables for template
 set attach_id [db_nextval acs_object_id_seq]
-set page_title "Add a file attachment to comment #$parent_id"
-set context [list [list "view-comment?comment_id=$parent_id" "Go back to comment"] "Add file attachment"]
+set page_title "[_ general-comments.lt_Add_a_file_attachment] #$parent_id"
+set context [list [list "view-comment?comment_id=$parent_id" "[_ general-comments.Go_back_to_comment]"] "[_ general-comments.Add_file_attachment]"]
 set target "file-add-2"
 set title ""
 set file_name ""

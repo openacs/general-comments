@@ -23,17 +23,17 @@ ad_page_contract {
     allow_file_attachments {
         set allow_files_p [ad_parameter AllowFileAttachmentsP {general-comments} {t}]
         if { $allow_files_p != "t" } {
-            ad_complain "Attaching files to comments has been disabled."            
+            ad_complain "[_ general-comments.lt_Attaching_files_to_co]"            
         }
     }
     check_file_size {
         set tmp_size [file size ${upload_file.tmpfile}]
         set max_file_size [ad_parameter MaxFileSize {general-comments} {0}]
         if { $tmp_size > $max_file_size && $max_file_size > 0 } {
-            ad_complain "Your file is too large.  The publisher of [ad_system_name] has chosen to limit attachments to [util_commify_number $max_file_size] bytes.\n"
+            ad_complain "[_ general-comments.lt_Your_file_is_too_larg]  [_ general-comments.The_publisher_of] [ad_system_name] [_ general-comments.lt_has_chosen_to_limit_a] [util_commify_number $max_file_size] [_ general-comments.bytes].\n"
         }
         if { $tmp_size == 0 } {
-            ad_complain "Your file is zero-length.  Either you attempted to upload a zero length file, a file which does not exists, or something went wrong during the transfer.\n"
+            ad_complain "[_ general-comments.lt_Your_file_is_zero-len]\n"
         }
     }
 }

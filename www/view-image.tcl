@@ -36,8 +36,8 @@ db_1row get_image {
            r.revision_id = m.image_id
 }
 
-set page_title "Image attachment"
-set context [list [list "$return_url" "Go back to comment"] "Image attachment"]
+set page_title "[_ general-comments.Image_attachment]"
+set context [list [list "$return_url" "[_ general-comments.Go_back_to_comment]"] "[_ general-comments.Image_attachment]"]
 
 ad_return_template
 

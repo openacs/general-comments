@@ -36,8 +36,8 @@ db_1row get_comment {
 }
 
 # set variables for template
-set page_title "Edit file attachment on comment #$parent_id"
-set context [list [list "view-comment?comment_id=$parent_id" "Go back to comment"] "Edit file attachment"]
+set page_title "[_ general-comments.lt_Edit_file_attachment_] #$parent_id"
+set context [list [list "view-comment?comment_id=$parent_id" "[_ general-comments.Go_back_to_comment]"] "[_ general-comments.Edit_file_attachment]"]
 set target "file-edit-2"
 
 ad_return_template "file-ae"

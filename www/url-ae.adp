@@ -8,20 +8,21 @@
 <blockquote>
 <table>
   <tr>
-    <td valign=top align=right>Label: </td>
+    <td valign=top align=right>#general-comments.Label# </td>
     <td><input type=text name=label size=40 value="@label@"></td>
   </tr>
   <tr>
-    <td valign=top align=right>URL: </td>
+    <td valign=top align=right>#general-comments.URL# </td>
     <td>
       <input size=40 name=url value="@url@"><br>
-      <font size=-1>Example: http://www.arsdigita.com/</font>
+      <font size=-1>#general-comments.lt_Example_httpwwwarsdig#</font>
     </td>
   </tr>
 </table>
 <p>
 <center>
-<input type=submit value="Proceed">
+<input type=submit value="#general-comments.Proceed#">
 </center>
 </blockquote>
 </form>
+

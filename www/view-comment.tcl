@@ -68,7 +68,7 @@ if { $write_perm_p == 1 } {
                   g.comment_id = r.item_id and
 	          r.revision_id = :revision_id
     }] } {
-        ad_return_complaint 1 "The comment_id does not refer to a valid comment."
+        ad_return_complaint 1 "[_ general-comments.lt_The_comment_id_does_n]"
     }
 
 } else {
@@ -92,7 +92,7 @@ if { $write_perm_p == 1 } {
                   g.comment_id = r.item_id and
 	          r.revision_id = content_item.get_live_revision(:comment_id)
     }] } {
-        ad_return_complaint 1 "The comment_id does not refer to a valid comment."
+        ad_return_complaint 1 "[_ general-comments.lt_The_comment_id_does_n]"
     }
 }
 
@@ -133,8 +133,8 @@ if { $allow_file_p == "f" && $allow_link_p == "f" } {
     set allow_attach_p "f"
 }
 set comment_on_id [db_string get_object_id "select object_id from general_comments where comment_id = :comment_id"]
-set page_title "View comment on: [acs_object_name $comment_on_id]"
-set context {"View comment"}
+set page_title "[_ general-comments.View_comment_on]: [acs_object_name $comment_on_id]"
+set context "\"[_ general-comments.View_comment]\""
 set return_url_view "[ad_urlencode view-comment?[export_ns_set_vars url]]"
 set is_creator_p "f"
 if { $user_id == $creation_user } {

@@ -24,8 +24,8 @@ ad_page_contract {
     link:onevalue
 }    
 
-set page_title "Test page for General Comments"
-set context {"test"}
+set page_title "[_ general-comments.lt_Test_page_for_General]"
+set context "\"[_ general-comments.test]\""
 
 if { ![db_0or1row get_gc_package_id {
     select package_id
