@@ -37,28 +37,11 @@ create index general_comments_object_id_idx on general_comments (object_id);
 create function inline_0 ()
 returns integer as '
 -- define and grant privileges
-declare
-    registered_users acs_objects.object_id%TYPE;
-    default_context  acs_objects.object_id%TYPE;
 begin
-
-    -- retreive object ids for magic objects
-    registered_users := acs__magic_object_id(''registered_users'');
-    default_context  := acs__magic_object_id(''default_context'');
 
     -- create privileges
     PERFORM acs_privilege__create_privilege(''general_comments_create'', null, null);
 
-    -- associte privileges to global privileges
-    PERFORM acs_privilege__add_child(''create'',''general_comments_create'');
-    
-    -- allow registered users to create comments
-    PERFORM acs_permission__grant_permission (
-        default_context,
-        registered_users,
-        ''general_comments_create''
-    );
-    
     return 0;
 end;' language 'plpgsql';
 

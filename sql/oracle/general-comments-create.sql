@@ -34,27 +34,10 @@ comment on column general_comments.category is '
 create index general_comments_object_id_idx on general_comments (object_id);
 
 -- define and grant privileges
-declare
-    registered_users acs_objects.object_id%TYPE;
-    default_context  acs_objects.object_id%TYPE;
 begin
-
-    -- retreive object ids for magic objects
-    registered_users := acs.magic_object_id('registered_users');
-    default_context  := acs.magic_object_id('default_context');
 
     -- create privileges
     acs_privilege.create_privilege('general_comments_create');
-
-    -- associte privileges to global privileges
-    acs_privilege.add_child('create','general_comments_create');
-    
-    -- allow registered users to create comments
-    acs_permission.grant_permission (
-       object_id  => default_context,
-       grantee_id => registered_users,
-       privilege  => 'general_comments_create'
-    );
 
 end;
 /
