@@ -1,0 +1,12 @@
+Author: Pascal Scheffers (Pascal@Scheffers.net)
+
+Porting status notes for general-comments
+
+file:/packages/general-comments/tcl/general-comments-procs.tcl
+Moved most queries from variables to in-line for the QueryExtractor
+appended '_deprecated' to query-names in 'ad_proc -deprecated' functions. 
+Left one duplicate 
+
+TODOs
+In .../sql/pg/gc-drop.sql:
+	Is the explicit deletion of image-attachments still required?
