@@ -6,18 +6,19 @@
     <pretty-plural>General Comments</pretty-plural>
     <initial-install-p>f</initial-install-p>
     <singleton-p>t</singleton-p>
+    <auto-mount>comments</auto-mount>
 
-    <version name="4.0" url="http://www.arsdigita.com/acs-repository/download/apm/general-comments-4.0.apm">
+    <version name="4.1" url="http://openacs.org/repository/download/apm/general-comments-4.1.apm">
     <database-support>
         <database>oracle</database>
         <database>postgresql</database>
     </database-support>
-        <owner url="mailto:phong@arsdigita.com">Phong Nguyen</owner>
+        <owner url="mailto:dhogaza@pacifier.com">Don Baccus</owner>
         <summary>Provides commenting facility on objects.</summary>
-        <release-date>2001-01-08</release-date>
-        <vendor url="http://www.arsdigita.com/">ArsDigita Corporation</vendor>
+        <release-date>2003-01-30</release-date>
+        <vendor url="http://openacs.org">OpenACS</vendor>
 
-        <provides url="general-comments" version="4.0"/>
+        <provides url="general-comments" version="4.1"/>
         <requires url="acs-kernel" version="4.0"/>
         <requires url="acs-messaging" version="4.0"/>
 
@@ -44,6 +45,7 @@
             <file type="content_page" path="www/admin/index.adp"/>
             <file type="content_page" path="www/admin/index.tcl"/>
             <file type="query_file" path="www/admin/index.xql"/>
+            <file type="content_page" path="www/admin/master.adp"/>
             <file type="query_file" db_type="oracle" path="www/admin/toggle-approval-oracle.xql"/>
             <file type="query_file" db_type="postgresql" path="www/admin/toggle-approval-postgresql.xql"/>
             <file type="content_page" path="www/admin/toggle-approval.tcl"/>
@@ -96,6 +98,7 @@
             <file type="content_page" path="www/index.adp"/>
             <file type="content_page" path="www/index.tcl"/>
             <file type="query_file" path="www/index.xql"/>
+            <file type="content_page" path="www/master.adp"/>
             <file type="content_page" path="www/test.adp"/>
             <file type="content_page" path="www/test.tcl"/>
             <file type="query_file" db_type="oracle" path="www/url-add-2-oracle.xql"/>
@@ -116,9 +119,11 @@
             <file type="content_page" path="www/view-image.tcl"/>
             <file type="query_file" path="www/view-image.xql"/>
         </files>
+        <callbacks>
+        </callbacks>
         <parameters>
-            <parameter datatype="string"  min_n_values="1"  max_n_values="1"  name="AllowLinkAttachmentsP"  default="t" description="Sets whether links can be attached to comments. Values are 't' and 'f'."/>
             <parameter datatype="string"  min_n_values="1"  max_n_values="1"  name="AllowFileAttachmentsP"  default="t" description="Sets whether files can be attached to comments. Values are 't' and 'f'."/>
+            <parameter datatype="string"  min_n_values="1"  max_n_values="1"  name="AllowLinkAttachmentsP"  default="t" description="Sets whether links can be attached to comments. Values are 't' and 'f'."/>
             <parameter datatype="string"  min_n_values="1"  max_n_values="1"  name="AutoApproveCommentsP"  default="t" description="Sets whether comments go live immediately. Values are 't' and 'f'."/>
             <parameter datatype="number"  min_n_values="1"  max_n_values="1"  name="MaxFileSize"  default="0" description="Maximum file size that can be uploaded in bytes. 0 for unlimited."/>
         </parameters>
