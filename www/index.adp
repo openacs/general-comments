@@ -1,14 +1,14 @@
 <master>
-<property name="title">@page_title@</property>
-<property name="context">@context@</property>
+<property name="title">@page_title;noquote@</property>
+<property name="context">@context;noquote@</property>
 
 <if @admin_p@ eq 1>
   [ <a href="admin/">#general-comments.Administer#</a> ]
 </if>
 <p>
-@dimensional_bar@
+@dimensional_bar;noquote@
 <p>
-@comments_table@
+@comments_table;noquote@
 
 
 

@@ -1,8 +1,8 @@
 <master>
-<property name="title">@page_title@</property>
-<property name="context">@context@</property>
-<property name="return_url">@return_url@</property>
-<property name="object_name">@object_name@</property>
+<property name="title">@page_title;noquote@</property>
+<property name="context">@context;noquote@</property>
+<property name="return_url">@return_url;noquote@</property>
+<property name="object_name">@object_name;noquote@</property>
 
 <if @return_url@ ne "">
 [<a href="@return_url@">#general-comments.lt_Go_back_to_where_you_#</a>]<br>
