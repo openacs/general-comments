@@ -26,29 +26,6 @@
 </fullquery>
 
  
-<fullquery name="general_comments_package_url_not_cached.get_package_url">      
-      <querytext>
-      
-             select site_node.url(s.node_id) as package_url
-               from site_nodes s, apm_packages a
-              where s.object_id = a.package_id and
-                    lower(a.package_key) = 'general-comments' and
-                    RowNum = 1
-      </querytext>
-</fullquery>
-
- 
-<fullquery name="get_comments.get_package_url_deprecated">      
-      <querytext>
-      
-             select site_node.url(s.node_id)
-               from site_nodes s, apm_packages a
-              where s.object_id = a.package_id and
-                    a.package_key = 'general-comments'
-      </querytext>
-</fullquery>
-
- 
 <fullquery name="get_comments.get_comments_deprecated">      
       <querytext>
       
@@ -74,17 +51,6 @@
 </fullquery>
 
  
-<fullquery name="get_comments.get_package_url_deprecated">      
-      <querytext>
-      
-             select site_node.url(s.node_id)
-               from site_nodes s, apm_packages a
-              where s.object_id = a.package_id and
-                    a.package_key = 'general-comments'
-      </querytext>
-</fullquery>
-
-
 <fullquery name="general_comment_new.insert_comment">      
       <querytext>
       
