@@ -14,7 +14,7 @@ ad_page_contract {
     {return_url {} }
 } -properties {
     page_title:onevalue
-    context_bar:onevalue
+    context:onevalue
     parent_id:onevalue
     target:onevalue
     title:onevalue
@@ -34,7 +34,7 @@ ad_require_permission $parent_id write
 # set variables for template
 set attach_id [db_nextval acs_object_id_seq]
 set page_title "Add a file attachment to comment #$parent_id"
-set context_bar {[list "view-comment?comment_id=$parent_id" "Go back to comment"] "Add file attachment"}
+set context [list [list "view-comment?comment_id=$parent_id" "Go back to comment"] "Add file attachment"]
 set target "file-add-2"
 set title ""
 set file_name ""

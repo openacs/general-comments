@@ -15,7 +15,7 @@ ad_page_contract {
     { return_url {} }
 } -properties {
     page_title:onevalue
-    context_bar:onevalue
+    context:onevalue
     target:onevalue
     title:onevalue
     content:onevalue
@@ -50,7 +50,7 @@ if { ![db_0or1row get_comment {
 }
 
 set page_title "Edit comment on: [acs_object_name $object_id]"
-set context_bar {"Edit comment"}
+set context {"Edit comment"}
 set target "comment-edit-2"
 
 ad_return_template "comment-ae"

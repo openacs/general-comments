@@ -12,7 +12,7 @@ ad_page_contract {
     { return_url {} }
 } -properties {
     page_title:onevalue
-    context_bar:onevalue
+    context:onevalue
     return_url:onevalue
     image_id:onevalue
     width:onevalue
@@ -37,7 +37,7 @@ db_1row get_image {
 }
 
 set page_title "Image attachment"
-set context_bar {[list "$return_url" "Go back to comment"] "Image attachment"}
+set context [list [list "$return_url" "Go back to comment"] "Image attachment"]
 
 ad_return_template
 

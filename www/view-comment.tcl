@@ -14,7 +14,7 @@ ad_page_contract {
     { return_url {} }
 } -properties {
     page_title:onevalue
-    context_bar:onevalue
+    context:onevalue
     return_url:onevalue
     object_name:onevalue
     title:onevalue
@@ -134,7 +134,7 @@ if { $allow_file_p == "f" && $allow_link_p == "f" } {
 }
 set comment_on_id [db_string get_object_id "select object_id from general_comments where comment_id = :comment_id"]
 set page_title "View comment on: [acs_object_name $comment_on_id]"
-set context_bar {"View comment"}
+set context {"View comment"}
 set return_url_view "[ad_urlencode view-comment?[export_ns_set_vars url]]"
 set is_creator_p "f"
 if { $user_id == $creation_user } {

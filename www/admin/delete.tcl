@@ -14,7 +14,7 @@ ad_page_contract {
     { return_url {}}
 } -properties {
     page_title:onevalue
-    context_bar:onevalue
+    context:onevalue
     title:onevalue
     comment_id:onevalue
     mime_type:onevalue
@@ -45,6 +45,6 @@ if { ![db_0or1row get_comment $sql] } {
 }
 
 set page_title "Delete a comment"
-set context_bar {"Delete a comment"}
+set context {"Delete a comment"}
 
 ad_return_template

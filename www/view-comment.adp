@@ -1,6 +1,6 @@
 <master src="master">
 <property name="page_title">@page_title@</property>
-<property name="context_bar">@context_bar@</property>
+<property name="context">@context@</property>
 <property name="return_url">@return_url@</property>
 <property name="object_name">@object_name@</property>
 

@@ -1,6 +1,6 @@
 <master src="master">
 <property name="page_title">@page_title@</property>
-<property name="context_bar">@context_bar@</property>
+<property name="context">@context@</property>
 
 <form action=delete-2 method=post>
 <%= [export_form_vars comment_id return_url] %>

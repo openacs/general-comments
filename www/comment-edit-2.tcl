@@ -22,7 +22,7 @@ ad_page_contract {
     { return_url {} }
 } -properties {
     page_title:onevalue
-    context_bar:onevalue
+    context:onevalue
     mime_type:onevalue
     title:onevalue
     content:onevalue
@@ -33,7 +33,7 @@ ad_page_contract {
 ad_require_permission $comment_id write
 
 set page_title "Confirm comment on: [acs_object_name $object_id]"
-set context_bar {"Confirm comment"}
+set context {"Confirm comment"}
 set target "comment-edit-3"
 
 set html_content [ad_html_text_convert -from $comment_mime_type -- $content]

@@ -1,6 +1,6 @@
 <master src="master">
 <property name="page_title">@page_title@</property>
-<property name="context_bar">@context_bar@</property>
+<property name="context">@context@</property>
 <property name="parent_id">@parent_id@</property>
 
 <form method=POST action= "@target@">

@@ -16,7 +16,7 @@ ad_page_contract {
     { return_url {} }
 } -properties {
     page_title:onevalue
-    context_bar:onevalue
+    context:onevalue
     parent_id:onevalue
     target:onevalue
     title:onevalue
@@ -37,7 +37,7 @@ db_1row get_comment {
 
 # set variables for template
 set page_title "Edit file attachment on comment #$parent_id"
-set context_bar {[list "view-comment?comment_id=$parent_id" "Go back to comment"] "Edit file attachment"}
+set context [list [list "view-comment?comment_id=$parent_id" "Go back to comment"] "Edit file attachment"]
 set target "file-edit-2"
 
 ad_return_template "file-ae"

@@ -15,7 +15,7 @@ ad_page_contract {
     { return_url "" }
 } -properties {
     page_title:onevalue
-    context_bar:onevalue
+    context:onevalue
     target:onevalue
     title:onevalue
     content:onevalue
@@ -38,7 +38,7 @@ if { [empty_string_p $object_name] } {
 }
 
 set page_title "Add a comment to: $object_name"
-set context_bar {"Add comment"}
+set context {"Add comment"}
 set target "comment-add-2"
 set title ""
 set content ""

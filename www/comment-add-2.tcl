@@ -18,7 +18,7 @@ ad_page_contract {
     { return_url {} }
 } -properties {
     page_title:onevalue
-    context_bar:onevalue
+    context:onevalue
     comment_mime_type:onevalue
     title:onevalue
     content:onevalue
@@ -41,7 +41,7 @@ if { [empty_string_p $object_name] } {
 
 set comment_id [db_nextval acs_object_id_seq]
 set page_title "Confirm comment on $object_name"
-set context_bar {"Confirm comment"}
+set context {"Confirm comment"}
 set target "comment-add-3"
 set html_content [ad_html_text_convert -from $comment_mime_type -- $content]
 

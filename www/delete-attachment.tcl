@@ -16,7 +16,7 @@ ad_page_contract {
     { return_url {} }
 } -properties {
     page_title:onevalue
-    context_bar:onevalue
+    context:onevalue
     attach_id:onevalue
     parent_id:onevalue
     return_url:onevalue
@@ -27,6 +27,6 @@ ad_require_permission $attach_id delete
 
 # set template variables
 set page_title "Delete attachment"
-set context_bar {"Delete attachment"}
+set context {"Delete attachment"}
 
 ad_return_template

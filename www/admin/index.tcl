@@ -11,7 +11,7 @@ ad_page_contract {
     {orderby {} }
 } -properties {
     page_title:onevalue
-    context_bar:onevalue
+    context:onevalue
     dimensional_bar:onevalue
     comments_table:onevalue
 }
@@ -85,7 +85,7 @@ set comments_table [ad_table -Torderby $orderby \
                              comments_select $sql $table_def]
 
 set page_title "General Comments Administration"
-set context_bar {}
+set context {}
 
 ad_return_template
 

@@ -10,7 +10,7 @@ ad_page_contract {
 } { 
 } -properties {
     page_title:onevalue
-    context_bar:onevalue
+    context:onevalue
     package_id:onevalue
     gc_package_id:onevalue
     package_url:onevalue
@@ -25,7 +25,7 @@ ad_page_contract {
 }    
 
 set page_title "Test page for General Comments"
-set context_bar {"test"}
+set context {"test"}
 
 if { ![db_0or1row get_gc_package_id {
     select package_id
