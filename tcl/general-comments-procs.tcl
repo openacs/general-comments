@@ -15,6 +15,69 @@ ad_library {
     @cvs-id $Id$
 }
 
+
+ad_proc general_comment_new {
+    -object_id
+    -comment_id
+    -title
+    -comment_mime_type
+    -context_id
+    {-user_id ""}
+    {-creation_ip ""}
+    -is_live
+    -category
+    -content
+} {
+
+    db_transaction {
+	db_exec_plsql insert_comment {
+	    begin
+            :1 := acs_message.new (
+				   message_id    => :comment_id,
+				   title         => :title,
+				   mime_type     => :comment_mime_type,
+				   data          => empty_blob(),
+				   context_id    => :context_id,
+				   creation_user => :user_id, 
+				   creation_ip   => :creation_ip,
+				   is_live       => :is_live
+				   );
+	    end;
+	}
+
+	db_dml add_entry {
+	    insert into general_comments
+            (comment_id,
+             object_id,
+             category)
+	    values
+            (:comment_id,
+             :object_id,
+             :category)
+	}
+
+	db_1row get_revision {}  
+
+	db_dml set_content {} -blobs [list $content]
+
+	# Grant the user sufficient permissions to 
+	# created comment. This is done here to ensure that
+	# a fail on permissions granting will not leave
+	# the comment with incorrect permissions. 
+	if {![empty_string_p $user_id]} {
+	    permission::grant -object_id $comment_id \
+		              -party_id $user_id \
+		              -privilege "read"
+
+	    permission::grant -object_id $comment_id \
+		              -party_id $user_id \
+		              -privilege "write"
+
+	}
+    }
+    return $revision_id
+}
+
 ad_proc -public general_comments_get_comments {
     { -print_content_p 0 }
     { -print_attachments_p 0 }
