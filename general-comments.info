@@ -24,6 +24,8 @@
             <file type="package_spec" path="general-comments.info"/>
             <file type="data_model_create" db_type="oracle" path="sql/oracle/general-comments-create.sql"/>
             <file type="data_model_drop" db_type="oracle" path="sql/oracle/general-comments-drop.sql"/>
+            <file type="data_model_create" db_type="postgresql" path="sql/postgresql/general-comments-create.sql"/>
+            <file type="data_model_drop" db_type="postgresql" path="sql/postgresql/general-comments-drop.sql"/>
             <file type="tcl_procs" path="tcl/general-comments-procs.tcl"/>
             <file type="content_page" path="www/admin/delete-2.tcl"/>
             <file type="content_page" path="www/admin/delete.adp"/>
