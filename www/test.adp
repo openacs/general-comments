@@ -92,8 +92,8 @@
   @link@
 </if>
 <else>
-  <p>#general-comments.If# <code>general-comments</code> #general-comments.lt_is_not_mounted_and___# <code>general_comments_get_comments</code> 
-  #general-comments.or# <code>general_comments_create_link</code>#general-comments.lt__then_an_error___will# <code>general-comments</code> 
-  #general-comments.package_instance#</font>
+  <p>
+    #general-comments.if_general_comments_not_mounted#
+  </p>
 </else>
 
