@@ -21,7 +21,8 @@
                     r.revision_id = content_item.get_live_revision(g.comment_id) and
                     o.object_id = g.comment_id
                     $context_clause
-              order by o.creation_date
+                    $my_comments_clause
+              order by $orderby
       </querytext>
 </fullquery>
 

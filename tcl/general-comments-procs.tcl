@@ -81,7 +81,8 @@ ad_proc general_comment_new {
 ad_proc -public general_comments_get_comments {
     { -print_content_p 0 }
     { -print_attachments_p 0 }
-    {-context_id ""}
+    { -context_id "" }
+    { -my_comments_only_p 0 }
     object_id 
     {return_url {}}
 } {
@@ -99,6 +100,35 @@ ad_proc -public general_comments_get_comments {
     set package_url [general_comments_package_url]
     if { [empty_string_p $package_url] } {
         return ""
+    }
+
+    # package_id
+    array set node_array [site_node::get -url $package_url]
+    set package_id $node_array(package_id)
+
+    # set ordering
+    set recent_on_top_p [parameter::get \
+                             -package_id $package_id \
+                             -parameter "RecentOnTopP" \
+                             -default f]
+
+    if {[string is true $recent_on_top_p]} {
+        set orderby "o.creation_date desc"
+    } else {
+        set orderby "o.creation_date"
+    }
+
+    # filter output to only see present user?
+    set allow_my_comments_only_p [parameter::get \
+                                      -package_id $package_id \
+                                      -parameter "AllowDisplayMyCommentsLinkP" \
+                                      -default t]
+
+    if {[string is true $my_comments_only_p] && \
+            [string is true $allow_my_comments_only_p]} {
+        set my_comments_clause "and o.creation_user = :user_id"
+    } else {
+        set my_comments_clause ""
     }
 
     # initialize variables
