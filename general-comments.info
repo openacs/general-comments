@@ -6,6 +6,7 @@
     <pretty-plural>General Comments</pretty-plural>
     <initial-install-p>f</initial-install-p>
     <singleton-p>t</singleton-p>
+    <auto-mount>general-comments</auto-mount>
 
     <version name="4.0" url="http://www.arsdigita.com/acs-repository/download/apm/general-comments-4.0.apm">
     <database-support>
