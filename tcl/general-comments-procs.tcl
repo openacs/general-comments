@@ -108,9 +108,10 @@ ad_proc -public general_comments_get_comments {
                                       -parameter "AllowDisplayMyCommentsLinkP" \
                                       -default t]
 
-    if {[string is true $my_comments_only_p] && \
-            [string is true $allow_my_comments_only_p]} {
-        set my_comments_clause "and o.creation_user = :user_id"
+    if {[string is true $my_comments_only_p] 
+        && [string is true $allow_my_comments_only_p]} {
+	set user_id [ad_conn user_id]
+        set my_comments_clause "and o.creation_user = :user_id "
     } else {
         set my_comments_clause ""
     }
