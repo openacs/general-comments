@@ -20,6 +20,7 @@
               where g.object_id = :object_id and
                     r.revision_id = content_item__get_live_revision(g.comment_id) and
                     o.object_id = g.comment_id
+                    $context_clause
               order by o.creation_date
       </querytext>
 </fullquery>
