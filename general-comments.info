@@ -18,7 +18,7 @@
         <vendor url="http://www.arsdigita.com/">ArsDigita Corporation</vendor>
 
         <provides url="general-comments" version="4.0"/>
-        <requires url="acs-kernel" version="4.0"/>
+        <requires url="acs-kernel" version="4.6.2"/>
         <requires url="acs-messaging" version="4.0"/>
         <requires url="acs-content-repository" version="4.6.3"/>
 
