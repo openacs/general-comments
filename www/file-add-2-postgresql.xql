@@ -13,13 +13,14 @@
                     /* title          => */ :title,
                     /* description    => */ NULL,
                     /* mime_type      => */ :guessed_file_type,
-                    /* content        => */ NULL,
+                    /* data           => */ NULL,
                     /* width          => */ :original_width,
                     /* height         => */ :original_height,
                     /* create_date    => */ current_timestamp,
                     /* creation_user  => */ :user_id,
                     /* creation_ip    => */ :creation_ip,
-                    /* is_live        => */ :is_live
+                    /* is_live        => */ :is_live,
+                    /* storage_type   => */ 'file'
             );
         
       </querytext>
@@ -35,11 +36,12 @@
                     /* title          => */ :title,
                     /* description    => */ NULL,
                     /* mime_type      => */ :guessed_file_type,
-                    /* content        => */ NULL,
+                    /* data           => */ NULL,
                     /* creation_date  => */ current_timestamp,
                     /* creation_user  => */ :user_id,
                     /* creation_ip    => */ :creation_ip,
-                    /* is_live        => */ :is_live
+                    /* is_live        => */ :is_live,
+                    /* storage_type   => */ 'file'
             );
       </querytext>
 </fullquery>
