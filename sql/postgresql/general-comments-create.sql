@@ -42,6 +42,8 @@ begin
     -- create privileges
     PERFORM acs_privilege__create_privilege(''general_comments_create'', null, null);
 
+    PERFORM acs_privilege__add_child(''annotate'', ''general_comments_create'');
+
     return 0;
 end;' language 'plpgsql';
 

@@ -39,6 +39,8 @@ begin
     -- create privileges
     acs_privilege.create_privilege('general_comments_create');
 
+    acs_privilege.add_child('annotate', 'general_comments_create');
+
 end;
 /
 show errors
