@@ -1,5 +1,5 @@
-<master src="master">
-<property name="page_title">@page_title@</property>
+<master>
+<property name="title">@page_title@</property>
 <property name="context">@context@</property>
 
 Do you really wish to delete this attachment?
