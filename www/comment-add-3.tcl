@@ -16,6 +16,7 @@ ad_page_contract {
     { context_id "$object_id" }
     { category "" }
     { return_url "" }
+    { attach_p "f" }
 }    
 
 # authenticate the user
@@ -87,8 +88,8 @@ db_transaction {
     }
 }
 
-if { ![empty_string_p $return_url] } {
+if { [string equal $attach_p "f"] && ![empty_string_p $return_url] } {
     ad_returnredirect $return_url
 } else {
-    ad_returnredirect "view-comment?[export_vars { comment_id }]"
+    ad_returnredirect "view-comment?[export_vars { comment_id return_url }]"
 }

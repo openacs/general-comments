@@ -24,6 +24,8 @@ Here is how your comment would appear:
 <form action="@target@" method=post>
 <%= [export_form_vars comment_id object_id object_name context_id title content comment_mime_type category return_url] %>
 <input type=submit name=submit value="Confirm">
+<p>
+<input type="checkbox" name="attach_p" id="attach_ck"><label for="attach_ck">I would like to upload a file or add a link to my comment</label>
 </form>
 </center>
 
