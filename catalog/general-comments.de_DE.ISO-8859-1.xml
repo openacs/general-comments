@@ -34,10 +34,10 @@
   <msg key="edit_your_comment">Kommentar bearbeiten</msg>
   <msg key="Filename">Dateiname:</msg>
   <msg key="Full_Comments">Vollständige Kommentare</msg>
-  <msg key="gc_is_not_mounted">AK ist nicht geladen.</msg>
+  <msg key="gc_is_not_mounted">'Allgemeine Kommentare' ist nicht geladen.</msg>
   <msg key="General_Comments">Allgemeine Kommentare</msg>
   <msg key="Go_back_to_comment">Zurück zum Kommentar</msg>
-  <msg key="Has_live_version">Veröffentlichte Version vorhanden</msg>
+  <msg key="Has_live_version">Aktive Version vorhanden</msg>
   <msg key="HTML">HTML</msg>
   <msg key="ID">ID</msg>
   <msg key="if_general_comments_not_mounted">If &lt;code&gt;general-comments&lt;/code&gt; is not mounted and calls are made to &lt;code&gt;general_comments_get_comments&lt;/code&gt; or &lt;code&gt;general_comments_create_link&lt;/code&gt; , then an error will be logged. This is because these calls output hyperlinks that need to reference a mounted &lt;code&gt;general-comments&lt;/code&gt; package instance. </msg>
@@ -62,7 +62,7 @@
   <msg key="lt_Example_httpwwwarsdig">Beispiel: http://www.dotlrn.org</msg>
   <msg key="lt_General_Comments_Admi">Allgemeine Kommentare verwalten</msg>
   <msg key="lt_Go_back_to_where_you_">Zurück</msg>
-  <msg key="lt_has_chosen_to_limit_a">hat festgelegt, dass Anhänge begrenzt werden auf</msg>
+  <msg key="lt_has_chosen_to_limit_a">beträgt die zulässige Maximalgröße für Dateianhänge</msg>
   <msg key="lt_Here_is_how_your_comm">Ihr Kommentar wird wie folgt angezeigt:</msg>
   <msg key="lt_I_would_like_to_uploa">Datei oder URL an den Kommentar anhängen</msg>
   <msg key="lt_No_comments_available">Keine Kommentare vorhanden</msg>
@@ -74,7 +74,7 @@
   <msg key="lt_This_revision_is_live">Aktive Version</msg>
   <msg key="lt_This_revision_is_not_">Keine aktive Version</msg>
   <msg key="lt_Use_the_Browse_button">Klicken Sie auf 'Durchsuchen...', wählen Sie die gewünschte Datei aus und klicken Sie auf 'Öffnen'. </msg>
-  <msg key="lt_Your_file_is_too_larg">Ihre Datei ist zu gross.</msg>
+  <msg key="lt_Your_file_is_too_larg">Ihre Datei überschreitet die zulässige Maximalgröße.</msg>
   <msg key="lt_Your_file_is_zero-len">Ihre Datei enthält 0 Bytes. Möglicherweise ist ein Fehler bei der Übertragung aufgetreten.</msg>
   <msg key="no_attachments">Keine Anhänge vorhanden</msg>
   <msg key="none">Keine Kommentare vorhanden</msg>
@@ -89,7 +89,7 @@
   <msg key="Status">Status</msg>
   <msg key="test">Test</msg>
   <msg key="Text_above_is">Obiger Text ist</msg>
-  <msg key="The_publisher_of">Der Herausgeber von</msg>
+  <msg key="The_publisher_of">Innerhalb von</msg>
   <msg key="Title">Betreff:</msg>
   <msg key="Title_1">Betreff</msg>
   <msg key="unapproved">Nicht freigegeben</msg>

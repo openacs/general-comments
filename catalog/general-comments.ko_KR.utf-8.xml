@@ -40,6 +40,7 @@
   <msg key="Has_live_version">활동중인 버전</msg>
   <msg key="HTML">HTML</msg>
   <msg key="ID">아이디#</msg>
+  <msg key="if_general_comments_not_mounted">만약에 &lt;code&gt;general-comments&lt;/code&gt;이 설치되어 있지 않은데 &lt;code&gt;general_comments_get_comments&lt;/code&gt;나 &lt;code&gt;general_comments_create_link&lt;/code&gt;에 호출을 하면, 에러가 기록될 것이다. 이것은 이런 호출이 하이퍼링크를 생성하여 설치된&lt;code&gt;general-comments&lt;/code&gt; 패키지 인스턴스를 참조하기 때문이다.</msg>
   <msg key="Image_attachment">이미지 첨부</msg>
   <msg key="Label">레이블:</msg>
   <msg key="last_24_hours">지난 24시간</msg>
