@@ -40,6 +40,8 @@
   <msg key="Has_live_version">Heeft live versie</msg>
   <msg key="HTML">HTML</msg>
   <msg key="ID">ID#</msg>
+  <msg key="if_general_comments_not_mounted">Als &lt;code&gt;general-comments&lt;/code&gt; niet aangekoppeld is en aanroepen gemaakt worden naar &lt;code&gt;general_comments_get_comments&lt;/code&gt; of &lt;code&gt;general_comments_create_link&lt;/code&gt;, dan wordt er een fout gelogd. Dit gebeurt omdat deze aanroepen hyperlinks uitvoeren welke een gekoppelde &lt;code&gt;general-comments&lt;/code&gt; pakketinstantie moeten refereren.
+</msg>
   <msg key="Image_attachment">Afbeelding als Bijlage</msg>
   <msg key="Label">Label:</msg>
   <msg key="last_24_hours">laatste 24 uur</msg>
