@@ -1,11 +1,12 @@
 <master src="master">
 <property name="page_title">@page_title@</property>
 <property name="context_bar">@context_bar@</property>
+<property name="focus">comment.title</property>
 
 @page_title@
 
 <blockquote>
-<form action="@target@" method=post>
+<form action="@target@" method="post" name="comment">
 <%= [export_form_vars comment_id object_id object_name context_id return_url] %>
 Title:<br>
 <input type=text name=title maxlength=200 size=50 value="@title@">
