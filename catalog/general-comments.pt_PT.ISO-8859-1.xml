@@ -40,7 +40,6 @@
   <msg key="Has_live_version">Tem versão activa</msg>
   <msg key="HTML">HTML</msg>
   <msg key="ID">ID#</msg>
-  <msg key="if_general_comments_not_mounted">Se &lt;code&gt;general-comments&lt;/code&gt; não for montado e forem feitas chamadas a &lt;code&gt;general_comments_get_comments&lt;/code&gt; ou &lt;code&gt;general_comments_create_link&lt;/code&gt; ,então um erro será registado. Isto porque estas chamadas têm como saida hyperlinks que precisam de fazer referência a uma instância montada do pacote &lt;code&gt;general-comments&lt;/code&gt;. </msg>
   <msg key="Image_attachment">Imagem anexa</msg>
   <msg key="Label">Etiqueta:</msg>
   <msg key="last_24_hours">últimas 24 horas</msg>

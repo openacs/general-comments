@@ -40,7 +40,6 @@
   <msg key="Has_live_version">لَها نسخةُ حيّةُ</msg>
   <msg key="HTML">إتش تي إم إل</msg>
   <msg key="ID">#الهويّة</msg>
-  <msg key="if_general_comments_not_mounted">إذا &lt;code&gt;general-comments&lt;/code&gt; لم تحمل ونداءات تجعل إلى &lt;code&gt;general_comments_get_comments&lt;/code&gt; أو &lt;code&gt;general_comments_create_link&lt;/code&gt; ، ثمّ خطأ سيسجّل. هذا لأن هذه النداءات أنتجت الوصلات الفائقة التي تحتاج لإرجاع تحميل &lt;code&gt;general-comments&lt;/code&gt; حالة رزمة.</msg>
   <msg key="Image_attachment">صورة ملحقة</msg>
   <msg key="Label">العلامة:</msg>
   <msg key="last_24_hours">آخر 24 ساعة</msg>
@@ -56,7 +55,7 @@
   <msg key="lt_Attaching_links_to_co">إلحاق الروابط بالتعليقات قد عُطّل.</msg>
   <msg key="lt_Current_values_for_Ge">القيم الحاليّة لرزمة التعليقات العامّة</msg>
   <msg key="lt_Do_you_really_wish_to">هل تَرْغبُ حقاً أَن تَحْذفَ التعليق التالي وملحقاته؟</msg>
-  <msg key="lt_Do_you_really_wish_to_1">هل تَرْغبُ حقاً أَن تَحْذفَ هذا الملحق؟ </msg>
+  <msg key="lt_Do_you_really_wish_to_1">هل تَرْغبُ حقاً أَن تَحْذفَ هذاالملحق؟</msg>
   <msg key="lt_Edit_file_attachment_">حررْ ملحق الملف على التعليق</msg>
   <msg key="lt_Edit_url_attachment_o">حررْ ملحق الموقع على التعليق</msg>
   <msg key="lt_Example_httpwwwarsdig">مثلاً: /http://www.arsdigita.com</msg>
@@ -68,7 +67,7 @@
   <msg key="lt_No_comments_available">لا تعليقات متوفرة</msg>
   <msg key="lt_no_gc_package_instanc">لا حالة رزمة جِسِ</msg>
   <msg key="lt_Note_if_the_text_abov">لاحظ: إذا النصّ فوق فقد كلّ إستراحات فقرتها ثمّ أنت من المحتمل كان يجب أن تختار &quot;نصّ عادي&quot; بدلا من إتش تي إم إل. إستعمل زرّ رجوع متصفّحك للعودة إلى الاستمارة.</msg>
-  <msg key="lt_Note_if_the_text_abov_1">لاحظ: إذا النصّ فوق لها باقة بطاقات الإتش تي إم إل المرئية فأنت من المحتمل كان يجب أن تختار &quot;إتش تي إم إل&quot; بدلا من &quot;نصّ عادي&quot;. إستعمل زرّ رجوع متصفّحك للعودة إلى الاستمارة. </msg>
+  <msg key="lt_Note_if_the_text_abov_1">ملاحظة: إذا النصّ فوق لديه مجموعة من بطاقات إتش تي إم إل ثمّ أنت من المحتمل كان يجب أن تختار &quot;إتش تي إم إل&quot; بدلا من  &quot;نصّ عادي&quot;. إستعمل زرّ رجوع متصفّحك للعودة إلى الاستمارة الإرسال. </msg>
   <msg key="lt_Test_page_for_General">صفحة الاختبار للتّعليقات العامّة</msg>
   <msg key="lt_The_comment_id_does_n">هويةُ التعليقُ لا تُشيرُ إلى تعليقِ صحيحِ</msg>
   <msg key="lt_This_revision_is_live">هذه المراجعة حيّة.</msg>
