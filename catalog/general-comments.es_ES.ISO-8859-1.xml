@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="general-comments" package_version="4.1" locale="es_ES" charset="ISO-8859-1">
+<message_catalog package_key="general-comments" package_version="4.4" locale="es_ES" charset="ISO-8859-1">
 
   <msg key="Actions">Acciones</msg>
   <msg key="Add_a_comment_to">Añadir un comentario a</msg>
