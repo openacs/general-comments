@@ -51,7 +51,7 @@ set table_def [list \
                    [list title "[_ general-comments.Title_1]" {} {}] \
                    [list approved_p "[_ general-comments.Approved]" {} 01] \
                    [list live_version_p "[_ general-comments.Has_live_version]" {} 01] \
-                   [list pretty_date "[_ general-comments.Last_Modified]" {creation_date $order} {<td>[lc_time_fmt $creation_date "%x %X" en_GB]</td>}] \
+                   [list pretty_date "[_ general-comments.Last_Modified]" {creation_date $order} {<td>[lc_time_fmt $creation_date "%x %X"]</td>}] \
 ]
 
 # create the table to display the comments

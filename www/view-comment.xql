@@ -38,4 +38,18 @@
 </fullquery>
 
  
-</queryset>
+<fullquery name="get_revisions">      
+      <querytext>
+      
+    select r.revision_id,
+           o.creation_date as revision_date
+      from cr_revisions r,
+           acs_objects o
+     where r.item_id = :comment_id and
+           o.object_id = r.revision_id
+     order by o.creation_date desc
+
+      </querytext>
+</fullquery>
+ 
+</queryset></queryset>

@@ -115,15 +115,9 @@ db_multirow links get_links {
      where i.parent_id = :comment_id and
            e.extlink_id = i.item_id
 }
-           
-db_multirow revisions get_revisions {
-    select r.revision_id,
-           to_char(o.creation_date, 'MM-DD-YY HH24:MI:SS') as revision_date
-      from cr_revisions r,
-           acs_objects o
-     where r.item_id = :comment_id and
-           o.object_id = r.revision_id
-     order by o.creation_date desc
+
+db_multirow revisions get_revisions {*SQL*} { 
+    set revision_date [lc_time_fmt $revision_date %c]
 }
 
 set allow_file_p [ad_parameter AllowFileAttachmentsP {general-comments} {t}]
