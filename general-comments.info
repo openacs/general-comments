@@ -16,9 +16,9 @@
         <description format="text/html">General comments provides the widgets and UI to support commentability on any object.  There is also an admin interface to edit/hide/delete comments.</description>
 
         <provides url="general-comments" version="4.1"/>
-        <requires url="acs-content-repository" version="5.0.0a5"/>
-        <requires url="acs-kernel" version="5.0.0a5"/>
-        <requires url="acs-messaging" version="5.0.0a5"/>
+        <requires url="acs-content-repository" version="5.0.0b4"/>
+        <requires url="acs-kernel" version="5.0.0b4"/>
+        <requires url="acs-messaging" version="5.0.0b4"/>
 
         <callbacks>
         </callbacks>
