@@ -207,7 +207,8 @@ ad_proc -public general_comments_create_link {
     { -link_text {Add a comment} }
     -context_id
     { -category {} }
-    object_id 
+    { -link_attributes "" }
+    object_id
     {return_url {}} 
 } {
     Generates an html link to add a comment to an object.
@@ -218,6 +219,9 @@ ad_proc -public general_comments_create_link {
     @param link_text   The text to display for the link.
     @param context_id  The context_id for the comment.
     @param category    A category to associate comment to.
+    @param link_attributes  Some additional parameters for the link. Could be used
+			to set the link title and other things like that. Ex. -link_attributes
+			<i>{ title="My link title" }</i>
 } {
     # get the package url
     set package_url [general_comments_package_url]
@@ -229,7 +233,7 @@ ad_proc -public general_comments_create_link {
     if { ![info exists object_name] } { set object_name [acs_object_name $object_id] }
     if { ![info exists context_id] } { set context_id $object_id }
 
-    set html "<a href=\"${package_url}comment-add?[export_url_vars object_id object_name return_url context_id category]\">$link_text</a>"
+    set html "<a href=\"${package_url}comment-add?[export_url_vars object_id object_name return_url context_id category]\" $link_attributes>$link_text</a>"
 
     return $html
 }
