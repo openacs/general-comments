@@ -11,7 +11,7 @@
 
 -- create a table to extend cr_items
 create table general_comments (
-    comment_id  integer constraint general_comments_comment_id_fk
+    comment_id  integer  constraint general_comments_comment_id_fk
                 references acs_messages (message_id) on delete cascade 
                 constraint general_comments_pk
                 primary key,
@@ -42,22 +42,23 @@ declare
 begin
 
     -- retreive object ids for magic objects
-    registered_users := acs.magic_object_id(''registered_users'');
-    default_context  := acs.magic_object_id(''default_context'');
+    registered_users := acs__magic_object_id(''registered_users'');
+    default_context  := acs__magic_object_id(''default_context'');
 
     -- create privileges
-    acs_privilege.create_privilege(''general_comments_create'');
+    PERFORM acs_privilege__create_privilege(''general_comments_create'', null, null);
 
     -- associte privileges to global privileges
-    acs_privilege.add_child(''create'',''general_comments_create'');
+    PERFORM acs_privilege__add_child(''create'',''general_comments_create'');
     
     -- allow registered users to create comments
-    acs_permission.grant_permission (
-       object_id  => default_context,
-       grantee_id => registered_users,
-       privilege  => ''general_comments_create''
+    PERFORM acs_permission__grant_permission (
+        default_context,
+        registered_users,
+        ''general_comments_create''
     );
-
+    
+    return 0;
 end;' language 'plpgsql';
 
 select inline_0 ();
@@ -72,19 +73,22 @@ create function inline_1 ()
 returns integer as '
 begin
 
-    content_type.register_child_type (
-        parent_type => ''acs_message_revision'',
-        child_type  => ''content_revision''
+    PERFORM content_type__register_child_type (
+        /* parent_type => */ ''acs_message_revision'',
+        /* child_type  => */ ''content_revision'',
+	''generic'', 0, null
     );
-    content_type.register_child_type (
-        parent_type => ''acs_message_revision'',
-        child_type  => ''image''
+    PERFORM content_type__register_child_type (
+        /* parent_type => */ ''acs_message_revision'',
+        /* child_type  => */ ''image'',
+	''generic'', 0, null
     );
-    content_type.register_child_type (
-        parent_type => ''acs_message_revision'',
-        child_type  => ''content_extlink''
+    PERFORM content_type__register_child_type (
+        /* parent_type => */ ''acs_message_revision'',
+        /* child_type  => */ ''content_extlink'',
+	''generic'', 0, null
     );
-
+    return 0;
 end;' language 'plpgsql';
 
 select inline_1 ();
