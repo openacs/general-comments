@@ -18,6 +18,7 @@ ad_library {
 ad_proc -public general_comments_get_comments {
     { -print_content_p 0 }
     { -print_attachments_p 0 }
+    {-context_id ""}
     object_id 
     {return_url {}}
 } {
@@ -26,6 +27,7 @@ ad_proc -public general_comments_get_comments {
     @param print_content_p Pass in 1 to print out content of comments.
     @param print_attachments_p Pass in 1 to print out attachments of comments, 
                                only works if print_content_p is 1. 
+    @param context_id Show only comments with given context_id
     @param object_id The object_id to retrieve the comments for.
     @param return_url A url for the user to return to after viewing a comment.
 } {
@@ -44,24 +46,15 @@ ad_proc -public general_comments_get_comments {
         set content_select [db_map content_select] ;# ", r.content"
     }
     # ns_log notice "content_select: $content_select"
+
+    if { ![empty_string_p $context_id] } {
+        set context_clause "and o.context_id = :context_id"
+    } else {
+        set context_clause ""
+    }
     
     set html ""
-    db_foreach get_comments "
-             select g.comment_id,
-                    r.title,
-                    r.mime_type,
-                    o.creation_user,
-                    acs_object.name(o.creation_user) as author,
-                    to_char(o.creation_date, 'MM-DD-YYYY') as pretty_date,
-                    to_char(o.creation_date, 'Month DD, YYYY HH12:MI PM') as pretty_date2
-                    $content_select
-               from general_comments g,
-                    cr_revisions r,
-                    acs_objects o
-              where g.object_id = :object_id and
-                    r.revision_id = content_item.get_live_revision(g.comment_id) and
-                    o.object_id = g.comment_id
-              order by o.creation_date" {
+    db_foreach get_comments {} {
         # call on helper proc to print out comment
         append html [general_comments_print_comment $comment_id $title $mime_type \
                 $creation_user $author $pretty_date $pretty_date2 $content \
@@ -136,9 +129,7 @@ ad_proc -private general_comments_print_comment {
             }
             if { ![empty_string_p $attachments_html] } {
                 append html "<h5>Attachments</h5>\n<ul>\n$attachments_html</ul>\n"
-            } else {
-                append html "<br><br>"
-            }
+            } 
         }
         append html "<p>-- <a href=\"/shared/community-member?user_id=$creation_user\">$author</a> on $pretty_date2 (<a href=\"${package_url}view-comment?[export_url_vars comment_id return_url]\">view details</a>)</p>\n"
     } else {
