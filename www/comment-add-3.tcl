@@ -87,7 +87,8 @@ db_transaction {
     }
 }
 
-ad_returnredirect "view-comment?[export_url_vars comment_id return_url]"
-
-    
-
+if { ![empty_string_p $return_url] } {
+    ad_returnredirect $return_url
+} else {
+    ad_returnredirect "view-comment?[export_vars { comment_id }]"
+}
