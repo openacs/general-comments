@@ -16,7 +16,7 @@ ad_library {
 }
 
 
-ad_proc general_comment_new {
+ad_proc -public general_comment_new {
     -object_id
     -comment_id
     -title
@@ -28,7 +28,13 @@ ad_proc general_comment_new {
     -category
     -content
 } {
-
+    Creates a comment and attaches it to a given object ID
+    
+    @return 
+    
+    @error 
+} {
+    
     db_transaction {
 	db_exec_plsql insert_comment {
 	    begin
