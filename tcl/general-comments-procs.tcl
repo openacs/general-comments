@@ -168,11 +168,11 @@ ad_proc -private general_comments_print_comment {
     set html ""
     if { $print_content_p == 1 } {
         append html "<h4>$title</h4>\n"
-        if { $mime_type == "text/plain" } {
-            append html "[util_convert_plaintext_to_html $content]\n"
-        } else {
-            append html "$content\n"
-        }
+
+        # convert to html
+        set richtext_list [list $content $mime_type]
+        append html [template::util::richtext::get_property html_value $richtext_list]
+
         if { $print_attachments_p == 1 } {
             set attachments_html ""
             db_foreach get_attachments "
