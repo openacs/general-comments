@@ -140,7 +140,7 @@ ad_proc -private general_comments_print_comment {
                 append html "<br><br>"
             }
         }
-        append html "-- <a href=\"/shared/community-member?user_id=$creation_user\">$author</a> on $pretty_date2 (<a href=\"${package_url}view-comment?[export_url_vars comment_id return_url]\">view details</a>)\n"
+        append html "<p>-- <a href=\"/shared/community-member?user_id=$creation_user\">$author</a> on $pretty_date2 (<a href=\"${package_url}view-comment?[export_url_vars comment_id return_url]\">view details</a>)</p>\n"
     } else {
         append html "<li><a href=\"${package_url}view-comment?[export_url_vars comment_id return_url]\">$title</a> by <a href=\"/shared/community-member?user_id=$creation_user\">$author</a> on $pretty_date<br>\n"
     }
