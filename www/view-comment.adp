@@ -11,7 +11,7 @@
 <blockquote>
 <h4>@title@</h4>
 
-@html_content@
+@html_content;noquote@
 
 <br><br>
 <if @is_creator_p@ eq t>
