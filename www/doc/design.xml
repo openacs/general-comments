@@ -1,0 +1,300 @@
+<sect1 id="design" xreflabel="Design Document">
+  <title>Design Document</title>
+
+  <sect2 id="design-essentials" xreflabel="Essentials">
+    <title>Essentials</title>
+
+    <itemizedlist>
+      <listitem><para>User directory: /general-comments/</para></listitem>
+
+      <listitem><para>ACS administrator directory: /general-comments/admin/</para></listitem>
+
+      <listitem><para>TCL API: 
+
+	  <itemizedlist>
+	    <listitem><para><ulink url="/api-doc/procs-file-view?path=packages/general-comments/tcl/general-comments-procs.tcl">
+		  general-comments-procs.tcl</ulink></para></listitem>
+	  </itemizedlist>
+	</para></listitem>
+
+      <listitem><para>PL/SQL API: 
+
+	  <itemizedlist>
+	    <listitem><para>none</para></listitem>
+	  </itemizedlist>
+	</para></listitem>
+
+      <listitem><para>Data model: 
+
+	  <itemizedlist>
+	    <listitem><para><ulink url="/doc/sql/display-sql?url=general-comments-create.sql&amp;package_key=general-comments">
+		  general-comments-create.sql</ulink></para></listitem>
+
+	    <listitem><para><ulink url="/doc/sql/display-sql?url=general-comments-drop.sql&amp;package_key=general-comments">
+		  general-comments-drop.sql</ulink></para></listitem>
+	  </itemizedlist>
+	</para></listitem>
+
+      <listitem><para><xref linkend="requirements"></xref></para></listitem>
+    </itemizedlist>
+  </sect2>
+
+  <sect2 id="design-introduction" xreflabel="Introduction">
+    <title>Introduction</title>
+
+    <para>General Comments enables all users in the community to add a
+      comment to any object in the system. Any comment can have files or
+      hyperlinks attached.</para>
+
+    <para>This package is intended to utilize the users' engagement in the
+      community by letting them voice their opinion on any topic (object)
+      on the site. Commenting an article, a press release or any other
+      object is never more than a click away.</para>
+
+    <para>Administrators can choose to put comments on hold until they've
+      been approved or moderated.</para>
+
+    <para>User feedback is an invaluable resource for improvements. For
+      example, the usage of General Comments on documentation not only
+      allows feedback, it can shape, extend and refine draft ideas before
+      they are taken to the next level.</para>
+  </sect2>
+
+  <sect2 id="design-historical-considerations" xreflabel="Historical Considerations">
+    <title>Historical Considerations</title>
+
+    <para>General Comments in ACS 4.0 differs from previous versions by
+      utilizing the ACS Object system, introduced in 4.0. The data-model
+      has been changed to accomodate this adoption.</para>
+
+    <para>In ACS 3.x, general comments did not have revisioning. Let's
+      assume that in an ACS 3.x installation, the policy for comments was
+      set to "closed", meaning comments must be approved by an
+      administrator before it goes live. The following unwanted scenario
+      could occur:</para>
+
+    <itemizedlist>
+      <listitem><para>A user posted a comment which was approved by the
+	  administrator.</para></listitem>
+
+      <listitem><para>The user notices that there was a spelling error, and makes a
+	  change to the posted comment.</para></listitem>
+
+      <listitem><para>From the time of the user's correction to the time the
+	  adminstrator re-approves the comment, other users will not be able
+	  to read the comment, since the new data replaced the old one.</para></listitem>
+    </itemizedlist>
+
+    <para>General Comments implements the revisioning feature provided by
+      the Content Repository. Users are able to view all of their
+      revisions for a comment, along with an indication of which revision
+      is live. This allows the contents of an older revision to be seen
+      by the public while a newer revision is awaiting adminstrative
+      approval.</para>
+  </sect2>
+
+  <sect2 id="design-competitive-analysis" xreflabel="Competitive Analysis">
+    <title>Competitive Analysis</title>
+
+    <para><emphasis>not available</emphasis></para>
+  </sect2>
+
+  <sect2 id="design-design-tradeoffs" xreflabel="Design Tradeoffs">
+    <title>Design Tradeoffs</title>
+
+    <para><emphasis>not available</emphasis></para>
+  </sect2>
+
+  <sect2 id="design-api" xreflabel="API">
+    <title>API</title>
+
+    <para><phrase>TCL API</phrase></para>
+
+    <para>There is one core procedure, 
+      <ulink url="/api-doc/proc-view?proc=general_comments_get_comments">general_comments_get_comments</ulink>,
+      that will show comments on an object and make appropriate links to
+      files from the <computeroutput>general-comments</computeroutput> package for recording
+      and editing user comments. An optional <computeroutput>return_url</computeroutput> can
+      be specified which will be provided as a link to the user within
+      the <computeroutput>general-comments</computeroutput> pages. This is useful for the
+      user to return to the original page after making a comment.</para>
+
+    <para>The other procedure, 
+      <ulink url="/api-doc/proc-view?proc=general_comments_create_link">general_comments_create_link</ulink>,
+      is a wrapper procedure that returns an html fragment for a link
+      which points to the location of the mounted
+      <computeroutput>general_comments</computeroutput> package. There are various switches
+      that will be useful to package developers:</para>
+
+    <itemizedlist>
+      <listitem><para><phrase>object_name:</phrase> A name for the object being commented on is
+	  displayed throughout the <computeroutput>general-comments</computeroutput> pages.
+	  Defaults to [acs_object_name].</para></listitem>
+
+      <listitem><para><phrase>link_text:</phrase> The text of the link returned. Defaults to
+	  "Add a comment".</para></listitem>
+
+      <listitem><para><phrase>context_id:</phrase> The context_id to set for the comment.
+	  Defaults to the object_id of the object being commented on.</para></listitem>
+
+      <listitem><para><phrase>category:</phrase> This feature is not complete. The purpose is
+	  to allow separation of comments on the same object into
+	  categories.</para></listitem>
+    </itemizedlist>
+
+    <para>A problem that may occur is when any of the two tcl procedures
+      are called when the <computeroutput>general-comments</computeroutput> package is not
+      mounted. Both <computeroutput>general_comments_get_comments</computeroutput> and
+      <computeroutput>general_comments_create_link</computeroutput> needs to find out the
+      location of the mounted <computeroutput>general-comments</computeroutput> instance to
+      generate correct links. In this case, both procedures will return
+      nothing and log a notice.</para>
+
+    <para><phrase>Note:</phrase> In the alpha release of
+      <computeroutput>general-comments</computeroutput>, the tcl procedures were defined
+      within a namespace and encountered problems with the api browser
+      not being able to display them properly. These procedures have now
+      been moved out of the namespace and the old ones are marked as
+      deprecated. The final version will completely remove all traces of
+      the namespace procedures.</para>
+
+    <para><phrase>PL/SQL API</phrase></para>
+
+    <para>None. Uses PL/SQL functions provided by ACS Messaging.</para>
+  </sect2>
+
+  <sect2 id="design-data-model-discussion" xreflabel="Data Model Discussion">
+    <title>Data Model Discussion</title>
+
+    <para>The majority of the functionality of general comments has been
+      merged with acs-messaging. Comments are stored as acs-messages.</para>
+
+    <para>The <computeroutput>general_comments</computeroutput> table extends
+      <computeroutput>acs_messages</computeroutput> to provide categorization of comments on
+      a particular object. <computeroutput>general_comments</computeroutput> also stores the
+      object_id of the object the comment refers to. Relationships from
+      attachments to acs-message is done by using the
+      <computeroutput>cr_items.parent_id</computeroutput> column.</para>
+
+    <mediaobject><imageobject>
+      <imagedata fileref="design.gif"></imagedata>
+    </imageobject></mediaobject>
+
+    <para>A <computeroutput>general-comment</computeroutput> can be associated with any object
+      in the system by using the <computeroutput>general_comments.object_id</computeroutput>
+      column. Because each comment is itself an object, we could
+      implement comments on comments. However, this functionality is not
+      needed in the <computeroutput>general-comments</computeroutput> model and the UI does
+      not support comments on comments.</para>
+
+    <para>There are three types of attachments a user can create: file,
+      image, and url. The underlying data representation of an attachment
+      is a content item with different content_types. File attachments
+      are stored with a content_revision type. Image attachments are
+      stored with a image type. Url attachments are stored with a
+      content_extlink type.</para>
+
+    <para>One problem we face is how to allow designers to modify the
+      presentation of the comments on an object without modifying tcl
+      code. The proc <computeroutput>general_comments_get_comments</computeroutput> has html
+      code which should really be placed into a template. Karl Goldstein
+      code reviewed general comments and has an interesting solution:</para>
+
+    <itemizedlist>
+      <listitem><para>Add an <computeroutput>-uplevel</computeroutput> parameter to
+	  <computeroutput>db_multirow</computeroutput>.</para></listitem>
+
+      <listitem><para>In the <computeroutput>general_comments_get_comments</computeroutput> proc, create
+	  an upleveled datasource.</para></listitem>
+
+      <listitem><para>From the <computeroutput>.tcl</computeroutput> page, make a call to
+	  <computeroutput>general_comments_get_comments</computeroutput>, which would set up the
+	  multirow datasource in the current environment.</para></listitem>
+
+      <listitem><para>From the <computeroutput>.adp</computeroutput> page, loop through the multirow
+	  datasource.</para></listitem>
+    </itemizedlist>
+  </sect2>
+
+  <sect2 id="design-user-interface" xreflabel="User Interface">
+    <title>User Interface</title>
+
+    <para>General Comments provides two similar sets of UIs for
+      adminstrators and normal users. The adminstrator UI allows
+      approval/unapproval of comments as well as deletion of comments.
+      The normal user UI presents to users all of their created comments,
+      with links to editing and creating attachments.</para>
+  </sect2>
+
+  <sect2 id="design-configurationparameters" xreflabel="Configuration/Parameters">
+    <title>Configuration/Parameters</title>
+
+    <itemizedlist>
+      <listitem><para><computeroutput>AutoApproveCommentsP:</computeroutput> Sets whether comments go
+	  live immediately.</para></listitem>
+
+      <listitem><para><computeroutput>AllowFileAttachmentsP:</computeroutput> Sets whether files can be
+	  attached to comments.</para></listitem>
+
+      <listitem><para><computeroutput>AllowLinkAttachmentsP:</computeroutput> Sets whether links can be
+	  attached to comments.</para></listitem>
+
+      <listitem><para><computeroutput>MaxFileSize:</computeroutput> Maximum file size that can be
+	  uploaded in bytes.</para></listitem>
+    </itemizedlist>
+  </sect2>
+
+  <sect2 id="design-future-improvements" xreflabel="Future Improvements/Areas of Likely Change">
+    <title>Future Improvements/Areas of Likely Change</title>
+
+    <itemizedlist>
+      <listitem><para>Subsite administration</para></listitem>
+
+      <listitem><para>Cascading parameters to depending packages.</para></listitem>
+
+      <listitem><para>Revisioning of attachments</para></listitem>
+    </itemizedlist>
+  </sect2>
+
+  <sect2 id="design-authors" xreflabel="Authors">
+    <title>Authors</title>
+
+    <itemizedlist>
+      <listitem><para><ulink url="mailto:phong@arsdigita.com">Phong Nguyen</ulink></para></listitem>
+    </itemizedlist>
+  </sect2>
+
+  <sect2 id="design-revision-history" xreflabel="Revision History">
+    <title>Revision History</title>
+
+    <informaltable><tgroup cols="4"><tbody>
+	  <row>
+	    <entry align="center"><emphasis>
+		Document Revision #</emphasis></entry>
+	    <entry align="center"><emphasis>
+		Action Taken, Notes</emphasis></entry>
+	    <entry align="center"><emphasis>When?</emphasis></entry>
+	    <entry align="center"><emphasis>By Whom?</emphasis></entry>
+	  </row>
+
+	  <row>
+	    <entry>0.2</entry>
+	    <entry>Revision</entry>
+	    <entry>12/11/2000</entry>
+	    <entry>Phong Nguyen</entry>
+	  </row>
+
+	  <row>
+	    <entry>0.1</entry>
+	    <entry>Creation</entry>
+	    <entry>10/26/2000</entry>
+	    <entry>Phong Nguyen</entry>
+	  </row>
+
+	</tbody></tgroup></informaltable>
+
+    <para>
+      Last modified: $Id$
+    </para>
+  </sect2>
+</sect1>

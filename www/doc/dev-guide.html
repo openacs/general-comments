@@ -1,0 +1,536 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>Developer's guide</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.59"><LINK
+REL="HOME"
+TITLE="General Comments"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="General Comments"
+HREF="index.html"><LINK
+REL="NEXT"
+TITLE="Design Document"
+HREF="design.html"></HEAD
+><BODY
+CLASS="chapter"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>General Comments</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="index.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="design.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="chapter"
+><H1
+><A
+NAME="dev-guide"
+>Chapter 1. Developer's guide</A
+></H1
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="requirements"
+>1.1. Requirements Document</A
+></H1
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="requirements-introduction"
+>1.1.1. Introduction</A
+></H2
+><P
+>This is the requirements document for the General Comments
+      package for ACS 4.0. General Comments is an application that takes
+      advantage of the ACS Messaging service package.</P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="requirements-vision-statement"
+>1.1.2. Vision Statement</A
+></H2
+><P
+>User feedback and engagement is the very heart of a
+      collaborative community. General Comments allows users to comment
+      on any object in the community, such as articles, white papers,
+      press releases or pictures.</P
+><P
+>Comments are not limited to text, but can include attachments
+      such as links, pictures or other documents.</P
+><P
+>Users can edit their own comments and an administrator can
+      choose to moderate all or particular comments before they go live
+      on the site.</P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="requirements-application-overview"
+>1.1.3. Application Overview</A
+></H2
+><P
+>General Comments is an application package that relies on the
+      ACS Messaging package. Comments can be associated with any object
+      in ACS 4.0, which gives you the benefits of the Permission System.
+      Comments are stored as ACS Messages.</P
+><P
+>When a user creates a comment, General Comments stores the
+      comment as an ACS Message and associates the comment to the object
+      commented on. The value set by the adminstrator on whether comments
+      go live immediately or needs approval first is stored along with
+      the comment during this phase. After this, the user is presented
+      with a page that displays contents of the comment along with
+      revision history, attachments, and links to perform actions on the
+      comment such as adding attachments or editing the comment.</P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="requirements-use-cases-and-user-scenarios"
+>1.1.4. Use-cases and User-scenarios</A
+></H2
+><P
+>This package supports empowering all users with the option of
+      adding comments to objects in the system, and editing their own
+      comments later on.</P
+><P
+><SPAN
+CLASS="phrase"
+>A user adding a comment:</SPAN
+></P
+><P
+>Nurse Nancy is browsing through an ACS 4.0 site that has a page for
+      medical emergencies. Upon reaching the bottom of the page, Nancy
+      sees a posting that reads, "<I
+CLASS="emphasis"
+>Please help, my child has just
+      swallowed some cleaning solution!!!</I
+>". Nancy sees that this
+      posting was made only 30 seconds ago and quickly posts a remedy for
+      this situation. After she makes her posting, she immediately
+      revisits the page and happily sees that her posting is already
+      available.</P
+><P
+><SPAN
+CLASS="phrase"
+>A user editing an old comment:</SPAN
+></P
+><P
+>George Genius is reviewing all of the comments he has posted over
+      the last 24 hours. In one of his postings, George notices that his
+      mathematical formula for earthquake prediction was incorrect. He
+      then clicks on the edit link, makes changes to his formula and
+      submits his changes. Since comments are moderated, others will only
+      see his older incorrect version until his changes are approved.
+      George eagerly awaits for his changes to be approved so that he
+      won't be ridiculed by his colleagues for his mistakes.</P
+><P
+><SPAN
+CLASS="phrase"
+>An adminstrator moderating:</SPAN
+></P
+><P
+>Adam Admin is looking over all recently unnapproved changes to
+      comments. Adam sees that George Genius has made a correction to the
+      earthquake prediction formula in which he helped write. He believes
+      that the their original formaula is correct, so Adam does not
+      approve of the changes. Several days later, George barges into
+      Adam's office wondering why his changes were not approved. After a
+      few hours George convinces Adam that the new modifications were
+      correct, and so Adam approves George's comment.
+    </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="requirements-related-links"
+>1.1.5. Related Links</A
+></H2
+><P
+></P
+><UL
+><LI
+><P
+><A
+HREF="design.html"
+>Design Document</A
+></P
+></LI
+><LI
+><P
+><A
+HREF="/doc/acs-messaging/"
+TARGET="_top"
+>ACS Messaging</A
+></P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="requirements-requirements-data-model"
+>1.1.6. Requirements: Data Model</A
+></H2
+><P
+><SPAN
+CLASS="phrase"
+>10.0</SPAN
+> Comments can be attached to any object in the system.</P
+><P
+><SPAN
+CLASS="phrase"
+>10.10</SPAN
+> Maintain revisioning of comments.</P
+><P
+><SPAN
+CLASS="phrase"
+>10.20</SPAN
+> Store comment as an acs-message.</P
+><P
+><SPAN
+CLASS="phrase"
+>10.30</SPAN
+> Allow separation of comments on an object.</P
+><P
+><SPAN
+CLASS="phrase"
+>10.40</SPAN
+> Allow file and url attachments to comments.</P
+><P
+><SPAN
+CLASS="phrase"
+>10.50</SPAN
+> Allow limitations on size of file attachments.</P
+><P
+><SPAN
+CLASS="phrase"
+>10.60</SPAN
+> Use permissioning system to control creation of comments.</P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="requirements-requirements-api"
+>1.1.7. Requirements: API</A
+></H2
+><P
+><SPAN
+CLASS="phrase"
+>20.0</SPAN
+> A summary type function that retrieves all
+      comments for a particular object.</P
+><P
+><SPAN
+CLASS="phrase"
+>20.10</SPAN
+> A link function that generates an
+      appropriate link to add a comment.</P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="requirements-requirements-interface"
+>1.1.8. Requirements: Interface</A
+></H2
+><P
+><SPAN
+CLASS="phrase"
+>The Community Member's Interface</SPAN
+></P
+><P
+>The user interface for community members is a set of HTML pages
+      that allow creation and editing of comments.</P
+><P
+><SPAN
+CLASS="phrase"
+>30.0</SPAN
+> Customized presentation.</P
+><P
+><SPAN
+CLASS="phrase"
+>30.0.10</SPAN
+> Show all comments that the user created.</P
+><P
+><SPAN
+CLASS="phrase"
+>30.0.20</SPAN
+> Have sliders to show approved/uapproved comments.</P
+><P
+><SPAN
+CLASS="phrase"
+>30.0.30</SPAN
+> Have sliders to show comments by age.</P
+><P
+><SPAN
+CLASS="phrase"
+>30.10</SPAN
+> Comments can be viewed in detail.</P
+><P
+><SPAN
+CLASS="phrase"
+>30.20</SPAN
+> Provide ways for a user to add attachments to a comment.</P
+><P
+><SPAN
+CLASS="phrase"
+>30.30</SPAN
+> Allow editing of comments.</P
+><P
+><SPAN
+CLASS="phrase"
+>30.40</SPAN
+> Provide a way to display attached images.</P
+><P
+><SPAN
+CLASS="phrase"
+>30.50</SPAN
+> Allow download of attached files.</P
+><P
+><SPAN
+CLASS="phrase"
+>The Administrator's Interface</SPAN
+></P
+><P
+>The user interface for adminstrative members is a set of HTML pages
+      that allows deletion and approval of comments.</P
+><P
+><SPAN
+CLASS="phrase"
+>40.0</SPAN
+> Customized presentation.</P
+><P
+><SPAN
+CLASS="phrase"
+>40.0.10</SPAN
+> Show all created comments.</P
+><P
+><SPAN
+CLASS="phrase"
+>40.0.20</SPAN
+> Have sliders to show approved/unapproved comments.</P
+><P
+><SPAN
+CLASS="phrase"
+>40.0.30</SPAN
+> Have sliders to show comments by age.</P
+><P
+><SPAN
+CLASS="phrase"
+>40.10</SPAN
+> Allow deletion of comments.</P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="requirements-revision-history"
+>1.1.9. Revision History</A
+></H2
+><DIV
+CLASS="informaltable"
+><A
+NAME="AEN108"
+></A
+><P
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+ALIGN="CENTER"
+VALIGN="MIDDLE"
+><I
+CLASS="emphasis"
+>&#13;		Document Revision #</I
+></TD
+><TD
+ALIGN="CENTER"
+VALIGN="MIDDLE"
+><I
+CLASS="emphasis"
+>&#13;		Action Taken, Notes</I
+></TD
+><TD
+ALIGN="CENTER"
+VALIGN="MIDDLE"
+><I
+CLASS="emphasis"
+>When?</I
+></TD
+><TD
+ALIGN="CENTER"
+VALIGN="MIDDLE"
+><I
+CLASS="emphasis"
+>By Whom?</I
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>0.2</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Revision</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>12/11/2000</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Phong Nguyen</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>0.1</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Creation</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>10/26/2000</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Phong Nguyen</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><P
+>Last modified: $Id$
+    </P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="index.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="design.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>General Comments</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Design Document</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

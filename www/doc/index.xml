@@ -1,0 +1,32 @@
+<?xml version='1.0' ?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+[
+    <!ENTITY requirements SYSTEM "requirements.xml">
+    <!ENTITY design SYSTEM "design.xml">
+]>
+
+<book>
+  <title>General Comments</title>
+  <bookinfo>
+    <author>
+      <firstname>Phong</firstname>
+      <surname>Nguyen</surname>
+      <affiliation>
+	<address><email>phong@arsdigita.com</email></address>
+      </affiliation>
+    </author>
+  </bookinfo>
+  
+  <chapter id="dev-guide">
+    <title>Developer's guide</title>
+    &requirements;
+    &design;
+  </chapter>
+  
+  <chapter id="users-guide">
+    <title>User's guide</title>
+    <para></para>
+  </chapter>
+  
+  
+</book>
