@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<message_catalog package_key="general-comments" package_version="4.4" locale="en_AU" charset="ISO-8859-1">
+
+  <msg key="Actions">Actions</msg>
+  <msg key="Add_a_comment_to">Add a comment to</msg>
+  <msg key="Add_comment">Add comment</msg>
+  <msg key="Add_file_attachment">Add file attachment</msg>
+  <msg key="Add_url_comment">Add url comment</msg>
+  <msg key="Administer">Administer</msg>
+  <msg key="all">all</msg>
+  <msg key="approve">approve</msg>
+  <msg key="Approved">Approved</msg>
+  <msg key="approved">approved</msg>
+  <msg key="Attach_a_web_link">Attach a web link</msg>
+  <msg key="Attachments">Attachments</msg>
+  <msg key="Author">Author</msg>
+  <msg key="by">by</msg>
+  <msg key="bytes">bytes</msg>
+  <msg key="Cancel">Cancel</msg>
+  <msg key="Comment">Comment:</msg>
+  <msg key="Comments">Comments</msg>
+  <msg key="Confirm">Confirm</msg>
+  <msg key="Confirm_comment">Confirm comment</msg>
+  <msg key="Confirm_comment_on">Confirm comment on</msg>
+  <msg key="delete">delete</msg>
+  <msg key="Delete_a_comment">Delete a comment</msg>
+  <msg key="Delete_attachment">Delete attachment</msg>
+  <msg key="details">details</msg>
+  <msg key="edit">edit</msg>
+  <msg key="Edit_comment">Edit comment</msg>
+  <msg key="Edit_comment_on">Edit comment on</msg>
+  <msg key="Edit_file_attachment">Edit file attachment</msg>
+  <msg key="Edit_url_attachment">Edit url attachment</msg>
+  <msg key="edit_your_comment">(edit your comment)</msg>
+  <msg key="Filename">Filename:</msg>
+  <msg key="Full_Comments">Full Comments</msg>
+  <msg key="gc_is_not_mounted">gc is not mounted</msg>
+  <msg key="General_Comments">General Comments</msg>
+  <msg key="Go_back_to_comment">Go back to comment</msg>
+  <msg key="Has_live_version">Has live version</msg>
+  <msg key="HTML">HTML</msg>
+  <msg key="ID">ID#</msg>
+  <msg key="if_general_comments_not_mounted">If &lt;code&gt;general-comments&lt;/code&gt; is not mounted and calls are made to &lt;code&gt;general_comments_get_comments&lt;/code&gt; 
+    or &lt;code&gt;general_comments_create_link&lt;/code&gt; , then an error will be logged. This is because these calls output hyperlinks that need to reference a mounted &lt;code&gt;general-comments&lt;/code&gt; package instance.</msg>
+  <msg key="Image_attachment">Image attachment</msg>
+  <msg key="Label">Label:</msg>
+  <msg key="last_24_hours">last 24 hours</msg>
+  <msg key="Last_Modified">Last Modified</msg>
+  <msg key="last_month">last month</msg>
+  <msg key="last_week">last week</msg>
+  <msg key="live">(live)</msg>
+  <msg key="lt_Add_a_file_attachment">Add a file attachment to comment</msg>
+  <msg key="lt_Add_url_attachment_to">Add url attachment to comment</msg>
+  <msg key="lt_approve_this_revision">approve this revision</msg>
+  <msg key="lt_Attach_a_file_or_pict">Attach a file or picture</msg>
+  <msg key="lt_Attaching_files_to_co">Attaching files to comments has been disabled.</msg>
+  <msg key="lt_Attaching_links_to_co">Attaching links to comments has been disabled.</msg>
+  <msg key="lt_Current_values_for_Ge">Current values for General Comments package</msg>
+  <msg key="lt_Do_you_really_wish_to">Do you really wish to delete the following comment and its attachments?</msg>
+  <msg key="lt_Do_you_really_wish_to_1">Do you really wish to delete this attachment?</msg>
+  <msg key="lt_Edit_file_attachment_">Edit file attachment on comment</msg>
+  <msg key="lt_Edit_url_attachment_o">Edit url attachment on comment</msg>
+  <msg key="lt_Example_httpwwwarsdig">Example: http://www.arsdigita.com/</msg>
+  <msg key="lt_General_Comments_Admi">General Comments Administration</msg>
+  <msg key="lt_Go_back_to_where_you_">Go back to where you were</msg>
+  <msg key="lt_has_chosen_to_limit_a">has chosen to limit attachments to</msg>
+  <msg key="lt_Here_is_how_your_comm">Here is how your comment would appear:</msg>
+  <msg key="lt_I_would_like_to_uploa">I would like to upload a file or add a link to my comment</msg>
+  <msg key="lt_No_comments_available">No comments available</msg>
+  <msg key="lt_no_gc_package_instanc">no gc package instance</msg>
+  <msg key="lt_Note_if_the_text_abov">Note: if the text above has lost all of its paragraph breaks then you
+  probably should have selected &quot;Plain Text&quot; rather than HTML.  Use
+  your browser's Back button to return to the submission form.</msg>
+  <msg key="lt_Note_if_the_text_abov_1">Note: if the text above has a bunch of visible HTML tags then you probably
+  should have selected &quot;HTML&quot; rather than &quot;Plain Text&quot;.  Use your
+  browser's Back button to return to the submission form.</msg>
+  <msg key="lt_Test_page_for_General">Test page for General Comments</msg>
+  <msg key="lt_The_comment_id_does_n">The comment_id does not refer to a valid comment.</msg>
+  <msg key="lt_This_revision_is_live">This revision is live.</msg>
+  <msg key="lt_This_revision_is_not_">This revision is not live.</msg>
+  <msg key="lt_Use_the_Browse_button">Use the &quot;Browse...&quot; button to locate your file, then click &quot;Open&quot;.</msg>
+  <msg key="lt_Your_file_is_too_larg">Your file is too large.</msg>
+  <msg key="lt_Your_file_is_zero-len">Your file is zero-length.  Either you attempted to upload a zero length file, a file which does not exists, or something went wrong during the transfer.</msg>
+  <msg key="no_attachments">no attachments</msg>
+  <msg key="none">none</msg>
+  <msg key="not_set">not set</msg>
+  <msg key="Num">Num</msg>
+  <msg key="on">on</msg>
+  <msg key="Plain_text">Plain text</msg>
+  <msg key="Proceed">Proceed</msg>
+  <msg key="reject">reject</msg>
+  <msg key="reject_this_revision">reject this revision</msg>
+  <msg key="Revisions">Revisions</msg>
+  <msg key="Status">Status</msg>
+  <msg key="test">test</msg>
+  <msg key="Text_above_is">Text above is</msg>
+  <msg key="The_publisher_of">The publisher of</msg>
+  <msg key="Title">Title:</msg>
+  <msg key="Title_1">Title</msg>
+  <msg key="unapproved">unapproved</msg>
+  <msg key="URL">URL:</msg>
+  <msg key="View_comment">View comment</msg>
+  <msg key="View_comment_on">View comment on</msg>
+  <msg key="view_details">view details</msg>
+  <msg key="you">you</msg>
+</message_catalog>
