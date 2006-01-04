@@ -16,7 +16,7 @@
 		:comment_mime_type,	-- 8  p_mime_type
 		NULL,			-- 9  p_text
 		NULL, -- empty_blob(),		-- 10 p_data
-		0,			-- 11 p_parent_id
+		-4,			-- 11 p_parent_id
 		:context_id,		-- 12 p_context_id
 		:user_id,		-- 13 p_creation_user
 		:creation_ip,		-- 14 p_creation_ip
