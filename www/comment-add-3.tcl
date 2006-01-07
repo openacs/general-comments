@@ -19,8 +19,14 @@ ad_page_contract {
     { attach_p "f" }
 }    
 
+# This authentication actually is not necessary anymore due to the fact that we already check for the permission
+# afterwards, so it should be enough to query the user_id from the connection to allow anonymous users who have
+# create permissions to access the site.
+
 # authenticate the user
-set user_id [auth::require_login]
+# set user_id [auth::require_login]
+
+set user_id [ad_conn user_id]
 
 # check to see if the user can create comments on this object
 ad_require_permission $object_id general_comments_create
