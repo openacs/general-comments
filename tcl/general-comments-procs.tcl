@@ -229,7 +229,7 @@ ad_proc -private general_comments_print_comment {
 
 ad_proc -public general_comments_create_link {
     -object_name
-    { -link_text {Add a comment} }
+    { -link_text #general-comments.Add_comment# }
     -context_id
     { -category {} }
     { -link_attributes "" }
