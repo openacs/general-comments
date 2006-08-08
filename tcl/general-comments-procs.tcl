@@ -65,6 +65,7 @@ ad_proc general_comment_new {
 ad_proc -public general_comments_get_comments {
     { -print_content_p 0 }
     { -print_attachments_p 0 }
+    { -print_user_info_p 1}
     { -context_id "" }
     { -my_comments_only_p 0 }
     object_id 
@@ -137,7 +138,7 @@ ad_proc -public general_comments_get_comments {
         # call on helper proc to print out comment
         append html [general_comments_print_comment $comment_id $title $mime_type \
                 $creation_user $author $pretty_date $pretty_date2 $content \
-                $print_content_p $print_attachments_p $package_url $return_url]
+                $print_content_p $print_attachments_p $package_url $return_url $print_user_info_p]
     }
     return $html
 }
@@ -155,6 +156,7 @@ ad_proc -private general_comments_print_comment {
     print_attachments_p
     package_url
     return_url
+    print_user_info_p
 } {
     Helper proc to format and print out a single comment.
     @param comment_id The id of the comment.
@@ -169,6 +171,7 @@ ad_proc -private general_comments_print_comment {
     @param print_attachments_p Pass in 1 to print out attachments of comments.
     @param package_url The url to the mounted general-comments package instance.
     @param return_url A url for the user to return to after viewing a comment. 
+    @param print_user_info_p Pass 1 in to print out user name and time of entry.
 } {
 
     # -- create query statements to retrieve attachments
@@ -194,9 +197,9 @@ ad_proc -private general_comments_print_comment {
 
                 append attachments_html "<li>$title "
                 if { $mime_type == "image_gif" || $mime_type == "image/jpeg" } {
-                    append attachments_html "(<a href=\"${package_url}view-image?image_id=$item_id&return_url=$return_url\">$name</a>)\n"
+                    append attachments_html "(<a href=\"[ad_quotehtml ${package_url}view-image?image_id=$item_id&return_url=$return_url]\">$name</a>)\n"
                 } else {
-                    append attachments_html "(<a href=\"${package_url}file-download?item_id=$item_id\">$name</a>)\n"
+                    append attachments_html "(<a href=\"[ad_quotehtml ${package_url}file-download?item_id=$item_id]\">$name</a>)\n"
                 }
             }
 
@@ -204,15 +207,20 @@ ad_proc -private general_comments_print_comment {
 	              select i.item_id, e.label, e.url
 	                from cr_items i, cr_extlinks e
 	               where i.parent_id = :comment_id and e.extlink_id = i.item_id" {
-                append attachments_html "<li><a href=\"$url\">$label</a>\n"
+                append attachments_html "<li><a href=\"[ad_quotehtml $url]\">$label</a>\n"
             }
             if { ![empty_string_p $attachments_html] } {
                 append html "<h5>[_ general-comments.Attachments]</h5>\n<ul>\n$attachments_html</ul>\n"
             }
         }
-        append html "<p>-- <a href=\"/shared/community-member?user_id=$creation_user\">$author</a> [_ general-comments.on] $pretty_date2 (<a href=\"${package_url}view-comment?[export_url_vars comment_id return_url]\">[_ general-comments.view_details]</a>)</p>\n"
+        append html "<p>-- <a href=\"[ad_quotehtml /shared/community-member?user_id=$creation_user]\">$author</a> [_ general-comments.on] $pretty_date2 (<a href=\"[ad_quotehtml ${package_url}view-comment?[export_url_vars comment_id return_url]]\">[_ general-comments.view_details]</a>)</p>\n"
     } else {
-        append html "<li><a href=\"${package_url}view-comment?[export_url_vars comment_id return_url]\">$title</a> [_ general-comments.by] <a href=\"/shared/community-member?user_id=$creation_user\">$author</a> [_ general-comments.on] $pretty_date<br>\n"
+        append html "<li><a href=\"[ad_quotehtml ${package_url}view-comment?[export_url_vars comment_id return_url]]\">$title</a>"
+	if {$print_user_info_p} {
+	    append html " [_ general-comments.by] <a href=\"[ad_quotehtml /shared/community-member?user_id=$creation_user]\">$author</a> [_ general-comments.on] $pretty_date<br>\n"
+	} else {
+	    append html "<br>\n"
+	}
     }
 
     return $html
@@ -221,7 +229,7 @@ ad_proc -private general_comments_print_comment {
 
 ad_proc -public general_comments_create_link {
     -object_name
-    { -link_text {Add a comment} }
+    { -link_text #general-comments.Add_comment# }
     -context_id
     { -category {} }
     { -link_attributes "" }
@@ -250,7 +258,7 @@ ad_proc -public general_comments_create_link {
     if { ![info exists object_name] } { set object_name [acs_object_name $object_id] }
     if { ![info exists context_id] } { set context_id $object_id }
 
-    set html "<a href=\"${package_url}comment-add?[export_url_vars object_id object_name return_url context_id category]\" $link_attributes>$link_text</a>"
+    set html "<a href=\"[ad_quotehtml ${package_url}comment-add?[export_url_vars object_id object_name return_url context_id category]]\" $link_attributes>$link_text</a>"
 
     return $html
 }
@@ -297,7 +305,7 @@ ad_proc -deprecated get_comments {object_id return_url} {
                     o.object_id = g.comment_id and
                     p.person_id = o.creation_user
               order by creation_date" {
-        append html "<li><a href=\"${package_url}view-comment?[export_url_vars comment_id return_url]\">$title</a> by $author, $creation_date<br>\n"
+        append html "<li><a href=\"[ad_quotehtml ${package_url}view-comment?[export_url_vars comment_id return_url]]\">$title</a> by $author, $creation_date<br>\n"
     }
     return "$html"
 }
@@ -315,7 +323,7 @@ ad_proc -deprecated create_link {object_id object_name return_url link_text {con
     # get the package url
     set package_url [general_comments_package_url]
 
-    set html "<a href=\"${package_url}comment-add?[export_url_vars object_id object_name return_url context_id category]\">$link_text</a>"
+    set html "<a href=\"[ad_quotehtml ${package_url}comment-add?[export_url_vars object_id object_name return_url context_id category]]\">$link_text</a>"
     return $html
 }
 
