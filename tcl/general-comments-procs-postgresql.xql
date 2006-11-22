@@ -5,7 +5,7 @@
 
 <fullquery name="general_comments_get_comments.get_comments">      
       <querytext>
-
+      
              select g.comment_id,
                     r.title,
                     r.mime_type,
@@ -17,8 +17,7 @@
                     cr_revisions r,
                     acs_objects o
               where g.object_id = :object_id and
-                    r.revision_id =
-      content_item__get_live_revision(g.comment_id) and
+                    r.revision_id = content_item__get_live_revision(g.comment_id) and
                     o.object_id = g.comment_id
                     $context_clause
                     $my_comments_clause
@@ -31,6 +30,7 @@
  
 <fullquery name="get_comments.get_comments_deprecated">      
       <querytext>
+      
              select g.comment_id,
                     r.title,
                     r.content,
