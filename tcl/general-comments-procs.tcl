@@ -59,6 +59,19 @@ ad_proc general_comment_new {
 
 	}
     }
+    # Convert the comment to HTML
+    
+    if {$comment_mime_type ne "text/html"} {
+	set content [ad_convert_to_html $content]
+    } 
+
+    # Start notifications
+    callback general_comments::notify_objects \
+	-object_id $object_id \
+	-comment $content \
+	-title $title \
+	-object_type [acs_object_type $object_id]
+
     return $revision_id
 }
 
