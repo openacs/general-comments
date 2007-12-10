@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<message_catalog package_key="general-comments" package_version="5.2.0" locale="zh_CN" charset="utf-8">
+<message_catalog package_key="general-comments" locale="zh_CN" charset="utf-8">
 
   <msg key="Actions">操作</msg>
   <msg key="Add_a_comment_to">添加批注</msg>
