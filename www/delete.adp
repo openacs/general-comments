@@ -4,7 +4,7 @@
 
 
 #general-comments.lt_Do_you_really_wish_to#
-<blockquote>
+
   <b>@title@</b> (<a href="../view-comment?comment_id=@comment_id@">#general-comments.details#</a>)<br><br>
   <if @mime_type@ eq text/plain>
     <%= [util_convert_plaintext_to_html $content] %>
@@ -14,8 +14,7 @@
   </else>
   <br><br>-- <a href="/shared/community-member?user_id=@creation_user@">@author@</a> 
   (@pretty_date@)  
-</blockquote>
-<center>
+
 <table>
 <tr>
 	<td>
@@ -32,7 +31,7 @@
 	</td
 </tr>
 </table>
-</center>
+
 </form>
 
 

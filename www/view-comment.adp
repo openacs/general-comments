@@ -10,8 +10,6 @@
 
 <h1>@title@</h1>
 
-<blockquote>
-
 @html_content;noquote@
 
 <if @is_creator_p@ eq t>
@@ -24,10 +22,6 @@
 <else>
   <p>-- <a href="/shared/community-member?user_id=@creation_user@">@author@</a></p>
 </else>
-
-</blockquote>
-
-
 
 <h2>#general-comments.Attachments#</h2>
 <ul>

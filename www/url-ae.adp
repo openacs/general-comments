@@ -5,7 +5,7 @@
 
 <form method=POST action= "@target@">
 <div><%= [export_form_vars attach_id parent_id return_url] %></div>
-<blockquote>
+
 <table>
   <tr>
     <td valign=top align=right>#general-comments.Label# </td>
@@ -21,6 +21,6 @@
 </table>
 <p style="text-align:center">
 <input type=submit value="#general-comments.Proceed#">
-</blockquote>
+</p>
 </form>
 

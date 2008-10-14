@@ -80,14 +80,14 @@
   </ul>
   <p>
   <h3>#general-comments.Full_Comments#</h3>
-    <blockquote>
+
     <if @full_comments@ eq "">
       <li>#general-comments.none#
     </if>
     <else>
       @full_comments@
     </else>
-    </blockquote>
+
   <p>
   @link@
 </if>

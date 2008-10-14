@@ -5,7 +5,7 @@
 
 <form enctype="multipart/form-data" method=POST action="@target@">
 <div><%= [export_form_vars attach_id parent_id return_url] %></div>
-<blockquote>
+
 <table>
   <tr>
     <td valign=top align=right>#general-comments.Title#</td>
@@ -24,9 +24,9 @@
     </td>
   </tr>
 </table>
-</blockquote>
 
 <p style="text-align:center">
 <input type=submit value="#general-comments.Proceed#">
+</p>
 </form>
 
