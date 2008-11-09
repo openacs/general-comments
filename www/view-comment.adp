@@ -5,41 +5,36 @@
 <property name="object_name">@object_name;noquote@</property>
 
 <if @return_url@ ne "">
-[<a href="@return_url@">#general-comments.lt_Go_back_to_where_you_#</a>]<br>
+<p>[<a href="@return_url@">#general-comments.lt_Go_back_to_where_you_#</a>]</p>
 </if>
 
-<blockquote>
-<h4>@title@</h4>
+<h1>@title@</h1>
 
 @html_content;noquote@
 
-<br><br>
 <if @is_creator_p@ eq t>
+  <p>
   -- #general-comments.you#
-    <a href="comment-edit?comment_id=@comment_id@&revision_id=@revision_id@&return_url=@return_url@">
-  #general-comments.edit_your_comment#</a><br><br>
+    <a href="@comment_edit_url@">
+  #general-comments.edit_your_comment#</a>
+  </p>
 </if>
 <else>
-  -- <a href="/shared/community-member?user_id=@creation_user@">@author@</a>
+  <p>-- <a href="/shared/community-member?user_id=@creation_user@">@author@</a></p>
 </else>
 
-</blockquote>
-
-
-
-<h4>#general-comments.Attachments#</h4>
+<h2>#general-comments.Attachments#</h2>
 <ul>
   <% set counter 0 %>
   <multiple name=attachments>
     <% incr counter %>  
     <li>
     <if @is_creator_p@ eq t>
-      ( <a href="file-edit?attach_id=@attachments.item_id@&parent_id=@comment_id@&return_url=@return_url@">#general-comments.edit#</a> | 
-<a href="delete-attachment?attach_id=@attachments.item_id@&parent_id=@comment_id@&return_url=@return_url@">#general-comments.delete#</a> )
+      ( <a href="@attachments.file_edit_url@">#general-comments.edit#</a> | <a href="@attachments.delete_attachment_url@">#general-comments.delete#</a> )
     </if>
     <if @attachments.mime_type@ eq image/gif or @attachments.mime_type@ eq image/jpeg>
       @attachments.title@ 
-      (<a href="view-image?image_id=@attachments.item_id@&return_url=@return_url_view@">@attachments.name@</a>)
+      (<a href="@attachments.view_image_url@">@attachments.name@</a>)
     </if>
     <else>
       @attachments.title@ 
@@ -50,8 +45,7 @@
     <% incr counter %>
     <li>
     <if @is_creator_p@ eq t>
-        ( <a href="url-edit?attach_id=@links.item_id@&parent_id=@comment_id@&return_url=@return_url@">#general-comments.edit#</a> | 
-<a href="delete-attachment?attach_id=@links.item_id@&parent_id=@comment_id@&return_url=@return_url@">#general-comments.delete#</a> )
+        ( <a href="links.url_edit_url@">#general-comments.edit#</a> | <a href="@links.delete_attachment_url@">#general-comments.delete#</a> )
     </if>      
     <a href="@links.url@">@links.label@</a>
   </multiple>
@@ -61,26 +55,26 @@
 </ul>
 
 <if @is_creator_p@ eq t and @allow_attach_p@ eq t>
-  <h4>#general-comments.Actions#</h4>
+  <h2>#general-comments.Actions#</h2>
   <ul>
     <if @allow_file_p@ eq t>
-      <li><a href="file-add?parent_id=@comment_id@&return_url=@return_url@">#general-comments.lt_Attach_a_file_or_pict#</a><br>
+      <li><a href="@action_file_add_url@">#general-comments.lt_Attach_a_file_or_pict#</a><br>
     </if>
     <if @allow_link_p@ eq t>
-      <li><a href="url-add?parent_id=@comment_id@&return_url=@return_url@">#general-comments.Attach_a_web_link#</a><br>  
+      <li><a href="@action_url_add_url@">#general-comments.Attach_a_web_link#</a><br>  
     </if>
   </ul>
 </if>
 
 <if @write_perm_p@ eq 1>
-  <h4>#general-comments.Revisions#</h4>
+  <h2>#general-comments.Revisions#</h2>
   <ul>
     <multiple name=revisions>
       <if @revision_id@ eq @revisions.revision_id@>
           <li>@revisions.revision_date@
       </if>
       <else>
-        <li><a href="view-comment?comment_id=@comment_id@&revision_id=@revisions.revision_id@&return_url=@return_url@">@revisions.revision_date@</a>
+        <li><a href="@revisions.view_comment_url@">@revisions.revision_date@</a>
       </else>
       <if @revisions.revision_id@ eq @live_revision@>
         #general-comments.live#
@@ -89,20 +83,8 @@
   </ul>
 </if>
 
-<if @live_revision@ ne @revision_id@>
-  <font size=-1 color=red>
-  #general-comments.lt_This_revision_is_not_#
+  <p><span style="color:@font_color@">@pre_text@</span>
   <if @admin_p@ eq 1>
-    (<a href="admin/toggle-approval?comment_id=@comment_id@&revision_id=@revision_id@&return_url=../@return_url_view@">#general-comments.lt_approve_this_revision#</a>)
+    (<a href="@admin_toggle_url@">@admin_toggle_text@</a>)
   </if>
-  </font>
-</if>
-<else>
-  <font size=-1 color=green>
-  #general-comments.lt_This_revision_is_live#
-  <if @admin_p@ eq 1>
-    (<a href="admin/toggle-approval?comment_id=@comment_id@&revision_id=@revision_id@&return_url=../@return_url_view@">#general-comments.reject_this_revision#</a>)
-  </if>
-  </font>
-</else>  
-
+  </p>
