@@ -50,48 +50,13 @@ if { $write_perm_p == 1 } {
 	}]
     }
     # get revision data from the database
-    if { ![db_0or1row get_revision_comment {
-           select g.object_id,
-	          g.comment_id,
-	          content_item.get_live_revision(g.comment_id) as live_revision,
-                  r.revision_id,
-                  r.title,
-	          r.content, 
-	          r.mime_type, 
-	          o.creation_user,
-	          o.creation_date,
-	          acs_object.name(o.creation_user) as author
-             from general_comments g,
-                  cr_revisions r,
-                  acs_objects o
-            where g.comment_id = o.object_id and
-                  g.comment_id = r.item_id and
-	          r.revision_id = :revision_id
-    }] } {
+    if { ![db_0or1row get_revision_comment {}] } {
         ad_return_complaint 1 "[_ general-comments.lt_The_comment_id_does_n]"
     }
 
 } else {
     # get live revision data from the database
-    if { ![db_0or1row get_comment {
-           select g.object_id,
-	          g.comment_id,
-	          r.revision_id as live_revision,
-	          r.revision_id,
-                  r.title,
-	          r.content, 
-	          r.mime_type, 
-	          o.creation_user,
-	          o.creation_date,
-	          acs_object.name(o.creation_user) as author
-             from general_comments g,
-                  acs_objects o, 
-	          cr_revisions r
-            where g.comment_id = :comment_id and
-                  g.comment_id = o.object_id and
-                  g.comment_id = r.item_id and
-	          r.revision_id = content_item.get_live_revision(:comment_id)
-    }] } {
+    if { ![db_0or1row get_comment {}] } {
         ad_return_complaint 1 "[_ general-comments.lt_The_comment_id_does_n]"
     }
 }
@@ -143,8 +108,8 @@ if { $user_id == $creation_user } {
     set is_creator_p "t"
 }
 
-if { $mime_type ne "text/html" } {
-    set html_content "<p>[ad_html_text_convert -from $mime_type -- $content]</p>"
+if { $comment_mime_type ne "text/html" } {
+    set html_content "<p>[ad_html_text_convert -from $comment_mime_type -- $content]</p>"
 } else {
     set html_content $content
 }

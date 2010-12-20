@@ -21,7 +21,7 @@
                   r.revision_id,
                   r.title,
 	          r.content, 
-	          r.mime_type, 
+	          r.mime_type as comment_mime_type, 
 	          o.creation_user,
 	          o.creation_date,
 	          acs_object.name(o.creation_user) as author
@@ -45,7 +45,7 @@
 	          r.revision_id,
                   r.title,
 	          r.content, 
-	          r.mime_type, 
+	          r.mime_type as comment_mime_type, 
 	          o.creation_user,
 	          o.creation_date,
 	          acs_object.name(o.creation_user) as author
