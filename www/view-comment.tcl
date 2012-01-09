@@ -10,6 +10,7 @@ ad_page_contract {
 } { 
     comment_id:notnull
     { revision_id {} }
+    { curr_revision_id {} }
     { object_name {} }
     { return_url {} }
 } -properties {
@@ -42,6 +43,7 @@ set admin_p [ad_permission_p $package_id admin]
 
 # if the user has write permissions then allow
 # viewing of selected revision
+set curr_revision_id $revision_id
 if { $write_perm_p == 1 } {
     if { [empty_string_p $revision_id] } {
 	# get the latest revision
@@ -122,7 +124,7 @@ set action_url_add_url [export_vars -base "url-add" {{parent_id $comment_id} ret
 
 # Revisions section
 set return_url_view "../${return_url_view}"
-if { $live_revision ne $revision_id } {
+if { $live_revision ne $curr_revision_id } {
     set font_color "red"
     set pre_text [_ general-comments.lt_This_revision_is_not_]
     set admin_toggle_url [export_vars -base "admin/toggle-approval" {comment_id revision_id {return_url $return_url_view}}]
