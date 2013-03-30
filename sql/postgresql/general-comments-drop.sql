@@ -22,11 +22,16 @@ where
 -- /
 
 -- remove all comments from the system
-create function inline_0 ()
-returns integer as '
-declare 
+
+
+--
+-- procedure inline_0/0
+--
+CREATE OR REPLACE FUNCTION inline_0(
+) RETURNS integer AS $$
+DECLARE 
     comment_rec RECORD; 
-begin
+BEGIN
 
     FOR comment_rec IN select comment_id from general_comments LOOP
 
@@ -47,13 +52,11 @@ begin
     END LOOP;
 
     return 0;
-end;' language 'plpgsql';
+END;
+$$ LANGUAGE plpgsql;
 
 select inline_0 ();
 
 drop function inline_0 ();
-
--- /
-
 drop table general_comments;
 
