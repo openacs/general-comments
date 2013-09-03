@@ -18,8 +18,9 @@
         <maturity>0</maturity>
 
         <provides url="general-comments" version="5.2.0"/>
+	<requires url="acs-kernel" version="5.8.0"/>
         <requires url="acs-content-repository" version="5.5.0"/>
-        <requires url="acs-kernel" version="5.5.0"/>
+        
         <requires url="acs-messaging" version="5.5.0"/>
 
         <callbacks>
