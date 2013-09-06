@@ -22,7 +22,7 @@ permission::require_permission -object_id $comment_id -privilege write
 set user_id [ad_conn user_id]
 
 # insert the revision into the database
-set is_live [ad_parameter AutoApproveCommentsP {general-comments} {t}]
+set is_live [parameter::get -parameter AutoApproveCommentsP -default {t}]
 set creation_ip [ad_conn peeraddr]
 db_transaction {
   db_exec_plsql insert_comment {

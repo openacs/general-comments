@@ -15,7 +15,7 @@ ad_page_contract {
     { return_url {} }
 } -validate {
     allow_link_attachments {
-        set allow_links_p [ad_parameter AllowLinkAttachmentsP {general-comments} {t}]
+        set allow_links_p [parameter::get -parameter AllowLinkAttachmentsP -default {t}]
         if { $allow_links_p != "t" } {
             ad_complain "[_ general-comments.lt_Attaching_links_to_co]"
         }

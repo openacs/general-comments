@@ -21,7 +21,7 @@ ad_page_contract {
     file_name:onevalue
 } -validate {
     allow_file_attachments {
-        set allow_files_p [ad_parameter AllowFileAttachmentsP {general-comments} {t}]
+        set allow_files_p [parameter::get -parameter AllowFileAttachmentsP -default {t}]
         if { $allow_files_p != "t" } {
             ad_complain "Attaching files to comments has been disabled."
         }

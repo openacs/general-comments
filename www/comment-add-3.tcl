@@ -33,7 +33,7 @@ permission::require_permission -object_id $object_id -privilege general_comments
 
 # insert the comment into the database
 set creation_ip [ad_conn peeraddr]
-set is_live [ad_parameter AutoApproveCommentsP {general-comments} {t}]
+set is_live [parameter::get -parameter AutoApproveCommentsP -default {t}]
 
 general_comment_new \
     -object_id $object_id \

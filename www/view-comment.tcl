@@ -93,8 +93,8 @@ db_multirow -extend {view_comment_url} revisions get_revisions {*SQL*} {
     set view_comment_url [export_vars -base "view-comment" {comment_id revision_id return_url}]
 }
 
-set allow_file_p [ad_parameter AllowFileAttachmentsP {general-comments} {t}]
-set allow_link_p [ad_parameter AllowLinkAttachmentsP {general-comments} {t}]
+set allow_file_p [parameter::get -parameter AllowFileAttachmentsP -default {t}]
+set allow_link_p [parameter::get -parameter AllowLinkAttachmentsP -default {t}]
 set allow_attach_p "t"
 if { $allow_file_p == "f" && $allow_link_p == "f" } {
     set allow_attach_p "f"

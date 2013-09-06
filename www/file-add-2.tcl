@@ -21,14 +21,14 @@ ad_page_contract {
     { return_url {} }
 } -validate {
     allow_file_attachments {
-        set allow_files_p [ad_parameter AllowFileAttachmentsP {general-comments} {t}]
+        set allow_files_p [parameter::get -parameter AllowFileAttachmentsP -default {t}]
         if { $allow_files_p != "t" } {
             ad_complain "[_ general-comments.lt_Attaching_files_to_co]"            
         }
     }
     check_file_size {
         set tmp_size [file size ${upload_file.tmpfile}]
-        set max_file_size [ad_parameter MaxFileSize {general-comments} {0}]
+        set max_file_size [parameter::get -parameter MaxFileSize -default {0}]
         if { $tmp_size > $max_file_size && $max_file_size > 0 } {
             ad_complain "[_ general-comments.lt_Your_file_is_too_larg]  [_ general-comments.The_publisher_of] [ad_system_name] [_ general-comments.lt_has_chosen_to_limit_a] [util_commify_number $max_file_size] [_ general-comments.bytes].\n"
         }
