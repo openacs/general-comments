@@ -37,8 +37,8 @@ set user_id [ad_conn user_id]
 # check for permissions
 set package_id [ad_conn package_id]
 ad_require_permission $comment_id read
-set write_perm_p [ad_permission_p $comment_id write]
-set admin_p [ad_permission_p $package_id admin]
+set write_perm_p [permission::permission_p -object_id $comment_id -privilege write]
+set admin_p [permission::permission_p -object_id $package_id -privilege admin]
 
 # if the user has write permissions then allow
 # viewing of selected revision

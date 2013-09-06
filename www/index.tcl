@@ -21,7 +21,7 @@ set user_id [auth::require_login]
 
 # check for admin privileges
 set package_id [ad_conn package_id]
-set admin_p [ad_permission_p $package_id admin]
+set admin_p [permission::permission_p -object_id $package_id -privilege admin]
 
 # return_url to be passed to various helper pages so that we return to
 # this page with the proper parameters
