@@ -19,7 +19,7 @@ ad_page_contract {
 set user_id [ad_conn user_id]
 
 # check to see if the user can edit this attachment
-ad_require_permission $attach_id write
+permission::require_permission -object_id $attach_id -privilege write
 
 db_dml edit_url {
     update cr_extlinks

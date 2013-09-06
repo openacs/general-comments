@@ -36,7 +36,7 @@ set user_id [ad_conn user_id]
 
 # check for permissions
 set package_id [ad_conn package_id]
-ad_require_permission $comment_id read
+permission::require_permission -object_id $comment_id -privilege read
 set write_perm_p [permission::permission_p -object_id $comment_id -privilege write]
 set admin_p [permission::permission_p -object_id $package_id -privilege admin]
 

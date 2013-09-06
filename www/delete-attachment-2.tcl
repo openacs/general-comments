@@ -19,7 +19,7 @@ ad_page_contract {
 }
 
 # check for permissions
-ad_require_permission $attach_id delete
+permission::require_permission -object_id $attach_id -privilege delete
 
 # all of this messy code will be replaced by
 # a single content_item.delete after the bug fix

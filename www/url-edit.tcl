@@ -21,7 +21,7 @@ ad_page_contract {
 }
 
 # check to see if the user can edit this attachment
-ad_require_permission $attach_id write
+permission::require_permission -object_id $attach_id -privilege write
 
 # get the values from the database
 if { ![db_0or1row get_comment {

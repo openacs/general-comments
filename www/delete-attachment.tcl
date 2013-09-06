@@ -23,7 +23,7 @@ ad_page_contract {
 }
 
 # check for permissions
-ad_require_permission $attach_id delete
+permission::require_permission -object_id $attach_id -privilege delete
 
 # set template variables
 set page_title "[_ general-comments.Delete_attachment]"

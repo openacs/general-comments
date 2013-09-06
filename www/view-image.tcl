@@ -20,7 +20,7 @@ ad_page_contract {
 }
 
 # check that user can view the image
-ad_require_permission $image_id read
+permission::require_permission -object_id $image_id -privilege read
 
 # get the image attributes
 db_1row get_image {

@@ -43,7 +43,7 @@ ad_page_contract {
 set user_id [ad_conn user_id]
 
 # check to see if the user can create comments
-ad_require_permission $parent_id write
+permission::require_permission -object_id $parent_id -privilege write
 
 # get the file extension
 set tmp_filename ${upload_file.tmpfile}

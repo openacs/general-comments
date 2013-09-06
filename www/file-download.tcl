@@ -14,6 +14,6 @@ ad_page_contract {
 }
 
 # check for permissions
-ad_require_permission $item_id read
+permission::require_permission -object_id $item_id -privilege read
 
 cr_write_content -item_id $item_id

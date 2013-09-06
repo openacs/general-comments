@@ -19,7 +19,7 @@ ad_page_contract {
 }
 
 # check to see if the user can edit this comment
-ad_require_permission $attach_id write
+permission::require_permission -object_id $attach_id -privilege write
 
 db_1row get_revision_id {
     select content_item.get_latest_revision(:attach_id) as revision_id from dual

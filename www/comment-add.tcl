@@ -28,7 +28,7 @@ ad_page_contract {
 }
 
 # check to see if the user can create comments on this object
-ad_require_permission $object_id general_comments_create
+permission::require_permission -object_id $object_id -privilege general_comments_create
 
 # ad_page_contract does not set object_name to
 # [acs_object_name $object_id] if object_name is passed

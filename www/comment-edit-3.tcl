@@ -16,7 +16,7 @@ ad_page_contract {
 }
 
 # check to see if the user can edit this comment
-ad_require_permission $comment_id write
+permission::require_permission -object_id $comment_id -privilege write
 
 # authenticate the user
 set user_id [ad_conn user_id]

@@ -29,7 +29,7 @@ ad_page_contract {
 set user_id [ad_conn user_id]
 
 # check to see if the user can create comments on this object
-ad_require_permission $object_id general_comments_create
+permission::require_permission -object_id $object_id -privilege general_comments_create
 
 # insert the comment into the database
 set creation_ip [ad_conn peeraddr]

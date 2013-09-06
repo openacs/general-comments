@@ -31,7 +31,7 @@ ad_page_contract {
 }
 
 # check to see if the user can add an attachment
-ad_require_permission $parent_id write
+permission::require_permission -object_id $parent_id -privilege write
 
 # set variables for template
 set attach_id [db_nextval acs_object_id_seq]

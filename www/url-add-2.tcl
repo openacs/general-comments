@@ -26,7 +26,7 @@ ad_page_contract {
 set user_id [ad_conn user_id]
 
 # check to see if the user can add an attachment
-ad_require_permission $parent_id write
+permission::require_permission -object_id $parent_id -privilege write
 
 # insert the url into database 
 set creation_ip [ad_conn peeraddr]
