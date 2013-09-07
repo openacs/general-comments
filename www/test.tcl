@@ -36,14 +36,10 @@ if { ![db_0or1row get_gc_package_id {
 }
 set package_url [general_comments_package_url]
 
-set auto_approve_comments_p [ad_parameter -package_id $package_id \
-	AutoApproveCommentsP {general-comments} {}]
-set allow_file_attachments_p [ad_parameter -package_id $package_id \
-	AllowFileAttachmentsP {general-comments} {}]
-set allow_link_attachments_p [ad_parameter -package_id $package_id \
-	AllowLinkAttachmentsP {general-comments} {}]
-set max_file_size [ad_parameter  -package_id $package_id \
-	MaxFileSize {general-comments} {}]
+set auto_approve_comments_p [parameter::get -package_id $package_id -parameter AutoApproveCommentsP -default ""]
+set allow_file_attachments_p [parameter::get -package_id $package_id -parameter AllowFileAttachmentsP -default ""]
+set allow_link_attachments_p [parameter::get -package_id $package_id -parameter AllowLinkAttachmentsP -default ""]
+set max_file_size [parameter::get -package_id $package_id -parameter MaxFileSize -default ""]
 
 set comments [general_comments_get_comments $package_id "${package_url}test"]
 set full_comments [general_comments_get_comments -print_content_p 1 -print_attachments_p 1 $package_id "${package_url}test"]
