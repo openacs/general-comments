@@ -12,13 +12,13 @@
         <owner url="mailto:dave@thedesignexperience.org">Dave Bauer</owner>
         <owner url="mailto:dhogaza@pacifier.com">Don Baccus</owner>
         <summary>Service to provide comment entry and display on objects.</summary>
-        <release-date>2013-08-30</release-date>
+        <release-date>2013-09-08</release-date>
         <vendor url="http://openacs.org">OpenACS</vendor>
         <description format="text/html">General comments provides the widgets and UI to support commentability on any object.  There is also an admin interface to edit/hide/delete comments.</description>
         <maturity>0</maturity>
 
         <provides url="general-comments" version="5.2.0"/>
-	<requires url="acs-kernel" version="5.8.0"/>
+	<requires url="acs-kernel" version="5.8.1d1"/>
         <requires url="acs-content-repository" version="5.5.0"/>
         
         <requires url="acs-messaging" version="5.5.0"/>
