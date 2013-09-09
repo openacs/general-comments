@@ -19,7 +19,7 @@
 <tr>
 	<td>
 		<form action=delete-2 method=post>
-		<%= [export_form_vars comment_id return_url] %>
+		<%= [export_vars -form comment_id return_url] %>
 		<input type=submit name=submit value="#general-comments.Proceed#">
 		</form>
 	</td>
