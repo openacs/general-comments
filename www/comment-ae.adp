@@ -5,7 +5,7 @@
 
 <form action="@target@" method="post" name="comment" class="margin-form">
 <div>
-  <%= [export_vars comment_id object_id object_name context_id return_url] %>
+  <%= [export_form_vars comment_id object_id object_name context_id return_url] %>
 </div>
 <div class="form-item-wrapper">
   <label for="title" class="form-label">
