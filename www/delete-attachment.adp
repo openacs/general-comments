@@ -9,7 +9,7 @@
 <tr>
 	<td>
 		<form action=delete-attachment-2 method=post>
-		<%= [export_form_vars attach_id parent_id return_url] %>
+		<%= [export_vars attach_id parent_id return_url] %>
 		<input type=submit name=submit value="#general-comments.Proceed#">
 		</form>
 	</td>
@@ -17,7 +17,7 @@
 	<td>
 		<form action="view-comment" method="get">
 		<input type=hidden name="comment_id" value="@parent_id@">
-		<%= [export_form_vars return_url] %>
+		<%= [export_vars return_url] %>
 		<input type=submit name=submit value="#general-comments.Cancel#">
 		</form>
 	</td

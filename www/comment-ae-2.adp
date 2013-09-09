@@ -15,7 +15,7 @@
 </else>
 
 <form action="@target@" method=post>
-<%= [export_form_vars comment_id object_id object_name context_id title content comment_mime_type category return_url] %>
+<%= [export_vars comment_id object_id object_name context_id title content comment_mime_type category return_url] %>
 <input type=submit name=submit value="#general-comments.Confirm#">
 <p>
 <input type="checkbox" name="attach_p" id="attach_ck"><label for="attach_ck">#general-comments.lt_I_would_like_to_uploa#</label>
