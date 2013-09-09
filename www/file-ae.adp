@@ -4,7 +4,7 @@
 <property name="parent_id">@parent_id;noquote@</property>
 
 <form enctype="multipart/form-data" method=POST action="@target@">
-<div><%= [export_vars -form attach_id parent_id return_url] %></div>
+<div><%= [export_vars -form {attach_id parent_id return_url}] %></div>
 
 <table>
   <tr>

@@ -28,7 +28,7 @@ db_dml edit_url {
      where extlink_id = :attach_id
 }
 
-ad_returnredirect "view-comment?comment_id=$parent_id&[export_url_vars return_url]"
+ad_returnredirect "view-comment?comment_id=$parent_id&[export_vars -url {return_url}]"
 
 
 
