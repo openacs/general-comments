@@ -7,7 +7,7 @@
 
   <b>@title@</b> (<a href="../view-comment?comment_id=@comment_id@">#general-comments.details#</a>)<br><br>
   <if @mime_type@ eq text/plain>
-    <%= [util_convert_plaintext_to_html $content] %>
+    <%= [ad_text_to_html $content] %>
   </if>
   <else>
     @content@
