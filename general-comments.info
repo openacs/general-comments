@@ -15,7 +15,8 @@
         <release-date>2013-09-08</release-date>
         <vendor url="http://openacs.org">OpenACS</vendor>
         <description format="text/html">General comments provides the widgets and UI to support commentability on any object.  There is also an admin interface to edit/hide/delete comments.</description>
-        <maturity>0</maturity>
+        <license>GPL</license>
+        <maturity>2</maturity>
 
         <provides url="general-comments" version="5.2.0"/>
 	<requires url="acs-kernel" version="5.8.1d1"/>
