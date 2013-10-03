@@ -54,21 +54,21 @@ regsub {\.} $file_extension "" file_extension
 set guessed_file_type [cr_filename_to_mime_type -create $upload_file]
 
 # strip off the C:\directories... crud and just get the file name
-if ![regexp {([^/\\]+)$} $upload_file match client_filename] {
+if {![regexp {([^/\\]+)$} $upload_file match client_filename]} {
     # couldn't find a match
     set client_filename $upload_file
 }
 
 set what_aolserver_told_us ""
-if { $file_extension == "jpeg" || $file_extension == "jpg" } {
+if { $file_extension eq "jpeg" || $file_extension eq "jpg" } {
     catch { set what_aolserver_told_us [ns_jpegsize $tmp_filename] }
-} elseif { $file_extension == "gif" } {
+} elseif { $file_extension eq "gif" } {
     catch { set what_aolserver_told_us [ns_gifsize $tmp_filename] }
 }
 
 # the AOLserver jpegsize command has some bugs where the height comes 
 # through as 1 or 2 
-if { ![empty_string_p $what_aolserver_told_us] && [lindex $what_aolserver_told_us 0] > 10 && [lindex $what_aolserver_told_us 1] > 10 } {
+if { $what_aolserver_told_us ne "" && [lindex $what_aolserver_told_us 0] > 10 && [lindex $what_aolserver_told_us 1] > 10 } {
     set original_width [lindex $what_aolserver_told_us 0]
     set original_height [lindex $what_aolserver_told_us 1]
 } else {
@@ -81,7 +81,7 @@ if { ![empty_string_p $what_aolserver_told_us] && [lindex $what_aolserver_told_u
 set creation_ip [ad_conn peeraddr]
 set is_live "t"
 db_transaction {
-    if { $file_extension == "jpeg" || $file_extension == "jpg" || $file_extension == "gif" } {
+    if { $file_extension eq "jpeg" || $file_extension eq "jpg" || $file_extension eq "gif" } {
         db_exec_plsql insert_image {
              begin
                 :1 := acs_message.new_image (

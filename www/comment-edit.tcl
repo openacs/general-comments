@@ -30,7 +30,7 @@ permission::require_permission -object_id $comment_id -privilege write
 
 # if revision_id is not passed in, assume that the user
 # wishes to edit the latest revision
-if { [empty_string_p $revision_id] } {
+if { $revision_id eq "" } {
     set revision_id [db_string get_latest_revision \
             "select content_item.get_latest_revision(:comment_id) from dual"]
 }

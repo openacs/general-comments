@@ -48,7 +48,7 @@ ad_proc general_comment_new {
 	# created comment. This is done here to ensure that
 	# a fail on permissions granting will not leave
 	# the comment with incorrect permissions. 
-	if {![empty_string_p $user_id]} {
+	if {$user_id ne ""} {
 	    permission::grant -object_id $comment_id \
 		              -party_id $user_id \
 		              -privilege "read"
@@ -96,7 +96,7 @@ ad_proc -public general_comments_get_comments {
 
     # get the package url
     set package_url [general_comments_package_url]
-    if { [empty_string_p $package_url] } {
+    if { $package_url eq "" } {
         return ""
     }
 
@@ -138,7 +138,7 @@ ad_proc -public general_comments_get_comments {
         set content_select [db_map content_select] ;# ", r.content"
     }
 
-    if { ![empty_string_p $context_id] } {
+    if { $context_id ne "" } {
         set context_clause "and o.context_id = :context_id"
     } else {
         set context_clause ""
@@ -209,7 +209,7 @@ ad_proc -private general_comments_print_comment {
                                and r.revision_id = i.live_revision" {
 
                 append attachments_html "<li>$title "
-                if { $mime_type == "image_gif" || $mime_type == "image/jpeg" } {
+                if { $mime_type eq "image_gif" || $mime_type eq "image/jpeg" } {
                     append attachments_html "(<a href=\"[ad_quotehtml ${package_url}view-image?image_id=$item_id&return_url=$return_url]\">$name</a>)\n"
                 } else {
                     append attachments_html "(<a href=\"[ad_quotehtml ${package_url}file-download?item_id=$item_id]\">$name</a>)\n"
@@ -222,7 +222,7 @@ ad_proc -private general_comments_print_comment {
 	               where i.parent_id = :comment_id and e.extlink_id = i.item_id" {
                 append attachments_html "<li><a href=\"[ad_quotehtml $url]\">$label</a>\n"
             }
-            if { ![empty_string_p $attachments_html] } {
+            if { $attachments_html ne "" } {
                 append html "<h5>[_ general-comments.Attachments]</h5>\n<ul>\n$attachments_html</ul>\n"
             }
         }
@@ -263,7 +263,7 @@ ad_proc -public general_comments_create_link {
 } {
     # get the package url
     set package_url [general_comments_package_url]
-    if { [empty_string_p $package_url] } {
+    if { $package_url eq "" } {
         return ""
     }
 

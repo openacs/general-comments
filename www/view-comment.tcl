@@ -43,7 +43,7 @@ set admin_p [permission::permission_p -object_id $package_id -privilege admin]
 # if the user has write permissions then allow
 # viewing of selected revision
 if { $write_perm_p == 1 } {
-    if { [empty_string_p $revision_id] } {
+    if { $revision_id eq "" } {
 	# get the latest revision
 	set revision_id [db_string get_latest_revision {
             select content_item.get_latest_revision(:comment_id) from dual

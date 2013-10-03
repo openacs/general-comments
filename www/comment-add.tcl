@@ -33,7 +33,7 @@ permission::require_permission -object_id $object_id -privilege general_comments
 # ad_page_contract does not set object_name to
 # [acs_object_name $object_id] if object_name is passed
 # in as an empty string.
-if { [empty_string_p $object_name] } {
+if { $object_name eq "" } {
     set object_name [acs_object_name $object_id]
 }
 
