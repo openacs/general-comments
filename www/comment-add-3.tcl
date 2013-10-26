@@ -47,7 +47,7 @@ general_comment_new \
     -category $category \
     -content $content
 
-if { $attach_p eq "f" && $return_url ne "" } {
+if { $attach_p == "f" && $return_url ne "" } {
     ad_returnredirect $return_url
 } else {
     ad_returnredirect "view-comment?[export_vars { comment_id return_url }]"
