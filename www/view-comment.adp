@@ -70,7 +70,7 @@
   <h2>#general-comments.Revisions#</h2>
   <ul>
     <multiple name=revisions>
-      <if @revision_id@ eq @revisions.revision_id@>
+      <if @curr_revision_id@ eq @revisions.revision_id@>
           <li>@revisions.revision_date@
       </if>
       <else>
