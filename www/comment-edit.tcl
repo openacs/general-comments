@@ -10,7 +10,7 @@ ad_page_contract {
     @creation-date 2000-10-12
     @cvs-id $Id$
 } { 
-    comment_id:integer,notnull
+    comment_id:naturalnum,notnull
     { revision_id {} }
     { return_url {} }
 } -properties {

@@ -8,8 +8,8 @@ ad_page_contract {
     @creation-date 2000-10-12
     @cvs-id $Id$
 } {
-    comment_id:integer,notnull
-    object_id:integer,notnull
+    comment_id:naturalnum,notnull
+    object_id:naturalnum,notnull
     title:notnull
     content:html,notnull
     comment_mime_type

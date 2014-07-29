@@ -8,8 +8,8 @@ ad_page_contract {
     @creation-date 2000-10-12
     @cvs-id $Id$
 } {
-    attach_id:integer,notnull
-    parent_id:integer,notnull
+    attach_id:naturalnum,notnull
+    parent_id:naturalnum,notnull
     label:notnull
     url:notnull
     { return_url {} }

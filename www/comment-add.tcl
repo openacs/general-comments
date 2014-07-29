@@ -8,7 +8,7 @@ ad_page_contract {
     @creation-date 2000-10-12
     @cvs-id $Id$
 } { 
-    object_id:integer,notnull
+    object_id:naturalnum,notnull
     { object_name "[acs_object_name $object_id]" }
     { context_id "$object_id" }
     { category "" }
