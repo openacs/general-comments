@@ -10,7 +10,7 @@ ad_page_contract {
     @creation-date 2000-10-12
     @cvs-id $Id$
 } {
-    parent_id:notnull,integer
+    parent_id:notnull,naturalnum
     {return_url {} }
 } -properties {
     page_title:onevalue

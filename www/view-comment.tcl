@@ -8,8 +8,8 @@ ad_page_contract {
     @creation-date 2000-10-12
     @cvs-id $Id$
 } { 
-    comment_id:notnull
-    { revision_id {} }
+    comment_id:naturalnum,notnull
+    { revision_id:naturalnum,optional {} }
     { object_name {} }
     { return_url {} }
 } -properties {

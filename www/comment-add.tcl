@@ -10,7 +10,7 @@ ad_page_contract {
 } { 
     object_id:naturalnum,notnull
     { object_name "[acs_object_name $object_id]" }
-    { context_id "$object_id" }
+    { context_id:naturalnum "$object_id" }
     { category "" }
     { return_url "" }
 } -properties {

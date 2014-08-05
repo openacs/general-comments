@@ -8,7 +8,7 @@ ad_page_contract {
     @creation-date 2000-10-12
     @cvs-id $Id$
 } {
-    image_id:notnull
+    image_id:naturalnum,notnull
     { return_url {} }
 } -properties {
     page_title:onevalue

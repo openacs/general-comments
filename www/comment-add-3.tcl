@@ -13,7 +13,7 @@ ad_page_contract {
     title:notnull
     content:html,notnull
     comment_mime_type
-    { context_id "$object_id" }
+    { context_id:naturalnum "$object_id" }
     { category "" }
     { return_url "" }
     { attach_p "f" }

@@ -11,7 +11,7 @@ ad_page_contract {
     @cvs-id $Id$
 } {
     comment_id:naturalnum,notnull
-    {revision_id {}}
+    {revision_id:naturalnum {}}
     {return_url {}}
 }
 
