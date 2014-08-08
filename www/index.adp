@@ -8,9 +8,5 @@
 <p>
 @dimensional_bar;noquote@
 <p>
-@comments_table;noquote@
 
-
-
-
-
+<listtemplate name="comments_list"></listtemplate>
