@@ -32,7 +32,7 @@
       <i>#general-comments.not_set#</i>
     </if>
     <else>
-      <a href="/admin/site-map/parameter-set?package_id=@package_id@">
+      <a href="@params_url@">
       @auto_approve_comments_p@</a>
     </else></td></tr>
 <tr>
@@ -42,7 +42,7 @@
       <i>#general-comments.not_set#</i>
     </if>
     <else>
-      <a href="/admin/site-map/parameter-set?package_id=@package_id@">
+      <a href="@params_url@">
       @allow_file_attachments_p@</a>
     </else></td></tr>
 <tr>
@@ -52,7 +52,7 @@
       <i>#general-comments.not_set#</i>
     </if>
     <else>
-      <a href="/admin/site-map/parameter-set?package_id=@package_id@">
+      <a href="@params_url@">
       @allow_link_attachments_p@</a>
     </else></td></tr>
 <tr>
@@ -62,7 +62,7 @@
       <i>#general-comments.not_set#</i>
     </if>
     <else>
-      <a href="/admin/site-map/parameter-set?package_id=@package_id@">
+      <a href="@params_url@">
       @max_file_size@</a>
     </else></td></tr>
 </table>

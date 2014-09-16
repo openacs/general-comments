@@ -45,4 +45,7 @@ set comments [general_comments_get_comments $package_id "${package_url}test"]
 set full_comments [general_comments_get_comments -print_content_p 1 -print_attachments_p 1 $package_id "${package_url}test"]
 set link [general_comments_create_link $package_id "${package_url}test" ]
 
+set return_url [ad_conn url]
+set params_url [export_vars -base /shared/parameters {package_id return_url}]
+
 ad_return_template
