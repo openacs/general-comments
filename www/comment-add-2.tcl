@@ -8,12 +8,12 @@ ad_page_contract {
     @creation-date 2000-10-12
     @cvs-id $Id$
 } {
-    object_id:integer,notnull
+    object_id:naturalnum,notnull
     { object_name "[acs_object_name $object_id]" }
     title:notnull
     content:html,notnull
     comment_mime_type:notnull
-    { context_id "$object_id" }
+    { context_id:naturalnum "$object_id" }
     { category {} }
     { return_url {} }
 } -properties {
@@ -30,12 +30,12 @@ ad_page_contract {
 }
 
 # check to see if the user can create comments on this object
-ad_require_permission $object_id general_comments_create
+permission::require_permission -object_id $object_id -privilege general_comments_create
 
 # ad_page_contract does not set object_name to
 # [acs_object_name $object_id] if object_name is passed
 # in as an empty string.
-if { [empty_string_p $object_name] } {
+if { $object_name eq "" } {
     set object_name [acs_object_name $object_id]
 }
 

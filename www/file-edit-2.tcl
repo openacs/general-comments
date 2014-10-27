@@ -12,14 +12,14 @@ ad_page_contract {
     @creation-date 2000-10-12
     @cvs-id $Id$
 } {
-    attach_id:integer,notnull
-    parent_id:integer,notnull
+    attach_id:naturalnum,notnull
+    parent_id:naturalnum,notnull
     title:notnull
     { return_url {} }
 }
 
 # check to see if the user can edit this comment
-ad_require_permission $attach_id write
+permission::require_permission -object_id $attach_id -privilege write
 
 db_1row get_revision_id {
     select content_item.get_latest_revision(:attach_id) as revision_id from dual
@@ -30,7 +30,7 @@ db_dml edit_title {
      where revision_id = :revision_id
 }
     
-ad_returnredirect "view-comment?comment_id=$parent_id&[export_url_vars return_url]"
+ad_returnredirect "view-comment?comment_id=$parent_id&[export_vars -url {return_url}]"
 
 
 

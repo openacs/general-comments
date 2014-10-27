@@ -48,7 +48,7 @@ ad_proc general_comment_new {
 	# created comment. This is done here to ensure that
 	# a fail on permissions granting will not leave
 	# the comment with incorrect permissions. 
-	if {![empty_string_p $user_id]} {
+	if {$user_id ne ""} {
 	    permission::grant -object_id $comment_id \
 		              -party_id $user_id \
 		              -privilege "read"
@@ -96,7 +96,7 @@ ad_proc -public general_comments_get_comments {
 
     # get the package url
     set package_url [general_comments_package_url]
-    if { [empty_string_p $package_url] } {
+    if { $package_url eq "" } {
         return ""
     }
 
@@ -138,7 +138,7 @@ ad_proc -public general_comments_get_comments {
         set content_select [db_map content_select] ;# ", r.content"
     }
 
-    if { ![empty_string_p $context_id] } {
+    if { $context_id ne "" } {
         set context_clause "and o.context_id = :context_id"
     } else {
         set context_clause ""
@@ -209,7 +209,7 @@ ad_proc -private general_comments_print_comment {
                                and r.revision_id = i.live_revision" {
 
                 append attachments_html "<li>$title "
-                if { $mime_type == "image_gif" || $mime_type == "image/jpeg" } {
+                if { $mime_type eq "image_gif" || $mime_type eq "image/jpeg" } {
                     append attachments_html "(<a href=\"[ad_quotehtml ${package_url}view-image?image_id=$item_id&return_url=$return_url]\">$name</a>)\n"
                 } else {
                     append attachments_html "(<a href=\"[ad_quotehtml ${package_url}file-download?item_id=$item_id]\">$name</a>)\n"
@@ -222,13 +222,13 @@ ad_proc -private general_comments_print_comment {
 	               where i.parent_id = :comment_id and e.extlink_id = i.item_id" {
                 append attachments_html "<li><a href=\"[ad_quotehtml $url]\">$label</a>\n"
             }
-            if { ![empty_string_p $attachments_html] } {
+            if { $attachments_html ne "" } {
                 append html "<h5>[_ general-comments.Attachments]</h5>\n<ul>\n$attachments_html</ul>\n"
             }
         }
-        append html "<p>-- <a href=\"[ad_quotehtml /shared/community-member?user_id=$creation_user]\">$author</a> [_ general-comments.on] $pretty_date2 (<a href=\"[ad_quotehtml ${package_url}view-comment?[export_url_vars comment_id return_url]]\">[_ general-comments.view_details]</a>)</p>\n"
+        append html "<p>-- <a href=\"[ad_quotehtml /shared/community-member?user_id=$creation_user]\">$author</a> [_ general-comments.on] $pretty_date2 (<a href=\"[ad_quotehtml ${package_url}view-comment?[export_vars -url {comment_id return_url}]]\">[_ general-comments.view_details]</a>)</p>\n"
     } else {
-        append html "<li><a href=\"[ad_quotehtml ${package_url}view-comment?[export_url_vars comment_id return_url]]\">$title</a>"
+        append html "<li><a href=\"[ad_quotehtml ${package_url}view-comment?[export_vars -url {comment_id return_url}]]\">$title</a>"
 	if {$print_user_info_p} {
 	    append html " [_ general-comments.by] <a href=\"[ad_quotehtml /shared/community-member?user_id=$creation_user]\">$author</a> [_ general-comments.on] $pretty_date<br>\n"
 	} else {
@@ -263,7 +263,7 @@ ad_proc -public general_comments_create_link {
 } {
     # get the package url
     set package_url [general_comments_package_url]
-    if { [empty_string_p $package_url] } {
+    if { $package_url eq "" } {
         return ""
     }
 
@@ -271,7 +271,7 @@ ad_proc -public general_comments_create_link {
     if { ![info exists object_name] } { set object_name [acs_object_name $object_id] }
     if { ![info exists context_id] } { set context_id $object_id }
 
-    set html "<a href=\"[ad_quotehtml ${package_url}comment-add?[export_url_vars object_id object_name return_url context_id category]]\" $link_attributes>$link_text</a>"
+    set html "<a href=\"[ad_quotehtml ${package_url}comment-add?[export_vars -url {object_id object_name return_url context_id category}]]\" $link_attributes>$link_text</a>"
 
     return $html
 }
@@ -318,7 +318,7 @@ ad_proc -deprecated get_comments {object_id return_url} {
                     o.object_id = g.comment_id and
                     p.person_id = o.creation_user
               order by creation_date" {
-        append html "<li><a href=\"[ad_quotehtml ${package_url}view-comment?[export_url_vars comment_id return_url]]\">$title</a> by $author, $creation_date<br>\n"
+        append html "<li><a href=\"[ad_quotehtml ${package_url}view-comment?[export_vars -url {comment_id return_url}]]\">$title</a> by $author, $creation_date<br>\n"
     }
     return "$html"
 }
@@ -336,7 +336,7 @@ ad_proc -deprecated create_link {object_id object_name return_url link_text {con
     # get the package url
     set package_url [general_comments_package_url]
 
-    set html "<a href=\"[ad_quotehtml ${package_url}comment-add?[export_url_vars object_id object_name return_url context_id category]]\">$link_text</a>"
+    set html "<a href=\"[ad_quotehtml ${package_url}comment-add?[export_vars -url {object_id object_name return_url context_id category}]]\">$link_text</a>"
     return $html
 }
 

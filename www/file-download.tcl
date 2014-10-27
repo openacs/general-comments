@@ -10,10 +10,10 @@ ad_page_contract {
     @creation-date 2000-10-12
     @cvs-id $Id$
 } {
-    item_id:notnull
+    item_id:naturalnum,notnull
 }
 
 # check for permissions
-ad_require_permission $item_id read
+permission::require_permission -object_id $item_id -privilege read
 
 cr_write_content -item_id $item_id

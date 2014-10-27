@@ -9,7 +9,7 @@
 
       <listitem><para>ACS administrator directory: /general-comments/admin/</para></listitem>
 
-      <listitem><para>TCL API: 
+      <listitem><para>Tcl API: 
 
 	  <itemizedlist>
 	    <listitem><para><ulink url="/api-doc/procs-file-view?path=packages/general-comments/tcl/general-comments-procs.tcl">
@@ -108,7 +108,7 @@
   <sect2 id="design-api" xreflabel="API">
     <title>API</title>
 
-    <para><phrase>TCL API</phrase></para>
+    <para><phrase>Tcl API</phrase></para>
 
     <para>There is one core procedure, 
       <ulink url="/api-doc/proc-view?proc=general_comments_get_comments">general_comments_get_comments</ulink>,

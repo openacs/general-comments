@@ -12,21 +12,21 @@ ad_page_contract {
     @creation-date 2000-10-12
     @cvs-id $Id$
 } {
-    attach_id:integer,notnull
-    parent_id:integer,notnull
+    attach_id:naturalnum,notnull
+    parent_id:naturalnum,notnull
     submit:notnull
     { return_url {} }
 }
 
 # check for permissions
-ad_require_permission $attach_id delete
+permission::require_permission -object_id $attach_id -privilege delete
 
 # all of this messy code will be replaced by
 # a single content_item.delete after the bug fix
 # is released
 
 #Commented out during i18n convertion, Steffen
-#if { $submit == "Proceed" } {
+#if { $submit eq "Proceed" } {
 
 
     # get the type of the attachment
@@ -35,7 +35,7 @@ ad_require_permission $attach_id delete
           from cr_items
          where item_id = :attach_id
     }    
-    if { $content_type == "content_revision" } {
+    if { $content_type eq "content_revision" } {
         # get the mime_type
         db_1row get_mime_type {
             select mime_type
@@ -43,7 +43,7 @@ ad_require_permission $attach_id delete
              where item_id = :attach_id
                and revision_id = content_item.get_latest_revision (:attach_id)
         }
-        if { $mime_type == "image/jpeg" || $mime_type == "image/gif" } {
+        if { $mime_type eq "image/jpeg" || $mime_type eq "image/gif" } {
             # delete row from images table, we should only have one row
             # this is only temporary until CR provides a delete image function
             db_dml delete_image_row {
@@ -62,7 +62,7 @@ ad_require_permission $attach_id delete
                 end;
             }
         }
-    } elseif { $content_type == "content_extlink" } {
+    } elseif { $content_type eq "content_extlink" } {
         db_exec_plsql delete_extlink {
             begin
                 content_extlink.del(:attach_id);
@@ -73,7 +73,7 @@ ad_require_permission $attach_id delete
 #/ i18n
 #}
 
-ad_returnredirect "view-comment?comment_id=$parent_id&[export_url_vars return_url]"
+ad_returnredirect "view-comment?comment_id=$parent_id&[export_vars -url {return_url}]"
 
 
 

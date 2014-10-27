@@ -10,8 +10,8 @@ ad_page_contract {
     @creation-date 2000-10-12
     @cvs-id $Id$
 } { 
-    comment_id:integer,notnull
-    { revision_id {} }
+    comment_id:naturalnum,notnull
+    { revision_id:naturalnum {} }
     { return_url {} }
 } -properties {
     page_title:onevalue
@@ -26,11 +26,11 @@ ad_page_contract {
 }
 
 # check to see if the user can edit this comment
-ad_require_permission $comment_id write
+permission::require_permission -object_id $comment_id -privilege write
 
 # if revision_id is not passed in, assume that the user
 # wishes to edit the latest revision
-if { [empty_string_p $revision_id] } {
+if { $revision_id eq "" } {
     set revision_id [db_string get_latest_revision \
             "select content_item.get_latest_revision(:comment_id) from dual"]
 }

@@ -22,8 +22,7 @@
            r.revision_id = i.latest_revision and 
            o.creation_user = :user_id
           [ad_dimensional_sql $dimensional]) as unordered
-    [ad_order_by_from_sort_spec $orderby $table_def]
-
+     [template::list::orderby_clause -orderby -name comments_list]
       </querytext>
 </fullquery>
 

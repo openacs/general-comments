@@ -11,8 +11,8 @@ ad_page_contract {
     @creation-date 2000-10-12
     @cvs-id $Id$
 } {
-    attach_id:integer,notnull
-    parent_id:integer,notnull
+    attach_id:naturalnum,notnull
+    parent_id:naturalnum,notnull
     { return_url {} }
 } -properties {
     page_title:onevalue
@@ -24,7 +24,7 @@ ad_page_contract {
 }
 
 # check to see if the user can edit this comment
-ad_require_permission $attach_id write
+permission::require_permission -object_id $attach_id -privilege write
 
 # get the values from the database
 db_1row get_comment {

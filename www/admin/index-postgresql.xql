@@ -22,8 +22,7 @@
            r.revision_id = o.object_id and
            r.revision_id = i.latest_revision
           [ad_dimensional_sql $dimensional]) as unordered
-    [ad_order_by_from_sort_spec $orderby $table_def]
-
+    [template::list::orderby_clause -orderby -name comments_list]
       </querytext>
 </fullquery>
 

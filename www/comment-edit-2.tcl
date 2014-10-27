@@ -14,8 +14,8 @@ ad_page_contract {
     @creation-date 2000-10-12
     @cvs-id $Id$
 } {
-    comment_id:integer,notnull
-    object_id:integer,notnull
+    comment_id:naturalnum,notnull
+    object_id:naturalnum,notnull
     title:notnull
     content:notnull,html
     comment_mime_type
@@ -30,7 +30,7 @@ ad_page_contract {
 }
 
 # check to see if the user can edit this comment
-ad_require_permission $comment_id write
+permission::require_permission -object_id $comment_id -privilege write
 
 set page_title "[_ general-comments.Confirm_comment_on]: [acs_object_name $object_id]"
 set context "\"[_ general-comments.Confirm_comment]\""

@@ -1,5 +1,5 @@
 <master>
-<property name="title">@page_title;noquote@</property>
+<property name="doc(title)">@page_title;noquote@</property>
 <property name="context">@context;noquote@</property>
 
 
@@ -7,7 +7,7 @@
 
   <b>@title@</b> (<a href="../view-comment?comment_id=@comment_id@">#general-comments.details#</a>)<br><br>
   <if @mime_type@ eq text/plain>
-    <%= [util_convert_plaintext_to_html $content] %>
+    <%= [ad_text_to_html $content] %>
   </if>
   <else>
     @content@
@@ -19,7 +19,7 @@
 <tr>
 	<td>
 		<form action=delete-2 method=post>
-		<%= [export_form_vars comment_id return_url] %>
+		<%= [export_vars -form {comment_id return_url}] %>
 		<input type=submit name=submit value="#general-comments.Proceed#">
 		</form>
 	</td>

@@ -1,11 +1,11 @@
 <master>
-<property name="title">@page_title;noquote@</property>
+<property name="doc(title)">@page_title;noquote@</property>
 <property name="context">@context;noquote@</property>
 <property name="focus">comment.title</property>
 
 <form action="@target@" method="post" name="comment" class="margin-form">
 <div>
-  <%= [export_form_vars comment_id object_id object_name context_id return_url] %>
+  <%= [export_vars -form {comment_id object_id object_name context_id return_url}] %>
 </div>
 <div class="form-item-wrapper">
   <label for="title" class="form-label">

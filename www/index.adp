@@ -1,5 +1,5 @@
 <master>
-<property name="title">@page_title;noquote@</property>
+<property name="doc(title)">@page_title;noquote@</property>
 <property name="context">@context;noquote@</property>
 
 <if @admin_p@ eq 1>
@@ -8,9 +8,5 @@
 <p>
 @dimensional_bar;noquote@
 <p>
-@comments_table;noquote@
 
-
-
-
-
+<listtemplate name="comments_list"></listtemplate>

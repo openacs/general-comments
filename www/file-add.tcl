@@ -10,7 +10,7 @@ ad_page_contract {
     @creation-date 2000-10-12
     @cvs-id $Id$
 } {
-    parent_id:notnull,integer
+    parent_id:notnull,naturalnum
     {return_url {} }
 } -properties {
     page_title:onevalue
@@ -21,7 +21,7 @@ ad_page_contract {
     file_name:onevalue
 } -validate {
     allow_file_attachments {
-        set allow_files_p [ad_parameter AllowFileAttachmentsP {general-comments} {t}]
+        set allow_files_p [parameter::get -parameter AllowFileAttachmentsP -default {t}]
         if { $allow_files_p != "t" } {
             ad_complain "Attaching files to comments has been disabled."
         }
@@ -29,7 +29,7 @@ ad_page_contract {
 }
 
 # check to see if the user can add an attachment
-ad_require_permission $parent_id write
+permission::require_permission -object_id $parent_id -privilege write
 
 # set variables for template
 set attach_id [db_nextval acs_object_id_seq]

@@ -10,8 +10,8 @@ ad_page_contract {
     @creation-date 2000-10-12
     @cvs-id $Id$
 } {
-    comment_id:integer,notnull
-    {revision_id {}}
+    comment_id:naturalnum,notnull
+    {revision_id:naturalnum {}}
     {return_url {}}
 }
 
@@ -22,7 +22,7 @@ set live_revision [db_string get_live_revision \
 # if the user did not pass in a revision_id, then
 # assume that the user wishes to toggle the approval
 # state of the latest revision
-if { [empty_string_p $revision_id] } {
+if { $revision_id eq "" } {
     set revision_id [db_string get_latest_revision \
         "select content_item.get_latest_revision(:comment_id) from dual"]
 }

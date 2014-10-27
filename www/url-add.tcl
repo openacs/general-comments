@@ -10,7 +10,7 @@ ad_page_contract {
     @creation-date 2000-10-12
     @cvs-id $Id$
 } {
-    parent_id:notnull,integer
+    parent_id:notnull,naturalnum
     { return_url {} }
 } -properties {
     page_title:onevalue
@@ -23,7 +23,7 @@ ad_page_contract {
     return_url:onevalue
 } -validate {
     allow_link_attachments {
-        set allow_links_p [ad_parameter AllowLinkAttachmentsP {general-comments} {t}]
+        set allow_links_p [parameter::get -parameter AllowLinkAttachmentsP -default {t}]
         if { $allow_links_p != "t" } {
             ad_complain "[_ general-comments.lt_Attaching_links_to_co]"
         }
@@ -31,7 +31,7 @@ ad_page_contract {
 }
 
 # check to see if the user can add an attachment
-ad_require_permission $parent_id write
+permission::require_permission -object_id $parent_id -privilege write
 
 # set variables for template
 set attach_id [db_nextval acs_object_id_seq]

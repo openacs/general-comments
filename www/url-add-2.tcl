@@ -8,14 +8,14 @@ ad_page_contract {
     @creation-date 2000-10-12
     @cvs-id $Id$
 } {
-    attach_id:integer,notnull
-    parent_id:integer,notnull
+    attach_id:naturalnum,notnull
+    parent_id:naturalnum,notnull
     label:notnull
     url:notnull
     { return_url {} }
 } -validate {
     allow_link_attachments {
-        set allow_links_p [ad_parameter AllowLinkAttachmentsP {general-comments} {t}]
+        set allow_links_p [parameter::get -parameter AllowLinkAttachmentsP -default {t}]
         if { $allow_links_p != "t" } {
             ad_complain "[_ general-comments.lt_Attaching_links_to_co]"
         }
@@ -26,7 +26,7 @@ ad_page_contract {
 set user_id [ad_conn user_id]
 
 # check to see if the user can add an attachment
-ad_require_permission $parent_id write
+permission::require_permission -object_id $parent_id -privilege write
 
 # insert the url into database 
 set creation_ip [ad_conn peeraddr]
@@ -45,7 +45,7 @@ db_exec_plsql insert_comment {
     end;
 }
 
-ad_returnredirect "view-comment?comment_id=$parent_id&[export_url_vars return_url]"
+ad_returnredirect "view-comment?comment_id=$parent_id&[export_vars -url {return_url}]"
 
 
 
