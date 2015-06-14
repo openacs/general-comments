@@ -16,7 +16,7 @@ ad_page_contract {
     { context_id:naturalnum "$object_id" }
     { category "" }
     { return_url "" }
-    { attach_p "f" }
+    { attach_p:boolean "f" }
 }    
 
 # This authentication actually is not necessary anymore due to the fact that we already check for the permission
