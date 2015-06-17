@@ -10,15 +10,15 @@
 	<td>
 		<form action=delete-attachment-2 method=post>
 		<%= [export_vars -form {attach_id parent_id return_url}] %>
-		<input type=submit name=submit value="#general-comments.Proceed#">
+		<input type="submit" name="submit" value="#general-comments.Proceed#">
 		</form>
 	</td>
 
 	<td>
 		<form action="view-comment" method="get">
-		<input type=hidden name="comment_id" value="@parent_id@">
+		<input type="hidden" name="comment_id" value="@parent_id@">
 		<%= [export_vars -form {return_url}] %>
-		<input type=submit name=submit value="#general-comments.Cancel#">
+		<input type="submit" name="submit" value="#general-comments.Cancel#">
 		</form>
 	</td
 </tr>

@@ -4,9 +4,9 @@
 
 
 <p>
-<table border=1 cellspacing=0 cellpadding=5>
+<table border="1" cellspacing="0" cellpadding="5">
 <tr>
-  <td colspan=2 align=center>#general-comments.lt_Current_values_for_Ge#</td></tr>
+  <td colspan="2" align="center">#general-comments.lt_Current_values_for_Ge#</td></tr>
 <tr>
   <td>package_id</td>
   <td>

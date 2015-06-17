@@ -8,14 +8,14 @@
 
 <table>
   <tr>
-    <td valign=top align=right>#general-comments.Title#</td>
-    <td><input size=40 name=title value="@title@"></td>
+    <td valign="top" align="right">#general-comments.Title#</td>
+    <td><input size="40" name="title" value="@title@"></td>
   </tr>
   <tr>
-    <td valign=top align=right>#general-comments.Filename# </td>
+    <td valign="top" align="right">#general-comments.Filename# </td>
     <td>
     <if @target@ eq file-add-2>
-      <input type=file name=upload_file size=40><br>
+      <input type="file" name="upload_file" size="40"><br>
       #general-comments.lt_Use_the_Browse_button#
      </if>
      <else>
@@ -26,7 +26,7 @@
 </table>
 
 <p style="text-align:center">
-<input type=submit value="#general-comments.Proceed#">
+<input type="submit" value="#general-comments.Proceed#">
 </p>
 </form>
 

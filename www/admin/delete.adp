@@ -20,13 +20,13 @@
 	<td>
 		<form action=delete-2 method=post>
 		<%= [export_vars -form {comment_id return_url}] %>
-		<input type=submit name=submit value="#general-comments.Proceed#">
+		<input type="submit" name="submit" value="#general-comments.Proceed#">
 		</form>
 	</td>
 
 	<td>
 		<form action="@return_url@">
-		<input type=submit name=submit value="#general-comments.Cancel#">
+		<input type="submit" name="submit" value="#general-comments.Cancel#">
 		</form>
 	</td
 </tr>
