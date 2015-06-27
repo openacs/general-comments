@@ -53,5 +53,5 @@ db_transaction {
 
 }
 
-ad_returnredirect "view-comment?[export_vars -url {comment_id return_url}]"
+ad_returnredirect [export_vars -base view-comment {comment_id return_url}]
     

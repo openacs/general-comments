@@ -50,5 +50,5 @@ general_comment_new \
 if { $attach_p == "f" && $return_url ne "" } {
     ad_returnredirect $return_url
 } else {
-    ad_returnredirect "view-comment?[export_vars { comment_id return_url }]"
+    ad_returnredirect [export_vars -base view-comment { comment_id return_url }]
 }

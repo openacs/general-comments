@@ -30,7 +30,7 @@ db_dml edit_title {
      where revision_id = :revision_id
 }
     
-ad_returnredirect "view-comment?comment_id=$parent_id&[export_vars -url {return_url}]"
+ad_returnredirect [export_vars -base view-comment {{comment_id $parent_id} return_url}]
 
 
 

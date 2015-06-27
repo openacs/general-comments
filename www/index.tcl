@@ -48,7 +48,7 @@ set dimensional_bar [ad_dimensional $dimensional]
 template::list::create -name comments_list \
     -multirow comments \
     -no_data "#general-comments.lt_No_comments_available#" \
-    -html {align center} \
+    -html {style "margin: 0 auto"} \
     -elements {
 	counter {
 	    label "#general-comments.Num#" 

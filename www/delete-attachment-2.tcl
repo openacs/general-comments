@@ -73,7 +73,7 @@ permission::require_permission -object_id $attach_id -privilege delete
 #/ i18n
 #}
 
-ad_returnredirect "view-comment?comment_id=$parent_id&[export_vars -url {return_url}]"
+ad_returnredirect [export_vars -base view-comment {{comment_id $parent_id} return_url}]
 
 
 
