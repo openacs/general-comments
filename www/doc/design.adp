@@ -2,14 +2,13 @@
 <property name="context">{/doc/general-comments {General Comments}} {Design Document}</property>
 <property name="doc(title)">Design Document</property>
 <master>
-
-<body>
 <div class="NAVHEADER"><table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr><th colspan="3" align="center">General Comments</th></tr><tr>
 <td width="10%" align="left" valign="bottom"><a href="dev-guide">Prev</a></td><td width="80%" align="center" valign="bottom">Chapter 1.
 Developer's guide</td><td width="10%" align="right" valign="bottom"><a href="users-guide">Next</a></td>
 </tr>
-</table></div><div class="sect1">
+</table></div>
+<div class="sect1">
 <h1 class="sect1"><a name="design" id="design">1.2. Design
 Document</a></h1><div class="sect2">
 <h2 class="sect2"><a name="design-essentials" id="design-essentials">1.2.1. Essentials</a></h2><ul>
@@ -170,7 +169,8 @@ Whom?</i></td>
 </div><p>Last modified: $Id: design.html,v 1.2 2014/10/27 16:41:44
 victorg Exp $</p>
 </div>
-</div><div class="NAVFOOTER">
+</div>
+<div class="NAVFOOTER">
 <hr align="left" width="100%"><table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr>
 <td width="33%" align="left" valign="top"><a href="dev-guide">Prev</a></td><td width="34%" align="center" valign="top"><a href="index">Home</a></td><td width="33%" align="right" valign="top"><a href="users-guide">Next</a></td>
@@ -179,4 +179,3 @@ victorg Exp $</p>
 </tr>
 </table>
 </div>
-</body>

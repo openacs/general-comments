@@ -2,8 +2,6 @@
 <property name="context">{/doc/general-comments {General Comments}} {General Comments}</property>
 <property name="doc(title)">General Comments</property>
 <master>
-
-<body>
 <div class="BOOK">
 <a name="AEN1" id="AEN1"></a><div class="TITLEPAGE">
 <h1 class="title"><a name="AEN1" id="AEN1">General
@@ -57,7 +55,8 @@ History</a>
 </dl></dd><dt>2. <a href="users-guide">User's guide</a>
 </dt>
 </dl></div>
-</div><div class="NAVFOOTER">
+</div>
+<div class="NAVFOOTER">
 <hr align="left" width="100%"><table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr>
 <td width="33%" align="left" valign="top"> </td><td width="34%" align="center" valign="top"> </td><td width="33%" align="right" valign="top"><a href="dev-guide">Next</a></td>
@@ -66,4 +65,3 @@ History</a>
 </tr>
 </table>
 </div>
-</body>
