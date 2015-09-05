@@ -48,7 +48,7 @@ template::list::create -name comments_list \
 	}
         comment_id {
 	    label "#general-comments.ID#"
-	    display_template {<a href="view-comment?comment_id=@comments.comment_id@">@comments.comment_id@</a>}
+	    display_template {<a href="../view-comment?comment_id=@comments.comment_id@">@comments.comment_id@</a>}
 	    orderby {comment_id}
 	}
 	title {
