@@ -38,3 +38,9 @@ set context [list [list "view-comment?comment_id=$parent_id" "[_ general-comment
 set target "url-edit-2"
 
 ad_return_template "url-ae"
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

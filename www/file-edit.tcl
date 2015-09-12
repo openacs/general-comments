@@ -41,3 +41,9 @@ set context [list [list "view-comment?comment_id=$parent_id" "[_ general-comment
 set target "file-edit-2"
 
 ad_return_template "file-ae"
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

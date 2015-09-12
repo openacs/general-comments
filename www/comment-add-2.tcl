@@ -46,3 +46,9 @@ set target "comment-add-3"
 set html_content [ad_html_text_convert -from $comment_mime_type -- $content]
 
 ad_return_template "comment-ae-2"
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

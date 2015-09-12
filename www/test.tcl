@@ -49,3 +49,9 @@ set return_url [ad_conn url]
 set params_url [export_vars -base /shared/parameters {package_id return_url}]
 
 ad_return_template
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

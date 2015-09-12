@@ -55,3 +55,9 @@ db_transaction {
 
 ad_returnredirect [export_vars -base view-comment {comment_id return_url}]
     
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

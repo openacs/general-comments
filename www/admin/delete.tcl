@@ -48,3 +48,9 @@ set page_title "[_ general-comments.Delete_a_comment]"
 set context [list "[_ general-comments.Delete_a_comment]"]
 
 ad_return_template
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:
