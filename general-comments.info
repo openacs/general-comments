@@ -8,7 +8,7 @@
     <singleton-p>t</singleton-p>
     <auto-mount>comments</auto-mount>
 
-    <version name="5.9.0b2" url="http://openacs.org/repository/download/apm/general-comments-5.9.0b2.apm">
+    <version name="5.9.0" url="http://openacs.org/repository/download/apm/general-comments-5.9.0.apm">
         <owner url="mailto:dave@thedesignexperience.org">Dave Bauer</owner>
         <owner url="mailto:dhogaza@pacifier.com">Don Baccus</owner>
         <summary>Service to provide comment entry and display on objects.</summary>
@@ -18,7 +18,7 @@
         <license>GPL</license>
         <maturity>2</maturity>
 
-        <provides url="general-comments" version="5.9.0b2"/>
+        <provides url="general-comments" version="5.9.0"/>
 	<requires url="acs-kernel" version="5.9.0"/>
         <requires url="acs-content-repository" version="5.9.0"/>
         
