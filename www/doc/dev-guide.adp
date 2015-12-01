@@ -134,7 +134,7 @@ Whom?</i></td>
 <td align="left" valign="middle">0.1</td><td align="left" valign="middle">Creation</td><td align="left" valign="middle">10/26/2000</td><td align="left" valign="middle">Phong Nguyen</td>
 </tr>
 </tbody></table>
-</div><p>Last modified: $Id: dev-guide.html,v 1.1.1.1 2001/04/20 20:51:11
+</div><p>Last modified: $&zwnj;Id: dev-guide.html,v 1.1.1.1 2001/04/20 20:51:11
 donb Exp $</p>
 </div>
 </div>
