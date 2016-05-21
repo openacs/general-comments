@@ -12,7 +12,7 @@ ad_page_contract {
     parent_id:naturalnum,notnull
     label:notnull
     url:notnull
-    { return_url {} }
+    { return_url:localurl {} }
 }
 
 # authenticate the user

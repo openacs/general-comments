@@ -12,7 +12,7 @@ ad_page_contract {
 } { 
     comment_id:naturalnum,notnull
     { revision_id:naturalnum {} }
-    { return_url {} }
+    { return_url:localurl {} }
 } -properties {
     page_title:onevalue
     context:onevalue

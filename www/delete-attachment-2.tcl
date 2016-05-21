@@ -15,7 +15,7 @@ ad_page_contract {
     attach_id:naturalnum,notnull
     parent_id:naturalnum,notnull
     submit:notnull
-    { return_url {} }
+    { return_url:localurl {} }
 }
 
 # check for permissions

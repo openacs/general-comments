@@ -11,7 +11,7 @@ ad_page_contract {
     @cvs-id $Id$
 } {
     parent_id:notnull,naturalnum
-    { return_url {} }
+    { return_url:localurl {} }
 } -properties {
     page_title:onevalue
     context:onevalue

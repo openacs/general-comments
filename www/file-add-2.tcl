@@ -18,7 +18,7 @@ ad_page_contract {
     title:notnull
     upload_file:notnull
     upload_file.tmpfile:tmpfile
-    { return_url {} }
+    { return_url:localurl {} }
 } -validate {
     allow_file_attachments {
         set allow_files_p [parameter::get -parameter AllowFileAttachmentsP -default {t}]

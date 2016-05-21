@@ -9,7 +9,7 @@ ad_page_contract {
     @cvs-id $Id$
 } {
     image_id:naturalnum,notnull
-    { return_url {} }
+    { return_url:localurl {} }
 } -properties {
     page_title:onevalue
     context:onevalue

@@ -12,7 +12,7 @@ ad_page_contract {
     { object_name "[acs_object_name $object_id]" }
     { context_id:naturalnum "$object_id" }
     { category "" }
-    { return_url "" }
+    { return_url:localurl "" }
 } -properties {
     page_title:onevalue
     context:onevalue

@@ -12,7 +12,7 @@ ad_page_contract {
     parent_id:naturalnum,notnull
     label:notnull
     url:notnull
-    { return_url {} }
+    { return_url:localurl {} }
 } -validate {
     allow_link_attachments {
         set allow_links_p [parameter::get -parameter AllowLinkAttachmentsP -default {t}]

@@ -19,7 +19,7 @@ ad_page_contract {
     title:notnull
     content:notnull,html
     comment_mime_type
-    { return_url {} }
+    { return_url:localurl {} }
 } -properties {
     page_title:onevalue
     context:onevalue

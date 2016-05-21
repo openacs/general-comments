@@ -12,7 +12,7 @@ ad_page_contract {
 } {
     comment_id:naturalnum,notnull
     {revision_id:naturalnum {}}
-    {return_url {}}
+    {return_url:localurl {}}
 }
 
 # get the live revision of the item for comparison

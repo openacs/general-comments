@@ -15,7 +15,7 @@ ad_page_contract {
     comment_mime_type
     { context_id:naturalnum "$object_id" }
     { category "" }
-    { return_url "" }
+    { return_url:localurl "" }
     { attach_p:boolean "f" }
 }    
 
