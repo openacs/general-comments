@@ -7,7 +7,7 @@
 <h1 class="title"><a name="AEN1" id="AEN1">General
 Comments</a></h1><h3 class="author"><a name="AEN4" id="AEN4">Phong Nguyen</a></h3><div class="affiliation"><div class="address"><p class="address">phong\@arsdigita.com</p></div></div>
 </div><div class="TOC"><dl>
-<dt><b>Table of Contents</b></dt><dt>1. <a href="dev-guide">Developer's guide</a>
+<dt><strong>Table of Contents</strong></dt><dt>1. <a href="dev-guide">Developer's guide</a>
 </dt><dd><dl>
 <dt>1.1. <a href="dev-guide">Requirements
 Document</a>

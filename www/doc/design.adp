@@ -55,9 +55,9 @@ is live. This allows the contents of an older revision to be seen
 by the public while a newer revision is awaiting adminstrative
 approval.</p>
 </div><div class="sect2">
-<h2 class="sect2"><a name="design-competitive-analysis" id="design-competitive-analysis">1.2.4. Competitive Analysis</a></h2><p><i class="emphasis">not available</i></p>
+<h2 class="sect2"><a name="design-competitive-analysis" id="design-competitive-analysis">1.2.4. Competitive Analysis</a></h2><p><i class="emphasis">not available</em></p>
 </div><div class="sect2">
-<h2 class="sect2"><a name="design-design-tradeoffs" id="design-design-tradeoffs">1.2.5. Design Tradeoffs</a></h2><p><i class="emphasis">not available</i></p>
+<h2 class="sect2"><a name="design-design-tradeoffs" id="design-design-tradeoffs">1.2.5. Design Tradeoffs</a></h2><p><i class="emphasis">not available</em></p>
 </div><div class="sect2">
 <h2 class="sect2"><a name="design-api" id="design-api">1.2.6.
 API</a></h2><p><span class="phrase">Tcl API</span></p><p>There is one core procedure, <a href="/api-doc/proc-view?proc=general_comments_get_comments" target="_top">general_comments_get_comments</a>, that will show comments
@@ -157,9 +157,9 @@ Nguyen</a></p></li></ul>
 <a name="AEN294" id="AEN294"></a><table border="1" class="CALSTABLE"><tbody>
 <tr>
 <td align="center" valign="middle"><i class="emphasis">Document
-Revision #</i></td><td align="center" valign="middle"><i class="emphasis">Action
-Taken, Notes</i></td><td align="center" valign="middle"><i class="emphasis">When?</i></td><td align="center" valign="middle"><i class="emphasis">By
-Whom?</i></td>
+Revision #</em></td><td align="center" valign="middle"><i class="emphasis">Action
+Taken, Notes</em></td><td align="center" valign="middle"><i class="emphasis">When?</em></td><td align="center" valign="middle"><i class="emphasis">By
+Whom?</em></td>
 </tr><tr>
 <td align="left" valign="middle">0.2</td><td align="left" valign="middle">Revision</td><td align="left" valign="middle">12/11/2000</td><td align="left" valign="middle">Phong Nguyen</td>
 </tr><tr>

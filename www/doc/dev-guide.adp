@@ -43,7 +43,7 @@ adding comments to objects in the system, and editing their own
 comments later on.</p><p><span class="phrase">A user adding a comment:</span></p><p>Nurse Nancy is browsing through an ACS 4.0 site that has a page
 for medical emergencies. Upon reaching the bottom of the page,
 Nancy sees a posting that reads, "<i class="emphasis">Please help,
-my child has just swallowed some cleaning solution!!!</i>". Nancy
+my child has just swallowed some cleaning solution!!!</em>". Nancy
 sees that this posting was made only 30 seconds ago and quickly
 posts a remedy for this situation. After she makes her posting, she
 immediately revisits the page and happily sees that her posting is
@@ -125,9 +125,9 @@ comments.</p>
 <a name="AEN108" id="AEN108"></a><table border="1" class="CALSTABLE"><tbody>
 <tr>
 <td align="center" valign="middle"><i class="emphasis">Document
-Revision #</i></td><td align="center" valign="middle"><i class="emphasis">Action
-Taken, Notes</i></td><td align="center" valign="middle"><i class="emphasis">When?</i></td><td align="center" valign="middle"><i class="emphasis">By
-Whom?</i></td>
+Revision #</em></td><td align="center" valign="middle"><i class="emphasis">Action
+Taken, Notes</em></td><td align="center" valign="middle"><i class="emphasis">When?</em></td><td align="center" valign="middle"><i class="emphasis">By
+Whom?</em></td>
 </tr><tr>
 <td align="left" valign="middle">0.2</td><td align="left" valign="middle">Revision</td><td align="left" valign="middle">12/11/2000</td><td align="left" valign="middle">Phong Nguyen</td>
 </tr><tr>
