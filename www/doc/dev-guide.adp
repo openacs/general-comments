@@ -1,6 +1,6 @@
 
-<property name="context">{/doc/general-comments {General Comments}} {Developer's guide}</property>
-<property name="doc(title)">Developer's guide</property>
+<property name="context">{/doc/general-comments {General Comments}} {Developer&#39;s guide}</property>
+<property name="doc(title)">Developer&#39;s guide</property>
 <master>
 <div class="NAVHEADER"><table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr><th colspan="3" align="center">General Comments</th></tr><tr>
@@ -8,7 +8,7 @@
 </tr>
 </table></div>
 <div class="chapter">
-<h1><a name="dev-guide" id="dev-guide">Chapter 1. Developer's
+<h1><a name="dev-guide" id="dev-guide">Chapter 1. Developer&#39;s
 guide</a></h1><div class="sect1">
 <h1 class="sect1"><a name="requirements" id="requirements">1.1.
 Requirements Document</a></h1><div class="sect2">
@@ -42,26 +42,26 @@ User-scenarios</a></h2><p>This package supports empowering all users with the op
 adding comments to objects in the system, and editing their own
 comments later on.</p><p><span class="phrase">A user adding a comment:</span></p><p>Nurse Nancy is browsing through an ACS 4.0 site that has a page
 for medical emergencies. Upon reaching the bottom of the page,
-Nancy sees a posting that reads, "<i class="emphasis">Please help,
-my child has just swallowed some cleaning solution!!!</em>". Nancy
-sees that this posting was made only 30 seconds ago and quickly
-posts a remedy for this situation. After she makes her posting, she
-immediately revisits the page and happily sees that her posting is
-already available.</p><p><span class="phrase">A user editing an old comment:</span></p><p>George Genius is reviewing all of the comments he has posted
+Nancy sees a posting that reads, "<em class="emphasis">Please
+help, my child has just swallowed some cleaning
+solution!!!</em>". Nancy sees that this posting was made only
+30 seconds ago and quickly posts a remedy for this situation. After
+she makes her posting, she immediately revisits the page and
+happily sees that her posting is already available.</p><p><span class="phrase">A user editing an old comment:</span></p><p>George Genius is reviewing all of the comments he has posted
 over the last 24 hours. In one of his postings, George notices that
 his mathematical formula for earthquake prediction was incorrect.
 He then clicks on the edit link, makes changes to his formula and
 submits his changes. Since comments are moderated, others will only
 see his older incorrect version until his changes are approved.
 George eagerly awaits for his changes to be approved so that he
-won't be ridiculed by his colleagues for his mistakes.</p><p><span class="phrase">An adminstrator moderating:</span></p><p>Adam Admin is looking over all recently unnapproved changes to
+won&#39;t be ridiculed by his colleagues for his mistakes.</p><p><span class="phrase">An adminstrator moderating:</span></p><p>Adam Admin is looking over all recently unnapproved changes to
 comments. Adam sees that George Genius has made a correction to the
 earthquake prediction formula in which he helped write. He believes
 that the their original formaula is correct, so Adam does not
 approve of the changes. Several days later, George barges into
-Adam's office wondering why his changes were not approved. After a
-few hours George convinces Adam that the new modifications were
-correct, and so Adam approves George's comment.</p>
+Adam&#39;s office wondering why his changes were not approved.
+After a few hours George convinces Adam that the new modifications
+were correct, and so Adam approves George&#39;s comment.</p>
 </div><div class="sect2">
 <h2 class="sect2"><a name="requirements-related-links" id="requirements-related-links">1.1.5. Related Links</a></h2><ul>
 <li><p><a href="design">Design Document</a></p></li><li><p><a href="/doc/acs-messaging/" target="_top">ACS
@@ -92,7 +92,8 @@ retrieves all comments for a particular object.</p><p>
 an appropriate link to add a comment.</p>
 </div><div class="sect2">
 <h2 class="sect2"><a name="requirements-requirements-interface" id="requirements-requirements-interface">1.1.8. Requirements:
-Interface</a></h2><p><span class="phrase">The Community Member's Interface</span></p><p>The user interface for community members is a set of HTML pages
+Interface</a></h2><p><span class="phrase">The Community Member&#39;s
+Interface</span></p><p>The user interface for community members is a set of HTML pages
 that allow creation and editing of comments.</p><p>
 <span class="phrase">30.0</span> Customized presentation.</p><p>
 <span class="phrase">30.0.10</span> Show all comments that the
@@ -109,7 +110,8 @@ attachments to a comment.</p><p>
 <span class="phrase">30.40</span> Provide a way to display
 attached images.</p><p>
 <span class="phrase">30.50</span> Allow download of attached
-files.</p><p><span class="phrase">The Administrator's Interface</span></p><p>The user interface for adminstrative members is a set of HTML
+files.</p><p><span class="phrase">The Administrator&#39;s
+Interface</span></p><p>The user interface for adminstrative members is a set of HTML
 pages that allows deletion and approval of comments.</p><p>
 <span class="phrase">40.0</span> Customized presentation.</p><p>
 <span class="phrase">40.0.10</span> Show all created
@@ -124,9 +126,9 @@ comments.</p>
 <h2 class="sect2"><a name="requirements-revision-history" id="requirements-revision-history">1.1.9. Revision History</a></h2><div class="informaltable">
 <a name="AEN108" id="AEN108"></a><table border="1" class="CALSTABLE"><tbody>
 <tr>
-<td align="center" valign="middle"><i class="emphasis">Document
-Revision #</em></td><td align="center" valign="middle"><i class="emphasis">Action
-Taken, Notes</em></td><td align="center" valign="middle"><i class="emphasis">When?</em></td><td align="center" valign="middle"><i class="emphasis">By
+<td align="center" valign="middle"><em class="emphasis">Document
+Revision #</em></td><td align="center" valign="middle"><em class="emphasis">Action
+Taken, Notes</em></td><td align="center" valign="middle"><em class="emphasis">When?</em></td><td align="center" valign="middle"><em class="emphasis">By
 Whom?</em></td>
 </tr><tr>
 <td align="left" valign="middle">0.2</td><td align="left" valign="middle">Revision</td><td align="left" valign="middle">12/11/2000</td><td align="left" valign="middle">Phong Nguyen</td>

@@ -5,7 +5,7 @@
 <div class="NAVHEADER"><table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr><th colspan="3" align="center">General Comments</th></tr><tr>
 <td width="10%" align="left" valign="bottom"><a href="dev-guide">Prev</a></td><td width="80%" align="center" valign="bottom">Chapter 1.
-Developer's guide</td><td width="10%" align="right" valign="bottom"><a href="users-guide">Next</a></td>
+Developer&#39;s guide</td><td width="10%" align="right" valign="bottom"><a href="users-guide">Next</a></td>
 </tr>
 </table></div>
 <div class="sect1">
@@ -26,11 +26,11 @@ Document</a></p></li>
 </div><div class="sect2">
 <h2 class="sect2"><a name="design-introduction" id="design-introduction">1.2.2. Introduction</a></h2><p>General Comments enables all users in the community to add a
 comment to any object in the system. Any comment can have files or
-hyperlinks attached.</p><p>This package is intended to utilize the users' engagement in the
-community by letting them voice their opinion on any topic (object)
-on the site. Commenting an article, a press release or any other
-object is never more than a click away.</p><p>Administrators can choose to put comments on hold until they've
-been approved or moderated.</p><p>User feedback is an invaluable resource for improvements. For
+hyperlinks attached.</p><p>This package is intended to utilize the users' engagement in
+the community by letting them voice their opinion on any topic
+(object) on the site. Commenting an article, a press release or any
+other object is never more than a click away.</p><p>Administrators can choose to put comments on hold until
+they&#39;ve been approved or moderated.</p><p>User feedback is an invaluable resource for improvements. For
 example, the usage of General Comments on documentation not only
 allows feedback, it can shape, extend and refine draft ideas before
 they are taken to the next level.</p>
@@ -38,14 +38,14 @@ they are taken to the next level.</p>
 <h2 class="sect2"><a name="design-historical-considerations" id="design-historical-considerations">1.2.3. Historical
 Considerations</a></h2><p>General Comments in ACS 4.0 differs from previous versions by
 utilizing the ACS Object system, introduced in 4.0. The data-model
-has been changed to accomodate this adoption.</p><p>In ACS 3.x, general comments did not have revisioning. Let's
+has been changed to accomodate this adoption.</p><p>In ACS 3.x, general comments did not have revisioning. Let&#39;s
 assume that in an ACS 3.x installation, the policy for comments was
 set to "closed", meaning comments must be approved by an
 administrator before it goes live. The following unwanted scenario
 could occur:</p><ul>
 <li><p>A user posted a comment which was approved by the
 administrator.</p></li><li><p>The user notices that there was a spelling error, and makes a
-change to the posted comment.</p></li><li><p>From the time of the user's correction to the time the
+change to the posted comment.</p></li><li><p>From the time of the user&#39;s correction to the time the
 adminstrator re-approves the comment, other users will not be able
 to read the comment, since the new data replaced the old one.</p></li>
 </ul><p>General Comments implements the revisioning feature provided by
@@ -55,9 +55,9 @@ is live. This allows the contents of an older revision to be seen
 by the public while a newer revision is awaiting adminstrative
 approval.</p>
 </div><div class="sect2">
-<h2 class="sect2"><a name="design-competitive-analysis" id="design-competitive-analysis">1.2.4. Competitive Analysis</a></h2><p><i class="emphasis">not available</em></p>
+<h2 class="sect2"><a name="design-competitive-analysis" id="design-competitive-analysis">1.2.4. Competitive Analysis</a></h2><p><em class="emphasis">not available</em></p>
 </div><div class="sect2">
-<h2 class="sect2"><a name="design-design-tradeoffs" id="design-design-tradeoffs">1.2.5. Design Tradeoffs</a></h2><p><i class="emphasis">not available</em></p>
+<h2 class="sect2"><a name="design-design-tradeoffs" id="design-design-tradeoffs">1.2.5. Design Tradeoffs</a></h2><p><em class="emphasis">not available</em></p>
 </div><div class="sect2">
 <h2 class="sect2"><a name="design-api" id="design-api">1.2.6.
 API</a></h2><p><span class="phrase">Tcl API</span></p><p>There is one core procedure, <a href="/api-doc/proc-view?proc=general_comments_get_comments" target="_top">general_comments_get_comments</a>, that will show comments
@@ -156,9 +156,9 @@ Nguyen</a></p></li></ul>
 <h2 class="sect2"><a name="design-revision-history" id="design-revision-history">1.2.12. Revision History</a></h2><div class="informaltable">
 <a name="AEN294" id="AEN294"></a><table border="1" class="CALSTABLE"><tbody>
 <tr>
-<td align="center" valign="middle"><i class="emphasis">Document
-Revision #</em></td><td align="center" valign="middle"><i class="emphasis">Action
-Taken, Notes</em></td><td align="center" valign="middle"><i class="emphasis">When?</em></td><td align="center" valign="middle"><i class="emphasis">By
+<td align="center" valign="middle"><em class="emphasis">Document
+Revision #</em></td><td align="center" valign="middle"><em class="emphasis">Action
+Taken, Notes</em></td><td align="center" valign="middle"><em class="emphasis">When?</em></td><td align="center" valign="middle"><em class="emphasis">By
 Whom?</em></td>
 </tr><tr>
 <td align="left" valign="middle">0.2</td><td align="left" valign="middle">Revision</td><td align="left" valign="middle">12/11/2000</td><td align="left" valign="middle">Phong Nguyen</td>
@@ -175,7 +175,8 @@ victorg Exp $</p>
 <tr>
 <td width="33%" align="left" valign="top"><a href="dev-guide">Prev</a></td><td width="34%" align="center" valign="top"><a href="index">Home</a></td><td width="33%" align="right" valign="top"><a href="users-guide">Next</a></td>
 </tr><tr>
-<td width="33%" align="left" valign="top">Developer's guide</td><td width="34%" align="center" valign="top"><a href="dev-guide">Up</a></td><td width="33%" align="right" valign="top">User's guide</td>
+<td width="33%" align="left" valign="top">Developer&#39;s
+guide</td><td width="34%" align="center" valign="top"><a href="dev-guide">Up</a></td><td width="33%" align="right" valign="top">User&#39;s guide</td>
 </tr>
 </table>
 </div>

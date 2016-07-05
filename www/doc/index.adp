@@ -7,7 +7,7 @@
 <h1 class="title"><a name="AEN1" id="AEN1">General
 Comments</a></h1><h3 class="author"><a name="AEN4" id="AEN4">Phong Nguyen</a></h3><div class="affiliation"><div class="address"><p class="address">phong\@arsdigita.com</p></div></div>
 </div><div class="TOC"><dl>
-<dt><strong>Table of Contents</strong></dt><dt>1. <a href="dev-guide">Developer's guide</a>
+<dt><strong>Table of Contents</strong></dt><dt>1. <a href="dev-guide">Developer&#39;s guide</a>
 </dt><dd><dl>
 <dt>1.1. <a href="dev-guide">Requirements
 Document</a>
@@ -52,7 +52,7 @@ Improvements/Areas of Likely Change</a>
 History</a>
 </dt>
 </dl></dd>
-</dl></dd><dt>2. <a href="users-guide">User's guide</a>
+</dl></dd><dt>2. <a href="users-guide">User&#39;s guide</a>
 </dt>
 </dl></div>
 </div>
@@ -61,7 +61,8 @@ History</a>
 <tr>
 <td width="33%" align="left" valign="top"> </td><td width="34%" align="center" valign="top"> </td><td width="33%" align="right" valign="top"><a href="dev-guide">Next</a></td>
 </tr><tr>
-<td width="33%" align="left" valign="top"> </td><td width="34%" align="center" valign="top"> </td><td width="33%" align="right" valign="top">Developer's guide</td>
+<td width="33%" align="left" valign="top"> </td><td width="34%" align="center" valign="top"> </td><td width="33%" align="right" valign="top">Developer&#39;s
+guide</td>
 </tr>
 </table>
 </div>
