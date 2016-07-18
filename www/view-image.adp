@@ -4,7 +4,7 @@
 <property name="return_url">@return_url;literal@</property>
 
 <center>
-<i>@title@</i>
+<em>@title@</em>
 <p>
 <img src="file-download?item_id=@image_id@" width=@width@ height=@height@>
 </center>

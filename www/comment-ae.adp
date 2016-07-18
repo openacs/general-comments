@@ -12,7 +12,7 @@
     #general-comments.Title#
   </label>
   <div class="form-widget">
-    <input id=title type=text name="title" maxlength=200 size="50" value="@title@">
+    <input id="title" type="text" name="title" maxlength="200" size="50" value="@title@">
   </div>
 </div>
 <div class="form-item-wrapper">

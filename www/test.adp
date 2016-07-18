@@ -11,7 +11,7 @@
   <td>package_id</td>
   <td>
     <if @package_id@ eq "">
-      <i>#general-comments.lt_no_gc_package_instanc#</i>
+      <em>#general-comments.lt_no_gc_package_instanc#</em>
     </if>
     <else>
       @package_id@
@@ -20,7 +20,7 @@
   <td>package_url</td>
   <td>
     <if @package_url@ eq "">
-      <i>#general-comments.gc_is_not_mounted#</i>
+      <em>#general-comments.gc_is_not_mounted#</em>
     </if>
     <else>
       <a href="@package_url@">@package_url@</a>
@@ -29,7 +29,7 @@
   <td>AutoApproveCommentsP</td>
   <td>
     <if @auto_approve_comments_p@ eq "">
-      <i>#general-comments.not_set#</i>
+      <em>#general-comments.not_set#</em>
     </if>
     <else>
       <a href="@params_url@">
@@ -39,7 +39,7 @@
   <td>AllowFileAttachmentsP</td>
   <td>
     <if @allow_file_attachments_p@ eq "">
-      <i>#general-comments.not_set#</i>
+      <em>#general-comments.not_set#</em>
     </if>
     <else>
       <a href="@params_url@">
@@ -49,7 +49,7 @@
   <td>AllowLinkAttachmentsP</td>
   <td>
     <if @allow_link_attachments_p@ eq "">
-      <i>#general-comments.not_set#</i>
+      <em>#general-comments.not_set#</em>
     </if>
     <else>
       <a href="@params_url@">
@@ -59,7 +59,7 @@
   <td>MaxFileSize</td>
   <td>
     <if @max_file_size@ eq "">
-      <i>#general-comments.not_set#</i>
+      <em>#general-comments.not_set#</em>
     </if>
     <else>
       <a href="@params_url@">
