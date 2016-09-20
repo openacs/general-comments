@@ -63,7 +63,8 @@
                 context_id    => :context_id,
                 creation_user => :user_id, 
                 creation_ip   => :creation_ip,
-                is_live       => :is_live
+                is_live       => :is_live,
+		rfc822_id     => :rfc822_id
             );
         end;
     

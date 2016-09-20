@@ -34,6 +34,10 @@ ad_proc general_comment_new {
     
     @error 
 } {
+
+    # Generate a unique id for the message
+    # result from proc comes enveloped in <>
+    set rfc822_id [string range [acs_mail_lite::generate_message_id] 1 end-1]
     
     db_transaction {
         
