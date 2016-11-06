@@ -20,7 +20,7 @@
     #general-comments.Comment#
   </label>
   <div class="form-widget">
-    <textarea id=content name=content cols=80 rows=20>@content@</textarea>
+    <textarea id="content" name="content" cols="80" rows="20">@content@</textarea>
   </div>
 </div>
 <div class="form-item-wrapper">
@@ -28,7 +28,7 @@
     #general-comments.Text_above_is#
   </label>
   <div class="form-widget">
-  <select id="comment_mime_type" name=comment_mime_type>
+  <select id="comment_mime_type" name="comment_mime_type">
     <if @comment_mime_type@ eq text/html >
       <option value="text/plain">#general-comments.Plain_text#</option>
       <option selected value="text/html">#general-comments.HTML#</option>
