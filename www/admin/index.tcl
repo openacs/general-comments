@@ -8,7 +8,7 @@ ad_page_contract {
     @creation-date 2000-10-12
     @cvs-id $Id$
 }  -query { 
-    {orderby:optional}
+    {orderby:token,optional}
     {approval "any"}
     {modified "any"}
 } -properties {
