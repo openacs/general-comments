@@ -41,8 +41,8 @@ ad_proc general_comment_new {
     
     db_transaction {
         
-        db_exec_plsql insert_comment { }
-        db_dml add_entry { }
+        db_exec_plsql insert_comment {}
+        db_dml add_entry {}
         db_1row get_revision {}  
         db_dml set_content {} -blobs [list $content]
 
