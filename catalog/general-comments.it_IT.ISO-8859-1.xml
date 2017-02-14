@@ -19,6 +19,7 @@
   <msg key="Cancel">Cancella</msg>
   <msg key="Comment">Commento:</msg>
   <msg key="Comments">Commenti</msg>
+  <msg key="Comments_of">Commenti di %user_name%</msg>
   <msg key="Confirm">Conferma</msg>
   <msg key="Confirm_comment">Conferma il commento</msg>
   <msg key="Confirm_comment_on">Conferma il commento relativo a</msg>
@@ -40,10 +41,10 @@
   <msg key="Has_live_version">Ha una versione attiva</msg>
   <msg key="HTML">HTML</msg>
   <msg key="ID">ID#</msg>
-  <msg key="if_general_comments_not_mounted">Se &lt;code&gt;general-comments&lt;/code&gt; non è monatato e vengono eseguite chiamate a &lt;code&gt;general_comments_get_comments&lt;/code&gt; o &lt;code&gt;general_comments_create_link&lt;/code&gt; , un errore verrà registrato. Questo è dovuto al fatto che eseguono chiamate attraverso hyperlink che necessitano di un riferimento a un'istanza montata del pacchetto &lt;code&gt;general-comments&lt;/code&gt;</msg>
+  <msg key="if_general_comments_not_mounted">Se &lt;code&gt;general-comments&lt;/code&gt; non è monatato e vengono eseguite chiamate a &lt;code&gt;general_comments_get_comments&lt;/code&gt; o &lt;code&gt;general_comments_create_link&lt;/code&gt; , un errore verrà registrato. Questo è dovuto al fatto che eseguono chiamate attraverso hyperlink che necessitano di un riferimento a un&#39;istanza montata del pacchetto &lt;code&gt;general-comments&lt;/code&gt;</msg>
   <msg key="Image_attachment">Immagine allegata</msg>
   <msg key="Label">Etichetta:</msg>
-  <msg key="last_24_hours">le ultime 24 ore</msg>
+  <msg key="last_24_hours">ultime 24 ore</msg>
   <msg key="Last_Modified">Ultima modifica</msg>
   <msg key="last_month">ultimo mese</msg>
   <msg key="last_week">ultima settimana</msg>
@@ -51,7 +52,7 @@
   <msg key="lt_Add_a_file_attachment">Allega un file al commento</msg>
   <msg key="lt_Add_url_attachment_to">Allega un link al commento</msg>
   <msg key="lt_approve_this_revision">approva questa revisione</msg>
-  <msg key="lt_Attach_a_file_or_pict">Allega un file o un'immagine</msg>
+  <msg key="lt_Attach_a_file_or_pict">Allega un file o un&#39;immagine</msg>
   <msg key="lt_Attaching_files_to_co">Opzione di invio di file in allegato ai commenti disabilitata</msg>
   <msg key="lt_Attaching_links_to_co">Opzione di invio di link in allegato ai commenti disabilitata</msg>
   <msg key="lt_Current_values_for_Ge">I valori attuali per il pacchetto Commenti Generali</msg>
@@ -67,13 +68,13 @@
   <msg key="lt_I_would_like_to_uploa">Mi piacerebbe allegare un file o aggiungere un link al mio commento</msg>
   <msg key="lt_No_comments_available">Nessun commento disponibile</msg>
   <msg key="lt_no_gc_package_instanc">nessuna istanza del pacchetto gc</msg>
-  <msg key="lt_Note_if_the_text_abov">Nota: se il testo qui sopra ha perso tutte le sue interruzioni di paragrafo (gli&quot;a capo&quot;), allora avresti dovuto scegliere &quot;Testo Semplice&quot; invece che HTML. Torna indietro e correggi la scelta.</msg>
-  <msg key="lt_Note_if_the_text_abov_1">Nota: se il testo qui sopra è pieno di codice HTML visibile, allora avresti dovuto scegliere HTML invece che &quot;Testo Semplice&quot;. Torna indietro e correggi la scelta.</msg>
+  <msg key="lt_Note_if_the_text_abov">Nota: se il testo qui sopra ha perso tutte le sue interruzioni di paragrafo (gli&#34;a capo&#34;), allora avresti dovuto scegliere &#34;Testo Semplice&#34; invece che HTML. Torna indietro e correggi la scelta.</msg>
+  <msg key="lt_Note_if_the_text_abov_1">Nota: se il testo qui sopra è pieno di codice HTML visibile, allora avresti dovuto scegliere HTML invece che &#34;Testo Semplice&#34;. Torna indietro e correggi la scelta.</msg>
   <msg key="lt_Test_page_for_General">Pagina di prova per i Commenti Generali</msg>
-  <msg key="lt_The_comment_id_does_n">L'id di questo commento non si riferisce a un commento valido</msg>
+  <msg key="lt_The_comment_id_does_n">L&#39;id di questo commento non si riferisce a un commento valido</msg>
   <msg key="lt_This_revision_is_live">Questa revisione è attiva.</msg>
   <msg key="lt_This_revision_is_not_">Questa revisione non è attiva.</msg>
-  <msg key="lt_Use_the_Browse_button">Usa il bottone &quot;Sfoglia&quot; per toravre il file, poi clicca su &quot;Apri&quot;.</msg>
+  <msg key="lt_Use_the_Browse_button">Usa il bottone &#34;Sfoglia&#34; per toravre il file, poi clicca su &#34;Apri&#34;.</msg>
   <msg key="lt_Your_file_is_too_larg">File troppo grande.</msg>
   <msg key="lt_Your_file_is_zero-len">Il tuo file ha dimensione nulla. Hai cercato di caricare un file vuoto o un file che non esiste, oppure qualcosa è andato storto durante il trasfimento.</msg>
   <msg key="no_attachments">nessun allegato</msg>
@@ -89,7 +90,7 @@
   <msg key="Status">Stato</msg>
   <msg key="test">prova</msg>
   <msg key="Text_above_is">Il testo sopra è</msg>
-  <msg key="The_publisher_of">L'editore di</msg>
+  <msg key="The_publisher_of">L&#39;editore di</msg>
   <msg key="Title">Titolo:</msg>
   <msg key="Title_1">titolo</msg>
   <msg key="unapproved">non approvato</msg>
