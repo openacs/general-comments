@@ -19,6 +19,7 @@
   <msg key="Cancel">Abbrechen</msg>
   <msg key="Comment">Kommentar:</msg>
   <msg key="Comments">Kommentare</msg>
+  <msg key="Comments_of">Kommentare von %user_name%</msg>
   <msg key="Confirm">Bestätigen</msg>
   <msg key="Confirm_comment">Kommentar bestätigen</msg>
   <msg key="Confirm_comment_on">Kommentar bestätigen zu</msg>
@@ -34,7 +35,7 @@
   <msg key="edit_your_comment">Kommentar bearbeiten</msg>
   <msg key="Filename">Dateiname:</msg>
   <msg key="Full_Comments">Vollständige Kommentare</msg>
-  <msg key="gc_is_not_mounted">'Allgemeine Kommentare' ist nicht geladen.</msg>
+  <msg key="gc_is_not_mounted">&#39;Allgemeine Kommentare&#39; ist nicht geladen.</msg>
   <msg key="General_Comments">Allgemeine Kommentare</msg>
   <msg key="Go_back_to_comment">Zurück zum Kommentar</msg>
   <msg key="Has_live_version">Aktive Version vorhanden</msg>
@@ -54,7 +55,7 @@
   <msg key="lt_Attach_a_file_or_pict">Datei anhängen</msg>
   <msg key="lt_Attaching_files_to_co">Es können keine Dateien an Kommentare angehängt werden. Die Funktion ist deaktiviert.</msg>
   <msg key="lt_Attaching_links_to_co">Es können keine Links an Kommentare angehängt werden. Die Funktion ist deaktiviert.</msg>
-  <msg key="lt_Current_values_for_Ge">Aktuelle Werte für das Programmpaket 'Allgemeine Kommentare'</msg>
+  <msg key="lt_Current_values_for_Ge">Aktuelle Werte für das Programmpaket &#39;Allgemeine Kommentare&#39;</msg>
   <msg key="lt_Do_you_really_wish_to">Wollen Sie folgenden Kommentar und seine Anhänge wirklich löschen?</msg>
   <msg key="lt_Do_you_really_wish_to_1">Wollen Sie diesen Anhang wirklich löschen?</msg>
   <msg key="lt_Edit_file_attachment_">An den Kommentar angehängte Datei bearbeiten</msg>
@@ -66,14 +67,14 @@
   <msg key="lt_Here_is_how_your_comm">Ihr Kommentar wird wie folgt angezeigt:</msg>
   <msg key="lt_I_would_like_to_uploa">Datei oder URL an den Kommentar anhängen</msg>
   <msg key="lt_No_comments_available">Keine Kommentare vorhanden</msg>
-  <msg key="lt_no_gc_package_instanc">Programmpaket 'Allgemeine Kommentare'  nicht geladen</msg>
-  <msg key="lt_Note_if_the_text_abov">Hinweis: Falls im obigen Text alle Absätze verloren gegangen sind, hätten Sie wahrscheinlich die Option 'Einfacher Text' anstelle von 'HTML' auswählen sollen. Gehen Sie mit Hilfe Ihres Browsers zurück zum Eingabeformular.</msg>
-  <msg key="lt_Note_if_the_text_abov_1">Hinweis: Falls der obige Text sichtbaren HTML-Code enthält, hätten Sie wahrscheinlich die Option 'HTML' anstelle von 'Einfacher Text' auswählen sollen. Gehen Sie mit Hilfe Ihres Browsers zurück zum Eingabeformular. </msg>
+  <msg key="lt_no_gc_package_instanc">Programmpaket &#39;Allgemeine Kommentare&#39;  nicht geladen</msg>
+  <msg key="lt_Note_if_the_text_abov">Hinweis: Falls im obigen Text alle Absätze verloren gegangen sind, hätten Sie wahrscheinlich die Option &#39;Einfacher Text&#39; anstelle von &#39;HTML&#39; auswählen sollen. Gehen Sie mit Hilfe Ihres Browsers zurück zum Eingabeformular.</msg>
+  <msg key="lt_Note_if_the_text_abov_1">Hinweis: Falls der obige Text sichtbaren HTML-Code enthält, hätten Sie wahrscheinlich die Option &#39;HTML&#39; anstelle von &#39;Einfacher Text&#39; auswählen sollen. Gehen Sie mit Hilfe Ihres Browsers zurück zum Eingabeformular. </msg>
   <msg key="lt_Test_page_for_General">Testseite für Allgemeine Kommentare</msg>
   <msg key="lt_The_comment_id_does_n">Die Kommentar-ID verweist nicht auf einen gültigen Kommentar.</msg>
   <msg key="lt_This_revision_is_live">Aktive Version</msg>
   <msg key="lt_This_revision_is_not_">Keine aktive Version</msg>
-  <msg key="lt_Use_the_Browse_button">Klicken Sie auf 'Durchsuchen...', wählen Sie die gewünschte Datei aus und klicken Sie auf 'Öffnen'. </msg>
+  <msg key="lt_Use_the_Browse_button">Klicken Sie auf &#39;Durchsuchen...&#39;, wählen Sie die gewünschte Datei aus und klicken Sie auf &#39;Öffnen&#39;. </msg>
   <msg key="lt_Your_file_is_too_larg">Ihre Datei überschreitet die zulässige Maximalgröße.</msg>
   <msg key="lt_Your_file_is_zero-len">Ihre Datei enthält 0 Bytes. Möglicherweise ist ein Fehler bei der Übertragung aufgetreten.</msg>
   <msg key="no_attachments">Keine Anhänge vorhanden</msg>
