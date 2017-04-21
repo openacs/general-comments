@@ -25,7 +25,7 @@ permission::require_permission -object_id $attach_id -privilege delete
 # a single content_item.delete after the bug fix
 # is released
 
-#Commented out during i18n convertion, Steffen
+#Commented out during i18n conversion, Steffen
 #if { $submit eq "Proceed" } {
 
 

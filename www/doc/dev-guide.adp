@@ -30,7 +30,7 @@ ACS Messaging package. Comments can be associated with any object
 in ACS 4.0, which gives you the benefits of the Permission System.
 Comments are stored as ACS Messages.</p><p>When a user creates a comment, General Comments stores the
 comment as an ACS Message and associates the comment to the object
-commented on. The value set by the adminstrator on whether comments
+commented on. The value set by the administrator on whether comments
 go live immediately or needs approval first is stored along with
 the comment during this phase. After this, the user is presented
 with a page that displays contents of the comment along with
@@ -54,7 +54,7 @@ He then clicks on the edit link, makes changes to his formula and
 submits his changes. Since comments are moderated, others will only
 see his older incorrect version until his changes are approved.
 George eagerly awaits for his changes to be approved so that he
-won&#39;t be ridiculed by his colleagues for his mistakes.</p><p><span class="phrase">An adminstrator moderating:</span></p><p>Adam Admin is looking over all recently unnapproved changes to
+won&#39;t be ridiculed by his colleagues for his mistakes.</p><p><span class="phrase">An administrator moderating:</span></p><p>Adam Admin is looking over all recently unnapproved changes to
 comments. Adam sees that George Genius has made a correction to the
 earthquake prediction formula in which he helped write. He believes
 that the their original formaula is correct, so Adam does not
@@ -111,7 +111,7 @@ attachments to a comment.</p><p>
 attached images.</p><p>
 <span class="phrase">30.50</span> Allow download of attached
 files.</p><p><span class="phrase">The Administrator&#39;s
-Interface</span></p><p>The user interface for adminstrative members is a set of HTML
+Interface</span></p><p>The user interface for administrative members is a set of HTML
 pages that allows deletion and approval of comments.</p><p>
 <span class="phrase">40.0</span> Customized presentation.</p><p>
 <span class="phrase">40.0.10</span> Show all created

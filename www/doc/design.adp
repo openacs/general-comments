@@ -38,7 +38,7 @@ they are taken to the next level.</p>
 <h2 class="sect2"><a name="design-historical-considerations" id="design-historical-considerations">1.2.3. Historical
 Considerations</a></h2><p>General Comments in ACS 4.0 differs from previous versions by
 utilizing the ACS Object system, introduced in 4.0. The data-model
-has been changed to accomodate this adoption.</p><p>In ACS 3.x, general comments did not have revisioning. Let&#39;s
+has been changed to accommodate this adoption.</p><p>In ACS 3.x, general comments did not have revisioning. Let&#39;s
 assume that in an ACS 3.x installation, the policy for comments was
 set to "closed", meaning comments must be approved by an
 administrator before it goes live. The following unwanted scenario
@@ -46,13 +46,13 @@ could occur:</p><ul>
 <li><p>A user posted a comment which was approved by the
 administrator.</p></li><li><p>The user notices that there was a spelling error, and makes a
 change to the posted comment.</p></li><li><p>From the time of the user&#39;s correction to the time the
-adminstrator re-approves the comment, other users will not be able
+administrator re-approves the comment, other users will not be able
 to read the comment, since the new data replaced the old one.</p></li>
 </ul><p>General Comments implements the revisioning feature provided by
 the Content Repository. Users are able to view all of their
 revisions for a comment, along with an indication of which revision
 is live. This allows the contents of an older revision to be seen
-by the public while a newer revision is awaiting adminstrative
+by the public while a newer revision is awaiting administrative
 approval.</p>
 </div><div class="sect2">
 <h2 class="sect2"><a name="design-competitive-analysis" id="design-competitive-analysis">1.2.4. Competitive Analysis</a></h2><p><em class="emphasis">not available</em></p>
@@ -127,7 +127,7 @@ the multirow datasource.</p></li>
 </ul>
 </div><div class="sect2">
 <h2 class="sect2"><a name="design-user-interface" id="design-user-interface">1.2.8. User Interface</a></h2><p>General Comments provides two similar sets of UIs for
-adminstrators and normal users. The adminstrator UI allows
+administrators and normal users. The administrator UI allows
 approval/unapproval of comments as well as deletion of comments.
 The normal user UI presents to users all of their created comments,
 with links to editing and creating attachments.</p>
