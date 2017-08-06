@@ -30,12 +30,12 @@ ACS Messaging package. Comments can be associated with any object
 in ACS 4.0, which gives you the benefits of the Permission System.
 Comments are stored as ACS Messages.</p><p>When a user creates a comment, General Comments stores the
 comment as an ACS Message and associates the comment to the object
-commented on. The value set by the administrator on whether comments
-go live immediately or needs approval first is stored along with
-the comment during this phase. After this, the user is presented
-with a page that displays contents of the comment along with
-revision history, attachments, and links to perform actions on the
-comment such as adding attachments or editing the comment.</p>
+commented on. The value set by the administrator on whether
+comments go live immediately or needs approval first is stored
+along with the comment during this phase. After this, the user is
+presented with a page that displays contents of the comment along
+with revision history, attachments, and links to perform actions on
+the comment such as adding attachments or editing the comment.</p>
 </div><div class="sect2">
 <h2 class="sect2"><a name="requirements-use-cases-and-user-scenarios" id="requirements-use-cases-and-user-scenarios">1.1.4. Use-cases and
 User-scenarios</a></h2><p>This package supports empowering all users with the option of
@@ -136,8 +136,8 @@ Whom?</em></td>
 <td align="left" valign="middle">0.1</td><td align="left" valign="middle">Creation</td><td align="left" valign="middle">10/26/2000</td><td align="left" valign="middle">Phong Nguyen</td>
 </tr>
 </tbody></table>
-</div><p>Last modified: $&zwnj;Id: dev-guide.html,v 1.1.1.1 2001/04/20 20:51:11
-donb Exp $</p>
+</div><p>Last modified: $&zwnj;Id: dev-guide.html,v 1.1.1.1.28.1 2017/04/21
+20:11:53 gustafn Exp $</p>
 </div>
 </div>
 </div>

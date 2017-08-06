@@ -62,16 +62,16 @@ approval.</p>
 <h2 class="sect2"><a name="design-api" id="design-api">1.2.6.
 API</a></h2><p><span class="phrase">Tcl API</span></p><p>There is one core procedure, <a href="/api-doc/proc-view?proc=general_comments_get_comments" target="_top">general_comments_get_comments</a>, that will show comments
 on an object and make appropriate links to files from the
-<kbd class="computeroutput">general-comments</kbd> package for
-recording and editing user comments. An optional <kbd class="computeroutput">return_url</kbd> can be specified which will be
-provided as a link to the user within the <kbd class="computeroutput">general-comments</kbd> pages. This is useful for
+<tt class="computeroutput">general-comments</tt> package for
+recording and editing user comments. An optional <tt class="computeroutput">return_url</tt> can be specified which will be
+provided as a link to the user within the <tt class="computeroutput">general-comments</tt> pages. This is useful for
 the user to return to the original page after making a comment.</p><p>The other procedure, <a href="/api-doc/proc-view?proc=general_comments_create_link" target="_top">general_comments_create_link</a>, is a wrapper procedure
 that returns an html fragment for a link which points to the
-location of the mounted <kbd class="computeroutput">general_comments</kbd> package. There are various
+location of the mounted <tt class="computeroutput">general_comments</tt> package. There are various
 switches that will be useful to package developers:</p><ul>
 <li><p>
 <span class="phrase">object_name:</span> A name for the object
-being commented on is displayed throughout the <kbd class="computeroutput">general-comments</kbd> pages. Defaults to
+being commented on is displayed throughout the <tt class="computeroutput">general-comments</tt> pages. Defaults to
 [acs_object_name].</p></li><li><p>
 <span class="phrase">link_text:</span> The text of the link
 returned. Defaults to "Add a comment".</p></li><li><p>
@@ -82,14 +82,14 @@ commented on.</p></li><li><p>
 complete. The purpose is to allow separation of comments on the
 same object into categories.</p></li>
 </ul><p>A problem that may occur is when any of the two tcl procedures
-are called when the <kbd class="computeroutput">general-comments</kbd> package is not mounted. Both
-<kbd class="computeroutput">general_comments_get_comments</kbd> and
-<kbd class="computeroutput">general_comments_create_link</kbd> needs
-to find out the location of the mounted <kbd class="computeroutput">general-comments</kbd> instance to generate correct
+are called when the <tt class="computeroutput">general-comments</tt> package is not mounted. Both
+<tt class="computeroutput">general_comments_get_comments</tt> and
+<tt class="computeroutput">general_comments_create_link</tt> needs
+to find out the location of the mounted <tt class="computeroutput">general-comments</tt> instance to generate correct
 links. In this case, both procedures will return nothing and log a
 notice.</p><p>
 <span class="phrase">Note:</span> In the alpha release of
-<kbd class="computeroutput">general-comments</kbd>, the tcl
+<tt class="computeroutput">general-comments</tt>, the tcl
 procedures were defined within a namespace and encountered problems
 with the api browser not being able to display them properly. These
 procedures have now been moved out of the namespace and the old
@@ -98,15 +98,15 @@ remove all traces of the namespace procedures.</p><p><span class="phrase">PL/SQL
 </div><div class="sect2">
 <h2 class="sect2"><a name="design-data-model-discussion" id="design-data-model-discussion">1.2.7. Data Model
 Discussion</a></h2><p>The majority of the functionality of general comments has been
-merged with acs-messaging. Comments are stored as acs-messages.</p><p>The <kbd class="computeroutput">general_comments</kbd> table
-extends <kbd class="computeroutput">acs_messages</kbd> to provide
-categorization of comments on a particular object. <kbd class="computeroutput">general_comments</kbd> also stores the object_id of
+merged with acs-messaging. Comments are stored as acs-messages.</p><p>The <tt class="computeroutput">general_comments</tt> table
+extends <tt class="computeroutput">acs_messages</tt> to provide
+categorization of comments on a particular object. <tt class="computeroutput">general_comments</tt> also stores the object_id of
 the object the comment refers to. Relationships from attachments to
-acs-message is done by using the <kbd class="computeroutput">cr_items.parent_id</kbd> column.</p><div class="mediaobject"><p><img src="design.gif"></p></div><p>A <kbd class="computeroutput">general-comment</kbd> can be
-associated with any object in the system by using the <kbd class="computeroutput">general_comments.object_id</kbd> column. Because
+acs-message is done by using the <tt class="computeroutput">cr_items.parent_id</tt> column.</p><div class="mediaobject"><p><img src="design.gif"></p></div><p>A <tt class="computeroutput">general-comment</tt> can be
+associated with any object in the system by using the <tt class="computeroutput">general_comments.object_id</tt> column. Because
 each comment is itself an object, we could implement comments on
 comments. However, this functionality is not needed in the
-<kbd class="computeroutput">general-comments</kbd> model and the UI
+<tt class="computeroutput">general-comments</tt> model and the UI
 does not support comments on comments.</p><p>There are three types of attachments a user can create: file,
 image, and url. The underlying data representation of an attachment
 is a content item with different content_types. File attachments
@@ -114,15 +114,15 @@ are stored with a content_revision type. Image attachments are
 stored with a image type. Url attachments are stored with a
 content_extlink type.</p><p>One problem we face is how to allow designers to modify the
 presentation of the comments on an object without modifying tcl
-code. The proc <kbd class="computeroutput">general_comments_get_comments</kbd> has html code
+code. The proc <tt class="computeroutput">general_comments_get_comments</tt> has html code
 which should really be placed into a template. Karl Goldstein code
 reviewed general comments and has an interesting solution:</p><ul>
-<li><p>Add an <kbd class="computeroutput">-uplevel</kbd> parameter to
-<kbd class="computeroutput">db_multirow</kbd>.</p></li><li><p>In the <kbd class="computeroutput">general_comments_get_comments</kbd> proc, create an
-upleveled datasource.</p></li><li><p>From the <kbd class="computeroutput">.tcl</kbd> page, make a call
-to <kbd class="computeroutput">general_comments_get_comments</kbd>,
+<li><p>Add an <tt class="computeroutput">-uplevel</tt> parameter to
+<tt class="computeroutput">db_multirow</tt>.</p></li><li><p>In the <tt class="computeroutput">general_comments_get_comments</tt> proc, create an
+upleveled datasource.</p></li><li><p>From the <tt class="computeroutput">.tcl</tt> page, make a call
+to <tt class="computeroutput">general_comments_get_comments</tt>,
 which would set up the multirow datasource in the current
-environment.</p></li><li><p>From the <kbd class="computeroutput">.adp</kbd> page, loop through
+environment.</p></li><li><p>From the <tt class="computeroutput">.adp</tt> page, loop through
 the multirow datasource.</p></li>
 </ul>
 </div><div class="sect2">
@@ -135,13 +135,13 @@ with links to editing and creating attachments.</p>
 <h2 class="sect2"><a name="design-configurationparameters" id="design-configurationparameters">1.2.9.
 Configuration/Parameters</a></h2><ul>
 <li><p>
-<kbd class="computeroutput">AutoApproveCommentsP:</kbd> Sets
+<tt class="computeroutput">AutoApproveCommentsP:</tt> Sets
 whether comments go live immediately.</p></li><li><p>
-<kbd class="computeroutput">AllowFileAttachmentsP:</kbd> Sets
+<tt class="computeroutput">AllowFileAttachmentsP:</tt> Sets
 whether files can be attached to comments.</p></li><li><p>
-<kbd class="computeroutput">AllowLinkAttachmentsP:</kbd> Sets
+<tt class="computeroutput">AllowLinkAttachmentsP:</tt> Sets
 whether links can be attached to comments.</p></li><li><p>
-<kbd class="computeroutput">MaxFileSize:</kbd> Maximum file size
+<tt class="computeroutput">MaxFileSize:</tt> Maximum file size
 that can be uploaded in bytes.</p></li>
 </ul>
 </div><div class="sect2">
@@ -166,8 +166,8 @@ Whom?</em></td>
 <td align="left" valign="middle">0.1</td><td align="left" valign="middle">Creation</td><td align="left" valign="middle">10/26/2000</td><td align="left" valign="middle">Phong Nguyen</td>
 </tr>
 </tbody></table>
-</div><p>Last modified: $&zwnj;Id: design.html,v 1.2 2014/10/27 16:41:44
-victorg Exp $</p>
+</div><p>Last modified: $&zwnj;Id: design.html,v 1.2.2.2 2017/04/21 20:11:53
+gustafn Exp $</p>
 </div>
 </div>
 <div class="NAVFOOTER">
