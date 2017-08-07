@@ -8,7 +8,7 @@ ad_page_contract {
     @creation-date 2000-10-12
     @cvs-id $Id$
 } -query { 
-    {orderby:optional}
+    {orderby:token,optional}
     {approval "any"}
     {modified "any"}
 } -properties {
@@ -29,6 +29,7 @@ set admin_p [permission::permission_p -object_id $package_id -privilege admin]
 # this page with the proper parameters
 set return_url [ns_urlencode index?[export_ns_set_vars url]]
 
+set user_name [person::name -person_id $user_id]
 
 set dimensional [list \
     [list approval "[_ general-comments.Status]" any [list \
@@ -91,3 +92,9 @@ set context {}
 
 ad_return_template
 
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

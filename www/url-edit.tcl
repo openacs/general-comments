@@ -10,7 +10,7 @@ ad_page_contract {
 } {
     attach_id:naturalnum,notnull
     parent_id:naturalnum,notnull
-    { return_url {} }
+    { return_url:localurl {} }
 } -properties {
     page_title:onevalue
     context:onevalue
@@ -38,3 +38,9 @@ set context [list [list "view-comment?comment_id=$parent_id" "[_ general-comment
 set target "url-edit-2"
 
 ad_return_template "url-ae"
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

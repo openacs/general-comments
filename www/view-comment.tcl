@@ -11,7 +11,7 @@ ad_page_contract {
     comment_id:naturalnum,notnull
     { revision_id:naturalnum,optional {} }
     { object_name {} }
-    { return_url {} }
+    { return_url:localurl {} }
 } -properties {
     page_title:onevalue
     context:onevalue
@@ -135,3 +135,9 @@ if { $live_revision ne $revision_id } {
 }
 
 ad_return_template
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

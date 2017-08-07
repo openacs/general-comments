@@ -19,6 +19,7 @@
   <msg key="Cancel">Cancelar</msg>
   <msg key="Comment">Comentario:</msg>
   <msg key="Comments">Comentarios</msg>
+  <msg key="Comments_of">Comentarios de %user_name%</msg>
   <msg key="Confirm">Confirmar</msg>
   <msg key="Confirm_comment">Confirmar comentario</msg>
   <msg key="Confirm_comment_on">Confirmar comentario sobre</msg>
@@ -67,13 +68,13 @@
   <msg key="lt_I_would_like_to_uploa">Quisiera subir un archivo o adjuntar un enlace a mi comentario</msg>
   <msg key="lt_No_comments_available">No hay comentarios disponibles</msg>
   <msg key="lt_no_gc_package_instanc">no hay instancia del paquete gc</msg>
-  <msg key="lt_Note_if_the_text_abov">Nota: si el texto ha perdido su formato, debería elegir la opción &quot;Texto plano&quot; en lugar de HTML. Utilice el botón Atrás de su navegador para volver al formulario.</msg>
-  <msg key="lt_Note_if_the_text_abov_1">Nota: si aparecen etiquetas HTML en el texto, debería elegir la opción &quot;HTML&quot; en lugar de &quot;Texto plano&quot;. Utilice le botón Atrás de su navegador para volver al formulario.</msg>
+  <msg key="lt_Note_if_the_text_abov">Nota: si el texto ha perdido su formato, debería elegir la opción &#34;Texto plano&#34; en lugar de HTML. Utilice el botón Atrás de su navegador para volver al formulario.</msg>
+  <msg key="lt_Note_if_the_text_abov_1">Nota: si aparecen etiquetas HTML en el texto, debería elegir la opción &#34;HTML&#34; en lugar de &#34;Texto plano&#34;. Utilice le botón Atrás de su navegador para volver al formulario.</msg>
   <msg key="lt_Test_page_for_General">Página de pruebas de Comentarios Generales</msg>
   <msg key="lt_The_comment_id_does_n">El identificador de comentario no es válido.</msg>
   <msg key="lt_This_revision_is_live">Revisión actual.</msg>
   <msg key="lt_This_revision_is_not_">Revisión no actual.</msg>
-  <msg key="lt_Use_the_Browse_button">Utilice el botón &quot;Browse...&quot; para localizar su archivo, y pulse &quot;Abrir&quot;.</msg>
+  <msg key="lt_Use_the_Browse_button">Utilice el botón &#34;Browse...&#34; para localizar su archivo, y pulse &#34;Abrir&#34;.</msg>
   <msg key="lt_Your_file_is_too_larg">Archivo demasiado grande.</msg>
   <msg key="lt_Your_file_is_zero-len">Archivo de longitud 0. Está tratando de subir un archivo vacío, un archivo inexistente o bien ha ocurrido un error durante la transmisión.</msg>
   <msg key="no_attachments">sin adjuntos</msg>

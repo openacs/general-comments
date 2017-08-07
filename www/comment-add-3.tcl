@@ -15,7 +15,7 @@ ad_page_contract {
     comment_mime_type
     { context_id:naturalnum "$object_id" }
     { category "" }
-    { return_url "" }
+    { return_url:localurl "" }
     { attach_p:boolean "f" }
 }    
 
@@ -52,3 +52,9 @@ if { $attach_p == "f" && $return_url ne "" } {
 } else {
     ad_returnredirect [export_vars -base view-comment { comment_id return_url }]
 }
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

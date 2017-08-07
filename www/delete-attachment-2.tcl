@@ -15,7 +15,7 @@ ad_page_contract {
     attach_id:naturalnum,notnull
     parent_id:naturalnum,notnull
     submit:notnull
-    { return_url {} }
+    { return_url:localurl {} }
 }
 
 # check for permissions
@@ -25,7 +25,7 @@ permission::require_permission -object_id $attach_id -privilege delete
 # a single content_item.delete after the bug fix
 # is released
 
-#Commented out during i18n convertion, Steffen
+#Commented out during i18n conversion, Steffen
 #if { $submit eq "Proceed" } {
 
 
@@ -82,3 +82,9 @@ ad_returnredirect [export_vars -base view-comment {{comment_id $parent_id} retur
 
 
 
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

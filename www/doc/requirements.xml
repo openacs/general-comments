@@ -35,7 +35,7 @@
 
     <para>When a user creates a comment, General Comments stores the
       comment as an ACS Message and associates the comment to the object
-      commented on. The value set by the adminstrator on whether comments
+      commented on. The value set by the administrator on whether comments
       go live immediately or needs approval first is stored along with
       the comment during this phase. After this, the user is presented
       with a page that displays contents of the comment along with
@@ -70,7 +70,7 @@
       George eagerly awaits for his changes to be approved so that he
       won't be ridiculed by his colleagues for his mistakes.</para>
 
-    <para><phrase>An adminstrator moderating:</phrase></para>
+    <para><phrase>An administrator moderating:</phrase></para>
     <para>Adam Admin is looking over all recently unnapproved changes to
       comments. Adam sees that George Genius has made a correction to the
       earthquake prediction formula in which he helped write. He believes
@@ -145,7 +145,7 @@
     <para><phrase>30.50</phrase> Allow download of attached files.</para>
 
     <para><phrase>The Administrator's Interface</phrase></para>
-    <para>The user interface for adminstrative members is a set of HTML pages
+    <para>The user interface for administrative members is a set of HTML pages
       that allows deletion and approval of comments.</para>
 
     <para><phrase>40.0</phrase> Customized presentation.</para>

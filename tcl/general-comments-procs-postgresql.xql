@@ -61,7 +61,7 @@
 		NULL, 			-- 2  p_reply_to
 		current_timestamp,	-- 3  p_sent_date
 		NULL, 			-- 4  p_sender
-		NULL,			-- 5  p_rfc822_id
+		:rfc822_id,	        -- 5  p_rfc822_id
 		:title,			-- 6  p_title
 		NULL,			-- 7  p_description
 		:comment_mime_type,	-- 8  p_mime_type

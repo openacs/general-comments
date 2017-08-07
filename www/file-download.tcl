@@ -17,3 +17,9 @@ ad_page_contract {
 permission::require_permission -object_id $item_id -privilege read
 
 cr_write_content -item_id $item_id
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

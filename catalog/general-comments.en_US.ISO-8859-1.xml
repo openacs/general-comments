@@ -19,6 +19,7 @@
   <msg key="Cancel">Cancel</msg>
   <msg key="Comment">Comment:</msg>
   <msg key="Comments">Comments</msg>
+  <msg key="Comments_of">Comments of %user_name%</msg>
   <msg key="Confirm">Confirm</msg>
   <msg key="Confirm_comment">Confirm comment</msg>
   <msg key="Confirm_comment_on">Confirm comment on</msg>

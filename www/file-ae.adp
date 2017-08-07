@@ -19,7 +19,7 @@
       #general-comments.lt_Use_the_Browse_button#
      </if>
      <else>
-       <b><code>@file_name@</code></b>
+       <strong><code>@file_name@</code></strong>
      </else>
     </td>
   </tr>

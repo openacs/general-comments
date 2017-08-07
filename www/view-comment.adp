@@ -12,7 +12,7 @@
 
 @html_content;noquote@
 
-<if @is_creator_p@ eq t>
+<if @is_creator_p;literal@ true>
   <p>
   -- #general-comments.you#
     <a href="@comment_edit_url@">
@@ -29,7 +29,7 @@
   <multiple name=attachments>
     <% incr counter %>  
     <li>
-    <if @is_creator_p@ eq t>
+    <if @is_creator_p;literal@ true>
       ( <a href="@attachments.file_edit_url@">#general-comments.edit#</a> | <a href="@attachments.delete_attachment_url@">#general-comments.delete#</a> )
     </if>
     <if @attachments.mime_type@ eq image/gif or @attachments.mime_type@ eq image/jpeg>
@@ -44,7 +44,7 @@
   <multiple name=links>
     <% incr counter %>
     <li>
-    <if @is_creator_p@ eq t>
+    <if @is_creator_p;literal@ true>
         ( <a href="links.url_edit_url@">#general-comments.edit#</a> | <a href="@links.delete_attachment_url@">#general-comments.delete#</a> )
     </if>      
     <a href="@links.url@">@links.label@</a>
@@ -57,16 +57,16 @@
 <if @is_creator_p@ eq t and @allow_attach_p@ eq t>
   <h2>#general-comments.Actions#</h2>
   <ul>
-    <if @allow_file_p@ eq t>
+    <if @allow_file_p;literal@ true>
       <li><a href="@action_file_add_url@">#general-comments.lt_Attach_a_file_or_pict#</a><br>
     </if>
-    <if @allow_link_p@ eq t>
+    <if @allow_link_p;literal@ true>
       <li><a href="@action_url_add_url@">#general-comments.Attach_a_web_link#</a><br>  
     </if>
   </ul>
 </if>
 
-<if @write_perm_p@ eq 1>
+<if @write_perm_p;literal@ true>
   <h2>#general-comments.Revisions#</h2>
   <ul>
     <multiple name=revisions>
@@ -84,7 +84,7 @@
 </if>
 
   <p><span style="color:@font_color@">@pre_text@</span>
-  <if @admin_p@ eq 1>
+  <if @admin_p;literal@ true>
     (<a href="@admin_toggle_url@">@admin_toggle_text@</a>)
   </if>
   </p>

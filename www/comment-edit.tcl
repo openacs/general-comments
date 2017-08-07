@@ -12,7 +12,7 @@ ad_page_contract {
 } { 
     comment_id:naturalnum,notnull
     { revision_id:naturalnum {} }
-    { return_url {} }
+    { return_url:localurl {} }
 } -properties {
     page_title:onevalue
     context:onevalue
@@ -56,3 +56,9 @@ set target "comment-edit-2"
 ad_return_template "comment-ae"
 
 
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

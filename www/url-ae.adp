@@ -9,7 +9,7 @@
 <table>
   <tr>
     <td valign="top" align="right">#general-comments.Label# </td>
-    <td><input type=text name="label" size="40" value="@label@"></td>
+    <td><input type="text" name="label" size="40" value="@label@"></td>
   </tr>
   <tr>
     <td valign="top" align="right">#general-comments.URL# </td>

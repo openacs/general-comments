@@ -12,7 +12,7 @@ ad_page_contract {
     parent_id:naturalnum,notnull
     label:notnull
     url:notnull
-    { return_url {} }
+    { return_url:localurl {} }
 }
 
 # authenticate the user
@@ -32,3 +32,9 @@ ad_returnredirect [export_vars -base view-comment {{comment_id $parent_id} retur
 
 
 
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

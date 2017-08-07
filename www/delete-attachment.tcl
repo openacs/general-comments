@@ -13,7 +13,7 @@ ad_page_contract {
 } {
     attach_id:naturalnum,notnull
     parent_id:naturalnum,notnull
-    { return_url {} }
+    { return_url:localurl {} }
 } -properties {
     page_title:onevalue
     context:onevalue
@@ -30,3 +30,9 @@ set page_title "[_ general-comments.Delete_attachment]"
 set context "\"[_ general-comments.Delete_attachment]\""
 
 ad_return_template
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

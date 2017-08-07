@@ -15,7 +15,7 @@ ad_page_contract {
     attach_id:naturalnum,notnull
     parent_id:naturalnum,notnull
     title:notnull
-    { return_url {} }
+    { return_url:localurl {} }
 }
 
 # check to see if the user can edit this comment
@@ -34,3 +34,9 @@ ad_returnredirect [export_vars -base view-comment {{comment_id $parent_id} retur
 
 
 
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

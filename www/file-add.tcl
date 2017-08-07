@@ -11,7 +11,7 @@ ad_page_contract {
     @cvs-id $Id$
 } {
     parent_id:notnull,naturalnum
-    {return_url {} }
+    {return_url:localurl {} }
 } -properties {
     page_title:onevalue
     context:onevalue
@@ -44,3 +44,9 @@ ad_return_template "file-ae"
 
 
 
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

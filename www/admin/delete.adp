@@ -5,7 +5,7 @@
 
 #general-comments.lt_Do_you_really_wish_to#
 
-  <b>@title@</b> (<a href="../view-comment?comment_id=@comment_id@">#general-comments.details#</a>)<br><br>
+  <strong>@title@</strong> (<a href="../view-comment?comment_id=@comment_id@">#general-comments.details#</a>)<br><br>
   <if @mime_type@ eq text/plain>
     <%= [ad_text_to_html $content] %>
   </if>

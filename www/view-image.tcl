@@ -9,7 +9,7 @@ ad_page_contract {
     @cvs-id $Id$
 } {
     image_id:naturalnum,notnull
-    { return_url {} }
+    { return_url:localurl {} }
 } -properties {
     page_title:onevalue
     context:onevalue
@@ -41,3 +41,9 @@ set context [list [list "$return_url" "[_ general-comments.Go_back_to_comment]"]
 
 ad_return_template
 
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

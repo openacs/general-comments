@@ -34,11 +34,15 @@ ad_proc general_comment_new {
     
     @error 
 } {
+
+    # Generate a unique id for the message
+    # result from proc comes enveloped in <>
+    set rfc822_id [string range [acs_mail_lite::generate_message_id] 1 end-1]
     
     db_transaction {
         
-        db_exec_plsql insert_comment { }
-        db_dml add_entry { }
+        db_exec_plsql insert_comment {}
+        db_dml add_entry {}
         db_1row get_revision {}  
         db_dml set_content {} -blobs [list $content]
 
@@ -208,9 +212,9 @@ ad_proc -private general_comments_print_comment {
 
                                    append attachments_html "<li>$title "
                                    if { $mime_type eq "image_gif" || $mime_type eq "image/jpeg" } {
-                                       append attachments_html "(<a href=\"[ad_quotehtml ${package_url}view-image?image_id=$item_id&return_url=$return_url]\">$name</a>)\n"
+                                       append attachments_html "(<a href=\"[ns_quotehtml ${package_url}view-image?image_id=$item_id&return_url=$return_url]\">$name</a>)\n"
                                    } else {
-                                       append attachments_html "(<a href=\"[ad_quotehtml ${package_url}file-download?item_id=$item_id]\">$name</a>)\n"
+                                       append attachments_html "(<a href=\"[ns_quotehtml ${package_url}file-download?item_id=$item_id]\">$name</a>)\n"
                                    }
                                }
 
@@ -218,7 +222,7 @@ ad_proc -private general_comments_print_comment {
                   select i.item_id, e.label, e.url
                     from cr_items i, cr_extlinks e
                    where i.parent_id = :comment_id and e.extlink_id = i.item_id" {
-                       append attachments_html "<li><a href=\"[ad_quotehtml $url]\">$label</a>\n"
+                       append attachments_html "<li><a href=\"[ns_quotehtml $url]\">$label</a>\n"
                    }
             if { $attachments_html ne "" } {
                 append html "<h5>[_ general-comments.Attachments]</h5>\n<ul>\n$attachments_html</ul>\n"
@@ -231,7 +235,7 @@ ad_proc -private general_comments_print_comment {
         }]
     } else {
         append html [subst {
-            <li><a href="[ad_quotehtml [export_vars -base ${package_url}view-comment {comment_id return_url}]]">$title</a>
+            <li><a href="[ns_quotehtml [export_vars -base ${package_url}view-comment {comment_id return_url}]]">$title</a>
         }]
         if {$print_user_info_p} {
             append html [subst {

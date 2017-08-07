@@ -11,7 +11,7 @@ ad_page_contract {
     @cvs-id $Id$
 } {
     comment_id:naturalnum,notnull
-    { return_url {} }
+    { return_url:localurl {} }
 }
 
 # There is a bug in content_item.delete that results in
@@ -32,3 +32,9 @@ db_exec_plsql delete_comment {}
 
 ad_returnredirect $return_url
 
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:
