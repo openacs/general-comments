@@ -25,31 +25,5 @@
 
       </querytext>
 </fullquery>
-<partialquery name="modified_last_24hours">      
-      <querytext>
-
-		creation_date + 1 > sysdate
-
-      </querytext>
-</partialquery>
-
-<partialquery name="modified_last_week">      
-      <querytext>
-
-		creation_date + 7 > sysdate
-
-      </querytext>
-</partialquery>
-
-<partialquery name="modified_last_month">      
-      <querytext>
-
-		creation_date + 30 > sysdate
-
-      </querytext>
-</partialquery>
- 
-
-
  
 </queryset>

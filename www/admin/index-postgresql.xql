@@ -5,7 +5,6 @@
 
 <fullquery name="comments_select">      
       <querytext>
-    select * from (      
     select g.comment_id,
            r.title, 
            acs_object__name(o.creation_user) as author,
@@ -21,33 +20,9 @@
      where g.comment_id = i.item_id and
            r.revision_id = o.object_id and
            r.revision_id = i.latest_revision
-          [ad_dimensional_sql $dimensional]) as unordered
+          [ad_dimensional_sql $dimensional]
     [template::list::orderby_clause -orderby -name comments_list]
       </querytext>
 </fullquery>
-
-
-<partialquery name="modified_last_24hours">      
-      <querytext>
-
-		creation_date > now() - '1 days'::interval
-
-      </querytext>
-</partialquery>
-
-<partialquery name="modified_last_week">      
-      <querytext>
-
-		creation_date > now() - '7 days'::interval 
-
-      </querytext>
-</partialquery>
-
-<partialquery name="modified_last_month">      
-      <querytext>
-
-		creation_date > now() - '30 days'::interval 
-      </querytext>
-</partialquery>
  
 </queryset>
