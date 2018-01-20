@@ -1,5 +1,3 @@
-# /packages/general-comments/www/url-edit.tcl
-
 ad_page_contract {
     Edits a url comment
 
@@ -31,6 +29,7 @@ if { ![db_0or1row get_comment {
            where extlink_id = :attach_id
 }] } {
     ad_return_complaint 1 "The attach_id does not refer to a valid url attachment."
+    ad_script_abort
 }
 
 set page_title "[_ general-comments.lt_Edit_url_attachment_o] #$parent_id"

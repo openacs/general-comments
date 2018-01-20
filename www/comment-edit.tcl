@@ -47,6 +47,7 @@ if { ![db_0or1row get_comment {
            r.revision_id = :revision_id
 }] } {
     ad_return_complaint 1 "The comment_id does not refer to a valid comment."
+    ad_script_abort
 }
 
 set page_title "[_ general-comments.Edit_comment_on]: [acs_object_name $object_id]"

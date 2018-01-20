@@ -73,7 +73,7 @@ template::list::create -name comments_list \
 	    label "#general-comments.Actions#"
 	    display_template {
 		<a href="toggle-approval?comment_id=@comments.comment_id@&return_url=@comments.return_url@">
-		<if @comments.approved_p@>#general-comments.reject#</if><else>#general-comments.approve#</else></a> |
+		<if @comments.approved_p;literal@ true>#general-comments.reject#</if><else>#general-comments.approve#</else></a> |
 		<a href="delete?comment_id=@comments.comment_id@&return_url=@comments.return_url@">[_ general-comments.delete]</a>
 	    }
 	}

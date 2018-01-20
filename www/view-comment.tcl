@@ -52,12 +52,14 @@ if { $write_perm_p == 1 } {
     # get revision data from the database
     if { ![db_0or1row get_revision_comment {}] } {
         ad_return_complaint 1 "[_ general-comments.lt_The_comment_id_does_n]"
+        ad_script_abort
     }
 
 } else {
     # get live revision data from the database
     if { ![db_0or1row get_comment {}] } {
         ad_return_complaint 1 "[_ general-comments.lt_The_comment_id_does_n]"
+        ad_script_abort
     }
 }
 

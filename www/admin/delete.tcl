@@ -42,6 +42,7 @@ set sql "
 
 if { ![db_0or1row get_comment $sql] } {
     ad_return_complaint 1 "[_ general-comments.lt_The_comment_id_does_n]"
+    ad_script_abort
 }
 
 set page_title "[_ general-comments.Delete_a_comment]"
