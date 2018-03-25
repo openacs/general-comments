@@ -1,7 +1,7 @@
 # /packages/general-comments/www/comment-add.tcl
 
 ad_page_contract {
-    Displays a form for adding a commment to a page
+    Displays a form for adding a comment to a page
 
     @author Phong Nguyen <phong@arsdigita.com>
     @author Pascal Scheffers (pascal@scheffers.net)

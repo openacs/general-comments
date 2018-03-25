@@ -1,7 +1,7 @@
 # /packages/general-comments/www/comment-edit.tcl
 
 ad_page_contract {
-    Displays a form for editing a commment
+    Displays a form for editing a comment
     
     @param comment_id The id of the comment to edit
     
