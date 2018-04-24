@@ -23,7 +23,7 @@ ad_page_contract {
     allow_file_attachments {
         set allow_files_p [parameter::get -parameter AllowFileAttachmentsP -default {t}]
         if { $allow_files_p != "t" } {
-            ad_complain "[_ general-comments.lt_Attaching_files_to_co]"            
+            ad_complain "[_ general-comments.lt_Attaching_files_to_co]"
         }
     }
     check_file_size {
@@ -66,11 +66,10 @@ if { $file_extension eq "jpeg" || $file_extension eq "jpg" } {
     catch { set what_aolserver_told_us [ns_gifsize $tmp_filename] }
 }
 
-# the AOLserver jpegsize command has some bugs where the height comes 
-# through as 1 or 2 
+# the AOLserver jpegsize command has some bugs where the height comes
+# through as 1 or 2
 if { $what_aolserver_told_us ne "" && [lindex $what_aolserver_told_us 0] > 10 && [lindex $what_aolserver_told_us 1] > 10 } {
-    set original_width [lindex $what_aolserver_told_us 0]
-    set original_height [lindex $what_aolserver_told_us 1]
+    lassign $what_aolserver_told_us original_width original_height
 } else {
     set original_width ""
     set original_height ""
@@ -116,12 +115,12 @@ db_transaction {
             end;
         }
     }
-  
+
     db_1row get_revision {
         select content_item.get_latest_revision(:attach_id) as revision_id
         from dual
     }
-    
+
 #    db_dml set_content {
 #    update cr_revisions
 #        set content = empty_blob()
