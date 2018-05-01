@@ -166,7 +166,7 @@ Whom?</em></td>
 <td align="left" valign="middle">0.1</td><td align="left" valign="middle">Creation</td><td align="left" valign="middle">10/26/2000</td><td align="left" valign="middle">Phong Nguyen</td>
 </tr>
 </tbody></table>
-</div><p>Last modified: $&zwnj;Id: design.html,v 1.2.2.2 2017/04/21 20:11:53
+</div><p>Last modified: $&zwnj;Id: design.html,v 1.3 2017/08/07 23:48:12
 gustafn Exp $</p>
 </div>
 </div>
