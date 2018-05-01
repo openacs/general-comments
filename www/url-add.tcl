@@ -1,7 +1,7 @@
 # /packages/general-comments/www/url-add.tcl
 
 ad_page_contract {
-    Attaches a url to a comment
+    Attaches a URL to a comment
 
     @param parent_id The id of the comment to attach to
     

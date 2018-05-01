@@ -1,5 +1,5 @@
 ad_page_contract {
-    Edits a url comment
+    Edits a URL comment
 
     @author Phong Nguyen (phong@arsdigita.com)
     @author Pascal Scheffers (pascal@scheffers.net)

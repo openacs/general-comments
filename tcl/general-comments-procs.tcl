@@ -289,7 +289,7 @@ ad_proc -public general_comments_create_link {
 }
 
 ad_proc -public general_comments_package_url {} {
-    Returns a url pointing to the mounted general-comments package.
+    Returns a URL pointing to the mounted general-comments package.
     Uses util_memoize for caching.
 } {
     return [site_node::get_package_url -package_key "general-comments"]

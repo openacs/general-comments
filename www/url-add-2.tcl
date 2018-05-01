@@ -1,7 +1,7 @@
 # /packages/general-comments/www/url-add-2.tcl
 
 ad_page_contract {
-    Inserts a url for object_id into the database
+    Inserts a URL for object_id into the database
     
     @author Phong Nguyen (phong@arsdigita.com)
     @author Pascal Scheffers (pascal@scheffers.net)
