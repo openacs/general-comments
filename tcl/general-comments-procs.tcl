@@ -95,7 +95,6 @@ ad_proc -public general_comments_get_comments {
     @param object_id The object_id to retrieve the comments for.
     @param return_url A url for the user to return to after viewing a comment.
 } {
-
     # get the package url
     set package_url [general_comments_package_url]
     if { $package_url eq "" } {
@@ -112,11 +111,7 @@ ad_proc -public general_comments_get_comments {
                              -parameter "RecentOnTopP" \
                              -default f]
 
-    if {[string is true $recent_on_top_p]} {
-        set orderby "o.creation_date desc"
-    } else {
-        set orderby "o.creation_date"
-    }
+    set sort_dir [expr {[string is true $recent_on_top_p] ? "desc" : "asc"}]
 
     # filter output to only see present user?
     set allow_my_comments_only_p [parameter::get \
@@ -124,132 +119,74 @@ ad_proc -public general_comments_get_comments {
                                       -parameter "AllowDisplayMyCommentsLinkP" \
                                       -default t]
 
-    if {[string is true $my_comments_only_p] 
-        && [string is true $allow_my_comments_only_p]} {
-        set user_id [ad_conn user_id]
-        set my_comments_clause "and o.creation_user = :user_id "
-    } else {
-        set my_comments_clause ""
-    }
+    set user_id [expr {[string is true $my_comments_only_p] &&
+                       [string is true $allow_my_comments_only_p] ? [ad_conn user_id] : ""}]
 
-    # initialize variables
-    if { $print_content_p == 0 } {
-        set content_select ""
-        set content ""
-    } else {
-        set content_select [db_map content_select] ;# ", r.content"
-    }
-
-    if { $context_id ne "" } {
-        set context_clause "and o.context_id = :context_id"
-    } else {
-        set context_clause ""
-    }
-    
-    set html ""
-    db_foreach get_comments {} {
+    db_multirow -local -extend {
+        pretty_date
+        pretty_date2
+        author_url
+        view_url
+    } comments get_comments_new [subst {
+             select o.object_id as comment_id,
+                    r.title,
+                    r.mime_type,
+                    o.creation_user,
+                    o.creation_user as author,
+                    o.creation_date,
+                    case when :print_content_p
+                       then r.content
+                       else '' end as content,
+                    ar.title as attachment_title,
+                    ar.mime_type as attachment_mime_type,
+                    coalesce(ae.label, ai.name) as attachment_name,
+                    ai.item_id as attachment_item_id,
+                    exists (select 1 from images
+                             where image_id = ai.item_id) as image_p,
+                    ae.url as attachment_url
+               from cr_revisions r,
+                    acs_objects o
+                    left join cr_items ai on (:print_content_p and
+                                              :print_attachments_p and
+                                              o.object_id = ai.parent_id)
+                    left join cr_revisions ar on ai.live_revision = ar.revision_id
+                    left join cr_extlinks ae on ai.item_id = ae.extlink_id
+              where o.object_id in (select comment_id
+                                      from general_comments
+                                     where object_id = :object_id)
+                and r.revision_id = (select live_revision
+                                       from cr_items
+                                      where item_id = o.object_id)
+                and (:context_id is null or o.context_id = :context_id)
+                and (:user_id is null or o.creation_user = :user_id)
+              order by o.creation_date $sort_dir
+    }] {
+        set author [acs_object_name $author]
+        
+        if {$content ne ""} {
+            set content [template::util::richtext::get_property html_value [list $content $mime_type]]
+        }
+        
         set pretty_date [lc_time_fmt $creation_date %x]
         set pretty_date2 [lc_time_fmt $creation_date "%q %X"]
-        # call on helper proc to print out comment
-        append html [general_comments_print_comment $comment_id $title $mime_type \
-                         $creation_user $author $pretty_date $pretty_date2 $content \
-                         $print_content_p $print_attachments_p $package_url $return_url $print_user_info_p]
-    }
-    return $html
-}
 
-ad_proc -private general_comments_print_comment {
-    comment_id
-    title
-    mime_type
-    creation_user
-    author
-    pretty_date
-    pretty_date2
-    content
-    print_content_p
-    print_attachments_p
-    package_url
-    return_url
-    print_user_info_p
-} {
-    Helper proc to format and print out a single comment.
-    @param comment_id The id of the comment.
-    @param title The title of the comment.
-    @param mime_type The mime_type of the comment.
-    @param creation_user The creation user of the comment.
-    @param author The name of the author.
-    @param pretty_date A short pretty date of the comment.
-    @param pretty_date2 A long pretty date of the comment.
-    @param content The content of the comment.
-    @param print_content_p Pass in 1 to print out content of comments.
-    @param print_attachments_p Pass in 1 to print out attachments of comments.
-    @param package_url The url to the mounted general-comments package instance.
-    @param return_url A url for the user to return to after viewing a comment. 
-    @param print_user_info_p Pass 1 in to print out user name and time of entry.
-} {
-
-    # -- create query statements to retrieve attachments
-    # PRS: Moved inline for QueryExtractor
-
-    # This part is really ugly. This will remain here until we figure out a way to 
-    # move this into a template.
-    set html ""
-    if { $print_content_p == 1 } {
-        append html "<h4>$title</h4>\n"
-
-        # convert to html
-        set richtext_list [list $content $mime_type]
-        append html [template::util::richtext::get_property html_value $richtext_list]
-
-        if { $print_attachments_p == 1 } {
-            set attachments_html ""
-            db_foreach get_attachments "
-                        select r.title, r.mime_type,  i.name, i.item_id
-                          from cr_items i, cr_revisions r
-                         where i.parent_id = :comment_id 
-                               and r.revision_id = i.live_revision" {
-
-                                   append attachments_html "<li>$title "
-                                   if { $mime_type eq "image_gif" || $mime_type eq "image/jpeg" } {
-                                       append attachments_html "(<a href=\"[ns_quotehtml ${package_url}view-image?image_id=$item_id&return_url=$return_url]\">$name</a>)\n"
-                                   } else {
-                                       append attachments_html "(<a href=\"[ns_quotehtml ${package_url}file-download?item_id=$item_id]\">$name</a>)\n"
-                                   }
-                               }
-
-            db_foreach get_links "
-                  select i.item_id, e.label, e.url
-                    from cr_items i, cr_extlinks e
-                   where i.parent_id = :comment_id and e.extlink_id = i.item_id" {
-                       append attachments_html "<li><a href=\"[ns_quotehtml $url]\">$label</a>\n"
-                   }
-            if { $attachments_html ne "" } {
-                append html "<h5>[_ general-comments.Attachments]</h5>\n<ul>\n$attachments_html</ul>\n"
-            }
-        }
-        append html [subst {<p>--
-            <a href="[ns_quotehtml [export_vars -base /shared/community-member {{user_id $creation_user}}]]">$author</a>
-            [_ general-comments.on] $pretty_date2
-            (<a href="[ns_quotehtml [export_vars -base ${package_url}view-comment {comment_id return_url}]]">[_ general-comments.view_details]</a>)</p>
-        }]
-    } else {
-        append html [subst {
-            <li><a href="[ns_quotehtml [export_vars -base ${package_url}view-comment {comment_id return_url}]]">$title</a>
-        }]
-        if {$print_user_info_p} {
-            append html [subst {
-                [_ general-comments.by] <a href="[ns_quotehtml [export_vars -base /shared/community-member {{user_id $creation_user}}]]">$author</a>
-                [_ general-comments.on] $pretty_date<br>
-            }]
-        } else {
-            append html "<br>\n"
+        set author_url [export_vars -base /shared/community-member {{user_id $creation_user}}]
+        set view_url [export_vars -base ${package_url}view-comment {comment_id return_url}]
+    
+        if {$image_p} {
+            set attachment_url [export_vars -base ${package_url}view-image {{image_id $attachment_item_id} return_url}]
+        } elseif {$attachment_url eq ""} {
+            set attachment_url [export_vars -base ${package_url}file-download {{item_id $attachment_item_id}}]
         }
     }
 
+    set template [acs_package_root_dir "general-comments"]/lib/comments.adp
+    set template [template::themed_template $template]
+    set code [template::adp_compile -file $template]
+    set html [template::adp_eval code]
+    
     return $html
 }
-
 
 ad_proc -public general_comments_create_link {
     -object_name
