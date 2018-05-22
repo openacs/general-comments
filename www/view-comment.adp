@@ -54,7 +54,7 @@
   </if>
 </ul>
 
-<if @is_creator_p;literal@ eq t and @allow_attach_p;literal@ eq t>
+<if @is_creator_p;literal@ true and @allow_attach_p;literal@ true>
   <h2>#general-comments.Actions#</h2>
   <ul>
     <if @allow_file_p;literal@ true>
