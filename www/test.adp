@@ -28,7 +28,7 @@
 <tr>
   <td>AutoApproveCommentsP</td>
   <td>
-    <if @auto_approve_comments_p@ eq "">
+    <if @auto_approve_comments_p;literal@ eq "">
       <em>#general-comments.not_set#</em>
     </if>
     <else>
@@ -38,7 +38,7 @@
 <tr>
   <td>AllowFileAttachmentsP</td>
   <td>
-    <if @allow_file_attachments_p@ eq "">
+    <if @allow_file_attachments_p;literal@ eq "">
       <em>#general-comments.not_set#</em>
     </if>
     <else>
@@ -48,7 +48,7 @@
 <tr>
   <td>AllowLinkAttachmentsP</td>
   <td>
-    <if @allow_link_attachments_p@ eq "">
+    <if @allow_link_attachments_p;literal@ eq "">
       <em>#general-comments.not_set#</em>
     </if>
     <else>

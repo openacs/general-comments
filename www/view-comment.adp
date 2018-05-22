@@ -27,17 +27,17 @@
 <ul>
   <% set counter 0 %>
   <multiple name=attachments>
-    <% incr counter %>  
+    <% incr counter %>
     <li>
     <if @is_creator_p;literal@ true>
       ( <a href="@attachments.file_edit_url@">#general-comments.edit#</a> | <a href="@attachments.delete_attachment_url@">#general-comments.delete#</a> )
     </if>
     <if @attachments.mime_type@ eq image/gif or @attachments.mime_type@ eq image/jpeg>
-      @attachments.title@ 
+      @attachments.title@
       (<a href="@attachments.view_image_url@">@attachments.name@</a>)
     </if>
     <else>
-      @attachments.title@ 
+      @attachments.title@
       (<a href="file-download?item_id=@attachments.item_id@">@attachments.name@</a>)
     </else>
   </multiple>
@@ -46,7 +46,7 @@
     <li>
     <if @is_creator_p;literal@ true>
         ( <a href="links.url_edit_url@">#general-comments.edit#</a> | <a href="@links.delete_attachment_url@">#general-comments.delete#</a> )
-    </if>      
+    </if>
     <a href="@links.url@">@links.label@</a>
   </multiple>
   <if @counter@ eq 0>
@@ -54,14 +54,14 @@
   </if>
 </ul>
 
-<if @is_creator_p@ eq t and @allow_attach_p@ eq t>
+<if @is_creator_p;literal@ eq t and @allow_attach_p;literal@ eq t>
   <h2>#general-comments.Actions#</h2>
   <ul>
     <if @allow_file_p;literal@ true>
       <li><a href="@action_file_add_url@">#general-comments.lt_Attach_a_file_or_pict#</a><br>
     </if>
     <if @allow_link_p;literal@ true>
-      <li><a href="@action_url_add_url@">#general-comments.Attach_a_web_link#</a><br>  
+      <li><a href="@action_url_add_url@">#general-comments.Attach_a_web_link#</a><br>
     </if>
   </ul>
 </if>
