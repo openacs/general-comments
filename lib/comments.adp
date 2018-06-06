@@ -5,7 +5,7 @@
   <if @print_content_p;literal@ true>
     <h4>@comments.title@</h4>
     @comments.content@
-    <if @print_attachments_p;literal@ true and @comments.attachment_url;literal@ ne "">
+    <if @print_attachments_p@ true and @comments.attachment_url;literal@ ne "">
       <h5>#general-comments.Attachments#</h5>
       <ul>
         <group column="comment_id">
