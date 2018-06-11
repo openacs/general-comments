@@ -43,7 +43,8 @@ ad_proc general_comment_new {
         
         db_exec_plsql insert_comment {}
         db_dml add_entry {}
-        db_1row get_revision {}  
+        set revision_id [content::item::get_latest_revision \
+                             -item_id $comment_id]
         db_dml set_content {} -blobs [list $content]
 
         # Grant the user sufficient permissions to 
