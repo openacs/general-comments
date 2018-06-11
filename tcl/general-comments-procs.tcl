@@ -162,7 +162,7 @@ ad_proc -public general_comments_get_comments {
                 and (:user_id is null or o.creation_user = :user_id)
               order by o.creation_date $sort_dir
     }] {
-        set author [acs_object_name $author]
+        set author [acs_user::get_element -user_id $author -element name]
         
         if {$content ne ""} {
             set content [template::util::richtext::get_property html_value [list $content $mime_type]]
