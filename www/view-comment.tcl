@@ -40,28 +40,40 @@ permission::require_permission -object_id $comment_id -privilege read
 set write_perm_p [permission::permission_p -object_id $comment_id -privilege write]
 set admin_p [permission::permission_p -object_id $package_id -privilege admin]
 
+set live_revision [content::item::get_live_revision -item_id $comment_id]
+
 # if the user has write permissions then allow
 # viewing of selected revision
-if { $write_perm_p == 1 } {
-    if { $revision_id eq "" } {
-	# get the latest revision
-	set revision_id [db_string get_latest_revision {
-            select content_item.get_latest_revision(:comment_id) from dual
-	}]
-    }
-    # get revision data from the database
-    if { ![db_0or1row get_revision_comment {}] } {
-        ad_return_complaint 1 "[_ general-comments.lt_The_comment_id_does_n]"
-        ad_script_abort
-    }
-
-} else {
-    # get live revision data from the database
-    if { ![db_0or1row get_comment {}] } {
-        ad_return_complaint 1 "[_ general-comments.lt_The_comment_id_does_n]"
-        ad_script_abort
-    }
+if { !$write_perm_p } {
+    # get live revision
+    set revision_id $live_revision
+} elseif { $revision_id eq "" } {
+    # get the latest revision
+    set revision_id [content::item::get_latest_revision -item_id $comment_id]
 }
+
+# get revision data from the database
+if { ![db_0or1row get_revision_comment {
+           select g.object_id,
+	          g.comment_id,
+                  r.revision_id,
+                  r.title,
+	          r.content, 
+	          r.mime_type as comment_mime_type, 
+	          o.creation_user,
+	          o.creation_date
+             from general_comments g,
+                  cr_revisions r,
+                  acs_objects o
+            where g.comment_id = o.object_id and
+                  g.comment_id = r.item_id and
+	          r.revision_id = :revision_id
+}] } {
+    ad_return_complaint 1 "[_ general-comments.lt_The_comment_id_does_n]"
+    ad_script_abort
+}
+
+set author [acs_user::get_element -user_id $creation_user -element name]
 
 db_multirow -extend {file_edit_url delete_attachment_url view_image_url} attachments get_attachments {
    select r.title,
@@ -90,25 +102,30 @@ db_multirow -extend {url_edit_url delete_attachment_url} links get_links {
     set delete_attachment_url [export_vars -base "delete-attachment" {{attach_id $item_id} {parent_id $comment_id} return_url}]
 }
 
-db_multirow -extend {view_comment_url} revisions get_revisions {*SQL*} { 
+db_multirow -unclobber -extend {view_comment_url} revisions get_revisions {
+    select r.revision_id,
+           o.creation_date as revision_date
+      from cr_revisions r,
+           acs_objects o
+     where r.item_id = :comment_id and
+           o.object_id = r.revision_id
+     order by o.creation_date desc    
+} { 
     set revision_date [lc_time_fmt $revision_date %c]
     set view_comment_url [export_vars -base "view-comment" {comment_id revision_id return_url}]
 }
 
 set allow_file_p [parameter::get -parameter AllowFileAttachmentsP -default {t}]
 set allow_link_p [parameter::get -parameter AllowLinkAttachmentsP -default {t}]
-set allow_attach_p "t"
-if { $allow_file_p == "f" && $allow_link_p == "f" } {
-    set allow_attach_p "f"
-}
-set comment_on_id [db_string get_object_id "select object_id from general_comments where comment_id = :comment_id"]
+set allow_attach_p [expr { !($allow_file_p == "f" && $allow_link_p == "f")}]
+set comment_on_id [db_string get_object_id {
+    select object_id from general_comments
+    where comment_id = :comment_id
+}]
 set page_title "[_ general-comments.View_comment_on]: [acs_object_name $comment_on_id]"
 set context "\"[_ general-comments.View_comment]\""
 set return_url_view "view-comment?[export_ns_set_vars url]"
-set is_creator_p "f"
-if { $user_id == $creation_user } {
-    set is_creator_p "t"
-}
+set is_creator_p [expr {$user_id == $creation_user}]
 
 if { $comment_mime_type ne "text/html" } {
     set html_content "<p>[ad_html_text_convert -from $comment_mime_type -- $content]</p>"
@@ -135,8 +152,6 @@ if { $live_revision ne $revision_id } {
     set admin_toggle_url [export_vars -base "admin/toggle-approval" {comment_id revision_id {return_url $return_url_view}}]
     set admin_toggle_text [_ general-comments.reject_this_revision]
 }
-
-ad_return_template
 
 # Local variables:
 #    mode: tcl
