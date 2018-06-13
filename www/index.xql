@@ -3,17 +3,15 @@
 
   <partialquery name="status_approved">      
     <querytext>
-
-      i.live_revision is not null
-
+      (i.live_revision is not null and
+         i.live_revision = r.revision_id)
     </querytext>
   </partialquery>
 
   <partialquery name="status_unapproved">      
     <querytext>
-
-      i.live_revision is null
-
+      (i.live_revision is null or
+         i.live_revision <> r.revision_id)
     </querytext>
   </partialquery>
 
