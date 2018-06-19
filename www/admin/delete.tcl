@@ -25,30 +25,30 @@ ad_page_contract {
     return_url:onevalue
 }
 
+set revision_id [content::item::get_best_revision -item_id $comment_id]
 # get data from database
-set sql "
+set sql {
     select r.title,
            r.content,
            r.mime_type,
            o.creation_user,
-           to_char(o.creation_date, 'MM-DD-YYYY') as pretty_date,
-           acs_object.name(o.creation_user) as author
+           to_char(o.creation_date, 'MM-DD-YYYY') as pretty_date
       from acs_objects o, 
            cr_revisions r, 
 	   general_comments g
      where g.comment_id = :comment_id and 	 
            g.comment_id = o.object_id and
-	   r.revision_id = content_item.get_latest_revision(g.comment_id)"
+           r.revision_id = :revision_id
+}
 
 if { ![db_0or1row get_comment $sql] } {
-    ad_return_complaint 1 "[_ general-comments.lt_The_comment_id_does_n]"
+    ad_return_complaint 1 [_ general-comments.lt_The_comment_id_does_n]
     ad_script_abort
 }
 
-set page_title "[_ general-comments.Delete_a_comment]"
-set context [list "[_ general-comments.Delete_a_comment]"]
-
-ad_return_template
+set author [acs_user::get_element -user_id $creation_user -element name]
+set page_title [_ general-comments.Delete_a_comment]
+set context [list $page_title]
 
 # Local variables:
 #    mode: tcl
