@@ -29,7 +29,7 @@ set admin_p [permission::permission_p -object_id $package_id -privilege admin]
 # this page with the proper parameters
 set return_url [ns_urlencode index?[export_ns_set_vars url]]
 
-set user_name [acs_user::get_element -user_id $user_id -element name]
+set user_name [person::name -person_id $user_id]
 
 set dimensional [list \
     [list approval "[_ general-comments.Status]" any [list \
