@@ -112,7 +112,7 @@ db_multirow -extend {
           [ad_dimensional_sql $dimensional]
     [template::list::orderby_clause -orderby -name comments_list]    
 }] {
-    set author [acs_user::get_element -user_id $creation_user -element name]
+    set author [person::name -person_id $creation_user]
     set live_version_p [expr {$live_version_p ? $yes : $no}]
     set approved_p [expr {$approved_p ? $yes : $no}]
     set pretty_date [lc_time_fmt $creation_date "%x %X"]

@@ -46,7 +46,7 @@ if { ![db_0or1row get_comment $sql] } {
     ad_script_abort
 }
 
-set author [acs_user::get_element -user_id $creation_user -element name]
+set author [person::name -person_id $creation_user]
 set page_title [_ general-comments.Delete_a_comment]
 set context [list $page_title]
 

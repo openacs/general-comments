@@ -73,7 +73,7 @@ if { ![db_0or1row get_revision_comment {
     ad_script_abort
 }
 
-set author [acs_user::get_element -user_id $creation_user -element name]
+set author [person::name -person_id $creation_user]
 
 db_multirow -extend {file_edit_url delete_attachment_url view_image_url} attachments get_attachments {
    select r.title,
