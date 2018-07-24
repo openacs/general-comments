@@ -91,7 +91,7 @@ notice.</p><p>
 <span class="phrase">Note:</span> In the alpha release of
 <tt class="computeroutput">general-comments</tt>, the tcl
 procedures were defined within a namespace and encountered problems
-with the api browser not being able to display them properly. These
+with the API browser not being able to display them properly. These
 procedures have now been moved out of the namespace and the old
 ones are marked as deprecated. The final version will completely
 remove all traces of the namespace procedures.</p><p><span class="phrase">PL/SQL API</span></p><p>None. Uses PL/SQL functions provided by ACS Messaging.</p>
