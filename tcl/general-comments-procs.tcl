@@ -43,7 +43,8 @@ ad_proc general_comment_new {
         
         db_exec_plsql insert_comment {}
         db_dml add_entry {}
-        db_1row get_revision {}  
+        set revision_id [content::item::get_latest_revision \
+                             -item_id $comment_id]
         db_dml set_content {} -blobs [list $content]
 
         # Grant the user sufficient permissions to 
@@ -161,12 +162,12 @@ ad_proc -public general_comments_get_comments {
                 and (:user_id is null or o.creation_user = :user_id)
               order by o.creation_date $sort_dir
     }] {
-        set author [acs_object_name $author]
-        
+        set author [person::name -person_id $author]
+
         if {$content ne ""} {
             set content [template::util::richtext::get_property html_value [list $content $mime_type]]
         }
-        
+
         set pretty_date [lc_time_fmt $creation_date %x]
         set pretty_date2 [lc_time_fmt $creation_date "%q %X"]
 

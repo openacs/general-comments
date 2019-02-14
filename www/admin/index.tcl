@@ -44,7 +44,8 @@ template::list::create -name comments_list \
     -html {style "margin: 0 auto"} \
     -elements {
 	counter {
-	    label "#general-comments.Num#" 
+	    label "#general-comments.Num#"
+            display_template {@comments.rownum;literal@}
 	}
         comment_id {
 	    label "#general-comments.ID#"
@@ -55,7 +56,13 @@ template::list::create -name comments_list \
 	    label "#general-comments.Title_1#"
 	    orderby {title}
 	}
-	approved_p_pretty {
+	author {
+	    label "#general-comments.Author#"
+	    orderby {(select first_names || last_name
+                      from persons
+                      where person_id = o.creation_user)}
+	}        
+	approved_p {
 	    label "#general-comments.Approved#"
 	    html {align center}
 	    orderby {approved_p}
@@ -79,19 +86,40 @@ template::list::create -name comments_list \
 	}
     } -filters {approval {} modified {}} 
 
-set count 0
-db_multirow -extend {user_id return_url counter approved_p_pretty pretty_date} comments comments_select {} {
-    set counter [incr count]
+set yes [_ acs-kernel.common_Yes]
+set no  [_ acs-kernel.common_No]
+
+db_multirow -extend {
+    user_id
+    return_url
+    pretty_date
+    author
+} comments comments_select [subst {
+    select g.comment_id,
+           r.title, 
+           o.creation_user, 
+           i.live_revision is not null as live_version_p,
+           i.live_revision = r.revision_id as approved_p,
+           to_char(o.creation_date, 'MM-DD-YYYY HH12:MI:AM') as pretty_date,
+           o.creation_date           
+      from general_comments g,
+           cr_items i,
+           cr_revisions r,
+           acs_objects o
+     where g.comment_id = i.item_id and
+           r.revision_id = o.object_id and
+           r.revision_id = i.latest_revision
+          [ad_dimensional_sql $dimensional]
+    [template::list::orderby_clause -orderby -name comments_list]    
+}] {
+    set author [person::name -person_id $creation_user]
+    set live_version_p [expr {$live_version_p ? $yes : $no}]
+    set approved_p [expr {$approved_p ? $yes : $no}]
     set pretty_date [lc_time_fmt $creation_date "%x %X"]
-    set approved_p_pretty [util_PrettyTclBoolean $approved_p]
-    set live_version_p [util_PrettyTclBoolean $live_version_p]
 }
 
 set page_title "[_ general-comments.lt_General_Comments_Admi]"
 set context {}
-
-ad_return_template
-
 
 # Local variables:
 #    mode: tcl

@@ -28,7 +28,7 @@ ad_page_contract {
 permission::require_permission -party_id [ad_conn user_id] -object_id $comment_id -privilege "write"
 set revision_id [content::item::get_best_revision -item_id $comment_id]
 # get data from database
-set sql "
+set sql {
     select r.title,
            r.content,
            r.mime_type,
@@ -39,18 +39,17 @@ set sql "
 	   general_comments g
      where g.comment_id = :comment_id and 	 
            g.comment_id = o.object_id and
-	   r.revision_id = $revision_id"
+           r.revision_id = :revision_id
+}
 
 if { ![db_0or1row get_comment $sql] } {
-    ad_return_complaint 1 "[_ general-comments.lt_The_comment_id_does_n]"
+    ad_return_complaint 1 [_ general-comments.lt_The_comment_id_does_n]
     ad_script_abort
 }
 
 set author [person::name -person_id $creation_user]
-set page_title "[_ general-comments.Delete_a_comment]"
-set context [list "[_ general-comments.Delete_a_comment]"]
-
-ad_return_template
+set page_title [_ general-comments.Delete_a_comment]
+set context [list $page_title]
 
 # Local variables:
 #    mode: tcl
