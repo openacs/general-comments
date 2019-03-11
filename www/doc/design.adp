@@ -66,7 +66,7 @@ on an object and make appropriate links to files from the
 recording and editing user comments. An optional <tt class="computeroutput">return_url</tt> can be specified which will be
 provided as a link to the user within the <tt class="computeroutput">general-comments</tt> pages. This is useful for
 the user to return to the original page after making a comment.</p><p>The other procedure, <a href="/api-doc/proc-view?proc=general_comments_create_link" target="_top">general_comments_create_link</a>, is a wrapper procedure
-that returns an html fragment for a link which points to the
+that returns an HTML fragment for a link which points to the
 location of the mounted <tt class="computeroutput">general_comments</tt> package. There are various
 switches that will be useful to package developers:</p><ul>
 <li><p>
