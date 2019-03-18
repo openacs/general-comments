@@ -45,7 +45,7 @@
     <% incr counter %>
     <li>
     <if @is_creator_p;literal@ true>
-        ( <a href="links.url_edit_url@">#general-comments.edit#</a> | <a href="@links.delete_attachment_url@">#general-comments.delete#</a> )
+        ( <a href="@links.url_edit_url@">#general-comments.edit#</a> | <a href="@links.delete_attachment_url@">#general-comments.delete#</a> )
     </if>
     <a href="@links.url@">@links.label@</a>
   </multiple>
