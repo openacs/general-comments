@@ -30,7 +30,7 @@ ad_page_contract {
         set tmp_size [file size ${upload_file.tmpfile}]
         set max_file_size [parameter::get -parameter MaxFileSize -default {0}]
         if { $tmp_size > $max_file_size && $max_file_size > 0 } {
-            ad_complain "[_ general-comments.lt_Your_file_is_too_larg]  [_ general-comments.The_publisher_of] [ad_system_name] [_ general-comments.lt_has_chosen_to_limit_a] [util::content_size_pretty -size $max_file_size].\n"
+            ad_complain "[_ general-comments.lt_Your_file_is_too_larg]  [_ general-comments.The_publisher_of] [ad_system_name] [_ general-comments.lt_has_chosen_to_limit_a] [lc_content_size_pretty -size $max_file_size].\n"
         }
         if { $tmp_size == 0 } {
             ad_complain "[_ general-comments.lt_Your_file_is_zero-len]\n"
