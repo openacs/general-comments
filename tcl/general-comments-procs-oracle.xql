@@ -3,7 +3,7 @@
 <queryset>
    <rdbms><type>oracle</type><version>8.1.6</version></rdbms>
 
-<fullquery name="general_comment_new.insert_comment">      
+<fullquery name="general_comments_new.insert_comment">      
       <querytext>
       
         begin
@@ -23,7 +23,7 @@
       </querytext>
 </fullquery>
 
-<fullquery name="general_comment_new.set_content">      
+<fullquery name="general_comments_new.set_content">      
       <querytext>
       
         update cr_revisions

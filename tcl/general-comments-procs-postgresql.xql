@@ -3,7 +3,7 @@
 <queryset>
    <rdbms><type>postgresql</type><version>7.1</version></rdbms>
 
-<fullquery name="general_comment_new.insert_comment">      
+<fullquery name="general_comments_new.insert_comment">      
       <querytext>
 	     select acs_message__new (
 		:comment_id,		-- 1  p_message_id
@@ -26,7 +26,7 @@
       </querytext>
 </fullquery>
 
-<fullquery name="general_comment_new.set_content">      
+<fullquery name="general_comments_new.set_content">      
       <querytext>
     
         update cr_revisions

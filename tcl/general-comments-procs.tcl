@@ -16,7 +16,7 @@ ad_library {
 }
 
 
-ad_proc general_comment_new {
+ad_proc general_comments_new {
     -object_id:required
     -comment_id:required
     -title:required
