@@ -6,10 +6,13 @@ aa_register_case \
     -cats {api smoke} \
     -procs {
         general_comments_create_link
+        general_comments_package_url
     } \
     general_comments_create_link {
         Test general_comments_create_link
     } {
+        set gc_url [general_comments_package_url]
+
         set vars {
             object_name
             link_text
@@ -35,5 +38,9 @@ aa_register_case \
 
         foreach var $vars {
             aa_true "Link contains suplied argument '$var'" {[string first [set $var] $url] >= 0}
+        }
+
+        if {$gc_url ne ""} {
+            aa_true "Link contains general-comments package URL '$gc_url'" {[string first $gc_url $url] >= 0}
         }
     }
