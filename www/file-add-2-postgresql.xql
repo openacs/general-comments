@@ -56,8 +56,8 @@
 <fullquery name="set_content_size">
       <querytext>
 	update cr_revisions
- 	set content = '$tmp_filename',
-	    content_length = $tmp_size
+ 	set content = :tmp_filename,
+	    content_length = :tmp_size
         where revision_id = :revision_id
       </querytext>
 </fullquery>
