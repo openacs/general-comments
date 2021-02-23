@@ -1,9 +1,9 @@
 # /packages/general-comments/tcl/general-comments-procs.tcl
 
-# Porting: Moved most queries from variables to in-line 
-# for the QueryExtractor, appended '_deprecated' to 
-# query-names in 'ad_proc -deprecated' functions. 
-# Left one duplicate with 100% identical SQL (pascal) 
+# Porting: Moved most queries from variables to in-line
+# for the QueryExtractor, appended '_deprecated' to
+# query-names in 'ad_proc -deprecated' functions.
+# Left one duplicate with 100% identical SQL (pascal)
 
 ad_library {
     Utility procs for general-comments
@@ -29,28 +29,28 @@ ad_proc general_comments_new {
     -content:required
 } {
     Creates a comment and attaches it to a given object ID
-    
-    @return 
-    
-    @error 
+
+    @return
+
+    @error
 } {
 
     # Generate a unique id for the message
     # result from proc comes enveloped in <>
     set rfc822_id [string range [acs_mail_lite::generate_message_id] 1 end-1]
-    
+
     db_transaction {
-        
+
         db_exec_plsql insert_comment {}
         db_dml add_entry {}
         set revision_id [content::item::get_latest_revision \
                              -item_id $comment_id]
         db_dml set_content {} -blobs [list $content]
 
-        # Grant the user sufficient permissions to 
+        # Grant the user sufficient permissions to
         # created comment. This is done here to ensure that
         # a fail on permissions granting will not leave
-        # the comment with incorrect permissions. 
+        # the comment with incorrect permissions.
         if {$user_id ne ""} {
             permission::grant -object_id $comment_id \
                 -party_id $user_id \
@@ -63,10 +63,10 @@ ad_proc general_comments_new {
         }
     }
     # Convert the comment to HTML
-    
+
     if {$comment_mime_type ne "text/html"} {
         set content [ad_convert_to_html $content]
-    } 
+    }
 
     # Start notifications
     callback general_comments::notify_objects \
@@ -84,14 +84,14 @@ ad_proc -public general_comments_get_comments {
     { -print_user_info_p 1}
     { -context_id "" }
     { -my_comments_only_p 0 }
-    object_id 
+    object_id
     {return_url {}}
 } {
     Generates a line item list of comments for the object_id.
 
     @param print_content_p Pass in 1 to print out content of comments.
-    @param print_attachments_p Pass in 1 to print out attachments of comments, 
-    only works if print_content_p is 1. 
+    @param print_attachments_p Pass in 1 to print out attachments of comments,
+    only works if print_content_p is 1.
     @param context_id Show only comments with given context_id
     @param object_id The object_id to retrieve the comments for.
     @param return_url A url for the user to return to after viewing a comment.
@@ -173,7 +173,7 @@ ad_proc -public general_comments_get_comments {
 
         set author_url [export_vars -base /shared/community-member {{user_id $creation_user}}]
         set view_url [export_vars -base ${package_url}view-comment {comment_id return_url}]
-    
+
         if {$image_p} {
             set attachment_url [export_vars -base ${package_url}view-image {{image_id $attachment_item_id} return_url}]
         } elseif {$attachment_url eq ""} {
@@ -185,7 +185,7 @@ ad_proc -public general_comments_get_comments {
     set template [template::themed_template $template]
     set code [template::adp_compile -file $template]
     set html [template::adp_eval code]
-    
+
     return $html
 }
 
@@ -196,7 +196,7 @@ ad_proc -public general_comments_create_link {
     { -category {} }
     { -link_attributes "" }
     object_id
-    {return_url {}} 
+    {return_url {}}
 } {
     Generates an html link to add a comment to an object.
 
@@ -220,7 +220,7 @@ ad_proc -public general_comments_create_link {
     if { ![info exists object_name] } { set object_name [acs_object_name $object_id] }
     if { ![info exists context_id] } { set context_id $object_id }
 
-    set html [subst {<a href="[ns_quotehtml [export_vars -base ${package_url}comment-add {object_id 
+    set html [subst {<a href="[ns_quotehtml [export_vars -base ${package_url}comment-add {object_id
          object_name return_url context_id category}]]" $link_attributes>$link_text</a>}]
 
     return $html
@@ -241,7 +241,7 @@ namespace eval general_comments {
 
         @param object_id The object_id to retrieve the comments for.
         @param return_url A url for the user to return to after viewing a comment.
-        
+
         @see general_comments_get_comments
     } {
 
@@ -289,7 +289,7 @@ namespace eval general_comments {
         # get the package url
         set package_url [general_comments_package_url]
 
-        set html [subst {<a href="[ns_quotehtml [export_vars -base ${package_url}comment-add {object_id 
+        set html [subst {<a href="[ns_quotehtml [export_vars -base ${package_url}comment-add {object_id
              object_name return_url context_id category}]]">$link_text</a>
         }]
         return $html
