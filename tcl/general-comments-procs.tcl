@@ -78,6 +78,22 @@ ad_proc general_comments_new {
     return $revision_id
 }
 
+ad_proc -public general_comments_delete_messages {
+    -package_id:required
+} {
+    Deletes all comments belonging to specified package.
+} {
+    foreach comment_id [db_list get_comments {
+        select comment_id
+        from general_comments c,
+             acs_objects o
+        where c.comment_id = o.object_id
+          and o.package_id = :package_id
+    }] {
+        content::item::delete -item_id $comment_id
+    }
+}
+
 ad_proc -public general_comments_get_comments {
     { -print_content_p 0 }
     { -print_attachments_p 0 }
