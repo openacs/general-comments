@@ -38,7 +38,7 @@ aa_register_case \
         aa_true "Generated link is HTML" [ad_looks_like_html_p $url]
 
         foreach var $vars {
-            aa_true "Link contains suplied argument '$var'" {[string first [set $var] $url] >= 0}
+            aa_true "Link contains supplied argument '$var'" {[string first [set $var] $url] >= 0}
         }
 
         if {$gc_url ne ""} {

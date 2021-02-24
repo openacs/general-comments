@@ -53,7 +53,7 @@ set file_extension [string tolower [file extension $upload_file]]
 regsub {\.} $file_extension "" file_extension
 set guessed_file_type [cr_filename_to_mime_type -create $upload_file]
 
-# strip off the C:\directories... crud and just get the file name
+# strip off the C:\directories... crud and just get the filename
 if {![regexp {([^/\\]+)$} $upload_file match client_filename]} {
     # couldn't find a match
     set client_filename $upload_file
@@ -129,7 +129,7 @@ db_transaction {
 #    } -blob_files [list $tmp_filename]
 
 # DRB: Since we're using acs_message to store the file, it is automatically
-# stuffed into the file system rather than database whether we need it or
+# stuffed into the filesystem rather than database whether we need it or
 # not.  This needs to be *changed* ... the whole way we read and write CR content
 # based on storage type needs cleaning up.
 
