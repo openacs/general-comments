@@ -7,6 +7,8 @@ aa_register_case \
     -procs {
         general_comments_create_link
         general_comments_package_url
+
+        ad_convert_to_html
     } \
     general_comments_create_link {
         Test general_comments_create_link and
