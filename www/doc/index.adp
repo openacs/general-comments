@@ -1,5 +1,5 @@
 
-<property name="context">{/doc/general-comments {General Comments}} {General Comments}</property>
+<property name="context">{/doc/general-comments/ {General Comments}} {General Comments}</property>
 <property name="doc(title)">General Comments</property>
 <master>
 <div class="BOOK">

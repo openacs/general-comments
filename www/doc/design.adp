@@ -1,5 +1,5 @@
 
-<property name="context">{/doc/general-comments {General Comments}} {Design Document}</property>
+<property name="context">{/doc/general-comments/ {General Comments}} {Design Document}</property>
 <property name="doc(title)">Design Document</property>
 <master>
 <div class="NAVHEADER"><table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -166,7 +166,7 @@ Whom?</em></td>
 <td align="left" valign="middle">0.1</td><td align="left" valign="middle">Creation</td><td align="left" valign="middle">10/26/2000</td><td align="left" valign="middle">Phong Nguyen</td>
 </tr>
 </tbody></table>
-</div><p>Last modified: $&zwnj;Id: design.html,v 1.3 2017/08/07 23:48:12
+</div><p>Last modified: $&zwnj;Id: design.html,v 1.3.2.1 2019/08/15 10:31:02
 gustafn Exp $</p>
 </div>
 </div>
