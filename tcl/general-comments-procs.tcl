@@ -94,11 +94,11 @@ ad_proc -public general_comments_delete_messages {
 }
 
 ad_proc -public general_comments_get_comments {
-    { -print_content_p 0 }
-    { -print_attachments_p 0 }
-    { -print_user_info_p 1}
+    { -print_content_p:integer 0 }
+    { -print_attachments_p:integer 0 }
+    { -print_user_info_p:boolean 1}
     { -context_id "" }
-    { -my_comments_only_p 0 }
+    { -my_comments_only_p:boolean 0 }
     object_id
     {return_url {}}
 } {
@@ -150,20 +150,20 @@ ad_proc -public general_comments_get_comments {
                     o.creation_user,
                     o.creation_user as author,
                     o.creation_date,
-                    case when :print_content_p
+                    case when :print_content_p = 1
                        then r.content
-                       else '' end as content,
+                       else [expr {[db_driverkey ""] eq "oracle" ? "empty_blob()" : "''"}] end as content,
                     ar.title as attachment_title,
                     ar.mime_type as attachment_mime_type,
                     coalesce(ae.label, ai.name) as attachment_name,
                     ai.item_id as attachment_item_id,
-                    exists (select 1 from images
-                             where image_id = ai.item_id) as image_p,
+                    case when exists (select 1 from images
+                             where image_id = ai.item_id) then 't' else 'f' end as image_p,
                     ae.url as attachment_url
                from cr_revisions r,
                     acs_objects o
-                    left join cr_items ai on (:print_content_p and
-                                              :print_attachments_p and
+                    left join cr_items ai on (:print_content_p = 1 and
+                                              :print_attachments_p = 1 and
                                               o.object_id = ai.parent_id)
                     left join cr_revisions ar on ai.live_revision = ar.revision_id
                     left join cr_extlinks ae on ai.item_id = ae.extlink_id
