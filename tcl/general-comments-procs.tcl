@@ -96,9 +96,9 @@ ad_proc -public general_comments_delete_messages {
 ad_proc -public general_comments_get_comments {
     { -print_content_p:integer 0 }
     { -print_attachments_p:integer 0 }
-    { -print_user_info_p:boolean 1}
-    { -context_id "" }
-    { -my_comments_only_p:boolean 0 }
+    { -print_user_info_p:integer 1}
+    { -context_id:integer,0..1 "" }
+    { -my_comments_only_p:integer 0 }
     object_id
     {return_url {}}
 } {
