@@ -12,7 +12,7 @@ ad_page_contract {
     object_id:naturalnum,notnull
     title:notnull
     content:html,notnull
-    comment_mime_type,notnull
+    comment_mime_type:notnull
     { context_id:naturalnum "$object_id" }
     { category "" }
     { return_url:localurl "" }
