@@ -26,18 +26,13 @@ ad_page_contract {
     }
 }
 
-# This authentication actually is not necessary anymore due to the
-# fact that we already check for the permission afterwards, so it
-# should be enough to query the user_id from the connection to allow
-# anonymous users who have create permissions to access the site.
-
-# authenticate the user
-# set user_id [auth::require_login]
-
 set user_id [ad_conn user_id]
 
 # check to see if the user can create comments on this object
-permission::require_permission -object_id $object_id -privilege general_comments_create
+permission::require_permission \
+    -party_id $user_id \
+    -object_id $object_id \
+    -privilege general_comments_create
 
 # insert the comment into the database
 set creation_ip [ad_conn peeraddr]
