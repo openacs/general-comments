@@ -113,26 +113,7 @@ ad_form -name addedit -action $target \
             {value "text/plain"}
         }
 
-    } -on_request {
-        if {!$new_p} {
-            db_1row get_comment_info {
-                select g.object_id,
-                       r.title,
-                       r.content,
-                       r.mime_type as comment_mime_type
-                  from general_comments g,
-                       cr_revisions r
-                 where g.comment_id = :comment_id and
-                       r.revision_id = coalesce(:revision_id,
-                                                (select revision_id
-                                                   from cr_revisions lr,
-                                                        acs_objects o
-                                                  where lr.revision_id = o.object_id
-                                                  order by o.creation_date desc
-                                                  fetch first 1 rows only))
-            }
-        }
-    } -on_submit {}
+    } -on_request {} -on_submit {}
 
 # Local variables:
 #    mode: tcl
