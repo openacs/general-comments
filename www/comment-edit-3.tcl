@@ -9,10 +9,17 @@ ad_page_contract {
     @cvs-id $Id$
 } {
     comment_id:naturalnum,notnull
-    title
-    content:html
-    comment_mime_type
+    title:notnull
+    content:notnull,html
+    comment_mime_type:notnull,printable
     { return_url:localurl {} }
+} -validate {
+   comment_mime_type_allowed -requires comment_mime_type:notnull,printable {
+       if {$comment_mime_type ni {"text/plain" "text/html"}} {
+           ad_complain [_ acs-tcl.lt_name_is_not_valid [list name comment_mime_type]]
+           return
+       }
+   }
 }
 
 # check to see if the user can edit this comment
