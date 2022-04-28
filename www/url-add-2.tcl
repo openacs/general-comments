@@ -10,8 +10,8 @@ ad_page_contract {
 } {
     attach_id:naturalnum,notnull
     parent_id:naturalnum,notnull
-    label:notnull
-    url:notnull
+    label:printable,notnull
+    url:printable,notnull
     { return_url:localurl {} }
 } -validate {
     allow_link_attachments {
