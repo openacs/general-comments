@@ -28,7 +28,7 @@ ad_page_contract {
     category:onevalue
     return_url:onevalue
 } -validate {
-    comment_mime_type_allowed -requires comment_mime_type:notnull,printable {
+    comment_mime_type_allowed -requires {comment_mime_type:notnull comment_mime_type:printable} {
         if {$comment_mime_type ni {"text/plain" "text/html"}} {
             ad_complain [_ acs-tcl.lt_name_is_not_valid [list name comment_mime_type]]
             return
