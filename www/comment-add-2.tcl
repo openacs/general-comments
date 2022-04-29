@@ -10,7 +10,7 @@ ad_page_contract {
 } {
     object_id:naturalnum,notnull
     { object_name "[acs_object_name $object_id]" }
-    title:notnull
+    title:notnull,printable,string_length(max|200)
     content:html,notnull
     comment_mime_type:notnull,printable
     { context_id:naturalnum "$object_id" }

@@ -16,7 +16,7 @@ ad_page_contract {
 } {
     comment_id:naturalnum,notnull
     object_id:naturalnum,notnull
-    title:notnull
+    title:notnull,printable,string_length(max|200)
     content:notnull,html
     comment_mime_type:notnull,printable
     { return_url:localurl {} }
