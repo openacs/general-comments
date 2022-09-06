@@ -124,7 +124,7 @@ set comment_on_id [db_string get_object_id {
 }]
 set page_title "[_ general-comments.View_comment_on]: [acs_object_name $comment_on_id]"
 set context "\"[_ general-comments.View_comment]\""
-set return_url_view "view-comment?[export_ns_set_vars url]"
+set return_url_view [ad_return_url]
 set is_creator_p [expr {$user_id == $creation_user}]
 
 if { $comment_mime_type ne "text/html" } {

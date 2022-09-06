@@ -27,7 +27,7 @@ set admin_p [permission::permission_p -object_id $package_id -privilege admin]
 
 # return_url to be passed to various helper pages so that we return to
 # this page with the proper parameters
-set return_url [ns_urlencode index?[export_ns_set_vars url]]
+set return_url [ad_return_url]
 
 set user_name [person::name -person_id $user_id]
 

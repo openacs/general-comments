@@ -20,7 +20,7 @@ ad_page_contract {
 
 # return_url to be passed to various helper pages so that we return to
 # this page with the proper parameters
-set return_url [ad_urlencode index?[export_ns_set_vars url]]
+set return_url [ad_return_url]
 
 # dimensional slider definition
 set dimensional [list \
