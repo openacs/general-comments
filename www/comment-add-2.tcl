@@ -12,7 +12,7 @@ ad_page_contract {
     { object_name "[acs_object_name $object_id]" }
     title:notnull,printable,string_length(max|200)
     content:html,notnull
-    comment_mime_type:notnull,printable
+    comment_mime_type:oneof(text/plain|text/html),notnull
     { context_id:naturalnum "$object_id" }
     { category {} }
     { return_url:localurl {} }
@@ -27,13 +27,6 @@ ad_page_contract {
     object_name:onevalue
     category:onevalue
     return_url:onevalue
-} -validate {
-    comment_mime_type_allowed -requires {comment_mime_type:notnull comment_mime_type:printable} {
-        if {$comment_mime_type ni {"text/plain" "text/html"}} {
-            ad_complain [_ acs-tcl.lt_name_is_not_valid [list name comment_mime_type]]
-            return
-        }
-    }
 }
 
 # check to see if the user can create comments on this object

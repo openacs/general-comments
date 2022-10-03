@@ -18,7 +18,7 @@ ad_page_contract {
     object_id:naturalnum,notnull
     title:notnull,printable,string_length(max|200)
     content:notnull,html
-    comment_mime_type:notnull,printable
+    comment_mime_type:oneof(text/plain|text/html),notnull
     { return_url:localurl {} }
 } -properties {
     page_title:onevalue
@@ -27,13 +27,6 @@ ad_page_contract {
     title:onevalue
     content:onevalue
     target:onevalue
-} -validate {
-    comment_mime_type_allowed -requires comment_mime_type:notnull,printable {
-        if {$comment_mime_type ni {"text/plain" "text/html"}} {
-            ad_complain [_ acs-tcl.lt_name_is_not_valid [list name comment_mime_type]]
-            return
-        }
-    }
 }
 
 
