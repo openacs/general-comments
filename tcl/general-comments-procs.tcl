@@ -61,10 +61,10 @@ ad_proc general_comments_new {
 
         }
     }
-    # Convert the comment to HTML
 
+    # Convert the comment to HTML
     if {$comment_mime_type ne "text/html"} {
-        set content [ad_convert_to_html $content]
+        set content [ad_html_text_convert $content]
     }
 
     # Start notifications
