@@ -114,7 +114,7 @@ db_multirow -extend {
 }] {
     set author [person::name -person_id $creation_user]
     set live_version_p [expr {$live_version_p ? $yes : $no}]
-    set approved_p [expr {$approved_p ? $yes : $no}]
+    set approved_p [expr {[string is true -strict $approved_p] ? $yes : $no}]
     set pretty_date [lc_time_fmt $creation_date "%x %X"]
 }
 
