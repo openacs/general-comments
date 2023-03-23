@@ -20,6 +20,11 @@ ad_page_contract {
             ad_complain "[_ general-comments.lt_Attaching_links_to_co]"
         }
     }
+    no_data_url {
+        if {[string match "data:*" [string trim $url]]} {
+            ad_complain "\[ns_quotehtml $url]\" must not start with 'data:'"
+        }
+    }
 }
 
 # authenticate the user
