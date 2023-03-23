@@ -27,6 +27,23 @@ ad_page_contract {
     object_name:onevalue
     category:onevalue
     return_url:onevalue
+} -validate {
+    no_js_in_content {
+        #
+        # We do not allow any javascript in the content, including
+        # event handlers.
+        #
+        if {![ad_dom_sanitize_html \
+                  -allowed_tags * \
+                  -allowed_attributes * \
+                  -allowed_protocols * \
+                  -html $content \
+                  -no_js \
+                  -validate]} {
+            ad_complain [_ acs-tcl.lt_name_contains_invalid \
+                             [list name [_ general-comments.Comment]]]
+        }
+    }
 }
 
 # check to see if the user can create comments on this object
