@@ -16,7 +16,7 @@ ad_page_contract {
     { context_id:naturalnum "$object_id" }
     { category "" }
     { return_url:localurl "" }
-    { attach_p:boolean "f" }
+    { attach_p:boolean,notnull "f" }
 } -validate {
     comment_mime_type_allowed -requires {comment_mime_type:notnull comment_mime_type:printable} {
         if {$comment_mime_type ni {"text/plain" "text/html"}} {
