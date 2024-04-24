@@ -248,6 +248,44 @@ ad_proc -public general_comments_package_url {} {
     return [site_node::get_package_url -package_key "general-comments"]
 }
 
+#
+# Package-specific page contract filter
+#
+
+ad_page_contract_filter general_comments_safe { name value } {
+    Safety checks for content posted in a comment. These checks are
+    package-specific, because content we may allow in other packages,
+    e.g. via the AllowedTag parameter in acs-kernel, should not be
+    allowed here.
+} {
+    #
+    # We do not allow iframes or frames
+    #
+    if {[regexp -nocase {<(iframe|frame)} $value]} {
+        ad_complain [_ acs-tcl.lt_name_contains_invalid]
+        return 0
+    }
+
+    #
+    # We do not allow any javascript in the content, including
+    # event handlers.
+    #
+    if {![ad_dom_sanitize_html \
+              -allowed_tags * \
+              -allowed_attributes * \
+              -allowed_protocols * \
+              -html $value \
+              -no_js \
+              -validate]} {
+        ad_complain [_ acs-tcl.lt_name_contains_invalid]
+        return 0
+    }
+
+    return 1
+}
+
+##
+
 # these are being replaced with the above procs
 namespace eval general_comments {
 

@@ -17,7 +17,7 @@ ad_page_contract {
     comment_id:naturalnum,notnull
     object_id:naturalnum,notnull
     title:notnull,printable,string_length(max|200)
-    content:notnull,html
+    content:notnull,html,general_comments_safe
     comment_mime_type:oneof(text/plain|text/html),notnull
     { return_url:localurl {} }
 } -properties {
@@ -27,23 +27,6 @@ ad_page_contract {
     title:onevalue
     content:onevalue
     target:onevalue
-} -validate {
-    no_js_in_content {
-        #
-        # We do not allow any javascript in the content, including
-        # event handlers.
-        #
-        if {![ad_dom_sanitize_html \
-                  -allowed_tags * \
-                  -allowed_attributes * \
-                  -allowed_protocols * \
-                  -html $content \
-                  -no_js \
-                  -validate]} {
-            ad_complain [_ acs-tcl.lt_name_contains_invalid \
-                             [list name [_ general-comments.Comment]]]
-        }
-    }
 }
 
 

@@ -11,7 +11,7 @@ ad_page_contract {
     object_id:naturalnum,notnull
     { object_name "[acs_object_name $object_id]" }
     title:notnull,printable,string_length(max|200)
-    content:html,notnull
+    content:html,notnull,general_comments_safe
     comment_mime_type:oneof(text/plain|text/html),notnull
     { context_id:naturalnum "$object_id" }
     { category {} }
@@ -27,33 +27,6 @@ ad_page_contract {
     object_name:onevalue
     category:onevalue
     return_url:onevalue
-} -validate {
-    safe_content {
-        #
-        # We do not allow iframes in the content.
-        #
-        if {[regexp -nocase {<(iframe|frame)} $content]} {
-            ad_complain [_ acs-tcl.lt_name_contains_invalid \
-                             [list name [_ general-comments.Comment]]]
-            return
-        }
-
-        #
-        # We do not allow any javascript in the content, including
-        # event handlers.
-        #
-        if {![ad_dom_sanitize_html \
-                  -allowed_tags * \
-                  -allowed_attributes * \
-                  -allowed_protocols * \
-                  -html $content \
-                  -no_js \
-                  -validate]} {
-            ad_complain [_ acs-tcl.lt_name_contains_invalid \
-                             [list name [_ general-comments.Comment]]]
-            return
-        }
-    }
 }
 
 # check to see if the user can create comments on this object
