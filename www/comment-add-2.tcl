@@ -28,7 +28,16 @@ ad_page_contract {
     category:onevalue
     return_url:onevalue
 } -validate {
-    no_js_in_content {
+    safe_content {
+        #
+        # We do not allow iframes in the content.
+        #
+        if {[regexp -nocase {<(iframe|frame)} $content]} {
+            ad_complain [_ acs-tcl.lt_name_contains_invalid \
+                             [list name [_ general-comments.Comment]]]
+            return
+        }
+
         #
         # We do not allow any javascript in the content, including
         # event handlers.
@@ -42,6 +51,7 @@ ad_page_contract {
                   -validate]} {
             ad_complain [_ acs-tcl.lt_name_contains_invalid \
                              [list name [_ general-comments.Comment]]]
+            return
         }
     }
 }
