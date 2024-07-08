@@ -22,7 +22,7 @@ ad_page_contract {
     }
     no_data_url {
         if {[string match "data:*" [string trim $url]]} {
-            ad_complain "\[ns_quotehtml $url]\" must not start with 'data:'"
+            ad_complain [_ acs-templating.Invalid_url]
         }
     }
 }
