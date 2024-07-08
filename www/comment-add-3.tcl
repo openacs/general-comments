@@ -11,7 +11,7 @@ ad_page_contract {
     comment_id:naturalnum,notnull
     object_id:naturalnum,notnull
     title:notnull,printable,string_length(max|200)
-    content:html,notnull
+    content:html,notnull,general_comments_safe
     comment_mime_type:notnull,printable
     { context_id:naturalnum "$object_id" }
     { category "" }

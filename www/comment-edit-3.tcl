@@ -10,7 +10,7 @@ ad_page_contract {
 } {
     comment_id:naturalnum,notnull
     title:notnull,printable,string_length(max|200)
-    content:notnull,html
+    content:html,notnull,general_comments_safe
     comment_mime_type:oneof(text/plain|text/html),notnull
     { return_url:localurl {} }
 }
