@@ -2,6 +2,10 @@
 <property name="context">{/doc/general-comments/ {General Comments}} {User&#39;s guide}</property>
 <property name="doc(title)">User&#39;s guide</property>
 <master>
+<style>
+div.sect2 > div.itemizedlist > ul.itemizedlist > li.listitem {margin-top: 16px;}
+div.sect3 > div.itemizedlist > ul.itemizedlist > li.listitem {margin-top: 6px;}
+</style>              
 <div class="NAVHEADER"><table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr><th colspan="3" align="center">General Comments</th></tr><tr>
 <td width="10%" align="left" valign="bottom"><a href="design">Prev</a></td><td width="80%" align="center" valign="bottom"></td><td width="10%" align="right" valign="bottom"> </td>
