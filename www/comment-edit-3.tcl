@@ -9,9 +9,9 @@ ad_page_contract {
     @cvs-id $Id$
 } {
     comment_id:naturalnum,notnull
-    title
-    content:html
-    comment_mime_type
+    title:notnull,printable,string_length(max|200)
+    content:html,notnull,general_comments_safe
+    comment_mime_type:oneof(text/plain|text/html),notnull
     { return_url:localurl {} }
 }
 

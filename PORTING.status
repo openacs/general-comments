@@ -6,7 +6,7 @@ General
 
 As of June 6, 2001 mostly done. You can add and administer comments. 
 * Delete does not seem to work [related to pg fk_ bug?]
-* file attachements not yet ported: some BLOB issues in acs-messaging
+* file attachments not yet ported: some BLOB issues in acs-messaging
   are still pending, need to confer with OpenACS.org
 
 Tested with Postgresql and Oracle, sofar it seems to work.

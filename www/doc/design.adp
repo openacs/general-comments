@@ -1,7 +1,11 @@
 
-<property name="context">{/doc/general-comments {General Comments}} {Design Document}</property>
+<property name="context">{/doc/general-comments/ {General Comments}} {Design Document}</property>
 <property name="doc(title)">Design Document</property>
 <master>
+<style>
+div.sect2 > div.itemizedlist > ul.itemizedlist > li.listitem {margin-top: 16px;}
+div.sect3 > div.itemizedlist > ul.itemizedlist > li.listitem {margin-top: 6px;}
+</style>              
 <div class="NAVHEADER"><table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr><th colspan="3" align="center">General Comments</th></tr><tr>
 <td width="10%" align="left" valign="bottom"><a href="dev-guide">Prev</a></td><td width="80%" align="center" valign="bottom">Chapter 1.
@@ -66,7 +70,7 @@ on an object and make appropriate links to files from the
 recording and editing user comments. An optional <tt class="computeroutput">return_url</tt> can be specified which will be
 provided as a link to the user within the <tt class="computeroutput">general-comments</tt> pages. This is useful for
 the user to return to the original page after making a comment.</p><p>The other procedure, <a href="/api-doc/proc-view?proc=general_comments_create_link" target="_top">general_comments_create_link</a>, is a wrapper procedure
-that returns an html fragment for a link which points to the
+that returns an HTML fragment for a link which points to the
 location of the mounted <tt class="computeroutput">general_comments</tt> package. There are various
 switches that will be useful to package developers:</p><ul>
 <li><p>
@@ -166,7 +170,7 @@ Whom?</em></td>
 <td align="left" valign="middle">0.1</td><td align="left" valign="middle">Creation</td><td align="left" valign="middle">10/26/2000</td><td align="left" valign="middle">Phong Nguyen</td>
 </tr>
 </tbody></table>
-</div><p>Last modified: $&zwnj;Id: design.html,v 1.3 2017/08/07 23:48:12
+</div><p>Last modified: $&zwnj;Id: design.html,v 1.3.2.1 2019/08/15 10:31:02
 gustafn Exp $</p>
 </div>
 </div>

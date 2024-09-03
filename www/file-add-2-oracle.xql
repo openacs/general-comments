@@ -60,8 +60,8 @@
       <querytext>
       
 	update cr_revisions
- 	set filename = '$tmp_filename',
-	    content_length = $tmp_size
+ 	set filename = :tmp_filename,
+	    content_length = :tmp_size
 	where revision_id = :revision_id
 
       </querytext>

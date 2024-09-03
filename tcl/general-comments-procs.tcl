@@ -1,9 +1,9 @@
 # /packages/general-comments/tcl/general-comments-procs.tcl
 
-# Porting: Moved most queries from variables to in-line 
-# for the QueryExtractor, appended '_deprecated' to 
-# query-names in 'ad_proc -deprecated' functions. 
-# Left one duplicate with 100% identical SQL (pascal) 
+# Porting: Moved most queries from variables to in-line
+# for the QueryExtractor, appended '_deprecated' to
+# query-names in 'ad_proc -deprecated' functions.
+# Left one duplicate with 100% identical SQL (pascal)
 
 ad_library {
     Utility procs for general-comments
@@ -16,7 +16,7 @@ ad_library {
 }
 
 
-ad_proc general_comment_new {
+ad_proc general_comments_new {
     -object_id:required
     -comment_id:required
     -title:required
@@ -29,28 +29,27 @@ ad_proc general_comment_new {
     -content:required
 } {
     Creates a comment and attaches it to a given object ID
-    
-    @return 
-    
-    @error 
+
+    @return
+
+    @error
 } {
 
     # Generate a unique id for the message
-    # result from proc comes enveloped in <>
-    set rfc822_id [string range [acs_mail_lite::generate_message_id] 1 end-1]
-    
+    set rfc822_id [ns_uuid]
+
     db_transaction {
-        
+
         db_exec_plsql insert_comment {}
         db_dml add_entry {}
         set revision_id [content::item::get_latest_revision \
                              -item_id $comment_id]
         db_dml set_content {} -blobs [list $content]
 
-        # Grant the user sufficient permissions to 
+        # Grant the user sufficient permissions to
         # created comment. This is done here to ensure that
         # a fail on permissions granting will not leave
-        # the comment with incorrect permissions. 
+        # the comment with incorrect permissions.
         if {$user_id ne ""} {
             permission::grant -object_id $comment_id \
                 -party_id $user_id \
@@ -62,11 +61,11 @@ ad_proc general_comment_new {
 
         }
     }
+
     # Convert the comment to HTML
-    
     if {$comment_mime_type ne "text/html"} {
-        set content [ad_convert_to_html $content]
-    } 
+        set content [ad_html_text_convert $content]
+    }
 
     # Start notifications
     callback general_comments::notify_objects \
@@ -78,20 +77,36 @@ ad_proc general_comment_new {
     return $revision_id
 }
 
+ad_proc -public general_comments_delete_messages {
+    -package_id:required
+} {
+    Deletes all comments belonging to specified package.
+} {
+    foreach comment_id [db_list get_comments {
+        select comment_id
+        from general_comments c,
+             acs_objects o
+        where c.comment_id = o.object_id
+          and o.package_id = :package_id
+    }] {
+        content::item::delete -item_id $comment_id
+    }
+}
+
 ad_proc -public general_comments_get_comments {
-    { -print_content_p 0 }
-    { -print_attachments_p 0 }
-    { -print_user_info_p 1}
-    { -context_id "" }
-    { -my_comments_only_p 0 }
-    object_id 
+    { -print_content_p:integer 0 }
+    { -print_attachments_p:integer 0 }
+    { -print_user_info_p:integer 1}
+    { -context_id:integer,0..1 "" }
+    { -my_comments_only_p:integer 0 }
+    object_id
     {return_url {}}
 } {
     Generates a line item list of comments for the object_id.
 
     @param print_content_p Pass in 1 to print out content of comments.
-    @param print_attachments_p Pass in 1 to print out attachments of comments, 
-    only works if print_content_p is 1. 
+    @param print_attachments_p Pass in 1 to print out attachments of comments,
+    only works if print_content_p is 1.
     @param context_id Show only comments with given context_id
     @param object_id The object_id to retrieve the comments for.
     @param return_url A url for the user to return to after viewing a comment.
@@ -135,20 +150,20 @@ ad_proc -public general_comments_get_comments {
                     o.creation_user,
                     o.creation_user as author,
                     o.creation_date,
-                    case when :print_content_p
+                    case when :print_content_p = 1
                        then r.content
-                       else '' end as content,
+                       else [expr {[db_driverkey ""] eq "oracle" ? "empty_blob()" : "''"}] end as content,
                     ar.title as attachment_title,
                     ar.mime_type as attachment_mime_type,
                     coalesce(ae.label, ai.name) as attachment_name,
                     ai.item_id as attachment_item_id,
-                    exists (select 1 from images
-                             where image_id = ai.item_id) as image_p,
+                    case when exists (select 1 from images
+                             where image_id = ai.item_id) then 't' else 'f' end as image_p,
                     ae.url as attachment_url
                from cr_revisions r,
                     acs_objects o
-                    left join cr_items ai on (:print_content_p and
-                                              :print_attachments_p and
+                    left join cr_items ai on (:print_content_p = 1 and
+                                              :print_attachments_p = 1 and
                                               o.object_id = ai.parent_id)
                     left join cr_revisions ar on ai.live_revision = ar.revision_id
                     left join cr_extlinks ae on ai.item_id = ae.extlink_id
@@ -173,7 +188,7 @@ ad_proc -public general_comments_get_comments {
 
         set author_url [export_vars -base /shared/community-member {{user_id $creation_user}}]
         set view_url [export_vars -base ${package_url}view-comment {comment_id return_url}]
-    
+
         if {$image_p} {
             set attachment_url [export_vars -base ${package_url}view-image {{image_id $attachment_item_id} return_url}]
         } elseif {$attachment_url eq ""} {
@@ -185,7 +200,7 @@ ad_proc -public general_comments_get_comments {
     set template [template::themed_template $template]
     set code [template::adp_compile -file $template]
     set html [template::adp_eval code]
-    
+
     return $html
 }
 
@@ -196,7 +211,7 @@ ad_proc -public general_comments_create_link {
     { -category {} }
     { -link_attributes "" }
     object_id
-    {return_url {}} 
+    {return_url {}}
 } {
     Generates an html link to add a comment to an object.
 
@@ -220,7 +235,7 @@ ad_proc -public general_comments_create_link {
     if { ![info exists object_name] } { set object_name [acs_object_name $object_id] }
     if { ![info exists context_id] } { set context_id $object_id }
 
-    set html [subst {<a href="[ns_quotehtml [export_vars -base ${package_url}comment-add {object_id 
+    set html [subst {<a href="[ns_quotehtml [export_vars -base ${package_url}comment-add {object_id
          object_name return_url context_id category}]]" $link_attributes>$link_text</a>}]
 
     return $html
@@ -233,6 +248,44 @@ ad_proc -public general_comments_package_url {} {
     return [site_node::get_package_url -package_key "general-comments"]
 }
 
+#
+# Package-specific page contract filter
+#
+
+ad_page_contract_filter general_comments_safe { name value } {
+    Safety checks for content posted in a comment. These checks are
+    package-specific, because content we may allow in other packages,
+    e.g. via the AllowedTag parameter in acs-kernel, should not be
+    allowed here.
+} {
+    #
+    # We do not allow iframes or frames
+    #
+    if {[regexp -nocase {<(iframe|frame)} $value]} {
+        ad_complain [_ acs-tcl.lt_name_contains_invalid]
+        return 0
+    }
+
+    #
+    # We do not allow any javascript in the content, including
+    # event handlers.
+    #
+    if {![ad_dom_sanitize_html \
+              -allowed_tags * \
+              -allowed_attributes * \
+              -allowed_protocols * \
+              -html $value \
+              -no_js \
+              -validate]} {
+        ad_complain [_ acs-tcl.lt_name_contains_invalid]
+        return 0
+    }
+
+    return 1
+}
+
+##
+
 # these are being replaced with the above procs
 namespace eval general_comments {
 
@@ -241,7 +294,7 @@ namespace eval general_comments {
 
         @param object_id The object_id to retrieve the comments for.
         @param return_url A url for the user to return to after viewing a comment.
-        
+
         @see general_comments_get_comments
     } {
 
@@ -289,7 +342,7 @@ namespace eval general_comments {
         # get the package url
         set package_url [general_comments_package_url]
 
-        set html [subst {<a href="[ns_quotehtml [export_vars -base ${package_url}comment-add {object_id 
+        set html [subst {<a href="[ns_quotehtml [export_vars -base ${package_url}comment-add {object_id
              object_name return_url context_id category}]]">$link_text</a>
         }]
         return $html

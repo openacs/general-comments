@@ -10,9 +10,9 @@ ad_page_contract {
 } {
     object_id:naturalnum,notnull
     { object_name "[acs_object_name $object_id]" }
-    title:notnull
-    content:html,notnull
-    comment_mime_type:notnull
+    title:notnull,printable,string_length(max|200)
+    content:html,notnull,general_comments_safe
+    comment_mime_type:oneof(text/plain|text/html),notnull
     { context_id:naturalnum "$object_id" }
     { category {} }
     { return_url:localurl {} }

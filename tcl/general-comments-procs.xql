@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <queryset>
 
-  <fullquery name="general_comment_new.add_entry">      
+  <fullquery name="general_comments_new.add_entry">      
     <querytext>
       
         insert into general_comments

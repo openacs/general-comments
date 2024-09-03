@@ -10,14 +10,19 @@ ad_page_contract {
 } {
     attach_id:naturalnum,notnull
     parent_id:naturalnum,notnull
-    label:notnull
-    url:notnull
+    label:printable,notnull
+    url:printable,notnull,string_length(max|1000)
     { return_url:localurl {} }
 } -validate {
     allow_link_attachments {
         set allow_links_p [parameter::get -parameter AllowLinkAttachmentsP -default {t}]
         if { $allow_links_p != "t" } {
             ad_complain "[_ general-comments.lt_Attaching_links_to_co]"
+        }
+    }
+    no_data_url {
+        if {[string match "data:*" [string trim $url]]} {
+            ad_complain [_ acs-templating.Invalid_url]
         }
     }
 }

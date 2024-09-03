@@ -1,7 +1,11 @@
 
-<property name="context">{/doc/general-comments {General Comments}} {General Comments}</property>
+<property name="context">{/doc/general-comments/ {General Comments}} {General Comments}</property>
 <property name="doc(title)">General Comments</property>
 <master>
+<style>
+div.sect2 > div.itemizedlist > ul.itemizedlist > li.listitem {margin-top: 16px;}
+div.sect3 > div.itemizedlist > ul.itemizedlist > li.listitem {margin-top: 6px;}
+</style>              
 <div class="BOOK">
 <a name="AEN1" id="AEN1"></a><div class="TITLEPAGE">
 <h1 class="title"><a name="AEN1" id="AEN1">General

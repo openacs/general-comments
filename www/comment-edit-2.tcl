@@ -16,9 +16,9 @@ ad_page_contract {
 } {
     comment_id:naturalnum,notnull
     object_id:naturalnum,notnull
-    title:notnull
-    content:notnull,html
-    comment_mime_type
+    title:notnull,printable,string_length(max|200)
+    content:notnull,html,general_comments_safe
+    comment_mime_type:oneof(text/plain|text/html),notnull
     { return_url:localurl {} }
 } -properties {
     page_title:onevalue
@@ -28,6 +28,7 @@ ad_page_contract {
     content:onevalue
     target:onevalue
 }
+
 
 # check to see if the user can edit this comment
 permission::require_permission -object_id $comment_id -privilege write

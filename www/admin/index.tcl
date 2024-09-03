@@ -20,7 +20,7 @@ ad_page_contract {
 
 # return_url to be passed to various helper pages so that we return to
 # this page with the proper parameters
-set return_url [ad_urlencode index?[export_ns_set_vars url]]
+set return_url [ad_return_url]
 
 # dimensional slider definition
 set dimensional [list \
@@ -114,7 +114,7 @@ db_multirow -extend {
 }] {
     set author [person::name -person_id $creation_user]
     set live_version_p [expr {$live_version_p ? $yes : $no}]
-    set approved_p [expr {$approved_p ? $yes : $no}]
+    set approved_p [expr {[string is true -strict $approved_p] ? $yes : $no}]
     set pretty_date [lc_time_fmt $creation_date "%x %X"]
 }
 

@@ -30,7 +30,7 @@ ad_page_contract {
         set tmp_size [file size ${upload_file.tmpfile}]
         set max_file_size [parameter::get -parameter MaxFileSize -default {0}]
         if { $tmp_size > $max_file_size && $max_file_size > 0 } {
-            ad_complain "[_ general-comments.lt_Your_file_is_too_larg]  [_ general-comments.The_publisher_of] [ad_system_name] [_ general-comments.lt_has_chosen_to_limit_a] [util_commify_number $max_file_size] [_ general-comments.bytes].\n"
+            ad_complain "[_ general-comments.lt_Your_file_is_too_larg]  [_ general-comments.The_publisher_of] [ad_system_name] [_ general-comments.lt_has_chosen_to_limit_a] [lc_content_size_pretty -size $max_file_size].\n"
         }
         if { $tmp_size == 0 } {
             ad_complain "[_ general-comments.lt_Your_file_is_zero-len]\n"
@@ -53,7 +53,7 @@ set file_extension [string tolower [file extension $upload_file]]
 regsub {\.} $file_extension "" file_extension
 set guessed_file_type [cr_filename_to_mime_type -create $upload_file]
 
-# strip off the C:\directories... crud and just get the file name
+# strip off the C:\directories... crud and just get the filename
 if {![regexp {([^/\\]+)$} $upload_file match client_filename]} {
     # couldn't find a match
     set client_filename $upload_file
@@ -129,7 +129,7 @@ db_transaction {
 #    } -blob_files [list $tmp_filename]
 
 # DRB: Since we're using acs_message to store the file, it is automatically
-# stuffed into the file system rather than database whether we need it or
+# stuffed into the filesystem rather than database whether we need it or
 # not.  This needs to be *changed* ... the whole way we read and write CR content
 # based on storage type needs cleaning up.
 

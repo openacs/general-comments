@@ -10,32 +10,35 @@ ad_page_contract {
 } {
     comment_id:naturalnum,notnull
     object_id:naturalnum,notnull
-    title:notnull
-    content:html,notnull
-    comment_mime_type
+    title:notnull,printable,string_length(max|200)
+    content:html,notnull,general_comments_safe
+    comment_mime_type:notnull,printable
     { context_id:naturalnum "$object_id" }
     { category "" }
     { return_url:localurl "" }
-    { attach_p:boolean "f" }
-}    
-
-# This authentication actually is not necessary anymore due to the fact that we already check for the permission
-# afterwards, so it should be enough to query the user_id from the connection to allow anonymous users who have
-# create permissions to access the site.
-
-# authenticate the user
-# set user_id [auth::require_login]
+    { attach_p:boolean,notnull "f" }
+} -validate {
+    comment_mime_type_allowed -requires {comment_mime_type:notnull comment_mime_type:printable} {
+        if {$comment_mime_type ni {"text/plain" "text/html"}} {
+            ad_complain [_ acs-tcl.lt_name_is_not_valid [list name comment_mime_type]]
+            return
+        }
+    }
+}
 
 set user_id [ad_conn user_id]
 
 # check to see if the user can create comments on this object
-permission::require_permission -object_id $object_id -privilege general_comments_create
+permission::require_permission \
+    -party_id $user_id \
+    -object_id $object_id \
+    -privilege general_comments_create
 
 # insert the comment into the database
 set creation_ip [ad_conn peeraddr]
 set is_live [parameter::get -parameter AutoApproveCommentsP -default {t}]
 
-general_comment_new \
+general_comments_new \
     -object_id $object_id \
     -comment_id $comment_id \
     -title $title \
