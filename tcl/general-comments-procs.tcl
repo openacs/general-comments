@@ -99,7 +99,7 @@ ad_proc -public general_comments_get_comments {
     { -print_user_info_p:integer 1}
     { -context_id:integer,0..1 "" }
     { -my_comments_only_p:integer 0 }
-    object_id
+    object_id:integer
     {return_url {}}
 } {
     Generates a line item list of comments for the object_id.
